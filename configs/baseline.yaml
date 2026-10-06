@@ -1,0 +1,15 @@
+run_name: baseline_resnet18
+model: resnet18
+seed: 42
+data_root: ./data
+num_workers: 8
+checkpoint: checkpoints/baseline_resnet18.pt
+compression:
+  method: none
+  ratio: 1.0
+train:
+  epochs: 200
+  batch_size: 128
+  lr: 0.1
+  momentum: 0.9
+  weight_decay: 5.0e-4
