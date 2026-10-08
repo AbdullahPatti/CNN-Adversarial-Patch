@@ -1,0 +1,51 @@
+{
+  "run": "quant_2x_fp16",
+  "model": "resnet18",
+  "compression": {
+    "method": "quant",
+    "ratio": 2.0,
+    "mode": "ptq",
+    "weight_bits": 16,
+    "act_bits": 16,
+    "calib_batches": 20
+  },
+  "attack": null,
+  "defense": null,
+  "metrics": {
+    "clean_acc": 0.9535,
+    "params": 11169162,
+    "nonzero_params": 11169162,
+    "size_mb_fp32": 42.60717487335205,
+    "latency_ms_bs1": 2.12810349999927,
+    "size_mb_compressed": 21.312660217285156,
+    "ratio_vs_baseline": 1.9999982101261753,
+    "acc_bn_folded_fp32": 0.9535,
+    "acc_ptq": 0.9535
+  },
+  "config": {
+    "run_name": "quant_2x_fp16",
+    "model": "resnet18",
+    "seed": 42,
+    "data_root": "./data",
+    "num_workers": 8,
+    "base_checkpoint": "checkpoints/baseline_resnet18.pt",
+    "checkpoint": "checkpoints/quant_2x_fp16.pt",
+    "compression": {
+      "method": "quant",
+      "ratio": 2.0,
+      "mode": "ptq",
+      "weight_bits": 16,
+      "act_bits": 16,
+      "calib_batches": 20
+    },
+    "train": {
+      "epochs": 15,
+      "batch_size": 128,
+      "lr": 0.005,
+      "momentum": 0.9,
+      "weight_decay": 0.0005
+    }
+  },
+  "device": "NVIDIA RTX A4000",
+  "timestamp": "2026-10-07T11:06:20.547441+00:00"
+}

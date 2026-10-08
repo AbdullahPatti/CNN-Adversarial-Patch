@@ -43,17 +43,24 @@ class BasicBlock(nn.Module):
 
 
 class ResNet18(nn.Module):
-    def __init__(self, num_classes=10):
+    """width is the stem / layer1 channel count (64 = standard). Stages use w, 2w, 4w, 8w.
+
+    Smaller widths give the KD students and the dense-small capacity control (RQ4):
+    45 / 32 / 23 -> 2.02x / 3.99x / 7.72x fewer parameters than width 64.
+    """
+
+    def __init__(self, num_classes=10, width=64):
         super().__init__()
+        w = width
         self.norm = Normalize(CIFAR10_MEAN, CIFAR10_STD)
-        self.conv1 = nn.Conv2d(3, 64, 3, 1, 1, bias=False)
-        self.bn1 = nn.BatchNorm2d(64)
-        layers, in_planes = [], 64
-        for planes, stride in [(64, 1), (128, 2), (256, 2), (512, 2)]:
+        self.conv1 = nn.Conv2d(3, w, 3, 1, 1, bias=False)
+        self.bn1 = nn.BatchNorm2d(w)
+        layers, in_planes = [], w
+        for planes, stride in [(w, 1), (2 * w, 2), (4 * w, 2), (8 * w, 2)]:
             layers.append(nn.Sequential(BasicBlock(in_planes, planes, stride), BasicBlock(planes, planes, 1)))
             in_planes = planes
         self.layer1, self.layer2, self.layer3, self.layer4 = layers
-        self.fc = nn.Linear(512, num_classes)
+        self.fc = nn.Linear(8 * w, num_classes)
 
     def forward(self, x):
         out = F.relu(self.bn1(self.conv1(self.norm(x))))
@@ -62,8 +69,7 @@ class ResNet18(nn.Module):
         return self.fc(out)
 
 
-def build_model(name, num_classes=10):
-    # ponytail: one arch for now; KD student and dense-small control get added here in Part 2/3.
+def build_model(name, num_classes=10, width=64):
     if name == "resnet18":
-        return ResNet18(num_classes)
+        return ResNet18(num_classes, width)
     raise ValueError(f"unknown model: {name}")

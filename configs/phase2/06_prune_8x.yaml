@@ -1,0 +1,17 @@
+run_name: prune_8x
+model: resnet18
+seed: 42
+data_root: ./data
+num_workers: 8
+base_checkpoint: checkpoints/baseline_resnet18.pt
+checkpoint: checkpoints/prune_8x.pt
+compression:
+  method: prune
+  ratio: 8.0
+  sparsity: 0.875
+train:
+  epochs: 40
+  batch_size: 128
+  lr: 0.01
+  momentum: 0.9
+  weight_decay: 0.0005

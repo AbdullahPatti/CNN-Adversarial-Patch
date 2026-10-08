@@ -1,0 +1,20 @@
+run_name: quant_8x_int4
+model: resnet18
+seed: 42
+data_root: ./data
+num_workers: 8
+base_checkpoint: checkpoints/baseline_resnet18.pt
+checkpoint: checkpoints/quant_8x_int4.pt
+compression:
+  method: quant
+  ratio: 8.0
+  mode: qat
+  weight_bits: 4
+  act_bits: 8
+  calib_batches: 20
+train:
+  epochs: 15
+  batch_size: 128
+  lr: 0.005
+  momentum: 0.9
+  weight_decay: 0.0005

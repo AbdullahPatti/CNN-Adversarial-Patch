@@ -43,3 +43,36 @@ def latency_ms(model, device, input_shape=(1, 3, 32, 32), warmup=20, iters=200):
     if device.type == "cuda":
         torch.cuda.synchronize()
     return (time.perf_counter() - start) / iters * 1000
+
+
+def compressed_size(model, weight_bits=32, sparse=False):
+    """Shipped storage size, the size metric compared across compression arms.
+
+    Conv / linear weights cost weight_bits each; every other parameter (biases, BN) costs 32 bits.
+    sparse=True (pruning): only nonzero weights are stored, plus a 1-bit-per-weight mask.
+    Buffers (BN running stats, normalization, activation ranges) are not counted.
+    ratio_vs_baseline compares against the dense FP32 width-64 ResNet-18 under the same rule.
+    """
+    global _BASELINE_BITS
+    if _BASELINE_BITS is None:
+        from src.models.resnet import build_model
+        _BASELINE_BITS = _storage_bits(build_model("resnet18"), 32, False)
+    b = _storage_bits(model, weight_bits, sparse)
+    return {"size_mb_compressed": b / 8 / 2**20, "ratio_vs_baseline": _BASELINE_BITS / b}
+
+
+def _storage_bits(model, weight_bits, sparse):
+    bits = 0
+    weights = set()
+    for mod in model.modules():
+        if isinstance(mod, (torch.nn.Conv2d, torch.nn.Linear)):
+            w = mod.weight
+            weights.add(id(w))
+            if sparse:
+                bits += int((w != 0).sum()) * weight_bits + w.numel()
+            else:
+                bits += w.numel() * weight_bits
+    return bits + sum(p.numel() * 32 for p in model.parameters() if id(p) not in weights)
+
+
+_BASELINE_BITS = None

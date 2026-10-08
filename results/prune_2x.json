@@ -1,0 +1,45 @@
+{
+  "run": "prune_2x",
+  "model": "resnet18",
+  "compression": {
+    "method": "prune",
+    "ratio": 2.0,
+    "sparsity": 0.5
+  },
+  "attack": null,
+  "defense": null,
+  "metrics": {
+    "clean_acc": 0.9542,
+    "params": 11173962,
+    "nonzero_params": 5591786,
+    "size_mb_fp32": 42.662078857421875,
+    "latency_ms_bs1": 3.5981819999869913,
+    "size_mb_compressed": 22.661865234375,
+    "ratio_vs_baseline": 1.8809255922562296,
+    "weight_sparsity": 0.5,
+    "acc_after_prune_before_ft": 0.9509
+  },
+  "config": {
+    "run_name": "prune_2x",
+    "model": "resnet18",
+    "seed": 42,
+    "data_root": "./data",
+    "num_workers": 8,
+    "base_checkpoint": "checkpoints/baseline_resnet18.pt",
+    "checkpoint": "checkpoints/prune_2x.pt",
+    "compression": {
+      "method": "prune",
+      "ratio": 2.0,
+      "sparsity": 0.5
+    },
+    "train": {
+      "epochs": 40,
+      "batch_size": 128,
+      "lr": 0.01,
+      "momentum": 0.9,
+      "weight_decay": 0.0005
+    }
+  },
+  "device": "NVIDIA RTX A4000",
+  "timestamp": "2026-10-07T11:39:09.918909+00:00"
+}

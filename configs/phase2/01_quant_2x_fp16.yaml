@@ -1,0 +1,20 @@
+run_name: quant_2x_fp16
+model: resnet18
+seed: 42
+data_root: ./data
+num_workers: 8
+base_checkpoint: checkpoints/baseline_resnet18.pt
+checkpoint: checkpoints/quant_2x_fp16.pt
+compression:
+  method: quant
+  ratio: 2.0
+  mode: ptq
+  weight_bits: 16
+  act_bits: 16
+  calib_batches: 20
+train:
+  epochs: 15
+  batch_size: 128
+  lr: 0.005
+  momentum: 0.9
+  weight_decay: 0.0005

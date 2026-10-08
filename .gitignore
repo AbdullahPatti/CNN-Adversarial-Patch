@@ -4,3 +4,5 @@ data/
 checkpoints/
 .venv/
 Context/
+logs/
+*.log

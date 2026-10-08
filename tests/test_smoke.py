@@ -12,7 +12,9 @@ def main():
 
     size = model_size(model)
     assert 11_000_000 < size["params"] < 11_300_000, size  # CIFAR ResNet-18 is ~11.17M
-    assert size["nonzero_params"] == size["params"]
+    # BatchNorm biases are initialized to exactly 0; a few random weights may also round to 0.
+    bn_bias = sum(m.bias.numel() for m in model.modules() if isinstance(m, torch.nn.BatchNorm2d))
+    assert 0 <= size["params"] - bn_bias - size["nonzero_params"] < 100, size
 
     idx = eval_subset_indices()
     assert len(idx) == len(set(idx)) == EVAL_SUBSET_SIZE and idx == eval_subset_indices()

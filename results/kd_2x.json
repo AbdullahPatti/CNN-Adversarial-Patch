@@ -1,0 +1,46 @@
+{
+  "run": "kd_2x",
+  "model": "resnet18",
+  "compression": {
+    "method": "distill",
+    "ratio": 2.0,
+    "temperature": 4.0,
+    "alpha": 0.9
+  },
+  "attack": null,
+  "defense": null,
+  "metrics": {
+    "clean_acc": 0.9563,
+    "params": 5527675,
+    "nonzero_params": 5527675,
+    "size_mb_fp32": 21.11233139038086,
+    "latency_ms_bs1": 1.4627995000046212,
+    "size_mb_compressed": 21.086406707763672,
+    "ratio_vs_baseline": 2.0214578462011605
+  },
+  "config": {
+    "run_name": "kd_2x",
+    "model": "resnet18",
+    "seed": 42,
+    "data_root": "./data",
+    "num_workers": 8,
+    "width": 45,
+    "base_checkpoint": "checkpoints/baseline_resnet18.pt",
+    "checkpoint": "checkpoints/kd_2x.pt",
+    "compression": {
+      "method": "distill",
+      "ratio": 2.0,
+      "temperature": 4.0,
+      "alpha": 0.9
+    },
+    "train": {
+      "epochs": 200,
+      "batch_size": 128,
+      "lr": 0.1,
+      "momentum": 0.9,
+      "weight_decay": 0.0005
+    }
+  },
+  "device": "NVIDIA RTX A4000",
+  "timestamp": "2026-10-07T21:49:46.015926+00:00"
+}
