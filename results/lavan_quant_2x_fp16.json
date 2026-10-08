@@ -1,0 +1,131 @@
+{
+  "run": "lavan_quant_2x_fp16",
+  "model": "resnet18",
+  "compression": {
+    "method": "quant",
+    "ratio": 2.0,
+    "mode": "ptq",
+    "weight_bits": 16,
+    "act_bits": 16,
+    "calib_batches": 20
+  },
+  "attack": {
+    "name": "lavan",
+    "sizes": [
+      5,
+      8
+    ],
+    "modes": [
+      "untargeted",
+      "targeted"
+    ],
+    "steps": 100,
+    "step_size": 0.05,
+    "restarts": 10,
+    "batch": 500,
+    "surrogate": true
+  },
+  "defense": null,
+  "metrics": {
+    "model_run": "quant_2x_fp16",
+    "clean_acc_subset": 0.956,
+    "side_5_untargeted": {
+      "area_frac": 0.0244140625,
+      "effective_from": "surrogate_fp32",
+      "whitebox": {
+        "success_on_correct": 0.900627613067627,
+        "robust_acc": 0.0950000062584877
+      },
+      "surrogate_fp32": {
+        "success_on_correct": 0.9058577418327332,
+        "robust_acc": 0.09000000357627869
+      },
+      "effective": {
+        "success_on_correct": 0.9058577418327332,
+        "robust_acc": 0.09000000357627869
+      }
+    },
+    "side_5_targeted": {
+      "area_frac": 0.0244140625,
+      "effective_from": "surrogate_fp32",
+      "whitebox": {
+        "success_on_correct": 0.5512552261352539,
+        "patched_acc": 0.42900002002716064
+      },
+      "surrogate_fp32": {
+        "success_on_correct": 0.555439293384552,
+        "patched_acc": 0.42500001192092896
+      },
+      "effective": {
+        "success_on_correct": 0.555439293384552,
+        "patched_acc": 0.42500001192092896
+      }
+    },
+    "side_8_untargeted": {
+      "area_frac": 0.0625,
+      "effective_from": "whitebox",
+      "whitebox": {
+        "success_on_correct": 1.0,
+        "robust_acc": 0.0
+      },
+      "surrogate_fp32": {
+        "success_on_correct": 1.0,
+        "robust_acc": 0.0
+      },
+      "effective": {
+        "success_on_correct": 1.0,
+        "robust_acc": 0.0
+      }
+    },
+    "side_8_targeted": {
+      "area_frac": 0.0625,
+      "effective_from": "surrogate_fp32",
+      "whitebox": {
+        "success_on_correct": 0.9602510333061218,
+        "patched_acc": 0.03800000250339508
+      },
+      "surrogate_fp32": {
+        "success_on_correct": 0.965481162071228,
+        "patched_acc": 0.032999999821186066
+      },
+      "effective": {
+        "success_on_correct": 0.965481162071228,
+        "patched_acc": 0.032999999821186066
+      }
+    }
+  },
+  "config": {
+    "run_name": "lavan_quant_2x_fp16",
+    "model_config": "configs/phase2/01_quant_2x_fp16.yaml",
+    "seed": 0,
+    "data_root": "./data",
+    "num_workers": 8,
+    "attack": {
+      "name": "lavan",
+      "sizes": [
+        5,
+        8
+      ],
+      "modes": [
+        "untargeted",
+        "targeted"
+      ],
+      "steps": 100,
+      "step_size": 0.05,
+      "restarts": 10,
+      "batch": 500,
+      "surrogate": true
+    },
+    "model": "resnet18",
+    "compression": {
+      "method": "quant",
+      "ratio": 2.0,
+      "mode": "ptq",
+      "weight_bits": 16,
+      "act_bits": 16,
+      "calib_batches": 20
+    }
+  },
+  "device": "NVIDIA RTX A4000",
+  "timestamp": "2026-10-08T11:57:41.293152+00:00"
+}

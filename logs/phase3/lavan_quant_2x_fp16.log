@@ -1,0 +1,5 @@
+size 5 untargeted  whitebox: {'success_on_correct': 0.900627613067627, 'robust_acc': 0.0950000062584877}  surrogate_fp32: {'success_on_correct': 0.9058577418327332, 'robust_acc': 0.09000000357627869}  effective: {'success_on_correct': 0.9058577418327332, 'robust_acc': 0.09000000357627869}
+size 5 targeted  whitebox: {'success_on_correct': 0.5512552261352539, 'patched_acc': 0.42900002002716064}  surrogate_fp32: {'success_on_correct': 0.555439293384552, 'patched_acc': 0.42500001192092896}  effective: {'success_on_correct': 0.555439293384552, 'patched_acc': 0.42500001192092896}
+size 8 untargeted  whitebox: {'success_on_correct': 1.0, 'robust_acc': 0.0}  surrogate_fp32: {'success_on_correct': 1.0, 'robust_acc': 0.0}  effective: {'success_on_correct': 1.0, 'robust_acc': 0.0}
+size 8 targeted  whitebox: {'success_on_correct': 0.9602510333061218, 'patched_acc': 0.03800000250339508}  surrogate_fp32: {'success_on_correct': 0.965481162071228, 'patched_acc': 0.032999999821186066}  effective: {'success_on_correct': 0.965481162071228, 'patched_acc': 0.032999999821186066}
+saved results\lavan_quant_2x_fp16.json

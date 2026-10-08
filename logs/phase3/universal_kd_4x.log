@@ -1,0 +1,21 @@
+size 5 target 0  whitebox: acc 0.8022 hit 0.0642
+size 5 target 1  whitebox: acc 0.8265 hit 0.0170
+size 5 target 2  whitebox: acc 0.7943 hit 0.1564
+size 5 target 3  whitebox: acc 0.7996 hit 0.1757
+size 5 target 4  whitebox: acc 0.8579 hit 0.0230
+size 5 target 5  whitebox: acc 0.7336 hit 0.2667
+size 5 target 6  whitebox: acc 0.8626 hit 0.0398
+size 5 target 7  whitebox: acc 0.7937 hit 0.0039
+size 5 target 8  whitebox: acc 0.8302 hit 0.0139
+size 5 target 9  whitebox: acc 0.8167 hit 0.0137
+size 8 target 0  whitebox: acc 0.6354 hit 0.2969
+size 8 target 1  whitebox: acc 0.5610 hit 0.4422
+size 8 target 2  whitebox: acc 0.5820 hit 0.4294
+size 8 target 3  whitebox: acc 0.4246 hit 0.6258
+size 8 target 4  whitebox: acc 0.7899 hit 0.1068
+size 8 target 5  whitebox: acc 0.3695 hit 0.6940
+size 8 target 6  whitebox: acc 0.6105 hit 0.3807
+size 8 target 7  whitebox: acc 0.7756 hit 0.1013
+size 8 target 8  whitebox: acc 0.7281 hit 0.1504
+size 8 target 9  whitebox: acc 0.6738 hit 0.2920
+saved results\universal_kd_4x.json

@@ -1,0 +1,5 @@
+size 5 untargeted  whitebox: {'success_on_correct': 0.9354497194290161, 'robust_acc': 0.06100000441074371}  effective: {'success_on_correct': 0.9354497194290161, 'robust_acc': 0.06100000441074371}
+size 5 targeted  whitebox: {'success_on_correct': 0.5502645373344421, 'patched_acc': 0.42500001192092896}  effective: {'success_on_correct': 0.5502645373344421, 'patched_acc': 0.42500001192092896}
+size 8 untargeted  whitebox: {'success_on_correct': 1.0, 'robust_acc': 0.0}  effective: {'success_on_correct': 1.0, 'robust_acc': 0.0}
+size 8 targeted  whitebox: {'success_on_correct': 0.9555555582046509, 'patched_acc': 0.04200000315904617}  effective: {'success_on_correct': 0.9555555582046509, 'patched_acc': 0.04200000315904617}
+saved results\lavan_kd_8x.json

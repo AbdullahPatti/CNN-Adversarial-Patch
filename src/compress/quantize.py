@@ -16,6 +16,7 @@ Scheme:
 Usage:  python -m src.compress.quantize --config configs/phase2/quant_int8.yaml
 """
 import argparse
+import copy
 import itertools
 
 import torch
@@ -39,11 +40,26 @@ class RoundSTE(torch.autograd.Function):
         return g
 
 
+class HalfSTE(torch.autograd.Function):
+    """FP16 round-trip in the forward pass, FP32 identity in the backward pass.
+
+    A plain x.half().float() also casts the incoming gradient to FP16, where small gradients underflow
+    to 0 (12.75% of input-pixel gradients with a batch-mean loss): gradient masking, not robustness.
+    """
+    @staticmethod
+    def forward(ctx, x):
+        return x.half().float()
+
+    @staticmethod
+    def backward(ctx, g):
+        return g
+
+
 def fake_quant_weight(w, bits):
     if bits >= 32:
         return w
     if bits == 16:
-        return w.half().float()
+        return HalfSTE.apply(w)
     qmax = 2 ** (bits - 1) - 1
     dims = tuple(range(1, w.dim()))
     scale = w.detach().abs().amax(dim=dims, keepdim=True).clamp_min(1e-8) / qmax
@@ -63,7 +79,7 @@ class ActQuant(nn.Module):
         if self.bits >= 32:
             return x
         if self.bits == 16:
-            return x.half().float()
+            return HalfSTE.apply(x)
         if self.training or self.observe:
             lo, hi = x.detach().min(), x.detach().max()
             if not self.initialized:
@@ -137,6 +153,20 @@ def wrap_quant(module, weight_bits, act_bits):
 def quantize_model(model, weight_bits, act_bits):
     """Baseline-structured model (eval-mode BN stats loaded) -> folded, fake-quantized model."""
     return wrap_quant(fold_bn(model.eval()), weight_bits, act_bits)
+
+
+def float_shadow(model):
+    """Copy of a fake-quantized model with quantization switched off: the FP32 surrogate whose gradients
+    attack the quantized model (BPDA, Part 3). For PTQ this is the BN-folded baseline; for QAT, the
+    float weights QAT learned.
+    """
+    shadow = copy.deepcopy(model)
+    for m in shadow.modules():
+        if isinstance(m, (QuantConv2d, QuantLinear)):
+            m.weight_bits = 32
+        elif isinstance(m, ActQuant):
+            m.bits = 32
+    return shadow
 
 
 @torch.no_grad()

@@ -1,0 +1,14 @@
+run_name: lavan_dense_small_2x
+model_config: configs/phase2/07_dense_small_2x.yaml
+seed: 0
+data_root: ./data
+num_workers: 8
+attack:
+  name: lavan
+  sizes: [5, 8]
+  modes: [untargeted, targeted]
+  steps: 100
+  step_size: 0.05
+  restarts: 10
+  batch: 500
+  surrogate: false

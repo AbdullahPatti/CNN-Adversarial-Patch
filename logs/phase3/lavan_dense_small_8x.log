@@ -1,0 +1,5 @@
+size 5 untargeted  whitebox: {'success_on_correct': 0.9429778456687927, 'robust_acc': 0.05400000140070915}  effective: {'success_on_correct': 0.9429778456687927, 'robust_acc': 0.05400000140070915}
+size 5 targeted  whitebox: {'success_on_correct': 0.6578669548034668, 'patched_acc': 0.3240000009536743}  effective: {'success_on_correct': 0.6578669548034668, 'patched_acc': 0.3240000009536743}
+size 8 untargeted  whitebox: {'success_on_correct': 1.0, 'robust_acc': 0.0}  effective: {'success_on_correct': 1.0, 'robust_acc': 0.0}
+size 8 targeted  whitebox: {'success_on_correct': 0.9841605424880981, 'patched_acc': 0.015000000596046448}  effective: {'success_on_correct': 0.9841605424880981, 'patched_acc': 0.015000000596046448}
+saved results\lavan_dense_small_8x.json

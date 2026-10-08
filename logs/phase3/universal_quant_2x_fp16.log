@@ -1,0 +1,21 @@
+size 5 target 0  whitebox: acc 0.7623 hit 0.1670  surrogate_fp32: acc 0.7615 hit 0.1712
+size 5 target 1  whitebox: acc 0.8294 hit 0.0778  surrogate_fp32: acc 0.8343 hit 0.0663
+size 5 target 2  whitebox: acc 0.8090 hit 0.1423  surrogate_fp32: acc 0.8081 hit 0.1423
+size 5 target 3  whitebox: acc 0.8141 hit 0.1703  surrogate_fp32: acc 0.8145 hit 0.1703
+size 5 target 4  whitebox: acc 0.8194 hit 0.0117  surrogate_fp32: acc 0.8155 hit 0.0113
+size 5 target 5  whitebox: acc 0.8405 hit 0.0459  surrogate_fp32: acc 0.8364 hit 0.0481
+size 5 target 6  whitebox: acc 0.7114 hit 0.0014  surrogate_fp32: acc 0.7117 hit 0.0014
+size 5 target 7  whitebox: acc 0.8270 hit 0.0037  surrogate_fp32: acc 0.8257 hit 0.0037
+size 5 target 8  whitebox: acc 0.8226 hit 0.0027  surrogate_fp32: acc 0.8343 hit 0.0037
+size 5 target 9  whitebox: acc 0.8685 hit 0.0228  surrogate_fp32: acc 0.8601 hit 0.0181
+size 8 target 0  whitebox: acc 0.5860 hit 0.3967  surrogate_fp32: acc 0.5789 hit 0.4038
+size 8 target 1  whitebox: acc 0.6046 hit 0.3956  surrogate_fp32: acc 0.6009 hit 0.3918
+size 8 target 2  whitebox: acc 0.6380 hit 0.3686  surrogate_fp32: acc 0.6333 hit 0.3740
+size 8 target 3  whitebox: acc 0.4009 hit 0.6572  surrogate_fp32: acc 0.4008 hit 0.6572
+size 8 target 4  whitebox: acc 0.6801 hit 0.0569  surrogate_fp32: acc 0.6832 hit 0.0522
+size 8 target 5  whitebox: acc 0.3521 hit 0.7157  surrogate_fp32: acc 0.3565 hit 0.7111
+size 8 target 6  whitebox: acc 0.7007 hit 0.2549  surrogate_fp32: acc 0.6749 hit 0.2732
+size 8 target 7  whitebox: acc 0.7674 hit 0.1698  surrogate_fp32: acc 0.7869 hit 0.1217
+size 8 target 8  whitebox: acc 0.7677 hit 0.1570  surrogate_fp32: acc 0.7695 hit 0.1546
+size 8 target 9  whitebox: acc 0.6130 hit 0.3904  surrogate_fp32: acc 0.6140 hit 0.3891
+saved results\universal_quant_2x_fp16.json

@@ -1,0 +1,107 @@
+{
+  "run": "lavan_baseline_resnet18",
+  "model": "resnet18",
+  "compression": {
+    "method": "none",
+    "ratio": 1.0
+  },
+  "attack": {
+    "name": "lavan",
+    "sizes": [
+      5,
+      8
+    ],
+    "modes": [
+      "untargeted",
+      "targeted"
+    ],
+    "steps": 100,
+    "step_size": 0.05,
+    "restarts": 10,
+    "batch": 500,
+    "surrogate": false
+  },
+  "defense": null,
+  "metrics": {
+    "model_run": "baseline_resnet18",
+    "clean_acc_subset": 0.956,
+    "side_5_untargeted": {
+      "area_frac": 0.0244140625,
+      "effective_from": "whitebox",
+      "whitebox": {
+        "success_on_correct": 0.9100418090820312,
+        "robust_acc": 0.0860000029206276
+      },
+      "effective": {
+        "success_on_correct": 0.9100418090820312,
+        "robust_acc": 0.0860000029206276
+      }
+    },
+    "side_5_targeted": {
+      "area_frac": 0.0244140625,
+      "effective_from": "whitebox",
+      "whitebox": {
+        "success_on_correct": 0.5502091646194458,
+        "patched_acc": 0.4300000071525574
+      },
+      "effective": {
+        "success_on_correct": 0.5502091646194458,
+        "patched_acc": 0.4300000071525574
+      }
+    },
+    "side_8_untargeted": {
+      "area_frac": 0.0625,
+      "effective_from": "whitebox",
+      "whitebox": {
+        "success_on_correct": 1.0,
+        "robust_acc": 0.0
+      },
+      "effective": {
+        "success_on_correct": 1.0,
+        "robust_acc": 0.0
+      }
+    },
+    "side_8_targeted": {
+      "area_frac": 0.0625,
+      "effective_from": "whitebox",
+      "whitebox": {
+        "success_on_correct": 0.9623430967330933,
+        "patched_acc": 0.036000002175569534
+      },
+      "effective": {
+        "success_on_correct": 0.9623430967330933,
+        "patched_acc": 0.036000002175569534
+      }
+    }
+  },
+  "config": {
+    "run_name": "lavan_baseline_resnet18",
+    "model_config": "configs/baseline.yaml",
+    "seed": 0,
+    "data_root": "./data",
+    "num_workers": 8,
+    "attack": {
+      "name": "lavan",
+      "sizes": [
+        5,
+        8
+      ],
+      "modes": [
+        "untargeted",
+        "targeted"
+      ],
+      "steps": 100,
+      "step_size": 0.05,
+      "restarts": 10,
+      "batch": 500,
+      "surrogate": false
+    },
+    "model": "resnet18",
+    "compression": {
+      "method": "none",
+      "ratio": 1.0
+    }
+  },
+  "device": "NVIDIA RTX A4000",
+  "timestamp": "2026-10-08T11:32:51.000889+00:00"
+}

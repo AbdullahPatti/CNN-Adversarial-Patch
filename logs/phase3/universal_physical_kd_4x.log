@@ -1,0 +1,11 @@
+size 8 target 0  whitebox: acc 0.7070 hit 0.1406
+size 8 target 1  whitebox: acc 0.7667 hit 0.1341
+size 8 target 2  whitebox: acc 0.7090 hit 0.2707
+size 8 target 3  whitebox: acc 0.5848 hit 0.4408
+size 8 target 4  whitebox: acc 0.8271 hit 0.0783
+size 8 target 5  whitebox: acc 0.4670 hit 0.5811
+size 8 target 6  whitebox: acc 0.6948 hit 0.2713
+size 8 target 7  whitebox: acc 0.7003 hit 0.0107
+size 8 target 8  whitebox: acc 0.7935 hit 0.0913
+size 8 target 9  whitebox: acc 0.7600 hit 0.1883
+saved results\universal_physical_kd_4x.json

@@ -1,0 +1,11 @@
+size 8 target 0  whitebox: acc 0.6779 hit 0.1743
+size 8 target 1  whitebox: acc 0.6786 hit 0.2676
+size 8 target 2  whitebox: acc 0.6455 hit 0.3410
+size 8 target 3  whitebox: acc 0.5169 hit 0.5162
+size 8 target 4  whitebox: acc 0.6900 hit 0.2963
+size 8 target 5  whitebox: acc 0.7317 hit 0.0738
+size 8 target 6  whitebox: acc 0.7475 hit 0.2036
+size 8 target 7  whitebox: acc 0.7177 hit 0.0219
+size 8 target 8  whitebox: acc 0.7546 hit 0.0984
+size 8 target 9  whitebox: acc 0.7472 hit 0.1956
+saved results\universal_physical_dense_small_4x.json

@@ -1,0 +1,11 @@
+size 8 target 0  whitebox: acc 0.7291 hit 0.1937
+size 8 target 1  whitebox: acc 0.7318 hit 0.2152
+size 8 target 2  whitebox: acc 0.7182 hit 0.2720
+size 8 target 3  whitebox: acc 0.7891 hit 0.0452
+size 8 target 4  whitebox: acc 0.7236 hit 0.2672
+size 8 target 5  whitebox: acc 0.4790 hit 0.5707
+size 8 target 6  whitebox: acc 0.7525 hit 0.2059
+size 8 target 7  whitebox: acc 0.8322 hit 0.0619
+size 8 target 8  whitebox: acc 0.8280 hit 0.0644
+size 8 target 9  whitebox: acc 0.6965 hit 0.2853
+saved results\universal_physical_quant_4x_int8.json

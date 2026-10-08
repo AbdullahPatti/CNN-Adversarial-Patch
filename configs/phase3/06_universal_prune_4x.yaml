@@ -1,0 +1,15 @@
+run_name: universal_prune_4x
+model_config: configs/phase2/05_prune_4x.yaml
+seed: 0
+data_root: ./data
+num_workers: 8
+attack:
+  name: universal
+  sizes: [5, 8]
+  targets: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  steps: 1000
+  lr: 0.02
+  batch_size: 128
+  monitor_every: 250
+  physical: false
+  surrogate: false

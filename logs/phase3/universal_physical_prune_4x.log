@@ -1,0 +1,11 @@
+size 8 target 0  whitebox: acc 0.7472 hit 0.1529
+size 8 target 1  whitebox: acc 0.7479 hit 0.1869
+size 8 target 2  whitebox: acc 0.6475 hit 0.3599
+size 8 target 3  whitebox: acc 0.6628 hit 0.3513
+size 8 target 4  whitebox: acc 0.7119 hit 0.2780
+size 8 target 5  whitebox: acc 0.5462 hit 0.4911
+size 8 target 6  whitebox: acc 0.7292 hit 0.2441
+size 8 target 7  whitebox: acc 0.7686 hit 0.0480
+size 8 target 8  whitebox: acc 0.7977 hit 0.0969
+size 8 target 9  whitebox: acc 0.7233 hit 0.2479
+saved results\universal_physical_prune_4x.json

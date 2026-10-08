@@ -1,0 +1,11 @@
+size 8 target 0  whitebox: acc 0.6715 hit 0.2723
+size 8 target 1  whitebox: acc 0.7270 hit 0.2191
+size 8 target 2  whitebox: acc 0.7141 hit 0.2772
+size 8 target 3  whitebox: acc 0.7755 hit 0.0702
+size 8 target 4  whitebox: acc 0.7386 hit 0.0266
+size 8 target 5  whitebox: acc 0.4448 hit 0.6087
+size 8 target 6  whitebox: acc 0.7200 hit 0.2440
+size 8 target 7  whitebox: acc 0.8325 hit 0.0600
+size 8 target 8  whitebox: acc 0.8302 hit 0.0667
+size 8 target 9  whitebox: acc 0.7078 hit 0.2730
+saved results\universal_physical_baseline_resnet18.json

@@ -1,0 +1,14 @@
+run_name: lavan_quant_8x_int4
+model_config: configs/phase2/03_quant_8x_int4.yaml
+seed: 0
+data_root: ./data
+num_workers: 8
+attack:
+  name: lavan
+  sizes: [5, 8]
+  modes: [untargeted, targeted]
+  steps: 100
+  step_size: 0.05
+  restarts: 10
+  batch: 500
+  surrogate: true
