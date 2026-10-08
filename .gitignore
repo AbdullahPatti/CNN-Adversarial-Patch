@@ -1,8 +1,6 @@
 __pycache__/
 *.pyc
-data/
+data/*.tar.gz
 checkpoints/
 .venv/
 Context/
-logs/
-*.log

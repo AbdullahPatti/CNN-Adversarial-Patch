@@ -1,0 +1,19 @@
+fp32 0.9535  bn-folded 0.9535
+PTQ W4A8  acc 0.9480
+epoch 1/15  loss 0.0098  test_acc 0.9383  best 0.9383
+epoch 2/15  loss 0.0096  test_acc 0.9367  best 0.9383
+epoch 3/15  loss 0.0078  test_acc 0.9392  best 0.9392
+epoch 4/15  loss 0.0052  test_acc 0.9398  best 0.9398
+epoch 5/15  loss 0.0026  test_acc 0.9420  best 0.9420
+epoch 6/15  loss 0.0026  test_acc 0.9446  best 0.9446
+epoch 7/15  loss 0.0017  test_acc 0.9458  best 0.9458
+epoch 8/15  loss 0.0007  test_acc 0.9482  best 0.9482
+epoch 9/15  loss 0.0006  test_acc 0.9498  best 0.9498
+epoch 10/15  loss 0.0004  test_acc 0.9492  best 0.9498
+epoch 11/15  loss 0.0004  test_acc 0.9487  best 0.9498
+epoch 12/15  loss 0.0004  test_acc 0.9494  best 0.9498
+epoch 13/15  loss 0.0004  test_acc 0.9487  best 0.9498
+epoch 14/15  loss 0.0004  test_acc 0.9481  best 0.9498
+epoch 15/15  loss 0.0003  test_acc 0.9486  best 0.9498
+{'clean_acc': 0.9498, 'params': 11169162, 'nonzero_params': 11169162, 'size_mb_fp32': 42.60717487335205, 'latency_ms_bs1': 15.649527999994461, 'size_mb_compressed': 5.341926574707031, 'ratio_vs_baseline': 7.9793837843859485, 'acc_bn_folded_fp32': 0.9535, 'acc_ptq': 0.948}
+saved results\quant_8x_int4.json

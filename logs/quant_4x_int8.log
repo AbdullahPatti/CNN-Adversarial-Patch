@@ -1,0 +1,4 @@
+fp32 0.9535  bn-folded 0.9535
+PTQ W8A8  acc 0.9530
+{'clean_acc': 0.953, 'params': 11169162, 'nonzero_params': 11169162, 'size_mb_fp32': 42.60717487335205, 'latency_ms_bs1': 15.276251000032062, 'size_mb_compressed': 10.665504455566406, 'ratio_vs_baseline': 1.001716800827498, 'acc_bn_folded_fp32': 0.9535, 'acc_ptq': 0.953}
+saved results\quant_4x_int8.json

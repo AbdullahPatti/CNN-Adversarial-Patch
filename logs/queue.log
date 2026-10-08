@@ -1,0 +1,16 @@
+[skip] quant_2x_fp16: results exist
+[skip] quant_4x_int8: results exist
+[skip] quant_8x_int4: results exist
+[skip] prune_2x: results exist
+[skip] prune_4x: results exist
+[skip] prune_8x: results exist
+[skip] dense_small_2x: results exist
+[skip] dense_small_4x: results exist
+[skip] dense_small_8x: results exist
+[start] kd_2x  (src.compress.distill)  01:19:30
+[done] kd_2x  90.3 min
+[start] kd_4x  (src.compress.distill)  02:49:47
+[done] kd_4x  74.7 min
+[start] kd_8x  (src.compress.distill)  04:04:30
+[done] kd_8x  74.0 min
+[queue finished]
