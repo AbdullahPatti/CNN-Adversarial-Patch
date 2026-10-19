@@ -1,0 +1,23 @@
+\begin{tabular}{lrrrrr}
+\toprule
+Model & Cert-5 & Cert-8 & Clean (PC) & Cert-5 & Cert-8 \\
+\midrule
+Baseline & 11.0{\scriptsize$\pm$0.3} & 1.9{\scriptsize$\pm$0.2} & 95.9{\scriptsize$\pm$0.3} & 71.6{\scriptsize$\pm$1.5} & 53.6{\scriptsize$\pm$0.7} \\
+\midrule
+FP16 & 11.0{\scriptsize$\pm$0.3} & 1.9{\scriptsize$\pm$0.2} & 95.9{\scriptsize$\pm$0.3} & 71.6{\scriptsize$\pm$1.5} & 53.6{\scriptsize$\pm$0.7} \\
+INT8 & 11.0{\scriptsize$\pm$0.3} & 1.9{\scriptsize$\pm$0.1} & 96.0{\scriptsize$\pm$0.4} & 71.8{\scriptsize$\pm$1.6} & 53.8{\scriptsize$\pm$0.6} \\
+INT4 & 10.9{\scriptsize$\pm$0.4} & 1.7{\scriptsize$\pm$0.3} & 95.8{\scriptsize$\pm$0.2} & 71.1{\scriptsize$\pm$0.4} & 53.7{\scriptsize$\pm$1.2} \\
+\midrule
+Prune 2$\times$ & 10.9{\scriptsize$\pm$0.7} & 2.0{\scriptsize$\pm$0.4} & 95.6{\scriptsize$\pm$0.3} & 71.4{\scriptsize$\pm$1.5} & 54.9{\scriptsize$\pm$0.8} \\
+Prune 4$\times$ & 11.3{\scriptsize$\pm$0.8} & 2.0{\scriptsize$\pm$0.3} & 95.8{\scriptsize$\pm$0.5} & 71.2{\scriptsize$\pm$0.7} & 54.2{\scriptsize$\pm$0.9} \\
+Prune 8$\times$ & 10.9{\scriptsize$\pm$0.8} & 1.9{\scriptsize$\pm$0.6} & 95.7{\scriptsize$\pm$0.4} & 70.1{\scriptsize$\pm$0.7} & 53.8{\scriptsize$\pm$1.0} \\
+\midrule
+Dense-small 2$\times$ & 10.2{\scriptsize$\pm$0.8} & 1.7{\scriptsize$\pm$0.2} & 95.4{\scriptsize$\pm$0.3} & 67.7{\scriptsize$\pm$0.6} & 50.5{\scriptsize$\pm$1.0} \\
+Dense-small 4$\times$ & 10.6{\scriptsize$\pm$0.3} & 1.3{\scriptsize$\pm$0.4} & 95.1{\scriptsize$\pm$0.6} & 65.2{\scriptsize$\pm$0.6} & 47.5{\scriptsize$\pm$0.9} \\
+Dense-small 8$\times$ & 8.9{\scriptsize$\pm$1.0} & 1.1{\scriptsize$\pm$0.3} & 94.5{\scriptsize$\pm$0.6} & 61.1{\scriptsize$\pm$0.9} & 44.0{\scriptsize$\pm$0.5} \\
+\midrule
+KD 2$\times$ & 11.1{\scriptsize$\pm$1.0} & 2.0{\scriptsize$\pm$0.2} & 96.1{\scriptsize$\pm$0.4} & 70.6{\scriptsize$\pm$1.2} & 53.7{\scriptsize$\pm$0.4} \\
+KD 4$\times$ & 10.3{\scriptsize$\pm$0.4} & 1.7{\scriptsize$\pm$0.1} & 95.1{\scriptsize$\pm$0.2} & 67.8{\scriptsize$\pm$0.8} & 50.4{\scriptsize$\pm$0.5} \\
+KD 8$\times$ & 8.1{\scriptsize$\pm$0.7} & 1.0{\scriptsize$\pm$0.2} & 94.8{\scriptsize$\pm$0.2} & 63.9{\scriptsize$\pm$1.3} & 46.5{\scriptsize$\pm$1.2} \\
+\bottomrule
+\end{tabular}

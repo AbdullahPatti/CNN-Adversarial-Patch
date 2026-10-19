@@ -1,0 +1,21 @@
+\begin{tabular}{lrrrrr}
+\toprule
+Model & U8 F$\to$C & U8 C$\to$F & L5 F$\to$C & L5 C$\to$F & L5 noise \\
+\midrule
+FP16 & 38.6{\scriptsize$\pm$2.8} & 39.1{\scriptsize$\pm$3.1} & 99.0{\scriptsize$\pm$0.2} & 99.1{\scriptsize$\pm$0.5} & 6.2{\scriptsize$\pm$0.9} \\
+INT8 & 35.4{\scriptsize$\pm$3.6} & 38.1{\scriptsize$\pm$2.7} & 53.3{\scriptsize$\pm$2.4} & 89.5{\scriptsize$\pm$1.4} & 5.9{\scriptsize$\pm$0.7} \\
+INT4 & 34.6{\scriptsize$\pm$3.9} & 36.1{\scriptsize$\pm$1.7} & 45.4{\scriptsize$\pm$1.9} & 32.5{\scriptsize$\pm$1.2} & 7.1{\scriptsize$\pm$1.1} \\
+\midrule
+Prune 2$\times$ & 29.2{\scriptsize$\pm$2.7} & 31.4{\scriptsize$\pm$3.8} & 23.7{\scriptsize$\pm$2.4} & 29.8{\scriptsize$\pm$1.5} & 5.5{\scriptsize$\pm$0.9} \\
+Prune 4$\times$ & 29.4{\scriptsize$\pm$2.5} & 31.0{\scriptsize$\pm$1.8} & 28.0{\scriptsize$\pm$2.9} & 28.7{\scriptsize$\pm$2.6} & 5.6{\scriptsize$\pm$1.1} \\
+Prune 8$\times$ & 30.9{\scriptsize$\pm$2.2} & 32.6{\scriptsize$\pm$3.6} & 29.8{\scriptsize$\pm$2.7} & 26.1{\scriptsize$\pm$4.7} & 5.8{\scriptsize$\pm$0.9} \\
+\midrule
+Dense-small 2$\times$ & 19.4{\scriptsize$\pm$0.2} & 15.3{\scriptsize$\pm$3.8} & 17.9{\scriptsize$\pm$0.8} & 11.5{\scriptsize$\pm$0.9} & 8.0{\scriptsize$\pm$0.6} \\
+Dense-small 4$\times$ & 21.3{\scriptsize$\pm$3.0} & 13.4{\scriptsize$\pm$3.0} & 21.2{\scriptsize$\pm$2.5} & 9.4{\scriptsize$\pm$1.2} & 7.6{\scriptsize$\pm$1.6} \\
+Dense-small 8$\times$ & 17.8{\scriptsize$\pm$1.9} & 13.2{\scriptsize$\pm$2.2} & 19.5{\scriptsize$\pm$1.6} & 8.5{\scriptsize$\pm$1.2} & 8.1{\scriptsize$\pm$1.1} \\
+\midrule
+KD 2$\times$ & 19.5{\scriptsize$\pm$2.2} & 18.8{\scriptsize$\pm$1.9} & 18.3{\scriptsize$\pm$1.0} & 14.5{\scriptsize$\pm$2.4} & 6.7{\scriptsize$\pm$1.0} \\
+KD 4$\times$ & 19.8{\scriptsize$\pm$1.6} & 15.5{\scriptsize$\pm$2.3} & 20.6{\scriptsize$\pm$0.8} & 11.1{\scriptsize$\pm$1.6} & 7.1{\scriptsize$\pm$0.2} \\
+KD 8$\times$ & 16.8{\scriptsize$\pm$1.8} & 12.7{\scriptsize$\pm$1.1} & 22.7{\scriptsize$\pm$1.6} & 9.7{\scriptsize$\pm$1.2} & 9.1{\scriptsize$\pm$1.2} \\
+\bottomrule
+\end{tabular}

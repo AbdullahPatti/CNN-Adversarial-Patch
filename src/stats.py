@@ -53,6 +53,9 @@ SCALAR = {
     "cert5 def": ("pc_", True, lambda m: _g(m, "side_5", "certified_acc")),
     "cert8 def": ("pc_", True, lambda m: _g(m, "side_8", "certified_acc")),
     "def clean5 (PC)": ("pc_", True, lambda m: _g(m, "side_5", "defended_clean_acc")),
+    "def 2mask5": ("pc_", True, lambda m: _g(m, "side_5", "two_mask_acc_mean")),
+    "def 2mask8": ("pc_", True, lambda m: _g(m, "side_8", "two_mask_acc_mean")),
+    "def 1mask worst5": ("pc_", True, lambda m: _g(m, "side_5", "one_mask_acc_worst")),
 }
 PER_IMAGE = {
     "cert5 vanilla": lambda m: _g(m, "side_5", "certified_per_image"),

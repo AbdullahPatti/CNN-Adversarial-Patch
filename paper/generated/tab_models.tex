@@ -1,0 +1,23 @@
+\begin{tabular}{lrrrr}
+\toprule
+Model & Storage & Nonzero & Clean (vanilla) & Clean (defended) \\
+\midrule
+Baseline & 1.00$\times$ & 11.17M & 95.2{\scriptsize$\pm$0.1} & 96.1{\scriptsize$\pm$0.1} \\
+\midrule
+FP16 & 2.00$\times$ & 11.17M & 95.2{\scriptsize$\pm$0.1} & 96.1{\scriptsize$\pm$0.1} \\
+INT8 & 4.00$\times$ & 11.17M & 95.2{\scriptsize$\pm$0.0} & 96.1{\scriptsize$\pm$0.1} \\
+INT4 & 7.98$\times$ & 11.17M & 95.0{\scriptsize$\pm$0.1} & 95.8{\scriptsize$\pm$0.1} \\
+\midrule
+Prune 2$\times$ & 1.88$\times$ & 5.59M & 95.3{\scriptsize$\pm$0.1} & 95.9{\scriptsize$\pm$0.2} \\
+Prune 4$\times$ & 3.55$\times$ & 2.80M & 95.4{\scriptsize$\pm$0.1} & 96.1{\scriptsize$\pm$0.1} \\
+Prune 8$\times$ & 6.37$\times$ & 1.41M & 95.4{\scriptsize$\pm$0.1} & 95.9{\scriptsize$\pm$0.2} \\
+\midrule
+Dense-small 2$\times$ & 2.02$\times$ & 5.53M & 95.2{\scriptsize$\pm$0.0} & 95.7{\scriptsize$\pm$0.1} \\
+Dense-small 4$\times$ & 3.99$\times$ & 2.80M & 94.6{\scriptsize$\pm$0.2} & 95.1{\scriptsize$\pm$0.3} \\
+Dense-small 8$\times$ & 7.72$\times$ & 1.45M & 94.0{\scriptsize$\pm$0.1} & 94.5{\scriptsize$\pm$0.1} \\
+\midrule
+KD 2$\times$ & 2.02$\times$ & 5.53M & 95.3{\scriptsize$\pm$0.2} & 96.1{\scriptsize$\pm$0.1} \\
+KD 4$\times$ & 3.99$\times$ & 2.80M & 94.9{\scriptsize$\pm$0.2} & 95.7{\scriptsize$\pm$0.1} \\
+KD 8$\times$ & 7.72$\times$ & 1.45M & 94.4{\scriptsize$\pm$0.2} & 94.9{\scriptsize$\pm$0.0} \\
+\bottomrule
+\end{tabular}

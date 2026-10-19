@@ -1,0 +1,23 @@
+\begin{tabular}{lrrrrrrr}
+\toprule
+Model & U5 acc & U8 acc & U8 hit & Noise8 acc & L5 rob. & L5 hit & L8 hit \\
+\midrule
+Baseline & 81.5{\scriptsize$\pm$0.4} & 60.3{\scriptsize$\pm$0.7} & 38.6{\scriptsize$\pm$2.8} & 88.2{\scriptsize$\pm$0.6} & 8.4{\scriptsize$\pm$0.4} & 57.1{\scriptsize$\pm$1.8} & 96.8{\scriptsize$\pm$0.7} \\
+\midrule
+FP16 & 80.9{\scriptsize$\pm$0.8} & 60.1{\scriptsize$\pm$1.1} & 39.1{\scriptsize$\pm$3.1} & 88.2{\scriptsize$\pm$0.6} & 8.1{\scriptsize$\pm$1.1} & 57.8{\scriptsize$\pm$2.0} & 97.1{\scriptsize$\pm$0.5} \\
+INT8 & 83.1{\scriptsize$\pm$1.2} & 61.8{\scriptsize$\pm$1.4} & 37.1{\scriptsize$\pm$3.0} & 88.1{\scriptsize$\pm$0.5} & 10.4{\scriptsize$\pm$1.4} & 55.9{\scriptsize$\pm$1.7} & 96.6{\scriptsize$\pm$0.9} \\
+INT4 & 81.6{\scriptsize$\pm$0.4} & 58.1{\scriptsize$\pm$1.9} & 41.8{\scriptsize$\pm$3.4} & 86.6{\scriptsize$\pm$0.5} & 8.8{\scriptsize$\pm$0.2} & 58.8{\scriptsize$\pm$3.0} & 96.7{\scriptsize$\pm$0.9} \\
+\midrule
+Prune 2$\times$ & 82.4{\scriptsize$\pm$1.8} & 61.7{\scriptsize$\pm$3.0} & 36.7{\scriptsize$\pm$2.7} & 88.2{\scriptsize$\pm$0.5} & 9.7{\scriptsize$\pm$1.0} & 55.7{\scriptsize$\pm$1.4} & 96.1{\scriptsize$\pm$1.4} \\
+Prune 4$\times$ & 82.0{\scriptsize$\pm$1.2} & 63.5{\scriptsize$\pm$0.3} & 34.7{\scriptsize$\pm$0.5} & 88.3{\scriptsize$\pm$0.6} & 8.5{\scriptsize$\pm$0.2} & 57.2{\scriptsize$\pm$1.0} & 97.0{\scriptsize$\pm$0.5} \\
+Prune 8$\times$ & 80.6{\scriptsize$\pm$3.9} & 60.8{\scriptsize$\pm$2.7} & 37.8{\scriptsize$\pm$3.6} & 88.0{\scriptsize$\pm$1.0} & 8.9{\scriptsize$\pm$1.4} & 57.5{\scriptsize$\pm$2.1} & 96.8{\scriptsize$\pm$1.0} \\
+\midrule
+Dense-small 2$\times$ & 77.2{\scriptsize$\pm$1.7} & 58.4{\scriptsize$\pm$2.8} & 32.2{\scriptsize$\pm$6.6} & 87.6{\scriptsize$\pm$0.3} & 6.9{\scriptsize$\pm$0.7} & 57.9{\scriptsize$\pm$1.9} & 96.3{\scriptsize$\pm$0.4} \\
+Dense-small 4$\times$ & 75.4{\scriptsize$\pm$2.6} & 55.6{\scriptsize$\pm$2.1} & 38.5{\scriptsize$\pm$0.9} & 85.3{\scriptsize$\pm$0.3} & 5.5{\scriptsize$\pm$1.6} & 63.2{\scriptsize$\pm$0.4} & 97.9{\scriptsize$\pm$0.4} \\
+Dense-small 8$\times$ & 75.3{\scriptsize$\pm$1.8} & 53.6{\scriptsize$\pm$2.0} & 38.0{\scriptsize$\pm$4.9} & 84.4{\scriptsize$\pm$0.8} & 4.8{\scriptsize$\pm$0.6} & 64.7{\scriptsize$\pm$2.5} & 97.8{\scriptsize$\pm$0.5} \\
+\midrule
+KD 2$\times$ & 80.5{\scriptsize$\pm$1.4} & 61.6{\scriptsize$\pm$0.3} & 33.4{\scriptsize$\pm$2.0} & 87.1{\scriptsize$\pm$0.9} & 10.5{\scriptsize$\pm$0.1} & 52.9{\scriptsize$\pm$0.4} & 95.7{\scriptsize$\pm$0.2} \\
+KD 4$\times$ & 78.2{\scriptsize$\pm$2.9} & 58.6{\scriptsize$\pm$3.0} & 38.0{\scriptsize$\pm$2.4} & 86.7{\scriptsize$\pm$0.5} & 7.9{\scriptsize$\pm$2.6} & 56.7{\scriptsize$\pm$2.3} & 96.5{\scriptsize$\pm$0.6} \\
+KD 8$\times$ & 73.7{\scriptsize$\pm$3.0} & 55.7{\scriptsize$\pm$1.8} & 37.0{\scriptsize$\pm$1.5} & 85.3{\scriptsize$\pm$0.7} & 5.9{\scriptsize$\pm$1.0} & 56.2{\scriptsize$\pm$2.8} & 96.1{\scriptsize$\pm$0.7} \\
+\bottomrule
+\end{tabular}

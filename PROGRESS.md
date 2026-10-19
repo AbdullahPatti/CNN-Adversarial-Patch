@@ -441,6 +441,24 @@ certify (~10.9 h) -> ~18 h, done around 2026-10-17 13:00 if uninterrupted.
 3 seeds: 13 vanilla models, universal + LaVAN attacks, transfer, and certification of the vanilla and defended zoos
 (79 result files each for seeds 43 and 44). Tables with mean +/- std over seeds come in J3.
 
+## J3 statistics + J8 "why" analysis (2026-10-19)
+**Deadline (user, 2026-10-19): paper submitted in 3 days (by 2026-10-22). Venue TMLR (free, no APC).** GTSRB / ImageNette /
+MobileNetV2 (J5-J7) and J9 are dropped for time; scope is stated as a limitation. Order decided by the user: J8 analysis
+first, then the paper (all numbers generated from results), then a number-by-number check.
+
+J3 (`src/stats.py`, tables in `results/summary/stats.md`): mean +/- std over 3 seeds; per-seed paired differences with
+a 95% t-interval (n = 3, df = 2); paired image bootstrap (10k) for certification. Claim only where the seed-level
+interval excludes 0. No multiple-comparison correction (stated in the paper).
+
+J8 (`src/analysis.py` -> `results/analysis/<run>.json`, all 78 models, ~1 GPU-h, log `logs/analysis_j8.log`):
+occlusion accuracy (grey / noise square, side 5 / 8, every stride-3 position: mean, worst, all-positions-correct),
+logit margin, input-gradient L2 and concentration (largest p x p window share of |grad|), and similarity to the same-seed
+baseline (10k-test agreement, linear CKA of penultimate features, input-gradient cosine). `src/why.py`: Spearman rho over
+(model, seed) points with a cluster bootstrap over models, plus partial rho given clean accuracy -> `results/summary/why.md`.
+
+Paper assets: `src/paper_assets.py` writes `paper/generated/macros.tex` (`\R{key}`, unknown key prints ??), tables and
+figures from the results, so no number in the paper is typed by hand.
+
 ## Journal plan (replaces the ICIC 2026 plan, decided 2026-10-09)
 Target (confirmed by the user 2026-10-14): **TMLR / JMLR**, not ICIC 2026. **TMLR** first (rewards rigorous, well-supported empirical studies, no page limit, rolling submission).
 Backups: Neurocomputing, Pattern Recognition, Computers & Security (Elsevier). JMLR is a poor fit for a
