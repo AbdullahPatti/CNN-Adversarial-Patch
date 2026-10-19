@@ -1,0 +1,5 @@
+size 5 untargeted  whitebox: {'success_on_correct': 0.9091858267784119, 'robust_acc': 0.08700000494718552}  effective: {'success_on_correct': 0.9091858267784119, 'robust_acc': 0.08700000494718552}
+size 5 targeted  whitebox: {'success_on_correct': 0.5835072994232178, 'patched_acc': 0.39900001883506775}  effective: {'success_on_correct': 0.5835072994232178, 'patched_acc': 0.39900001883506775}
+size 8 untargeted  whitebox: {'success_on_correct': 1.0, 'robust_acc': 0.0}  effective: {'success_on_correct': 1.0, 'robust_acc': 0.0}
+size 8 targeted  whitebox: {'success_on_correct': 0.9759916663169861, 'patched_acc': 0.023000001907348633}  effective: {'success_on_correct': 0.9759916663169861, 'patched_acc': 0.023000001907348633}
+saved results\lavan_baseline_resnet18_s44.json

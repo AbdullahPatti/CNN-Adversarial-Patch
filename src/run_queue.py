@@ -27,7 +27,7 @@ def main():
         if Path("results", f"{run}.json").exists():
             print(f"[skip] {run}: results exist", flush=True)
             continue
-        entry = "src.attack" if cfg.get("attack") else ENTRY[(cfg.get("compression") or {}).get("method", "none")]
+        entry = "src.certify" if cfg.get("defense") else "src.transfer" if cfg.get("transfer") else "src.attack" if cfg.get("attack") else ENTRY[(cfg.get("compression") or {}).get("method", "none")]
         print(f"[start] {run}  ({entry})  {time.strftime('%H:%M:%S')}", flush=True)
         t0 = time.time()
         with open(log_dir / f"{run}.log", "w") as log:

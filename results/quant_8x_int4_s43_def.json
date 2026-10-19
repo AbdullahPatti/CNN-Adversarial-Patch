@@ -1,0 +1,59 @@
+{
+  "run": "quant_8x_int4_s43_def",
+  "model": "resnet18",
+  "compression": {
+    "method": "quant",
+    "ratio": 8.0,
+    "mode": "qat",
+    "weight_bits": 4,
+    "act_bits": 8,
+    "calib_batches": 20
+  },
+  "attack": null,
+  "defense": null,
+  "metrics": {
+    "clean_acc": 0.9581,
+    "params": 11169162,
+    "nonzero_params": 11169162,
+    "size_mb_fp32": 42.60717487335205,
+    "latency_ms_bs1": 5.949990999997681,
+    "size_mb_compressed": 5.341926574707031,
+    "ratio_vs_baseline": 7.9793837843859485,
+    "acc_bn_folded_fp32": 0.9606,
+    "acc_ptq": 0.9554
+  },
+  "config": {
+    "run_name": "quant_8x_int4_s43_def",
+    "model": "resnet18",
+    "seed": 43,
+    "data_root": "./data",
+    "num_workers": 8,
+    "base_checkpoint": "checkpoints/baseline_resnet18_s43_def.pt",
+    "checkpoint": "checkpoints/quant_8x_int4_s43_def.pt",
+    "compression": {
+      "method": "quant",
+      "ratio": 8.0,
+      "mode": "qat",
+      "weight_bits": 4,
+      "act_bits": 8,
+      "calib_batches": 20
+    },
+    "train": {
+      "epochs": 15,
+      "batch_size": 128,
+      "lr": 0.005,
+      "momentum": 0.9,
+      "weight_decay": 0.0005,
+      "select": "last",
+      "mask_aug": {
+        "sizes": [
+          5,
+          8
+        ],
+        "k": 6
+      }
+    }
+  },
+  "device": "NVIDIA RTX A4000",
+  "timestamp": "2026-10-13T00:17:23.153590+00:00"
+}

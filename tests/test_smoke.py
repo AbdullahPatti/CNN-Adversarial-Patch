@@ -1,8 +1,12 @@
 """CPU smoke check, no dataset download. Run: python -m tests.test_smoke"""
+import tempfile
+from pathlib import Path
+
 import torch
 
 from src.attacks.patch import apply_patch, physical_transform
 from src.compress.quantize import HalfSTE
+from src.defense.patchcleanser import mask_set
 from src.data import EVAL_SUBSET_SIZE, eval_subset_indices
 from src.eval.metrics import latency_ms, model_size
 from src.models.resnet import build_model
@@ -33,7 +37,48 @@ def main():
     x = torch.ones(4, requires_grad=True)
     HalfSTE.apply(x).mul(1e-8).sum().backward()
     assert x.grad.eq(1e-8).all()
+
+    # PatchCleanser: every p x p patch position lies fully inside at least one mask
+    for ps in (5, 8):
+        masks = mask_set(32, ps, 6)
+        assert all(masks[:, 0, r:r + ps, c:c + ps].flatten(1).all(1).any() for r in range(33 - ps) for c in range(33 - ps))
+
+    # fit resumes after an interruption and ends with the same weights as an uninterrupted run
+    with tempfile.TemporaryDirectory() as tmp:
+        assert check_resume(Path(tmp))
     print("smoke ok", size)
+
+
+def check_resume(tmp):
+    import src.engine as engine
+    t = {"lr": 0.1, "momentum": 0.9, "weight_decay": 5e-4, "epochs": 3, "select": "last"}
+    ds = torch.utils.data.TensorDataset(torch.randn(64, 8), torch.randint(0, 3, (64,)))
+    loader = torch.utils.data.DataLoader(ds, batch_size=16, shuffle=True)
+    cpu = torch.device("cpu")
+
+    def run(ckpt, crash_after=None):
+        torch.manual_seed(0)
+        model = torch.nn.Linear(8, 3)
+        train_one_epoch, calls = engine.train_one_epoch, []
+
+        def crashing(*a, **k):
+            if len(calls) == crash_after:
+                raise KeyboardInterrupt
+            calls.append(1)
+            return train_one_epoch(*a, **k)
+        engine.train_one_epoch = crashing
+        try:
+            engine.fit(model, loader, loader, cpu, t, ckpt, amp=False)
+        except KeyboardInterrupt:
+            return None
+        finally:
+            engine.train_one_epoch = train_one_epoch
+        return model.weight.detach().clone(), len(calls)
+
+    full, _ = run(tmp / "a.pt")
+    assert run(tmp / "b.pt", crash_after=2) is None and (tmp / "b.resume.pt").exists()
+    resumed, epochs_run = run(tmp / "b.pt")
+    return epochs_run == 1 and torch.equal(full, resumed) and not (tmp / "b.resume.pt").exists()
 
 
 if __name__ == "__main__":

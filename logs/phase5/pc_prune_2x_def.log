@@ -1,0 +1,3 @@
+side 5: 36 masks of 9px  certified 0.7200  defended clean 0.9550  one-mask 0.9576 (worst 0.9510)  two-mask 0.9514
+side 8: 25 masks of 12px  certified 0.5520  defended clean 0.9540  one-mask 0.9498 (worst 0.9330)  two-mask 0.9316
+saved results\pc_prune_2x_def.json

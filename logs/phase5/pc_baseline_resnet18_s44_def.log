@@ -1,0 +1,3 @@
+side 5: 36 masks of 9px  certified 0.7260  defended clean 0.9600  one-mask 0.9580 (worst 0.9500)  two-mask 0.9517
+side 8: 25 masks of 12px  certified 0.5430  defended clean 0.9570  one-mask 0.9508 (worst 0.9320)  two-mask 0.9326
+saved results\pc_baseline_resnet18_s44_def.json

@@ -1,0 +1,3 @@
+side 5: 36 masks of 9px  certified 0.7150  defended clean 0.9580  one-mask 0.9566 (worst 0.9470)  two-mask 0.9490
+side 8: 25 masks of 12px  certified 0.5470  defended clean 0.9520  one-mask 0.9471 (worst 0.9270)  two-mask 0.9279
+saved results\pc_quant_8x_int4_s44_def.json

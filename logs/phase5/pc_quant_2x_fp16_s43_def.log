@@ -1,0 +1,3 @@
+side 5: 36 masks of 9px  certified 0.6990  defended clean 0.9610  one-mask 0.9601 (worst 0.9470)  two-mask 0.9528
+side 8: 25 masks of 12px  certified 0.5290  defended clean 0.9520  one-mask 0.9501 (worst 0.9280)  two-mask 0.9298
+saved results\pc_quant_2x_fp16_s43_def.json

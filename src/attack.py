@@ -95,7 +95,7 @@ def run_lavan(a, seed, models, x, y, device):
                                        a["restarts"], gen, None if target is None else target[j]))
                 patch, rows, cols, ok = (torch.cat(t) for t in zip(*parts))
                 success[kind] = ok
-                saved[(size, mode, kind)] = {"patch": patch.half().cpu(), "rows": rows.cpu(), "cols": cols.cpu(),
+                saved[(size, mode, kind)] = {"patch": patch.cpu(), "rows": rows.cpu(), "cols": cols.cpu(),
                                              "success": ok.cpu(), "target": None if target is None else target.cpu()}
             best = max(success, key=lambda k: success[k][clean_correct].float().mean().item())
             for kind, ok in [*success.items(), ("effective", success[best])]:

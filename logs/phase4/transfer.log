@@ -1,0 +1,247 @@
+lavan_baseline_resnet18 side 5 targeted  baseline_resnet18: 0.998  quant_2x_fp16: 0.987  quant_4x_int8: 0.488  quant_8x_int4: 0.279  prune_2x: 0.095  prune_4x: 0.151  prune_8x: 0.160  dense_small_2x: 0.080  dense_small_4x: 0.105  dense_small_8x: 0.057  kd_2x: 0.069  kd_4x: 0.091  kd_8x: 0.085
+lavan_baseline_resnet18 side 5 untargeted  baseline_resnet18: 0.998  quant_2x_fp16: 0.990  quant_4x_int8: 0.548  quant_8x_int4: 0.446  prune_2x: 0.215  prune_4x: 0.273  prune_8x: 0.288  dense_small_2x: 0.187  dense_small_4x: 0.225  dense_small_8x: 0.191  kd_2x: 0.180  kd_4x: 0.210  kd_8x: 0.240
+lavan_baseline_resnet18 side 8 targeted  baseline_resnet18: 0.996  quant_2x_fp16: 0.991  quant_4x_int8: 0.529  quant_8x_int4: 0.288  prune_2x: 0.105  prune_4x: 0.120  prune_8x: 0.111  dense_small_2x: 0.039  dense_small_4x: 0.059  dense_small_8x: 0.058  kd_2x: 0.046  kd_4x: 0.059  kd_8x: 0.057
+lavan_baseline_resnet18 side 8 untargeted  baseline_resnet18: 0.998  quant_2x_fp16: 0.991  quant_4x_int8: 0.711  quant_8x_int4: 0.472  prune_2x: 0.258  prune_4x: 0.275  prune_8x: 0.300  dense_small_2x: 0.184  dense_small_4x: 0.218  dense_small_8x: 0.212  kd_2x: 0.169  kd_4x: 0.184  kd_8x: 0.230
+lavan_quant_2x_fp16 side 5 targeted  baseline_resnet18: 0.992  quant_2x_fp16: 0.996  quant_4x_int8: 0.447  quant_8x_int4: 0.272  prune_2x: 0.128  prune_4x: 0.152  prune_8x: 0.149  dense_small_2x: 0.062  dense_small_4x: 0.085  dense_small_8x: 0.061  kd_2x: 0.063  kd_4x: 0.078  kd_8x: 0.088
+lavan_quant_2x_fp16 side 5 untargeted  baseline_resnet18: 0.992  quant_2x_fp16: 0.995  quant_4x_int8: 0.527  quant_8x_int4: 0.444  prune_2x: 0.195  prune_4x: 0.267  prune_8x: 0.261  dense_small_2x: 0.200  dense_small_4x: 0.205  dense_small_8x: 0.180  kd_2x: 0.170  kd_4x: 0.186  kd_8x: 0.251
+lavan_quant_2x_fp16 side 8 targeted  baseline_resnet18: 0.987  quant_2x_fp16: 0.998  quant_4x_int8: 0.504  quant_8x_int4: 0.266  prune_2x: 0.103  prune_4x: 0.126  prune_8x: 0.133  dense_small_2x: 0.041  dense_small_4x: 0.064  dense_small_8x: 0.063  kd_2x: 0.049  kd_4x: 0.064  kd_8x: 0.069
+lavan_quant_2x_fp16 side 8 untargeted  baseline_resnet18: 0.998  quant_2x_fp16: 1.000  quant_4x_int8: 0.702  quant_8x_int4: 0.483  prune_2x: 0.255  prune_4x: 0.274  prune_8x: 0.304  dense_small_2x: 0.179  dense_small_4x: 0.224  dense_small_8x: 0.212  kd_2x: 0.165  kd_4x: 0.175  kd_8x: 0.233
+lavan_quant_4x_int8 side 5 targeted  baseline_resnet18: 0.849  quant_2x_fp16: 0.849  quant_4x_int8: 0.876  quant_8x_int4: 0.379  prune_2x: 0.137  prune_4x: 0.158  prune_8x: 0.150  dense_small_2x: 0.069  dense_small_4x: 0.087  dense_small_8x: 0.075  kd_2x: 0.083  kd_4x: 0.078  kd_8x: 0.086
+lavan_quant_4x_int8 side 5 untargeted  baseline_resnet18: 0.902  quant_2x_fp16: 0.903  quant_4x_int8: 0.899  quant_8x_int4: 0.526  prune_2x: 0.246  prune_4x: 0.260  prune_8x: 0.291  dense_small_2x: 0.189  dense_small_4x: 0.232  dense_small_8x: 0.190  kd_2x: 0.169  kd_4x: 0.200  kd_8x: 0.263
+lavan_quant_4x_int8 side 8 targeted  baseline_resnet18: 0.957  quant_2x_fp16: 0.957  quant_4x_int8: 0.895  quant_8x_int4: 0.357  prune_2x: 0.123  prune_4x: 0.154  prune_8x: 0.163  dense_small_2x: 0.051  dense_small_4x: 0.070  dense_small_8x: 0.063  kd_2x: 0.051  kd_4x: 0.062  kd_8x: 0.068
+lavan_quant_4x_int8 side 8 untargeted  baseline_resnet18: 0.938  quant_2x_fp16: 0.941  quant_4x_int8: 0.934  quant_8x_int4: 0.517  prune_2x: 0.261  prune_4x: 0.286  prune_8x: 0.329  dense_small_2x: 0.184  dense_small_4x: 0.239  dense_small_8x: 0.207  kd_2x: 0.176  kd_4x: 0.185  kd_8x: 0.240
+lavan_quant_8x_int4 side 5 targeted  baseline_resnet18: 0.210  quant_2x_fp16: 0.210  quant_4x_int8: 0.180  quant_8x_int4: 0.856  prune_2x: 0.082  prune_4x: 0.121  prune_8x: 0.113  dense_small_2x: 0.072  dense_small_4x: 0.092  dense_small_8x: 0.064  kd_2x: 0.063  kd_4x: 0.067  kd_8x: 0.060
+lavan_quant_8x_int4 side 5 untargeted  baseline_resnet18: 0.337  quant_2x_fp16: 0.337  quant_4x_int8: 0.296  quant_8x_int4: 0.913  prune_2x: 0.174  prune_4x: 0.251  prune_8x: 0.226  dense_small_2x: 0.176  dense_small_4x: 0.197  dense_small_8x: 0.156  kd_2x: 0.158  kd_4x: 0.196  kd_8x: 0.246
+lavan_quant_8x_int4 side 8 targeted  baseline_resnet18: 0.210  quant_2x_fp16: 0.210  quant_4x_int8: 0.188  quant_8x_int4: 0.907  prune_2x: 0.083  prune_4x: 0.101  prune_8x: 0.099  dense_small_2x: 0.045  dense_small_4x: 0.065  dense_small_8x: 0.066  kd_2x: 0.051  kd_4x: 0.052  kd_8x: 0.066
+lavan_quant_8x_int4 side 8 untargeted  baseline_resnet18: 0.341  quant_2x_fp16: 0.341  quant_4x_int8: 0.325  quant_8x_int4: 0.952  prune_2x: 0.189  prune_4x: 0.244  prune_8x: 0.246  dense_small_2x: 0.168  dense_small_4x: 0.214  dense_small_8x: 0.220  kd_2x: 0.150  kd_4x: 0.170  kd_8x: 0.217
+lavan_prune_2x side 5 targeted  baseline_resnet18: 0.170  quant_2x_fp16: 0.170  quant_4x_int8: 0.133  quant_8x_int4: 0.175  prune_2x: 0.994  prune_4x: 0.162  prune_8x: 0.151  dense_small_2x: 0.061  dense_small_4x: 0.119  dense_small_8x: 0.089  kd_2x: 0.084  kd_4x: 0.087  kd_8x: 0.103
+lavan_prune_2x side 5 untargeted  baseline_resnet18: 0.315  quant_2x_fp16: 0.315  quant_4x_int8: 0.271  quant_8x_int4: 0.334  prune_2x: 0.995  prune_4x: 0.284  prune_8x: 0.286  dense_small_2x: 0.199  dense_small_4x: 0.227  dense_small_8x: 0.171  kd_2x: 0.176  kd_4x: 0.201  kd_8x: 0.256
+lavan_prune_2x side 8 targeted  baseline_resnet18: 0.132  quant_2x_fp16: 0.132  quant_4x_int8: 0.117  quant_8x_int4: 0.142  prune_2x: 0.999  prune_4x: 0.119  prune_8x: 0.113  dense_small_2x: 0.047  dense_small_4x: 0.059  dense_small_8x: 0.065  kd_2x: 0.039  kd_4x: 0.062  kd_8x: 0.059
+lavan_prune_2x side 8 untargeted  baseline_resnet18: 0.266  quant_2x_fp16: 0.264  quant_4x_int8: 0.252  quant_8x_int4: 0.271  prune_2x: 0.998  prune_4x: 0.261  prune_8x: 0.251  dense_small_2x: 0.175  dense_small_4x: 0.234  dense_small_8x: 0.197  kd_2x: 0.155  kd_4x: 0.184  kd_8x: 0.237
+lavan_prune_4x side 5 targeted  baseline_resnet18: 0.170  quant_2x_fp16: 0.170  quant_4x_int8: 0.134  quant_8x_int4: 0.165  prune_2x: 0.112  prune_4x: 0.996  prune_8x: 0.148  dense_small_2x: 0.072  dense_small_4x: 0.081  dense_small_8x: 0.052  kd_2x: 0.078  kd_4x: 0.071  kd_8x: 0.071
+lavan_prune_4x side 5 untargeted  baseline_resnet18: 0.270  quant_2x_fp16: 0.270  quant_4x_int8: 0.234  quant_8x_int4: 0.299  prune_2x: 0.215  prune_4x: 0.998  prune_8x: 0.266  dense_small_2x: 0.177  dense_small_4x: 0.213  dense_small_8x: 0.181  kd_2x: 0.152  kd_4x: 0.178  kd_8x: 0.261
+lavan_prune_4x side 8 targeted  baseline_resnet18: 0.119  quant_2x_fp16: 0.119  quant_4x_int8: 0.098  quant_8x_int4: 0.127  prune_2x: 0.095  prune_4x: 0.996  prune_8x: 0.119  dense_small_2x: 0.040  dense_small_4x: 0.060  dense_small_8x: 0.048  kd_2x: 0.042  kd_4x: 0.049  kd_8x: 0.060
+lavan_prune_4x side 8 untargeted  baseline_resnet18: 0.251  quant_2x_fp16: 0.250  quant_4x_int8: 0.235  quant_8x_int4: 0.292  prune_2x: 0.213  prune_4x: 0.999  prune_8x: 0.245  dense_small_2x: 0.172  dense_small_4x: 0.215  dense_small_8x: 0.198  kd_2x: 0.145  kd_4x: 0.168  kd_8x: 0.218
+lavan_prune_8x side 5 targeted  baseline_resnet18: 0.180  quant_2x_fp16: 0.180  quant_4x_int8: 0.137  quant_8x_int4: 0.169  prune_2x: 0.116  prune_4x: 0.142  prune_8x: 0.991  dense_small_2x: 0.089  dense_small_4x: 0.086  dense_small_8x: 0.069  kd_2x: 0.070  kd_4x: 0.080  kd_8x: 0.079
+lavan_prune_8x side 5 untargeted  baseline_resnet18: 0.293  quant_2x_fp16: 0.294  quant_4x_int8: 0.260  quant_8x_int4: 0.309  prune_2x: 0.214  prune_4x: 0.260  prune_8x: 0.993  dense_small_2x: 0.195  dense_small_4x: 0.204  dense_small_8x: 0.183  kd_2x: 0.144  kd_4x: 0.184  kd_8x: 0.226
+lavan_prune_8x side 8 targeted  baseline_resnet18: 0.109  quant_2x_fp16: 0.109  quant_4x_int8: 0.097  quant_8x_int4: 0.130  prune_2x: 0.077  prune_4x: 0.096  prune_8x: 0.999  dense_small_2x: 0.042  dense_small_4x: 0.058  dense_small_8x: 0.057  kd_2x: 0.046  kd_4x: 0.051  kd_8x: 0.056
+lavan_prune_8x side 8 untargeted  baseline_resnet18: 0.226  quant_2x_fp16: 0.226  quant_4x_int8: 0.209  quant_8x_int4: 0.240  prune_2x: 0.186  prune_4x: 0.215  prune_8x: 0.995  dense_small_2x: 0.155  dense_small_4x: 0.206  dense_small_8x: 0.184  kd_2x: 0.135  kd_4x: 0.160  kd_8x: 0.216
+lavan_dense_small_2x side 5 targeted  baseline_resnet18: 0.053  quant_2x_fp16: 0.053  quant_4x_int8: 0.044  quant_8x_int4: 0.056  prune_2x: 0.038  prune_4x: 0.071  prune_8x: 0.051  dense_small_2x: 0.998  dense_small_4x: 0.085  dense_small_8x: 0.053  kd_2x: 0.063  kd_4x: 0.056  kd_8x: 0.066
+lavan_dense_small_2x side 5 untargeted  baseline_resnet18: 0.113  quant_2x_fp16: 0.113  quant_4x_int8: 0.102  quant_8x_int4: 0.129  prune_2x: 0.101  prune_4x: 0.115  prune_8x: 0.115  dense_small_2x: 1.000  dense_small_4x: 0.175  dense_small_8x: 0.126  kd_2x: 0.129  kd_4x: 0.143  kd_8x: 0.193
+lavan_dense_small_2x side 8 targeted  baseline_resnet18: 0.034  quant_2x_fp16: 0.034  quant_4x_int8: 0.034  quant_8x_int4: 0.037  prune_2x: 0.033  prune_4x: 0.033  prune_8x: 0.037  dense_small_2x: 0.998  dense_small_4x: 0.053  dense_small_8x: 0.046  kd_2x: 0.035  kd_4x: 0.042  kd_8x: 0.044
+lavan_dense_small_2x side 8 untargeted  baseline_resnet18: 0.124  quant_2x_fp16: 0.124  quant_4x_int8: 0.122  quant_8x_int4: 0.140  prune_2x: 0.124  prune_4x: 0.137  prune_8x: 0.131  dense_small_2x: 0.999  dense_small_4x: 0.187  dense_small_8x: 0.194  kd_2x: 0.146  kd_4x: 0.165  kd_8x: 0.192
+lavan_dense_small_4x side 5 targeted  baseline_resnet18: 0.037  quant_2x_fp16: 0.037  quant_4x_int8: 0.027  quant_8x_int4: 0.034  prune_2x: 0.034  prune_4x: 0.036  prune_8x: 0.032  dense_small_2x: 0.034  dense_small_4x: 0.995  dense_small_8x: 0.054  kd_2x: 0.030  kd_4x: 0.026  kd_8x: 0.045
+lavan_dense_small_4x side 5 untargeted  baseline_resnet18: 0.107  quant_2x_fp16: 0.107  quant_4x_int8: 0.097  quant_8x_int4: 0.121  prune_2x: 0.082  prune_4x: 0.094  prune_8x: 0.108  dense_small_2x: 0.120  dense_small_4x: 0.996  dense_small_8x: 0.127  kd_2x: 0.104  kd_4x: 0.118  kd_8x: 0.185
+lavan_dense_small_4x side 8 targeted  baseline_resnet18: 0.030  quant_2x_fp16: 0.030  quant_4x_int8: 0.029  quant_8x_int4: 0.030  prune_2x: 0.024  prune_4x: 0.024  prune_8x: 0.027  dense_small_2x: 0.027  dense_small_4x: 1.000  dense_small_8x: 0.023  kd_2x: 0.023  kd_4x: 0.038  kd_8x: 0.036
+lavan_dense_small_4x side 8 untargeted  baseline_resnet18: 0.106  quant_2x_fp16: 0.106  quant_4x_int8: 0.103  quant_8x_int4: 0.114  prune_2x: 0.105  prune_4x: 0.114  prune_8x: 0.106  dense_small_2x: 0.114  dense_small_4x: 0.999  dense_small_8x: 0.158  kd_2x: 0.105  kd_4x: 0.119  kd_8x: 0.159
+lavan_dense_small_8x side 5 targeted  baseline_resnet18: 0.034  quant_2x_fp16: 0.034  quant_4x_int8: 0.028  quant_8x_int4: 0.033  prune_2x: 0.023  prune_4x: 0.041  prune_8x: 0.039  dense_small_2x: 0.042  dense_small_4x: 0.058  dense_small_8x: 0.997  kd_2x: 0.029  kd_4x: 0.035  kd_8x: 0.045
+lavan_dense_small_8x side 5 untargeted  baseline_resnet18: 0.099  quant_2x_fp16: 0.099  quant_4x_int8: 0.097  quant_8x_int4: 0.115  prune_2x: 0.090  prune_4x: 0.105  prune_8x: 0.108  dense_small_2x: 0.126  dense_small_4x: 0.146  dense_small_8x: 0.998  kd_2x: 0.091  kd_4x: 0.114  kd_8x: 0.179
+lavan_dense_small_8x side 8 targeted  baseline_resnet18: 0.029  quant_2x_fp16: 0.029  quant_4x_int8: 0.029  quant_8x_int4: 0.027  prune_2x: 0.024  prune_4x: 0.020  prune_8x: 0.026  dense_small_2x: 0.030  dense_small_4x: 0.039  dense_small_8x: 1.000  kd_2x: 0.019  kd_4x: 0.032  kd_8x: 0.034
+lavan_dense_small_8x side 8 untargeted  baseline_resnet18: 0.133  quant_2x_fp16: 0.133  quant_4x_int8: 0.124  quant_8x_int4: 0.131  prune_2x: 0.116  prune_4x: 0.134  prune_8x: 0.137  dense_small_2x: 0.134  dense_small_4x: 0.177  dense_small_8x: 1.000  kd_2x: 0.122  kd_4x: 0.128  kd_8x: 0.187
+lavan_kd_2x side 5 targeted  baseline_resnet18: 0.071  quant_2x_fp16: 0.069  quant_4x_int8: 0.057  quant_8x_int4: 0.090  prune_2x: 0.071  prune_4x: 0.088  prune_8x: 0.084  dense_small_2x: 0.077  dense_small_4x: 0.135  dense_small_8x: 0.082  kd_2x: 0.998  kd_4x: 0.100  kd_8x: 0.107
+lavan_kd_2x side 5 untargeted  baseline_resnet18: 0.171  quant_2x_fp16: 0.172  quant_4x_int8: 0.154  quant_8x_int4: 0.192  prune_2x: 0.128  prune_4x: 0.143  prune_8x: 0.145  dense_small_2x: 0.204  dense_small_4x: 0.212  dense_small_8x: 0.189  kd_2x: 1.000  kd_4x: 0.189  kd_8x: 0.239
+lavan_kd_2x side 8 targeted  baseline_resnet18: 0.042  quant_2x_fp16: 0.042  quant_4x_int8: 0.041  quant_8x_int4: 0.051  prune_2x: 0.034  prune_4x: 0.043  prune_8x: 0.038  dense_small_2x: 0.050  dense_small_4x: 0.064  dense_small_8x: 0.057  kd_2x: 0.998  kd_4x: 0.056  kd_8x: 0.058
+lavan_kd_2x side 8 untargeted  baseline_resnet18: 0.154  quant_2x_fp16: 0.154  quant_4x_int8: 0.152  quant_8x_int4: 0.173  prune_2x: 0.147  prune_4x: 0.169  prune_8x: 0.172  dense_small_2x: 0.185  dense_small_4x: 0.222  dense_small_8x: 0.205  kd_2x: 1.000  kd_4x: 0.188  kd_8x: 0.232
+lavan_kd_4x side 5 targeted  baseline_resnet18: 0.061  quant_2x_fp16: 0.061  quant_4x_int8: 0.052  quant_8x_int4: 0.049  prune_2x: 0.041  prune_4x: 0.045  prune_8x: 0.048  dense_small_2x: 0.064  dense_small_4x: 0.078  dense_small_8x: 0.056  kd_2x: 0.061  kd_4x: 0.996  kd_8x: 0.084
+lavan_kd_4x side 5 untargeted  baseline_resnet18: 0.129  quant_2x_fp16: 0.130  quant_4x_int8: 0.121  quant_8x_int4: 0.167  prune_2x: 0.115  prune_4x: 0.134  prune_8x: 0.144  dense_small_2x: 0.168  dense_small_4x: 0.201  dense_small_8x: 0.161  kd_2x: 0.116  kd_4x: 0.998  kd_8x: 0.223
+lavan_kd_4x side 8 targeted  baseline_resnet18: 0.037  quant_2x_fp16: 0.037  quant_4x_int8: 0.035  quant_8x_int4: 0.046  prune_2x: 0.038  prune_4x: 0.034  prune_8x: 0.037  dense_small_2x: 0.039  dense_small_4x: 0.048  dense_small_8x: 0.051  kd_2x: 0.038  kd_4x: 0.996  kd_8x: 0.057
+lavan_kd_4x side 8 untargeted  baseline_resnet18: 0.120  quant_2x_fp16: 0.120  quant_4x_int8: 0.122  quant_8x_int4: 0.135  prune_2x: 0.125  prune_4x: 0.147  prune_8x: 0.133  dense_small_2x: 0.147  dense_small_4x: 0.198  dense_small_8x: 0.182  kd_2x: 0.121  kd_4x: 0.999  kd_8x: 0.192
+lavan_kd_8x side 5 targeted  baseline_resnet18: 0.033  quant_2x_fp16: 0.033  quant_4x_int8: 0.033  quant_8x_int4: 0.039  prune_2x: 0.031  prune_4x: 0.035  prune_8x: 0.039  dense_small_2x: 0.049  dense_small_4x: 0.057  dense_small_8x: 0.040  kd_2x: 0.037  kd_4x: 0.028  kd_8x: 0.992
+lavan_kd_8x side 5 untargeted  baseline_resnet18: 0.108  quant_2x_fp16: 0.108  quant_4x_int8: 0.101  quant_8x_int4: 0.115  prune_2x: 0.099  prune_4x: 0.108  prune_8x: 0.103  dense_small_2x: 0.101  dense_small_4x: 0.132  dense_small_8x: 0.106  kd_2x: 0.091  kd_4x: 0.092  kd_8x: 0.994
+lavan_kd_8x side 8 targeted  baseline_resnet18: 0.028  quant_2x_fp16: 0.028  quant_4x_int8: 0.026  quant_8x_int4: 0.026  prune_2x: 0.027  prune_4x: 0.022  prune_8x: 0.026  dense_small_2x: 0.029  dense_small_4x: 0.041  dense_small_8x: 0.027  kd_2x: 0.022  kd_4x: 0.034  kd_8x: 0.999
+lavan_kd_8x side 8 untargeted  baseline_resnet18: 0.104  quant_2x_fp16: 0.104  quant_4x_int8: 0.102  quant_8x_int4: 0.119  prune_2x: 0.106  prune_4x: 0.121  prune_8x: 0.116  dense_small_2x: 0.132  dense_small_4x: 0.151  dense_small_8x: 0.154  kd_2x: 0.110  kd_4x: 0.118  kd_8x: 1.000
+universal_baseline_resnet18 -> baseline_resnet18  side_5: acc 0.8112 hit 0.0671  side_8: acc 0.6116 hit 0.3531
+universal_baseline_resnet18 -> quant_2x_fp16  side_5: acc 0.8111 hit 0.0671  side_8: acc 0.6116 hit 0.3531
+universal_baseline_resnet18 -> quant_4x_int8  side_5: acc 0.8315 hit 0.0504  side_8: acc 0.6432 hit 0.3144
+universal_baseline_resnet18 -> quant_8x_int4  side_5: acc 0.8182 hit 0.0536  side_8: acc 0.6435 hit 0.3049
+universal_baseline_resnet18 -> prune_2x  side_5: acc 0.8528 hit 0.0447  side_8: acc 0.6809 hit 0.2750
+universal_baseline_resnet18 -> prune_4x  side_5: acc 0.8421 hit 0.0440  side_8: acc 0.6784 hit 0.2657
+universal_baseline_resnet18 -> prune_8x  side_5: acc 0.8428 hit 0.0507  side_8: acc 0.6692 hit 0.2856
+universal_baseline_resnet18 -> dense_small_2x  side_5: acc 0.8527 hit 0.0398  side_8: acc 0.7293 hit 0.1943
+universal_baseline_resnet18 -> dense_small_4x  side_5: acc 0.8336 hit 0.0448  side_8: acc 0.6930 hit 0.2363
+universal_baseline_resnet18 -> dense_small_8x  side_5: acc 0.8299 hit 0.0402  side_8: acc 0.7041 hit 0.1967
+universal_baseline_resnet18 -> kd_2x  side_5: acc 0.8528 hit 0.0424  side_8: acc 0.7175 hit 0.2194
+universal_baseline_resnet18 -> kd_4x  side_5: acc 0.8448 hit 0.0427  side_8: acc 0.7146 hit 0.2061
+universal_baseline_resnet18 -> kd_8x  side_5: acc 0.8166 hit 0.0482  side_8: acc 0.7117 hit 0.1892
+universal_quant_2x_fp16 -> baseline_resnet18  side_5: acc 0.8104 hit 0.0646  side_8: acc 0.6110 hit 0.3563
+universal_quant_2x_fp16 -> quant_2x_fp16  side_5: acc 0.8104 hit 0.0646  side_8: acc 0.6110 hit 0.3563
+universal_quant_2x_fp16 -> quant_4x_int8  side_5: acc 0.8351 hit 0.0494  side_8: acc 0.6421 hit 0.3163
+universal_quant_2x_fp16 -> quant_8x_int4  side_5: acc 0.8193 hit 0.0534  side_8: acc 0.6429 hit 0.3048
+universal_quant_2x_fp16 -> prune_2x  side_5: acc 0.8480 hit 0.0440  side_8: acc 0.6843 hit 0.2726
+universal_quant_2x_fp16 -> prune_4x  side_5: acc 0.8444 hit 0.0425  side_8: acc 0.6810 hit 0.2659
+universal_quant_2x_fp16 -> prune_8x  side_5: acc 0.8409 hit 0.0505  side_8: acc 0.6711 hit 0.2850
+universal_quant_2x_fp16 -> dense_small_2x  side_5: acc 0.8482 hit 0.0402  side_8: acc 0.7286 hit 0.1933
+universal_quant_2x_fp16 -> dense_small_4x  side_5: acc 0.8313 hit 0.0463  side_8: acc 0.6900 hit 0.2353
+universal_quant_2x_fp16 -> dense_small_8x  side_5: acc 0.8234 hit 0.0408  side_8: acc 0.6944 hit 0.2034
+universal_quant_2x_fp16 -> kd_2x  side_5: acc 0.8482 hit 0.0402  side_8: acc 0.7141 hit 0.2213
+universal_quant_2x_fp16 -> kd_4x  side_5: acc 0.8374 hit 0.0458  side_8: acc 0.7195 hit 0.1994
+universal_quant_2x_fp16 -> kd_8x  side_5: acc 0.8093 hit 0.0456  side_8: acc 0.7019 hit 0.1977
+universal_quant_4x_int8 -> baseline_resnet18  side_5: acc 0.8333 hit 0.0776  side_8: acc 0.6226 hit 0.3498
+universal_quant_4x_int8 -> quant_2x_fp16  side_5: acc 0.8333 hit 0.0776  side_8: acc 0.6226 hit 0.3497
+universal_quant_4x_int8 -> quant_4x_int8  side_5: acc 0.8408 hit 0.0705  side_8: acc 0.6333 hit 0.3366
+universal_quant_4x_int8 -> quant_8x_int4  side_5: acc 0.8237 hit 0.0740  side_8: acc 0.6424 hit 0.3152
+universal_quant_4x_int8 -> prune_2x  side_5: acc 0.8641 hit 0.0517  side_8: acc 0.6913 hit 0.2700
+universal_quant_4x_int8 -> prune_4x  side_5: acc 0.8527 hit 0.0588  side_8: acc 0.6864 hit 0.2657
+universal_quant_4x_int8 -> prune_8x  side_5: acc 0.8520 hit 0.0614  side_8: acc 0.6716 hit 0.2876
+universal_quant_4x_int8 -> dense_small_2x  side_5: acc 0.8529 hit 0.0486  side_8: acc 0.7419 hit 0.1849
+universal_quant_4x_int8 -> dense_small_4x  side_5: acc 0.8356 hit 0.0649  side_8: acc 0.7105 hit 0.2216
+universal_quant_4x_int8 -> dense_small_8x  side_5: acc 0.8391 hit 0.0518  side_8: acc 0.7123 hit 0.1912
+universal_quant_4x_int8 -> kd_2x  side_5: acc 0.8538 hit 0.0532  side_8: acc 0.7305 hit 0.2098
+universal_quant_4x_int8 -> kd_4x  side_5: acc 0.8501 hit 0.0522  side_8: acc 0.7366 hit 0.1868
+universal_quant_4x_int8 -> kd_8x  side_5: acc 0.8215 hit 0.0535  side_8: acc 0.7227 hit 0.1759
+universal_quant_8x_int4 -> baseline_resnet18  side_5: acc 0.8193 hit 0.0773  side_8: acc 0.6321 hit 0.3485
+universal_quant_8x_int4 -> quant_2x_fp16  side_5: acc 0.8193 hit 0.0772  side_8: acc 0.6321 hit 0.3485
+universal_quant_8x_int4 -> quant_4x_int8  side_5: acc 0.8385 hit 0.0640  side_8: acc 0.6451 hit 0.3325
+universal_quant_8x_int4 -> quant_8x_int4  side_5: acc 0.8153 hit 0.0768  side_8: acc 0.6031 hit 0.3787
+universal_quant_8x_int4 -> prune_2x  side_5: acc 0.8468 hit 0.0539  side_8: acc 0.6965 hit 0.2679
+universal_quant_8x_int4 -> prune_4x  side_5: acc 0.8357 hit 0.0629  side_8: acc 0.6818 hit 0.2775
+universal_quant_8x_int4 -> prune_8x  side_5: acc 0.8400 hit 0.0647  side_8: acc 0.6734 hit 0.2956
+universal_quant_8x_int4 -> dense_small_2x  side_5: acc 0.8498 hit 0.0494  side_8: acc 0.7320 hit 0.2041
+universal_quant_8x_int4 -> dense_small_4x  side_5: acc 0.8274 hit 0.0631  side_8: acc 0.6907 hit 0.2530
+universal_quant_8x_int4 -> dense_small_8x  side_5: acc 0.8251 hit 0.0491  side_8: acc 0.7007 hit 0.2108
+universal_quant_8x_int4 -> kd_2x  side_5: acc 0.8473 hit 0.0500  side_8: acc 0.7208 hit 0.2234
+universal_quant_8x_int4 -> kd_4x  side_5: acc 0.8398 hit 0.0552  side_8: acc 0.7224 hit 0.2111
+universal_quant_8x_int4 -> kd_8x  side_5: acc 0.8096 hit 0.0446  side_8: acc 0.7059 hit 0.1963
+universal_prune_2x -> baseline_resnet18  side_5: acc 0.8483 hit 0.0477  side_8: acc 0.6726 hit 0.2712
+universal_prune_2x -> quant_2x_fp16  side_5: acc 0.8483 hit 0.0478  side_8: acc 0.6727 hit 0.2712
+universal_prune_2x -> quant_4x_int8  side_5: acc 0.8633 hit 0.0373  side_8: acc 0.7008 hit 0.2417
+universal_prune_2x -> quant_8x_int4  side_5: acc 0.8404 hit 0.0438  side_8: acc 0.6960 hit 0.2453
+universal_prune_2x -> prune_2x  side_5: acc 0.8412 hit 0.0611  side_8: acc 0.6334 hit 0.3473
+universal_prune_2x -> prune_4x  side_5: acc 0.8557 hit 0.0483  side_8: acc 0.6934 hit 0.2560
+universal_prune_2x -> prune_8x  side_5: acc 0.8531 hit 0.0513  side_8: acc 0.6776 hit 0.2855
+universal_prune_2x -> dense_small_2x  side_5: acc 0.8597 hit 0.0367  side_8: acc 0.7472 hit 0.1770
+universal_prune_2x -> dense_small_4x  side_5: acc 0.8398 hit 0.0504  side_8: acc 0.7062 hit 0.2097
+universal_prune_2x -> dense_small_8x  side_5: acc 0.8284 hit 0.0352  side_8: acc 0.7195 hit 0.1750
+universal_prune_2x -> kd_2x  side_5: acc 0.8585 hit 0.0385  side_8: acc 0.7330 hit 0.2017
+universal_prune_2x -> kd_4x  side_5: acc 0.8556 hit 0.0352  side_8: acc 0.7412 hit 0.1663
+universal_prune_2x -> kd_8x  side_5: acc 0.8016 hit 0.0438  side_8: acc 0.7174 hit 0.1807
+universal_prune_4x -> baseline_resnet18  side_5: acc 0.8385 hit 0.0644  side_8: acc 0.6719 hit 0.2927
+universal_prune_4x -> quant_2x_fp16  side_5: acc 0.8384 hit 0.0644  side_8: acc 0.6719 hit 0.2927
+universal_prune_4x -> quant_4x_int8  side_5: acc 0.8509 hit 0.0565  side_8: acc 0.6926 hit 0.2645
+universal_prune_4x -> quant_8x_int4  side_5: acc 0.8308 hit 0.0601  side_8: acc 0.6691 hit 0.2841
+universal_prune_4x -> prune_2x  side_5: acc 0.8523 hit 0.0566  side_8: acc 0.6989 hit 0.2641
+universal_prune_4x -> prune_4x  side_5: acc 0.8327 hit 0.0702  side_8: acc 0.6325 hit 0.3426
+universal_prune_4x -> prune_8x  side_5: acc 0.8507 hit 0.0542  side_8: acc 0.6804 hit 0.2820
+universal_prune_4x -> dense_small_2x  side_5: acc 0.8454 hit 0.0527  side_8: acc 0.7385 hit 0.1923
+universal_prune_4x -> dense_small_4x  side_5: acc 0.8321 hit 0.0610  side_8: acc 0.7064 hit 0.2175
+universal_prune_4x -> dense_small_8x  side_5: acc 0.8409 hit 0.0419  side_8: acc 0.7119 hit 0.1952
+universal_prune_4x -> kd_2x  side_5: acc 0.8523 hit 0.0478  side_8: acc 0.7289 hit 0.2183
+universal_prune_4x -> kd_4x  side_5: acc 0.8477 hit 0.0479  side_8: acc 0.7406 hit 0.1853
+universal_prune_4x -> kd_8x  side_5: acc 0.8120 hit 0.0448  side_8: acc 0.7142 hit 0.1874
+universal_prune_8x -> baseline_resnet18  side_5: acc 0.8440 hit 0.0338  side_8: acc 0.6750 hit 0.2853
+universal_prune_8x -> quant_2x_fp16  side_5: acc 0.8440 hit 0.0338  side_8: acc 0.6750 hit 0.2853
+universal_prune_8x -> quant_4x_int8  side_5: acc 0.8641 hit 0.0272  side_8: acc 0.7011 hit 0.2489
+universal_prune_8x -> quant_8x_int4  side_5: acc 0.8413 hit 0.0326  side_8: acc 0.6789 hit 0.2662
+universal_prune_8x -> prune_2x  side_5: acc 0.8527 hit 0.0358  side_8: acc 0.7096 hit 0.2447
+universal_prune_8x -> prune_4x  side_5: acc 0.8554 hit 0.0311  side_8: acc 0.6976 hit 0.2497
+universal_prune_8x -> prune_8x  side_5: acc 0.8429 hit 0.0462  side_8: acc 0.6382 hit 0.3373
+universal_prune_8x -> dense_small_2x  side_5: acc 0.8521 hit 0.0211  side_8: acc 0.7575 hit 0.1638
+universal_prune_8x -> dense_small_4x  side_5: acc 0.8305 hit 0.0329  side_8: acc 0.7259 hit 0.1909
+universal_prune_8x -> dense_small_8x  side_5: acc 0.8210 hit 0.0293  side_8: acc 0.7085 hit 0.1874
+universal_prune_8x -> kd_2x  side_5: acc 0.8645 hit 0.0252  side_8: acc 0.7468 hit 0.1877
+universal_prune_8x -> kd_4x  side_5: acc 0.8480 hit 0.0280  side_8: acc 0.7570 hit 0.1609
+universal_prune_8x -> kd_8x  side_5: acc 0.7937 hit 0.0364  side_8: acc 0.7254 hit 0.1677
+universal_dense_small_2x -> baseline_resnet18  side_5: acc 0.8513 hit 0.0431  side_8: acc 0.7583 hit 0.1499
+universal_dense_small_2x -> quant_2x_fp16  side_5: acc 0.8513 hit 0.0431  side_8: acc 0.7583 hit 0.1500
+universal_dense_small_2x -> quant_4x_int8  side_5: acc 0.8669 hit 0.0387  side_8: acc 0.7724 hit 0.1385
+universal_dense_small_2x -> quant_8x_int4  side_5: acc 0.8456 hit 0.0456  side_8: acc 0.7443 hit 0.1596
+universal_dense_small_2x -> prune_2x  side_5: acc 0.8613 hit 0.0345  side_8: acc 0.7662 hit 0.1384
+universal_dense_small_2x -> prune_4x  side_5: acc 0.8576 hit 0.0422  side_8: acc 0.7620 hit 0.1381
+universal_dense_small_2x -> prune_8x  side_5: acc 0.8632 hit 0.0356  side_8: acc 0.7666 hit 0.1393
+universal_dense_small_2x -> dense_small_2x  side_5: acc 0.7892 hit 0.0814  side_8: acc 0.6011 hit 0.3313
+universal_dense_small_2x -> dense_small_4x  side_5: acc 0.8051 hit 0.0616  side_8: acc 0.6992 hit 0.1931
+universal_dense_small_2x -> dense_small_8x  side_5: acc 0.8206 hit 0.0483  side_8: acc 0.7163 hit 0.1688
+universal_dense_small_2x -> kd_2x  side_5: acc 0.8468 hit 0.0424  side_8: acc 0.7407 hit 0.1738
+universal_dense_small_2x -> kd_4x  side_5: acc 0.8362 hit 0.0439  side_8: acc 0.7324 hit 0.1717
+universal_dense_small_2x -> kd_8x  side_5: acc 0.7823 hit 0.0472  side_8: acc 0.7113 hit 0.1492
+universal_dense_small_4x -> baseline_resnet18  side_5: acc 0.8552 hit 0.0486  side_8: acc 0.7882 hit 0.1100
+universal_dense_small_4x -> quant_2x_fp16  side_5: acc 0.8551 hit 0.0487  side_8: acc 0.7882 hit 0.1100
+universal_dense_small_4x -> quant_4x_int8  side_5: acc 0.8686 hit 0.0425  side_8: acc 0.8000 hit 0.1028
+universal_dense_small_4x -> quant_8x_int4  side_5: acc 0.8494 hit 0.0469  side_8: acc 0.7696 hit 0.1259
+universal_dense_small_4x -> prune_2x  side_5: acc 0.8713 hit 0.0376  side_8: acc 0.7909 hit 0.1057
+universal_dense_small_4x -> prune_4x  side_5: acc 0.8590 hit 0.0445  side_8: acc 0.7840 hit 0.1162
+universal_dense_small_4x -> prune_8x  side_5: acc 0.8642 hit 0.0407  side_8: acc 0.7889 hit 0.1111
+universal_dense_small_4x -> dense_small_2x  side_5: acc 0.8350 hit 0.0570  side_8: acc 0.7449 hit 0.1492
+universal_dense_small_4x -> dense_small_4x  side_5: acc 0.7590 hit 0.1036  side_8: acc 0.5676 hit 0.3749
+universal_dense_small_4x -> dense_small_8x  side_5: acc 0.8248 hit 0.0541  side_8: acc 0.6973 hit 0.1656
+universal_dense_small_4x -> kd_2x  side_5: acc 0.8574 hit 0.0482  side_8: acc 0.7703 hit 0.1357
+universal_dense_small_4x -> kd_4x  side_5: acc 0.8455 hit 0.0484  side_8: acc 0.7541 hit 0.1426
+universal_dense_small_4x -> kd_8x  side_5: acc 0.8071 hit 0.0464  side_8: acc 0.7274 hit 0.1302
+universal_dense_small_8x -> baseline_resnet18  side_5: acc 0.8459 hit 0.0437  side_8: acc 0.7773 hit 0.1240
+universal_dense_small_8x -> quant_2x_fp16  side_5: acc 0.8458 hit 0.0437  side_8: acc 0.7774 hit 0.1240
+universal_dense_small_8x -> quant_4x_int8  side_5: acc 0.8570 hit 0.0399  side_8: acc 0.7895 hit 0.1169
+universal_dense_small_8x -> quant_8x_int4  side_5: acc 0.8358 hit 0.0450  side_8: acc 0.7571 hit 0.1434
+universal_dense_small_8x -> prune_2x  side_5: acc 0.8620 hit 0.0326  side_8: acc 0.7853 hit 0.1113
+universal_dense_small_8x -> prune_4x  side_5: acc 0.8611 hit 0.0386  side_8: acc 0.7888 hit 0.1132
+universal_dense_small_8x -> prune_8x  side_5: acc 0.8613 hit 0.0345  side_8: acc 0.7822 hit 0.1192
+universal_dense_small_8x -> dense_small_2x  side_5: acc 0.8405 hit 0.0472  side_8: acc 0.7490 hit 0.1568
+universal_dense_small_8x -> dense_small_4x  side_5: acc 0.8147 hit 0.0592  side_8: acc 0.6863 hit 0.2028
+universal_dense_small_8x -> dense_small_8x  side_5: acc 0.7581 hit 0.0877  side_8: acc 0.5294 hit 0.3973
+universal_dense_small_8x -> kd_2x  side_5: acc 0.8477 hit 0.0400  side_8: acc 0.7742 hit 0.1344
+universal_dense_small_8x -> kd_4x  side_5: acc 0.8341 hit 0.0447  side_8: acc 0.7422 hit 0.1573
+universal_dense_small_8x -> kd_8x  side_5: acc 0.7897 hit 0.0441  side_8: acc 0.7236 hit 0.1341
+universal_kd_2x -> baseline_resnet18  side_5: acc 0.8454 hit 0.0477  side_8: acc 0.7207 hit 0.2083
+universal_kd_2x -> quant_2x_fp16  side_5: acc 0.8454 hit 0.0476  side_8: acc 0.7206 hit 0.2084
+universal_kd_2x -> quant_4x_int8  side_5: acc 0.8612 hit 0.0420  side_8: acc 0.7366 hit 0.1927
+universal_kd_2x -> quant_8x_int4  side_5: acc 0.8388 hit 0.0467  side_8: acc 0.7129 hit 0.2103
+universal_kd_2x -> prune_2x  side_5: acc 0.8577 hit 0.0401  side_8: acc 0.7437 hit 0.1819
+universal_kd_2x -> prune_4x  side_5: acc 0.8555 hit 0.0409  side_8: acc 0.7357 hit 0.1833
+universal_kd_2x -> prune_8x  side_5: acc 0.8599 hit 0.0416  side_8: acc 0.7301 hit 0.1965
+universal_kd_2x -> dense_small_2x  side_5: acc 0.8327 hit 0.0530  side_8: acc 0.7053 hit 0.2156
+universal_kd_2x -> dense_small_4x  side_5: acc 0.8015 hit 0.0607  side_8: acc 0.6663 hit 0.2453
+universal_kd_2x -> dense_small_8x  side_5: acc 0.8065 hit 0.0518  side_8: acc 0.6839 hit 0.1947
+universal_kd_2x -> kd_2x  side_5: acc 0.8039 hit 0.0759  side_8: acc 0.6135 hit 0.3475
+universal_kd_2x -> kd_4x  side_5: acc 0.8336 hit 0.0498  side_8: acc 0.6976 hit 0.2239
+universal_kd_2x -> kd_8x  side_5: acc 0.7752 hit 0.0504  side_8: acc 0.6954 hit 0.1847
+universal_kd_4x -> baseline_resnet18  side_5: acc 0.8509 hit 0.0486  side_8: acc 0.7455 hit 0.1714
+universal_kd_4x -> quant_2x_fp16  side_5: acc 0.8509 hit 0.0487  side_8: acc 0.7455 hit 0.1715
+universal_kd_4x -> quant_4x_int8  side_5: acc 0.8635 hit 0.0442  side_8: acc 0.7569 hit 0.1653
+universal_kd_4x -> quant_8x_int4  side_5: acc 0.8465 hit 0.0484  side_8: acc 0.7323 hit 0.1856
+universal_kd_4x -> prune_2x  side_5: acc 0.8659 hit 0.0369  side_8: acc 0.7726 hit 0.1379
+universal_kd_4x -> prune_4x  side_5: acc 0.8645 hit 0.0419  side_8: acc 0.7610 hit 0.1465
+universal_kd_4x -> prune_8x  side_5: acc 0.8647 hit 0.0401  side_8: acc 0.7576 hit 0.1497
+universal_kd_4x -> dense_small_2x  side_5: acc 0.8441 hit 0.0531  side_8: acc 0.7227 hit 0.1900
+universal_kd_4x -> dense_small_4x  side_5: acc 0.8211 hit 0.0605  side_8: acc 0.6898 hit 0.2127
+universal_kd_4x -> dense_small_8x  side_5: acc 0.8194 hit 0.0556  side_8: acc 0.6928 hit 0.1859
+universal_kd_4x -> kd_2x  side_5: acc 0.8580 hit 0.0443  side_8: acc 0.7353 hit 0.1916
+universal_kd_4x -> kd_4x  side_5: acc 0.8117 hit 0.0774  side_8: acc 0.6150 hit 0.3519
+universal_kd_4x -> kd_8x  side_5: acc 0.7981 hit 0.0480  side_8: acc 0.6971 hit 0.1740
+universal_kd_8x -> baseline_resnet18  side_5: acc 0.8438 hit 0.0352  side_8: acc 0.7745 hit 0.1392
+universal_kd_8x -> quant_2x_fp16  side_5: acc 0.8438 hit 0.0352  side_8: acc 0.7745 hit 0.1393
+universal_kd_8x -> quant_4x_int8  side_5: acc 0.8642 hit 0.0315  side_8: acc 0.7870 hit 0.1281
+universal_kd_8x -> quant_8x_int4  side_5: acc 0.8454 hit 0.0331  side_8: acc 0.7588 hit 0.1502
+universal_kd_8x -> prune_2x  side_5: acc 0.8522 hit 0.0317  side_8: acc 0.7845 hit 0.1269
+universal_kd_8x -> prune_4x  side_5: acc 0.8574 hit 0.0311  side_8: acc 0.7877 hit 0.1161
+universal_kd_8x -> prune_8x  side_5: acc 0.8576 hit 0.0309  side_8: acc 0.7867 hit 0.1219
+universal_kd_8x -> dense_small_2x  side_5: acc 0.8346 hit 0.0377  side_8: acc 0.7575 hit 0.1572
+universal_kd_8x -> dense_small_4x  side_5: acc 0.8099 hit 0.0437  side_8: acc 0.7336 hit 0.1741
+universal_kd_8x -> dense_small_8x  side_5: acc 0.8060 hit 0.0419  side_8: acc 0.7123 hit 0.1672
+universal_kd_8x -> kd_2x  side_5: acc 0.8454 hit 0.0341  side_8: acc 0.7655 hit 0.1504
+universal_kd_8x -> kd_4x  side_5: acc 0.8360 hit 0.0376  side_8: acc 0.7578 hit 0.1531
+universal_kd_8x -> kd_8x  side_5: acc 0.7071 hit 0.0717  side_8: acc 0.5694 hit 0.3873
+universal_physical_baseline_resnet18 -> baseline_resnet18  side_8: acc 0.7161 hit 0.2118
+universal_physical_baseline_resnet18 -> quant_4x_int8  side_8: acc 0.7348 hit 0.1939
+universal_physical_baseline_resnet18 -> prune_4x  side_8: acc 0.7554 hit 0.1669
+universal_physical_baseline_resnet18 -> dense_small_4x  side_8: acc 0.7567 hit 0.1413
+universal_physical_baseline_resnet18 -> kd_4x  side_8: acc 0.7787 hit 0.1236
+universal_physical_quant_4x_int8 -> baseline_resnet18  side_8: acc 0.7171 hit 0.2302
+universal_physical_quant_4x_int8 -> quant_4x_int8  side_8: acc 0.7280 hit 0.2182
+universal_physical_quant_4x_int8 -> prune_4x  side_8: acc 0.7543 hit 0.1769
+universal_physical_quant_4x_int8 -> dense_small_4x  side_8: acc 0.7656 hit 0.1418
+universal_physical_quant_4x_int8 -> kd_4x  side_8: acc 0.7796 hit 0.1314
+universal_physical_prune_4x -> baseline_resnet18  side_8: acc 0.7185 hit 0.2343
+universal_physical_prune_4x -> quant_4x_int8  side_8: acc 0.7313 hit 0.2190
+universal_physical_prune_4x -> prune_4x  side_8: acc 0.7083 hit 0.2456
+universal_physical_prune_4x -> dense_small_4x  side_8: acc 0.7533 hit 0.1705
+universal_physical_prune_4x -> kd_4x  side_8: acc 0.7723 hit 0.1452
+universal_physical_dense_small_4x -> baseline_resnet18  side_8: acc 0.8102 hit 0.0935
+universal_physical_dense_small_4x -> quant_4x_int8  side_8: acc 0.8138 hit 0.0909
+universal_physical_dense_small_4x -> prune_4x  side_8: acc 0.8086 hit 0.0935
+universal_physical_dense_small_4x -> dense_small_4x  side_8: acc 0.6908 hit 0.2189
+universal_physical_dense_small_4x -> kd_4x  side_8: acc 0.7955 hit 0.0950
+universal_physical_kd_4x -> baseline_resnet18  side_8: acc 0.7598 hit 0.1628
+universal_physical_kd_4x -> quant_4x_int8  side_8: acc 0.7695 hit 0.1507
+universal_physical_kd_4x -> prune_4x  side_8: acc 0.7794 hit 0.1321
+universal_physical_kd_4x -> dense_small_4x  side_8: acc 0.7315 hit 0.1648
+universal_physical_kd_4x -> kd_4x  side_8: acc 0.7010 hit 0.2207
+saved results\transfer.json

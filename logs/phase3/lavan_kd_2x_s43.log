@@ -1,0 +1,5 @@
+size 5 untargeted  whitebox: {'success_on_correct': 0.8887722492218018, 'robust_acc': 0.10600000619888306}  effective: {'success_on_correct': 0.8887722492218018, 'robust_acc': 0.10600000619888306}
+size 5 targeted  whitebox: {'success_on_correct': 0.533053457736969, 'patched_acc': 0.445000022649765}  effective: {'success_on_correct': 0.533053457736969, 'patched_acc': 0.445000022649765}
+size 8 untargeted  whitebox: {'success_on_correct': 0.9958027005195618, 'robust_acc': 0.004000000189989805}  effective: {'success_on_correct': 0.9958027005195618, 'robust_acc': 0.004000000189989805}
+size 8 targeted  whitebox: {'success_on_correct': 0.956977903842926, 'patched_acc': 0.04100000113248825}  effective: {'success_on_correct': 0.956977903842926, 'patched_acc': 0.04100000113248825}
+saved results\lavan_kd_2x_s43.json

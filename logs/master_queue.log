@@ -1,0 +1,23 @@
+[start] baseline_resnet18_def  (src.train)  18:57:18
+[done] baseline_resnet18_def  97.2 min
+[start] quant_2x_fp16_def  (src.compress.quantize)  20:34:31
+[done] quant_2x_fp16_def  1.6 min
+[start] quant_4x_int8_def  (src.compress.quantize)  20:36:09
+[done] quant_4x_int8_def  1.7 min
+[start] quant_8x_int4_def  (src.compress.quantize)  20:37:49
+[done] quant_8x_int4_def  13.3 min
+[start] prune_2x_def  (src.compress.prune)  20:51:10
+[done] prune_2x_def  20.8 min
+[start] prune_4x_def  (src.compress.prune)  21:12:01
+[done] prune_4x_def  20.9 min
+[start] prune_8x_def  (src.compress.prune)  21:32:52
+[done] prune_8x_def  20.8 min
+[start] dense_small_2x_def  (src.train)  21:53:40
+[done] dense_small_2x_def  91.7 min
+[start] dense_small_4x_def  (src.train)  23:25:21
+[done] dense_small_4x_def  75.1 min
+[start] dense_small_8x_def  (src.train)  00:40:29
+
+[resumed after unexpected shutdown] 2026-10-10 12:47:31
+[relaunch failed: cmd line too long; continuing in logs/master_queue_2.log]
+[continued in logs/master_queue_2.log, 2026-10-10 12:49]

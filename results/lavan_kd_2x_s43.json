@@ -1,0 +1,111 @@
+{
+  "run": "lavan_kd_2x_s43",
+  "model": "resnet18",
+  "compression": {
+    "method": "distill",
+    "ratio": 2.0,
+    "temperature": 4.0,
+    "alpha": 0.9
+  },
+  "attack": {
+    "name": "lavan",
+    "sizes": [
+      5,
+      8
+    ],
+    "modes": [
+      "untargeted",
+      "targeted"
+    ],
+    "steps": 100,
+    "step_size": 0.05,
+    "restarts": 10,
+    "batch": 500,
+    "surrogate": false
+  },
+  "defense": null,
+  "metrics": {
+    "model_run": "kd_2x_s43",
+    "clean_acc_subset": 0.953,
+    "side_5_untargeted": {
+      "area_frac": 0.0244140625,
+      "effective_from": "whitebox",
+      "whitebox": {
+        "success_on_correct": 0.8887722492218018,
+        "robust_acc": 0.10600000619888306
+      },
+      "effective": {
+        "success_on_correct": 0.8887722492218018,
+        "robust_acc": 0.10600000619888306
+      }
+    },
+    "side_5_targeted": {
+      "area_frac": 0.0244140625,
+      "effective_from": "whitebox",
+      "whitebox": {
+        "success_on_correct": 0.533053457736969,
+        "patched_acc": 0.445000022649765
+      },
+      "effective": {
+        "success_on_correct": 0.533053457736969,
+        "patched_acc": 0.445000022649765
+      }
+    },
+    "side_8_untargeted": {
+      "area_frac": 0.0625,
+      "effective_from": "whitebox",
+      "whitebox": {
+        "success_on_correct": 0.9958027005195618,
+        "robust_acc": 0.004000000189989805
+      },
+      "effective": {
+        "success_on_correct": 0.9958027005195618,
+        "robust_acc": 0.004000000189989805
+      }
+    },
+    "side_8_targeted": {
+      "area_frac": 0.0625,
+      "effective_from": "whitebox",
+      "whitebox": {
+        "success_on_correct": 0.956977903842926,
+        "patched_acc": 0.04100000113248825
+      },
+      "effective": {
+        "success_on_correct": 0.956977903842926,
+        "patched_acc": 0.04100000113248825
+      }
+    }
+  },
+  "config": {
+    "run_name": "lavan_kd_2x_s43",
+    "model_config": "configs/seed43/phase2/10_kd_2x.yaml",
+    "seed": 0,
+    "data_root": "./data",
+    "num_workers": 8,
+    "attack": {
+      "name": "lavan",
+      "sizes": [
+        5,
+        8
+      ],
+      "modes": [
+        "untargeted",
+        "targeted"
+      ],
+      "steps": 100,
+      "step_size": 0.05,
+      "restarts": 10,
+      "batch": 500,
+      "surrogate": false
+    },
+    "model": "resnet18",
+    "compression": {
+      "method": "distill",
+      "ratio": 2.0,
+      "temperature": 4.0,
+      "alpha": 0.9
+    }
+  },
+  "device": "NVIDIA RTX A4000",
+  "timestamp": "2026-10-12T21:03:46.869687+00:00"
+}

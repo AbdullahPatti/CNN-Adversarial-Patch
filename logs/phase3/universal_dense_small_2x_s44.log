@@ -1,0 +1,21 @@
+size 5 target 0  whitebox: acc 0.7196 hit 0.1900
+size 5 target 1  whitebox: acc 0.7334 hit 0.0140
+size 5 target 2  whitebox: acc 0.7525 hit 0.1762
+size 5 target 3  whitebox: acc 0.8221 hit 0.1450
+size 5 target 4  whitebox: acc 0.8114 hit 0.0163
+size 5 target 5  whitebox: acc 0.6815 hit 0.3318
+size 5 target 6  whitebox: acc 0.8080 hit 0.0054
+size 5 target 7  whitebox: acc 0.7343 hit 0.0010
+size 5 target 8  whitebox: acc 0.7346 hit 0.0018
+size 5 target 9  whitebox: acc 0.7562 hit 0.0023
+size 8 target 0  whitebox: acc 0.4464 hit 0.5543
+size 8 target 1  whitebox: acc 0.5745 hit 0.3497
+size 8 target 2  whitebox: acc 0.5225 hit 0.5039
+size 8 target 3  whitebox: acc 0.3876 hit 0.6706
+size 8 target 4  whitebox: acc 0.5715 hit 0.0007
+size 8 target 5  whitebox: acc 0.2937 hit 0.7806
+size 8 target 6  whitebox: acc 0.6132 hit 0.3900
+size 8 target 7  whitebox: acc 0.7215 hit 0.0577
+size 8 target 8  whitebox: acc 0.7583 hit 0.1474
+size 8 target 9  whitebox: acc 0.6255 hit 0.3664
+saved results\universal_dense_small_2x_s44.json

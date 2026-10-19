@@ -1,0 +1,12 @@
+run_name: pc_kd_8x_s44_def
+model_config: configs/seed44_def/phase2/12_kd_8x.yaml
+seed: 0
+data_root: ./data
+num_workers: 0
+defense:
+  name: patchcleanser
+  sizes:
+  - 5
+  - 8
+  k: 6
+  fine_tuned: true

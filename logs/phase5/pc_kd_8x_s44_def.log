@@ -1,0 +1,3 @@
+side 5: 36 masks of 9px  certified 0.6420  defended clean 0.9490  one-mask 0.9490 (worst 0.9320)  two-mask 0.9406
+side 8: 25 masks of 12px  certified 0.4780  defended clean 0.9430  one-mask 0.9387 (worst 0.9050)  two-mask 0.9151
+saved results\pc_kd_8x_s44_def.json

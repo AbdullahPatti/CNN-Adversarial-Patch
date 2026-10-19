@@ -1,0 +1,43 @@
+sparsity 0.5000  acc after one-shot prune 0.9517
+epoch 1/40  loss 0.0067  test_acc 0.9404  best 0.9404
+epoch 2/40  loss 0.0283  test_acc 0.9106  best 0.9404
+epoch 3/40  loss 0.0510  test_acc 0.8818  best 0.9404
+epoch 4/40  loss 0.0501  test_acc 0.9301  best 0.9404
+epoch 5/40  loss 0.0465  test_acc 0.9163  best 0.9404
+epoch 6/40  loss 0.0438  test_acc 0.9242  best 0.9404
+epoch 7/40  loss 0.0424  test_acc 0.9287  best 0.9404
+epoch 8/40  loss 0.0377  test_acc 0.9275  best 0.9404
+epoch 9/40  loss 0.0345  test_acc 0.9340  best 0.9404
+epoch 10/40  loss 0.0315  test_acc 0.9278  best 0.9404
+epoch 11/40  loss 0.0269  test_acc 0.9342  best 0.9404
+epoch 12/40  loss 0.0245  test_acc 0.9322  best 0.9404
+epoch 13/40  loss 0.0232  test_acc 0.9355  best 0.9404
+epoch 14/40  loss 0.0183  test_acc 0.9361  best 0.9404
+epoch 15/40  loss 0.0162  test_acc 0.9379  best 0.9404
+epoch 16/40  loss 0.0174  test_acc 0.9388  best 0.9404
+epoch 17/40  loss 0.0119  test_acc 0.9427  best 0.9427
+epoch 18/40  loss 0.0102  test_acc 0.9429  best 0.9429
+epoch 19/40  loss 0.0072  test_acc 0.9427  best 0.9429
+epoch 20/40  loss 0.0057  test_acc 0.9464  best 0.9464
+epoch 21/40  loss 0.0044  test_acc 0.9448  best 0.9464
+epoch 22/40  loss 0.0050  test_acc 0.9452  best 0.9464
+epoch 23/40  loss 0.0038  test_acc 0.9465  best 0.9465
+epoch 24/40  loss 0.0030  test_acc 0.9493  best 0.9493
+epoch 25/40  loss 0.0027  test_acc 0.9507  best 0.9507
+epoch 26/40  loss 0.0027  test_acc 0.9522  best 0.9522
+epoch 27/40  loss 0.0024  test_acc 0.9521  best 0.9522
+epoch 28/40  loss 0.0022  test_acc 0.9522  best 0.9522
+epoch 29/40  loss 0.0020  test_acc 0.9509  best 0.9522
+epoch 30/40  loss 0.0018  test_acc 0.9514  best 0.9522
+epoch 31/40  loss 0.0017  test_acc 0.9521  best 0.9522
+epoch 32/40  loss 0.0019  test_acc 0.9511  best 0.9522
+epoch 33/40  loss 0.0017  test_acc 0.9520  best 0.9522
+epoch 34/40  loss 0.0017  test_acc 0.9523  best 0.9523
+epoch 35/40  loss 0.0017  test_acc 0.9517  best 0.9523
+epoch 36/40  loss 0.0017  test_acc 0.9519  best 0.9523
+epoch 37/40  loss 0.0017  test_acc 0.9524  best 0.9524
+epoch 38/40  loss 0.0018  test_acc 0.9531  best 0.9531
+epoch 39/40  loss 0.0018  test_acc 0.9522  best 0.9531
+epoch 40/40  loss 0.0017  test_acc 0.9522  best 0.9531
+{'clean_acc': 0.9522, 'params': 11173962, 'nonzero_params': 5591786, 'size_mb_fp32': 42.662078857421875, 'latency_ms_bs1': 1.6372294999928272, 'size_mb_compressed': 22.661865234375, 'ratio_vs_baseline': 1.8809255922562296, 'weight_sparsity': 0.5, 'acc_after_prune_before_ft': 0.9517}
+saved results\prune_2x_s44.json

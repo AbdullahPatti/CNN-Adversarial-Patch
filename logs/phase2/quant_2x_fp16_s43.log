@@ -1,0 +1,4 @@
+fp32 0.9514  bn-folded 0.9514
+PTQ W16A16  acc 0.9514
+{'clean_acc': 0.9514, 'params': 11169162, 'nonzero_params': 11169162, 'size_mb_fp32': 42.60717487335205, 'latency_ms_bs1': 2.3594560000128695, 'size_mb_compressed': 21.312660217285156, 'ratio_vs_baseline': 1.9999982101261753, 'acc_bn_folded_fp32': 0.9514, 'acc_ptq': 0.9514}
+saved results\quant_2x_fp16_s43.json

@@ -1,0 +1,12 @@
+run_name: pc_dense_small_8x_s43_def
+model_config: configs/seed43_def/phase2/09_dense_small_8x.yaml
+seed: 0
+data_root: ./data
+num_workers: 0
+defense:
+  name: patchcleanser
+  sizes:
+  - 5
+  - 8
+  k: 6
+  fine_tuned: true

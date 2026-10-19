@@ -1,0 +1,3 @@
+side 5: 36 masks of 9px  certified 0.1010  defended clean 0.9190  one-mask 0.9083 (worst 0.7730)  two-mask 0.8265
+side 8: 25 masks of 12px  certified 0.0190  defended clean 0.8860  one-mask 0.8354 (worst 0.5720)  two-mask 0.6750
+saved results\pc_prune_8x_s44.json

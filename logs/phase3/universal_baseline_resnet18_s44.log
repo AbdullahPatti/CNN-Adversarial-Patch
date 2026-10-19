@@ -1,0 +1,21 @@
+size 5 target 0  whitebox: acc 0.7935 hit 0.0816
+size 5 target 1  whitebox: acc 0.8342 hit 0.0518
+size 5 target 2  whitebox: acc 0.7981 hit 0.1766
+size 5 target 3  whitebox: acc 0.8142 hit 0.0392
+size 5 target 4  whitebox: acc 0.8408 hit 0.0297
+size 5 target 5  whitebox: acc 0.7763 hit 0.2169
+size 5 target 6  whitebox: acc 0.8441 hit 0.0988
+size 5 target 7  whitebox: acc 0.7897 hit 0.0021
+size 5 target 8  whitebox: acc 0.8046 hit 0.0030
+size 5 target 9  whitebox: acc 0.9034 hit 0.0261
+size 8 target 0  whitebox: acc 0.5871 hit 0.3849
+size 8 target 1  whitebox: acc 0.6184 hit 0.3833
+size 8 target 2  whitebox: acc 0.5641 hit 0.4613
+size 8 target 3  whitebox: acc 0.4908 hit 0.5546
+size 8 target 4  whitebox: acc 0.5580 hit 0.4697
+size 8 target 5  whitebox: acc 0.5019 hit 0.5402
+size 8 target 6  whitebox: acc 0.5591 hit 0.4592
+size 8 target 7  whitebox: acc 0.6912 hit 0.2673
+size 8 target 8  whitebox: acc 0.7935 hit 0.1337
+size 8 target 9  whitebox: acc 0.6295 hit 0.3701
+saved results\universal_baseline_resnet18_s44.json

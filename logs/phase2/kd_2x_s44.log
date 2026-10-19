@@ -1,0 +1,39 @@
+teacher acc 0.9518
+resumed from checkpoints\kd_2x_s44.resume.pt after epoch 165  best 0.9431
+epoch 166/200  loss 0.0846  test_acc 0.9433  best 0.9433
+epoch 167/200  loss 0.0854  test_acc 0.9449  best 0.9449
+epoch 168/200  loss 0.0831  test_acc 0.9440  best 0.9449
+epoch 169/200  loss 0.0788  test_acc 0.9470  best 0.9470
+epoch 170/200  loss 0.0720  test_acc 0.9458  best 0.9470
+epoch 171/200  loss 0.0685  test_acc 0.9468  best 0.9470
+epoch 172/200  loss 0.0674  test_acc 0.9491  best 0.9491
+epoch 173/200  loss 0.0643  test_acc 0.9478  best 0.9491
+epoch 174/200  loss 0.0625  test_acc 0.9505  best 0.9505
+epoch 175/200  loss 0.0614  test_acc 0.9515  best 0.9515
+epoch 176/200  loss 0.0607  test_acc 0.9501  best 0.9515
+epoch 177/200  loss 0.0601  test_acc 0.9499  best 0.9515
+epoch 178/200  loss 0.0592  test_acc 0.9500  best 0.9515
+epoch 179/200  loss 0.0581  test_acc 0.9497  best 0.9515
+epoch 180/200  loss 0.0574  test_acc 0.9508  best 0.9515
+epoch 181/200  loss 0.0567  test_acc 0.9507  best 0.9515
+epoch 182/200  loss 0.0564  test_acc 0.9516  best 0.9516
+epoch 183/200  loss 0.0549  test_acc 0.9519  best 0.9519
+epoch 184/200  loss 0.0552  test_acc 0.9512  best 0.9519
+epoch 185/200  loss 0.0544  test_acc 0.9520  best 0.9520
+epoch 186/200  loss 0.0546  test_acc 0.9513  best 0.9520
+epoch 187/200  loss 0.0533  test_acc 0.9509  best 0.9520
+epoch 188/200  loss 0.0537  test_acc 0.9520  best 0.9520
+epoch 189/200  loss 0.0531  test_acc 0.9517  best 0.9520
+epoch 190/200  loss 0.0529  test_acc 0.9522  best 0.9522
+epoch 191/200  loss 0.0522  test_acc 0.9524  best 0.9524
+epoch 192/200  loss 0.0528  test_acc 0.9523  best 0.9524
+epoch 193/200  loss 0.0518  test_acc 0.9529  best 0.9529
+epoch 194/200  loss 0.0514  test_acc 0.9522  best 0.9529
+epoch 195/200  loss 0.0521  test_acc 0.9523  best 0.9529
+epoch 196/200  loss 0.0516  test_acc 0.9517  best 0.9529
+epoch 197/200  loss 0.0530  test_acc 0.9517  best 0.9529
+epoch 198/200  loss 0.0521  test_acc 0.9519  best 0.9529
+epoch 199/200  loss 0.0519  test_acc 0.9522  best 0.9529
+epoch 200/200  loss 0.0521  test_acc 0.9517  best 0.9529
+{'clean_acc': 0.9517, 'params': 5527675, 'nonzero_params': 5527675, 'size_mb_fp32': 21.11233139038086, 'latency_ms_bs1': 1.789313499994023, 'size_mb_compressed': 21.086406707763672, 'ratio_vs_baseline': 2.0214578462011605}
+saved results\kd_2x_s44.json

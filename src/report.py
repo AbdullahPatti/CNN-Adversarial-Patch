@@ -3,6 +3,8 @@
 Part 2: one row per trained model. Part 3: one row per attacked model, universal + LaVAN combined;
 attack numbers are the "effective" ones (worse of white-box and FP32-surrogate for quantized models).
 Part 3 ablation: physical-EOT universal patch vs location-only, side 8.
+Part 4: transfer matrices (rows = source of the patch, columns = model it is pasted on) and a
+full <-> compressed summary.
 
 Usage:  python -m src.report
 """
@@ -64,10 +66,51 @@ def physical_table(records):
         print(f"| {model} | " + " | ".join(_pct(v) for v in cells) + " |")
 
 
+SHORT = {"baseline_resnet18": "base", "quant_2x_fp16": "fp16", "quant_4x_int8": "int8", "quant_8x_int4": "int4",
+         "prune_2x": "pr2", "prune_4x": "pr4", "prune_8x": "pr8", "dense_small_2x": "ds2", "dense_small_4x": "ds4",
+         "dense_small_8x": "ds8", "kd_2x": "kd2", "kd_4x": "kd4", "kd_8x": "kd8"}
+
+
+def _matrix(title, mat, cell):
+    models = list(mat)
+    cols = list(next(iter(mat.values())))
+    print(f"{title}\n")
+    print("| source \\ target | " + " | ".join(SHORT.get(c, c) for c in cols) + " |")
+    print("|---" * (len(cols) + 1) + "|")
+    for s in models:
+        print(f"| {SHORT.get(s, s)} | " + " | ".join(_pct(cell(mat[s][t])) for t in cols) + " |")
+    print()
+
+
+def transfer_tables(r):
+    m = r["metrics"]
+    u8 = lambda c: c["side_8"]["target_success"]["mean"]
+    l5 = lambda c: c["side_5_untargeted"]["transfer_rate"]
+    _matrix("Universal side 8, target hit rate (%)", m["universal"], u8)
+    _matrix("LaVAN side 5 untargeted, transfer rate (%)", m["lavan"], l5)
+    if "universal_physical" in m:
+        _matrix("Physical-EOT universal side 8, target hit rate (%)", m["universal_physical"], u8)
+    base = m["models"][0]
+    print("Full <-> compressed (white-box = diagonal; LaVAN noise = random patch at the same locations)\n")
+    print("| Model | U8 hit white-box | U8 hit full->comp | U8 hit comp->full | "
+          "L5 white-box | L5 full->comp | L5 comp->full | L5 noise (comp) |")
+    print("|---|---|---|---|---|---|---|---|")
+    U, L = m["universal"], m["lavan"]
+    for c in m["models"][1:]:
+        cells = [u8(U[c][c]), u8(U[base][c]), u8(U[c][base]),
+                 l5(L[c][c]), l5(L[base][c]), l5(L[c][base]), L[base][c]["side_5_untargeted"]["noise_rate"]]
+        print(f"| {c} | " + " | ".join(_pct(v) for v in cells) + " |")
+
+
 def main():
-    rows, attacks = [], []
+    rows, attacks, transfer = [], [], None
     for p in sorted(Path("results").glob("*.json")):
         r = json.loads(p.read_text())
+        if r.get("defense"):
+            continue  # Part 5, reported separately
+        if r["run"] == "transfer":
+            transfer = r
+            continue
         if r.get("attack"):
             attacks.append(r)
             continue
@@ -88,6 +131,9 @@ def main():
         if any(r["attack"].get("physical") for r in attacks):
             print()
             physical_table(attacks)
+    if transfer:
+        print()
+        transfer_tables(transfer)
 
 
 if __name__ == "__main__":

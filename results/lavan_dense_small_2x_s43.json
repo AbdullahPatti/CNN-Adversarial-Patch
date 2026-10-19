@@ -1,0 +1,109 @@
+{
+  "run": "lavan_dense_small_2x_s43",
+  "model": "resnet18",
+  "compression": {
+    "method": "none",
+    "ratio": 2.0,
+    "note": "capacity control for RQ4, no compression applied"
+  },
+  "attack": {
+    "name": "lavan",
+    "sizes": [
+      5,
+      8
+    ],
+    "modes": [
+      "untargeted",
+      "targeted"
+    ],
+    "steps": 100,
+    "step_size": 0.05,
+    "restarts": 10,
+    "batch": 500,
+    "surrogate": false
+  },
+  "defense": null,
+  "metrics": {
+    "model_run": "dense_small_2x_s43",
+    "clean_acc_subset": 0.961,
+    "side_5_untargeted": {
+      "area_frac": 0.0244140625,
+      "effective_from": "whitebox",
+      "whitebox": {
+        "success_on_correct": 0.9313215613365173,
+        "robust_acc": 0.06599999964237213
+      },
+      "effective": {
+        "success_on_correct": 0.9313215613365173,
+        "robust_acc": 0.06599999964237213
+      }
+    },
+    "side_5_targeted": {
+      "area_frac": 0.0244140625,
+      "effective_from": "whitebox",
+      "whitebox": {
+        "success_on_correct": 0.5567117929458618,
+        "patched_acc": 0.42600002884864807
+      },
+      "effective": {
+        "success_on_correct": 0.5567117929458618,
+        "patched_acc": 0.42600002884864807
+      }
+    },
+    "side_8_untargeted": {
+      "area_frac": 0.0625,
+      "effective_from": "whitebox",
+      "whitebox": {
+        "success_on_correct": 1.0,
+        "robust_acc": 0.0
+      },
+      "effective": {
+        "success_on_correct": 1.0,
+        "robust_acc": 0.0
+      }
+    },
+    "side_8_targeted": {
+      "area_frac": 0.0625,
+      "effective_from": "whitebox",
+      "whitebox": {
+        "success_on_correct": 0.9583767652511597,
+        "patched_acc": 0.04000000283122063
+      },
+      "effective": {
+        "success_on_correct": 0.9583767652511597,
+        "patched_acc": 0.04000000283122063
+      }
+    }
+  },
+  "config": {
+    "run_name": "lavan_dense_small_2x_s43",
+    "model_config": "configs/seed43/phase2/07_dense_small_2x.yaml",
+    "seed": 0,
+    "data_root": "./data",
+    "num_workers": 8,
+    "attack": {
+      "name": "lavan",
+      "sizes": [
+        5,
+        8
+      ],
+      "modes": [
+        "untargeted",
+        "targeted"
+      ],
+      "steps": 100,
+      "step_size": 0.05,
+      "restarts": 10,
+      "batch": 500,
+      "surrogate": false
+    },
+    "model": "resnet18",
+    "compression": {
+      "method": "none",
+      "ratio": 2.0,
+      "note": "capacity control for RQ4, no compression applied"
+    }
+  },
+  "device": "NVIDIA RTX A4000",
+  "timestamp": "2026-10-12T20:44:05.381983+00:00"
+}

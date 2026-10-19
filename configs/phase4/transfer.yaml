@@ -1,0 +1,20 @@
+run_name: transfer
+seed: 0          # Part 3 attack seed: universal patches are evaluated at the same placements (seed + size)
+data_root: ./data
+num_workers: 0
+transfer:
+  models:
+    - configs/baseline.yaml
+    - configs/phase2/01_quant_2x_fp16.yaml
+    - configs/phase2/02_quant_4x_int8.yaml
+    - configs/phase2/03_quant_8x_int4.yaml
+    - configs/phase2/04_prune_2x.yaml
+    - configs/phase2/05_prune_4x.yaml
+    - configs/phase2/06_prune_8x.yaml
+    - configs/phase2/07_dense_small_2x.yaml
+    - configs/phase2/08_dense_small_4x.yaml
+    - configs/phase2/09_dense_small_8x.yaml
+    - configs/phase2/10_kd_2x.yaml
+    - configs/phase2/11_kd_4x.yaml
+    - configs/phase2/12_kd_8x.yaml
+  physical_models: [baseline_resnet18, quant_4x_int8, prune_4x, dense_small_4x, kd_4x]

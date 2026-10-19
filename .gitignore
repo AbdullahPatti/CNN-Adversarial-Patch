@@ -4,3 +4,4 @@ data/*.tar.gz
 checkpoints/
 .venv/
 Context/
+data/gtsrb/

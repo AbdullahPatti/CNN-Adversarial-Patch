@@ -1,0 +1,48 @@
+{
+  "run": "baseline_resnet18_s44_def",
+  "model": "resnet18",
+  "compression": {
+    "method": "none",
+    "ratio": 1.0
+  },
+  "attack": null,
+  "defense": null,
+  "metrics": {
+    "clean_acc": 0.9617,
+    "params": 11173962,
+    "nonzero_params": 11173962,
+    "size_mb_fp32": 42.662078857421875,
+    "latency_ms_bs1": 1.3281219999771565,
+    "size_mb_compressed": 42.625282287597656,
+    "ratio_vs_baseline": 1.0
+  },
+  "config": {
+    "run_name": "baseline_resnet18_s44_def",
+    "model": "resnet18",
+    "seed": 44,
+    "data_root": "./data",
+    "num_workers": 8,
+    "checkpoint": "checkpoints/baseline_resnet18_s44_def.pt",
+    "compression": {
+      "method": "none",
+      "ratio": 1.0
+    },
+    "train": {
+      "epochs": 200,
+      "batch_size": 128,
+      "lr": 0.1,
+      "momentum": 0.9,
+      "weight_decay": 0.0005,
+      "select": "last",
+      "mask_aug": {
+        "sizes": [
+          5,
+          8
+        ],
+        "k": 6
+      }
+    }
+  },
+  "device": "NVIDIA RTX A4000",
+  "timestamp": "2026-10-17T00:35:21.542186+00:00"
+}

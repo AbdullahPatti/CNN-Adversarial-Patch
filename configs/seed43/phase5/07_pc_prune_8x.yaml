@@ -1,0 +1,12 @@
+run_name: pc_prune_8x_s43
+model_config: configs/seed43/phase2/06_prune_8x.yaml
+seed: 0
+data_root: ./data
+num_workers: 0
+defense:
+  name: patchcleanser
+  sizes:
+  - 5
+  - 8
+  k: 6
+  fine_tuned: false

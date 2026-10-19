@@ -1,0 +1,3 @@
+side 5: 36 masks of 9px  certified 0.6700  defended clean 0.9530  one-mask 0.9570 (worst 0.9410)  two-mask 0.9500
+side 8: 25 masks of 12px  certified 0.5020  defended clean 0.9520  one-mask 0.9472 (worst 0.9230)  two-mask 0.9255
+saved results\pc_dense_small_2x_def.json

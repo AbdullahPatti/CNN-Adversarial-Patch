@@ -1,0 +1,10 @@
+run_name: pc_baseline_resnet18
+model_config: configs/baseline.yaml
+seed: 0
+data_root: ./data
+num_workers: 0
+defense:
+  name: patchcleanser
+  sizes: [5, 8]
+  k: 6
+  fine_tuned: false

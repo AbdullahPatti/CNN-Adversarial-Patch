@@ -1,0 +1,47 @@
+{
+  "run": "kd_4x_s44",
+  "model": "resnet18",
+  "compression": {
+    "method": "distill",
+    "ratio": 4.0,
+    "temperature": 4.0,
+    "alpha": 0.9
+  },
+  "attack": null,
+  "defense": null,
+  "metrics": {
+    "clean_acc": 0.9509,
+    "params": 2797610,
+    "nonzero_params": 2797610,
+    "size_mb_fp32": 10.690521240234375,
+    "latency_ms_bs1": 3.670130999998946,
+    "size_mb_compressed": 10.672035217285156,
+    "ratio_vs_baseline": 3.994109972440762
+  },
+  "config": {
+    "run_name": "kd_4x_s44",
+    "model": "resnet18",
+    "seed": 44,
+    "data_root": "./data",
+    "num_workers": 8,
+    "width": 32,
+    "base_checkpoint": "checkpoints/baseline_resnet18_s44.pt",
+    "checkpoint": "checkpoints/kd_4x_s44.pt",
+    "compression": {
+      "method": "distill",
+      "ratio": 4.0,
+      "temperature": 4.0,
+      "alpha": 0.9
+    },
+    "train": {
+      "epochs": 200,
+      "batch_size": 128,
+      "lr": 0.1,
+      "momentum": 0.9,
+      "weight_decay": 0.0005,
+      "select": "last"
+    }
+  },
+  "device": "NVIDIA RTX A4000",
+  "timestamp": "2026-10-16T14:44:46.412666+00:00"
+}

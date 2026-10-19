@@ -1,0 +1,3 @@
+side 5: 36 masks of 9px  certified 0.6690  defended clean 0.9490  one-mask 0.9513 (worst 0.9380)  two-mask 0.9418
+side 8: 25 masks of 12px  certified 0.4990  defended clean 0.9410  one-mask 0.9392 (worst 0.9180)  two-mask 0.9181
+saved results\pc_kd_4x_def.json

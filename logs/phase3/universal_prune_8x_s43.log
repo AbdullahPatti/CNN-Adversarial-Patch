@@ -1,0 +1,21 @@
+size 5 target 0  whitebox: acc 0.7746 hit 0.1186
+size 5 target 1  whitebox: acc 0.8624 hit 0.0521
+size 5 target 2  whitebox: acc 0.8204 hit 0.1406
+size 5 target 3  whitebox: acc 0.7792 hit 0.0501
+size 5 target 4  whitebox: acc 0.8040 hit 0.0051
+size 5 target 5  whitebox: acc 0.7314 hit 0.2768
+size 5 target 6  whitebox: acc 0.8695 hit 0.0214
+size 5 target 7  whitebox: acc 0.8308 hit 0.0068
+size 5 target 8  whitebox: acc 0.8479 hit 0.0122
+size 5 target 9  whitebox: acc 0.7781 hit 0.0044
+size 8 target 0  whitebox: acc 0.5993 hit 0.3148
+size 8 target 1  whitebox: acc 0.5939 hit 0.4144
+size 8 target 2  whitebox: acc 0.5498 hit 0.4800
+size 8 target 3  whitebox: acc 0.4393 hit 0.6109
+size 8 target 4  whitebox: acc 0.6186 hit 0.3948
+size 8 target 5  whitebox: acc 0.4950 hit 0.5531
+size 8 target 6  whitebox: acc 0.5139 hit 0.5147
+size 8 target 7  whitebox: acc 0.7737 hit 0.1590
+size 8 target 8  whitebox: acc 0.7721 hit 0.1458
+size 8 target 9  whitebox: acc 0.6189 hit 0.3876
+saved results\universal_prune_8x_s43.json

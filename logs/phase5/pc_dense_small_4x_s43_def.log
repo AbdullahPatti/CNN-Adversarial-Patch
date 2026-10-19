@@ -1,0 +1,3 @@
+side 5: 36 masks of 9px  certified 0.6450  defended clean 0.9580  one-mask 0.9527 (worst 0.9370)  two-mask 0.9446
+side 8: 25 masks of 12px  certified 0.4650  defended clean 0.9470  one-mask 0.9420 (worst 0.9230)  two-mask 0.9188
+saved results\pc_dense_small_4x_s43_def.json

@@ -1,0 +1,12 @@
+run_name: pc_quant_8x_int4_def
+model_config: configs/seed42_def/phase2/03_quant_8x_int4.yaml
+seed: 0
+data_root: ./data
+num_workers: 0
+defense:
+  name: patchcleanser
+  sizes:
+  - 5
+  - 8
+  k: 6
+  fine_tuned: true
