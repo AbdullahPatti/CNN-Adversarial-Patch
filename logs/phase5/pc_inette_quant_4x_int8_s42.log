@@ -1,0 +1,3 @@
+side 35: 36 masks of 66px  certified 0.3940  defended clean 0.8880  one-mask 0.8929 (worst 0.8640)  two-mask 0.8583
+side 56: 36 masks of 84px  certified 0.1860  defended clean 0.8820  one-mask 0.8684 (worst 0.8200)  two-mask 0.7914
+saved results\pc_inette_quant_4x_int8_s42.json

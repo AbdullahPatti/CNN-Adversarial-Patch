@@ -1,0 +1,18 @@
+run_name: universal_untargeted_dense_small_8x_s43
+model_config: configs/seed43/phase2/09_dense_small_8x.yaml
+seed: 0
+data_root: ./data
+num_workers: 8
+attack:
+  name: universal
+  sizes:
+  - 5
+  - 8
+  targets:
+  - -1
+  steps: 1000
+  lr: 0.02
+  batch_size: 128
+  monitor_every: 250
+  physical: false
+  surrogate: false

@@ -1,0 +1,27 @@
+teacher acc 0.9857
+resumed from checkpoints\gtsrb\gtsrb_kd_4x_s43_def.resume.pt after epoch 77  best 0.9876
+epoch 78/100  loss 0.0476  test_acc 0.9841  best 0.9876
+epoch 79/100  loss 0.0458  test_acc 0.9826  best 0.9876
+epoch 80/100  loss 0.0442  test_acc 0.9830  best 0.9876
+epoch 81/100  loss 0.0428  test_acc 0.9850  best 0.9876
+epoch 82/100  loss 0.0424  test_acc 0.9831  best 0.9876
+epoch 83/100  loss 0.0423  test_acc 0.9854  best 0.9876
+epoch 84/100  loss 0.0402  test_acc 0.9836  best 0.9876
+epoch 85/100  loss 0.0394  test_acc 0.9854  best 0.9876
+epoch 86/100  loss 0.0395  test_acc 0.9872  best 0.9876
+epoch 87/100  loss 0.0385  test_acc 0.9858  best 0.9876
+epoch 88/100  loss 0.0374  test_acc 0.9867  best 0.9876
+epoch 89/100  loss 0.0372  test_acc 0.9850  best 0.9876
+epoch 90/100  loss 0.0363  test_acc 0.9854  best 0.9876
+epoch 91/100  loss 0.0353  test_acc 0.9854  best 0.9876
+epoch 92/100  loss 0.0364  test_acc 0.9854  best 0.9876
+epoch 93/100  loss 0.0357  test_acc 0.9858  best 0.9876
+epoch 94/100  loss 0.0349  test_acc 0.9865  best 0.9876
+epoch 95/100  loss 0.0358  test_acc 0.9861  best 0.9876
+epoch 96/100  loss 0.0352  test_acc 0.9852  best 0.9876
+epoch 97/100  loss 0.0347  test_acc 0.9862  best 0.9876
+epoch 98/100  loss 0.0348  test_acc 0.9866  best 0.9876
+epoch 99/100  loss 0.0347  test_acc 0.9859  best 0.9876
+epoch 100/100  loss 0.0348  test_acc 0.9865  best 0.9876
+{'clean_acc': 0.9864608076009501, 'params': 2806091, 'nonzero_params': 2806091, 'size_mb_fp32': 10.72287368774414, 'latency_ms_bs1': 1.9626014999994368, 'size_mb_compressed': 10.704387664794922, 'ratio_vs_baseline': 3.9880713063118765}
+saved results\gtsrb_kd_4x_s43_def.json

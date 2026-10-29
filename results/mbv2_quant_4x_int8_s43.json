@@ -1,0 +1,53 @@
+{
+  "run": "mbv2_quant_4x_int8_s43",
+  "model": "mobilenetv2",
+  "compression": {
+    "method": "quant",
+    "ratio": 4.0,
+    "mode": "ptq",
+    "weight_bits": 8,
+    "act_bits": 8,
+    "calib_batches": 20
+  },
+  "attack": null,
+  "defense": null,
+  "metrics": {
+    "clean_acc": 0.9281,
+    "params": 2279378,
+    "nonzero_params": 2279378,
+    "size_mb_fp32": 8.695657730102539,
+    "latency_ms_bs1": 15.572576499980642,
+    "size_mb_compressed": 2.2240066528320312,
+    "ratio_vs_baseline": 3.93976432651241,
+    "acc_bn_folded_fp32": 0.9276,
+    "acc_ptq": 0.9281
+  },
+  "config": {
+    "run_name": "mbv2_quant_4x_int8_s43",
+    "model": "mobilenetv2",
+    "dataset": "cifar10",
+    "seed": 43,
+    "data_root": "./data",
+    "num_workers": 8,
+    "base_checkpoint": "checkpoints/mbv2/mbv2_baseline_s43.pt",
+    "checkpoint": "checkpoints/mbv2/mbv2_quant_4x_int8_s43.pt",
+    "compression": {
+      "method": "quant",
+      "ratio": 4.0,
+      "mode": "ptq",
+      "weight_bits": 8,
+      "act_bits": 8,
+      "calib_batches": 20
+    },
+    "train": {
+      "epochs": 120,
+      "batch_size": 128,
+      "lr": 0.1,
+      "momentum": 0.9,
+      "weight_decay": 0.0005,
+      "select": "last"
+    }
+  },
+  "device": "NVIDIA RTX A4000",
+  "timestamp": "2026-10-27T10:24:32.063658+00:00"
+}

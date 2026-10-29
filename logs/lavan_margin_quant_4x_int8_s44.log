@@ -1,0 +1,5 @@
+size 5 untargeted  whitebox: {'success_on_correct': 0.8955067992210388, 'robust_acc': 0.10000000149011612}  surrogate_fp32: {'success_on_correct': 0.8850574493408203, 'robust_acc': 0.11000000685453415}  effective: {'success_on_correct': 0.8955067992210388, 'robust_acc': 0.10000000149011612}
+size 5 targeted  whitebox: {'success_on_correct': 0.5412747859954834, 'patched_acc': 0.4390000104904175}  surrogate_fp32: {'success_on_correct': 0.49843257665634155, 'patched_acc': 0.48000001907348633}  effective: {'success_on_correct': 0.5412747859954834, 'patched_acc': 0.4390000104904175}
+size 8 untargeted  whitebox: {'success_on_correct': 1.0, 'robust_acc': 0.0}  surrogate_fp32: {'success_on_correct': 1.0, 'robust_acc': 0.0}  effective: {'success_on_correct': 1.0, 'robust_acc': 0.0}
+size 8 targeted  whitebox: {'success_on_correct': 0.9655172228813171, 'patched_acc': 0.032999999821186066}  surrogate_fp32: {'success_on_correct': 0.9571577906608582, 'patched_acc': 0.04100000113248825}  effective: {'success_on_correct': 0.9655172228813171, 'patched_acc': 0.032999999821186066}
+saved results\lavan_margin_quant_4x_int8_s44.json

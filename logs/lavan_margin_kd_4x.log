@@ -1,0 +1,5 @@
+size 5 untargeted  whitebox: {'success_on_correct': 0.8999999761581421, 'robust_acc': 0.0950000062584877}  effective: {'success_on_correct': 0.8999999761581421, 'robust_acc': 0.0950000062584877}
+size 5 targeted  whitebox: {'success_on_correct': 0.5073683857917786, 'patched_acc': 0.46800002455711365}  effective: {'success_on_correct': 0.5073683857917786, 'patched_acc': 0.46800002455711365}
+size 8 untargeted  whitebox: {'success_on_correct': 0.9999999403953552, 'robust_acc': 0.0}  effective: {'success_on_correct': 0.9999999403953552, 'robust_acc': 0.0}
+size 8 targeted  whitebox: {'success_on_correct': 0.938947319984436, 'patched_acc': 0.058000002056360245}  effective: {'success_on_correct': 0.938947319984436, 'patched_acc': 0.058000002056360245}
+saved results\lavan_margin_kd_4x.json

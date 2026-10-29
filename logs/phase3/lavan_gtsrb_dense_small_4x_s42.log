@@ -1,0 +1,5 @@
+size 5 untargeted  whitebox: {'success_on_correct': 0.7260825634002686, 'robust_acc': 0.2720000147819519}  effective: {'success_on_correct': 0.7260825634002686, 'robust_acc': 0.2720000147819519}
+size 5 targeted  whitebox: {'success_on_correct': 0.1822759360074997, 'patched_acc': 0.812000036239624}  effective: {'success_on_correct': 0.1822759360074997, 'patched_acc': 0.812000036239624}
+size 8 untargeted  whitebox: {'success_on_correct': 0.9778448939323425, 'robust_acc': 0.02200000174343586}  effective: {'success_on_correct': 0.9778448939323425, 'robust_acc': 0.02200000174343586}
+size 8 targeted  whitebox: {'success_on_correct': 0.7925478219985962, 'patched_acc': 0.20600001513957977}  effective: {'success_on_correct': 0.7925478219985962, 'patched_acc': 0.20600001513957977}
+saved results\lavan_gtsrb_dense_small_4x_s42.json

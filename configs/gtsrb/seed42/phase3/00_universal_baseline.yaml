@@ -1,0 +1,27 @@
+run_name: universal_gtsrb_baseline_s42
+model_config: configs/gtsrb/seed42/phase2/00_baseline.yaml
+seed: 0
+data_root: ./data
+num_workers: 8
+attack:
+  name: universal
+  sizes:
+  - 5
+  - 8
+  targets:
+  - 3
+  - 4
+  - 12
+  - 13
+  - 14
+  - 19
+  - 26
+  - 29
+  - 31
+  - 40
+  steps: 1000
+  lr: 0.02
+  batch_size: 128
+  monitor_every: 250
+  physical: false
+  surrogate: false

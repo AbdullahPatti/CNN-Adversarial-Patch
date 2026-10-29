@@ -1,0 +1,22 @@
+{
+ "run": "mbv2_baseline_s42",
+ "baseline": "mbv2_baseline_s42",
+ "clean_acc_subset": 0.940000057220459,
+ "margin_mean": 7.42824125289917,
+ "margin_median": 8.024185180664062,
+ "grad_l2_mean": 9.200249671936035,
+ "grad_conc_5": 0.07310052961111069,
+ "occ_grey_5_mean": 0.9206699728965759,
+ "occ_grey_5_worst": 0.8870000243186951,
+ "occ_grey_5_allpos": 0.6980000138282776,
+ "occ_noise_5_mean": 0.888260006904602,
+ "occ_noise_5_worst": 0.796000063419342,
+ "occ_noise_5_allpos": 0.4750000238418579,
+ "grad_conc_8": 0.1452634334564209,
+ "occ_grey_8_mean": 0.8819876909255981,
+ "occ_grey_8_worst": 0.7700000405311584,
+ "occ_grey_8_allpos": 0.4350000321865082,
+ "occ_noise_8_mean": 0.8309382796287537,
+ "occ_noise_8_worst": 0.6810000538825989,
+ "occ_noise_8_allpos": 0.32200002670288086
+}

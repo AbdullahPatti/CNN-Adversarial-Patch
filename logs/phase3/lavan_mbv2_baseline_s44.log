@@ -1,0 +1,5 @@
+size 5 untargeted  whitebox: {'success_on_correct': 0.9088959693908691, 'robust_acc': 0.08500000089406967}  effective: {'success_on_correct': 0.9088959693908691, 'robust_acc': 0.08500000089406967}
+size 5 targeted  whitebox: {'success_on_correct': 0.550911009311676, 'patched_acc': 0.4190000295639038}  effective: {'success_on_correct': 0.550911009311676, 'patched_acc': 0.4190000295639038}
+size 8 untargeted  whitebox: {'success_on_correct': 0.9999999403953552, 'robust_acc': 0.0}  effective: {'success_on_correct': 0.9999999403953552, 'robust_acc': 0.0}
+size 8 targeted  whitebox: {'success_on_correct': 0.9560557007789612, 'patched_acc': 0.04100000113248825}  effective: {'success_on_correct': 0.9560557007789612, 'patched_acc': 0.04100000113248825}
+saved results\lavan_mbv2_baseline_s44.json

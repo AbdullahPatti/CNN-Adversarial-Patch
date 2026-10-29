@@ -1,0 +1,786 @@
+{
+  "run": "universal_inette_prune_4x_s42",
+  "model": "resnet50",
+  "compression": {
+    "method": "prune",
+    "ratio": 4.0,
+    "sparsity": 0.75
+  },
+  "attack": {
+    "name": "universal",
+    "sizes": [
+      35,
+      56
+    ],
+    "targets": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "steps": 1000,
+    "lr": 0.02,
+    "batch_size": 32,
+    "monitor_every": 250,
+    "physical": false,
+    "surrogate": false
+  },
+  "defense": null,
+  "metrics": {
+    "model_run": "inette_prune_4x_s42",
+    "clean_acc": 0.9019108280254777,
+    "side_35": {
+      "area_frac": 0.0244140625,
+      "noise_patch_acc": 0.8963057324840764,
+      "effective_from": "whitebox",
+      "whitebox_patched_acc": {
+        "mean": 0.8250955414012738,
+        "std": 0.03491473185558911
+      },
+      "whitebox_target_success": {
+        "mean": 0.11052881712654065,
+        "std": 0.0678733757942343
+      },
+      "effective_patched_acc": {
+        "mean": 0.8250955414012738,
+        "std": 0.03491473185558911
+      },
+      "effective_target_success": {
+        "mean": 0.11052881712654065,
+        "std": 0.0678733757942343
+      },
+      "per_target": [
+        {
+          "target": 0,
+          "whitebox": {
+            "patched_acc": 0.8657324840764331,
+            "target_success": 0.054267947993216506,
+            "curve": [
+              {
+                "step": 250,
+                "patched_acc": 0.884,
+                "target_success": 0.037199124726477024
+              },
+              {
+                "step": 500,
+                "patched_acc": 0.873,
+                "target_success": 0.05579868708971553
+              },
+              {
+                "step": 750,
+                "patched_acc": 0.871,
+                "target_success": 0.060175054704595186
+              },
+              {
+                "step": 1000,
+                "patched_acc": 0.867,
+                "target_success": 0.05689277899343545
+              }
+            ]
+          },
+          "effective": {
+            "patched_acc": 0.8657324840764331,
+            "target_success": 0.054267947993216506
+          }
+        },
+        {
+          "target": 1,
+          "whitebox": {
+            "patched_acc": 0.8654777070063694,
+            "target_success": 0.0056657223796034,
+            "curve": [
+              {
+                "step": 250,
+                "patched_acc": 0.859,
+                "target_success": 0.004469273743016759
+              },
+              {
+                "step": 500,
+                "patched_acc": 0.863,
+                "target_success": 0.004469273743016759
+              },
+              {
+                "step": 750,
+                "patched_acc": 0.856,
+                "target_success": 0.004469273743016759
+              },
+              {
+                "step": 1000,
+                "patched_acc": 0.863,
+                "target_success": 0.004469273743016759
+              }
+            ]
+          },
+          "effective": {
+            "patched_acc": 0.8654777070063694,
+            "target_success": 0.0056657223796034
+          }
+        },
+        {
+          "target": 2,
+          "whitebox": {
+            "patched_acc": 0.8718471337579617,
+            "target_success": 0.0367152466367713,
+            "curve": [
+              {
+                "step": 250,
+                "patched_acc": 0.875,
+                "target_success": 0.03293084522502744
+              },
+              {
+                "step": 500,
+                "patched_acc": 0.877,
+                "target_success": 0.03512623490669594
+              },
+              {
+                "step": 750,
+                "patched_acc": 0.873,
+                "target_success": 0.03402854006586169
+              },
+              {
+                "step": 1000,
+                "patched_acc": 0.874,
+                "target_success": 0.036223929747530186
+              }
+            ]
+          },
+          "effective": {
+            "patched_acc": 0.8718471337579617,
+            "target_success": 0.0367152466367713
+          }
+        },
+        {
+          "target": 3,
+          "whitebox": {
+            "patched_acc": 0.7610191082802548,
+            "target_success": 0.22096637468211358,
+            "curve": [
+              {
+                "step": 250,
+                "patched_acc": 0.749,
+                "target_success": 0.2320627802690583
+              },
+              {
+                "step": 500,
+                "patched_acc": 0.742,
+                "target_success": 0.23766816143497757
+              },
+              {
+                "step": 750,
+                "patched_acc": 0.744,
+                "target_success": 0.23766816143497757
+              },
+              {
+                "step": 1000,
+                "patched_acc": 0.741,
+                "target_success": 0.23878923766816143
+              }
+            ]
+          },
+          "effective": {
+            "patched_acc": 0.7610191082802548,
+            "target_success": 0.22096637468211358
+          }
+        },
+        {
+          "target": 4,
+          "whitebox": {
+            "patched_acc": 0.818343949044586,
+            "target_success": 0.1356655290102389,
+            "curve": [
+              {
+                "step": 250,
+                "patched_acc": 0.818,
+                "target_success": 0.13876651982378854
+              },
+              {
+                "step": 500,
+                "patched_acc": 0.815,
+                "target_success": 0.14096916299559473
+              },
+              {
+                "step": 750,
+                "patched_acc": 0.815,
+                "target_success": 0.1420704845814978
+              },
+              {
+                "step": 1000,
+                "patched_acc": 0.814,
+                "target_success": 0.14317180616740088
+              }
+            ]
+          },
+          "effective": {
+            "patched_acc": 0.818343949044586,
+            "target_success": 0.1356655290102389
+          }
+        },
+        {
+          "target": 5,
+          "whitebox": {
+            "patched_acc": 0.8028025477707006,
+            "target_success": 0.17332200509770604,
+            "curve": [
+              {
+                "step": 250,
+                "patched_acc": 0.81,
+                "target_success": 0.16836158192090395
+              },
+              {
+                "step": 500,
+                "patched_acc": 0.807,
+                "target_success": 0.17175141242937852
+              },
+              {
+                "step": 750,
+                "patched_acc": 0.808,
+                "target_success": 0.17062146892655367
+              },
+              {
+                "step": 1000,
+                "patched_acc": 0.806,
+                "target_success": 0.17401129943502824
+              }
+            ]
+          },
+          "effective": {
+            "patched_acc": 0.8028025477707006,
+            "target_success": 0.17332200509770604
+          }
+        },
+        {
+          "target": 6,
+          "whitebox": {
+            "patched_acc": 0.8478980891719745,
+            "target_success": 0.04496606334841629,
+            "curve": [
+              {
+                "step": 250,
+                "patched_acc": 0.846,
+                "target_success": 0.05145413870246085
+              },
+              {
+                "step": 500,
+                "patched_acc": 0.847,
+                "target_success": 0.05145413870246085
+              },
+              {
+                "step": 750,
+                "patched_acc": 0.845,
+                "target_success": 0.05145413870246085
+              },
+              {
+                "step": 1000,
+                "patched_acc": 0.845,
+                "target_success": 0.052572706935123045
+              }
+            ]
+          },
+          "effective": {
+            "patched_acc": 0.8478980891719745,
+            "target_success": 0.04496606334841629
+          }
+        },
+        {
+          "target": 7,
+          "whitebox": {
+            "patched_acc": 0.802547770700637,
+            "target_success": 0.16371933827723903,
+            "curve": [
+              {
+                "step": 250,
+                "patched_acc": 0.786,
+                "target_success": 0.1756152125279642
+              },
+              {
+                "step": 500,
+                "patched_acc": 0.783,
+                "target_success": 0.1789709172259508
+              },
+              {
+                "step": 750,
+                "patched_acc": 0.784,
+                "target_success": 0.1767337807606264
+              },
+              {
+                "step": 1000,
+                "patched_acc": 0.783,
+                "target_success": 0.17785234899328858
+              }
+            ]
+          },
+          "effective": {
+            "patched_acc": 0.802547770700637,
+            "target_success": 0.16371933827723903
+          }
+        },
+        {
+          "target": 8,
+          "whitebox": {
+            "patched_acc": 0.7928662420382165,
+            "target_success": 0.16108905275099264,
+            "curve": [
+              {
+                "step": 250,
+                "patched_acc": 0.77,
+                "target_success": 0.17199558985667035
+              },
+              {
+                "step": 500,
+                "patched_acc": 0.767,
+                "target_success": 0.17750826901874311
+              },
+              {
+                "step": 750,
+                "patched_acc": 0.766,
+                "target_success": 0.17861080485115766
+              },
+              {
+                "step": 1000,
+                "patched_acc": 0.767,
+                "target_success": 0.17861080485115766
+              }
+            ]
+          },
+          "effective": {
+            "patched_acc": 0.7928662420382165,
+            "target_success": 0.16108905275099264
+          }
+        },
+        {
+          "target": 9,
+          "whitebox": {
+            "patched_acc": 0.8224203821656051,
+            "target_success": 0.10891089108910891,
+            "curve": [
+              {
+                "step": 250,
+                "patched_acc": 0.811,
+                "target_success": 0.10333333333333333
+              },
+              {
+                "step": 500,
+                "patched_acc": 0.806,
+                "target_success": 0.11
+              },
+              {
+                "step": 750,
+                "patched_acc": 0.806,
+                "target_success": 0.11222222222222222
+              },
+              {
+                "step": 1000,
+                "patched_acc": 0.805,
+                "target_success": 0.11222222222222222
+              }
+            ]
+          },
+          "effective": {
+            "patched_acc": 0.8224203821656051,
+            "target_success": 0.10891089108910891
+          }
+        }
+      ]
+    },
+    "side_56": {
+      "area_frac": 0.0625,
+      "noise_patch_acc": 0.8797452229299363,
+      "effective_from": "whitebox",
+      "whitebox_patched_acc": {
+        "mean": 0.5176815286624203,
+        "std": 0.133463671402531
+      },
+      "whitebox_target_success": {
+        "mean": 0.5088499836230884,
+        "std": 0.17111300936752313
+      },
+      "effective_patched_acc": {
+        "mean": 0.5176815286624203,
+        "std": 0.133463671402531
+      },
+      "effective_target_success": {
+        "mean": 0.5088499836230884,
+        "std": 0.17111300936752313
+      },
+      "per_target": [
+        {
+          "target": 0,
+          "whitebox": {
+            "patched_acc": 0.6496815286624203,
+            "target_success": 0.3535895986433013,
+            "curve": [
+              {
+                "step": 250,
+                "patched_acc": 0.651,
+                "target_success": 0.3402625820568928
+              },
+              {
+                "step": 500,
+                "patched_acc": 0.633,
+                "target_success": 0.36433260393873085
+              },
+              {
+                "step": 750,
+                "patched_acc": 0.628,
+                "target_success": 0.3687089715536105
+              },
+              {
+                "step": 1000,
+                "patched_acc": 0.626,
+                "target_success": 0.37199124726477023
+              }
+            ]
+          },
+          "effective": {
+            "patched_acc": 0.6496815286624203,
+            "target_success": 0.3535895986433013
+          }
+        },
+        {
+          "target": 1,
+          "whitebox": {
+            "patched_acc": 0.2315923566878981,
+            "target_success": 0.8524079320113315,
+            "curve": [
+              {
+                "step": 250,
+                "patched_acc": 0.823,
+                "target_success": 0.0111731843575419
+              },
+              {
+                "step": 500,
+                "patched_acc": 0.82,
+                "target_success": 0.01564245810055866
+              },
+              {
+                "step": 750,
+                "patched_acc": 0.339,
+                "target_success": 0.7363128491620111
+              },
+              {
+                "step": 1000,
+                "patched_acc": 0.238,
+                "target_success": 0.8513966480446927
+              }
+            ]
+          },
+          "effective": {
+            "patched_acc": 0.2315923566878981,
+            "target_success": 0.8524079320113315
+          }
+        },
+        {
+          "target": 2,
+          "whitebox": {
+            "patched_acc": 0.7118471337579618,
+            "target_success": 0.2158071748878924,
+            "curve": [
+              {
+                "step": 250,
+                "patched_acc": 0.712,
+                "target_success": 0.21295279912184412
+              },
+              {
+                "step": 500,
+                "patched_acc": 0.704,
+                "target_success": 0.2217343578485181
+              },
+              {
+                "step": 750,
+                "patched_acc": 0.7,
+                "target_success": 0.2239297475301866
+              },
+              {
+                "step": 1000,
+                "patched_acc": 0.703,
+                "target_success": 0.2239297475301866
+              }
+            ]
+          },
+          "effective": {
+            "patched_acc": 0.7118471337579618,
+            "target_success": 0.2158071748878924
+          }
+        },
+        {
+          "target": 3,
+          "whitebox": {
+            "patched_acc": 0.3870063694267516,
+            "target_success": 0.6713760949420741,
+            "curve": [
+              {
+                "step": 250,
+                "patched_acc": 0.422,
+                "target_success": 0.6423766816143498
+              },
+              {
+                "step": 500,
+                "patched_acc": 0.398,
+                "target_success": 0.6692825112107623
+              },
+              {
+                "step": 750,
+                "patched_acc": 0.384,
+                "target_success": 0.6872197309417041
+              },
+              {
+                "step": 1000,
+                "patched_acc": 0.377,
+                "target_success": 0.695067264573991
+              }
+            ]
+          },
+          "effective": {
+            "patched_acc": 0.3870063694267516,
+            "target_success": 0.6713760949420741
+          }
+        },
+        {
+          "target": 4,
+          "whitebox": {
+            "patched_acc": 0.5959235668789808,
+            "target_success": 0.4286120591581342,
+            "curve": [
+              {
+                "step": 250,
+                "patched_acc": 0.585,
+                "target_success": 0.4251101321585903
+              },
+              {
+                "step": 500,
+                "patched_acc": 0.575,
+                "target_success": 0.44052863436123346
+              },
+              {
+                "step": 750,
+                "patched_acc": 0.572,
+                "target_success": 0.4460352422907489
+              },
+              {
+                "step": 1000,
+                "patched_acc": 0.57,
+                "target_success": 0.44713656387665196
+              }
+            ]
+          },
+          "effective": {
+            "patched_acc": 0.5959235668789808,
+            "target_success": 0.4286120591581342
+          }
+        },
+        {
+          "target": 5,
+          "whitebox": {
+            "patched_acc": 0.47821656050955413,
+            "target_success": 0.5712262815066553,
+            "curve": [
+              {
+                "step": 250,
+                "patched_acc": 0.491,
+                "target_success": 0.5649717514124294
+              },
+              {
+                "step": 500,
+                "patched_acc": 0.48,
+                "target_success": 0.5785310734463277
+              },
+              {
+                "step": 750,
+                "patched_acc": 0.48,
+                "target_success": 0.5785310734463277
+              },
+              {
+                "step": 1000,
+                "patched_acc": 0.473,
+                "target_success": 0.5864406779661017
+              }
+            ]
+          },
+          "effective": {
+            "patched_acc": 0.47821656050955413,
+            "target_success": 0.5712262815066553
+          }
+        },
+        {
+          "target": 6,
+          "whitebox": {
+            "patched_acc": 0.590828025477707,
+            "target_success": 0.4126131221719457,
+            "curve": [
+              {
+                "step": 250,
+                "patched_acc": 0.64,
+                "target_success": 0.33557046979865773
+              },
+              {
+                "step": 500,
+                "patched_acc": 0.614,
+                "target_success": 0.3691275167785235
+              },
+              {
+                "step": 750,
+                "patched_acc": 0.597,
+                "target_success": 0.39149888143176736
+              },
+              {
+                "step": 1000,
+                "patched_acc": 0.584,
+                "target_success": 0.4116331096196868
+              }
+            ]
+          },
+          "effective": {
+            "patched_acc": 0.590828025477707,
+            "target_success": 0.4126131221719457
+          }
+        },
+        {
+          "target": 7,
+          "whitebox": {
+            "patched_acc": 0.4542675159235669,
+            "target_success": 0.5989731888191672,
+            "curve": [
+              {
+                "step": 250,
+                "patched_acc": 0.462,
+                "target_success": 0.5827740492170023
+              },
+              {
+                "step": 500,
+                "patched_acc": 0.443,
+                "target_success": 0.6040268456375839
+              },
+              {
+                "step": 750,
+                "patched_acc": 0.441,
+                "target_success": 0.6062639821029083
+              },
+              {
+                "step": 1000,
+                "patched_acc": 0.441,
+                "target_success": 0.6051454138702461
+              }
+            ]
+          },
+          "effective": {
+            "patched_acc": 0.4542675159235669,
+            "target_success": 0.5989731888191672
+          }
+        },
+        {
+          "target": 8,
+          "whitebox": {
+            "patched_acc": 0.483312101910828,
+            "target_success": 0.5629608621667612,
+            "curve": [
+              {
+                "step": 250,
+                "patched_acc": 0.501,
+                "target_success": 0.535832414553473
+              },
+              {
+                "step": 500,
+                "patched_acc": 0.476,
+                "target_success": 0.5644983461962514
+              },
+              {
+                "step": 750,
+                "patched_acc": 0.473,
+                "target_success": 0.5678059536934951
+              },
+              {
+                "step": 1000,
+                "patched_acc": 0.473,
+                "target_success": 0.5678059536934951
+              }
+            ]
+          },
+          "effective": {
+            "patched_acc": 0.483312101910828,
+            "target_success": 0.5629608621667612
+          }
+        },
+        {
+          "target": 9,
+          "whitebox": {
+            "patched_acc": 0.594140127388535,
+            "target_success": 0.42093352192362093,
+            "curve": [
+              {
+                "step": 250,
+                "patched_acc": 0.603,
+                "target_success": 0.40444444444444444
+              },
+              {
+                "step": 500,
+                "patched_acc": 0.579,
+                "target_success": 0.43777777777777777
+              },
+              {
+                "step": 750,
+                "patched_acc": 0.571,
+                "target_success": 0.4477777777777778
+              },
+              {
+                "step": 1000,
+                "patched_acc": 0.569,
+                "target_success": 0.45
+              }
+            ]
+          },
+          "effective": {
+            "patched_acc": 0.594140127388535,
+            "target_success": 0.42093352192362093
+          }
+        }
+      ]
+    }
+  },
+  "config": {
+    "run_name": "universal_inette_prune_4x_s42",
+    "model_config": "configs/inette/seed42/phase2/02_prune_4x.yaml",
+    "seed": 0,
+    "data_root": "./data",
+    "num_workers": 12,
+    "attack": {
+      "name": "universal",
+      "sizes": [
+        35,
+        56
+      ],
+      "targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "steps": 1000,
+      "lr": 0.02,
+      "batch_size": 32,
+      "monitor_every": 250,
+      "physical": false,
+      "surrogate": false
+    },
+    "model": "resnet50",
+    "compression": {
+      "method": "prune",
+      "ratio": 4.0,
+      "sparsity": 0.75
+    },
+    "dataset": "imagenette"
+  },
+  "device": "NVIDIA RTX A4000",
+  "timestamp": "2026-10-24T00:38:57.101629+00:00"
+}

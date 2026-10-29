@@ -1,0 +1,45 @@
+{
+  "run": "inette_dense_small_4x_s42",
+  "model": "resnet50",
+  "compression": {
+    "method": "none",
+    "ratio": 4.0,
+    "note": "capacity control for RQ4, no compression applied"
+  },
+  "attack": null,
+  "defense": null,
+  "metrics": {
+    "clean_acc": 0.900891719745223,
+    "params": 5902890,
+    "nonzero_params": 5902890,
+    "size_mb_fp32": 22.619483947753906,
+    "latency_ms_bs1": 3.436462500003472,
+    "size_mb_compressed": 22.517738342285156,
+    "ratio_vs_baseline": 3.985932653327438
+  },
+  "config": {
+    "run_name": "inette_dense_small_4x_s42",
+    "model": "resnet50",
+    "dataset": "imagenette",
+    "seed": 42,
+    "data_root": "./data",
+    "num_workers": 12,
+    "width": 32,
+    "checkpoint": "checkpoints/inette/inette_dense_small_4x_s42.pt",
+    "compression": {
+      "method": "none",
+      "ratio": 4.0,
+      "note": "capacity control for RQ4, no compression applied"
+    },
+    "train": {
+      "epochs": 120,
+      "batch_size": 64,
+      "lr": 0.05,
+      "momentum": 0.9,
+      "weight_decay": 0.0005,
+      "select": "last"
+    }
+  },
+  "device": "NVIDIA RTX A4000",
+  "timestamp": "2026-10-23T14:53:11.156834+00:00"
+}

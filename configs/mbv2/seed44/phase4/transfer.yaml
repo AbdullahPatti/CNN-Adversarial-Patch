@@ -1,0 +1,11 @@
+run_name: transfer_mbv2_s44
+seed: 0
+data_root: ./data
+num_workers: 0
+transfer:
+  models:
+  - configs/mbv2/seed44/phase2/00_baseline.yaml
+  - configs/mbv2/seed44/phase2/01_quant_4x_int8.yaml
+  - configs/mbv2/seed44/phase2/02_prune_4x.yaml
+  - configs/mbv2/seed44/phase2/03_dense_small_4x.yaml
+  - configs/mbv2/seed44/phase2/04_kd_4x.yaml

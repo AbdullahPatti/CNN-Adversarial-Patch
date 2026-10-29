@@ -1,0 +1,19 @@
+run_name: lavan_inette_kd_4x_s42
+model_config: configs/inette/seed42/phase2/04_kd_4x.yaml
+seed: 0
+data_root: ./data
+num_workers: 12
+attack:
+  name: lavan
+  sizes:
+  - 35
+  - 56
+  modes:
+  - untargeted
+  - targeted
+  steps: 100
+  step_size: 0.05
+  restarts: 10
+  batch: 50
+  surrogate: false
+  n_images: 500

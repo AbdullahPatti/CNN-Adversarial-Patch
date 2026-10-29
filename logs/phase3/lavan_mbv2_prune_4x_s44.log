@@ -1,0 +1,5 @@
+size 5 untargeted  whitebox: {'success_on_correct': 0.9345493316650391, 'robust_acc': 0.06100000441074371}  effective: {'success_on_correct': 0.9345493316650391, 'robust_acc': 0.06100000441074371}
+size 5 targeted  whitebox: {'success_on_correct': 0.5740343332290649, 'patched_acc': 0.3970000147819519}  effective: {'success_on_correct': 0.5740343332290649, 'patched_acc': 0.3970000147819519}
+size 8 untargeted  whitebox: {'success_on_correct': 1.0, 'robust_acc': 0.0}  effective: {'success_on_correct': 1.0, 'robust_acc': 0.0}
+size 8 targeted  whitebox: {'success_on_correct': 0.9688841104507446, 'patched_acc': 0.029000001028180122}  effective: {'success_on_correct': 0.9688841104507446, 'patched_acc': 0.029000001028180122}
+saved results\lavan_mbv2_prune_4x_s44.json

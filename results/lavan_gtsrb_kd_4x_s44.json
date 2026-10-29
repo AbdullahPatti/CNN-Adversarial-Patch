@@ -1,0 +1,112 @@
+{
+  "run": "lavan_gtsrb_kd_4x_s44",
+  "model": "resnet18",
+  "compression": {
+    "method": "distill",
+    "ratio": 4.0,
+    "temperature": 4.0,
+    "alpha": 0.9
+  },
+  "attack": {
+    "name": "lavan",
+    "sizes": [
+      5,
+      8
+    ],
+    "modes": [
+      "untargeted",
+      "targeted"
+    ],
+    "steps": 100,
+    "step_size": 0.05,
+    "restarts": 10,
+    "batch": 500,
+    "surrogate": false
+  },
+  "defense": null,
+  "metrics": {
+    "model_run": "gtsrb_kd_4x_s44",
+    "clean_acc_subset": 0.989,
+    "side_5_untargeted": {
+      "area_frac": 0.0244140625,
+      "effective_from": "whitebox",
+      "whitebox": {
+        "success_on_correct": 0.6157734990119934,
+        "robust_acc": 0.3800000250339508
+      },
+      "effective": {
+        "success_on_correct": 0.6157734990119934,
+        "robust_acc": 0.3800000250339508
+      }
+    },
+    "side_5_targeted": {
+      "area_frac": 0.0244140625,
+      "effective_from": "whitebox",
+      "whitebox": {
+        "success_on_correct": 0.16380181908607483,
+        "patched_acc": 0.8270000219345093
+      },
+      "effective": {
+        "success_on_correct": 0.16380181908607483,
+        "patched_acc": 0.8270000219345093
+      }
+    },
+    "side_8_untargeted": {
+      "area_frac": 0.0625,
+      "effective_from": "whitebox",
+      "whitebox": {
+        "success_on_correct": 0.8978766798973083,
+        "robust_acc": 0.10100000351667404
+      },
+      "effective": {
+        "success_on_correct": 0.8978766798973083,
+        "robust_acc": 0.10100000351667404
+      }
+    },
+    "side_8_targeted": {
+      "area_frac": 0.0625,
+      "effective_from": "whitebox",
+      "whitebox": {
+        "success_on_correct": 0.7350859642028809,
+        "patched_acc": 0.26200002431869507
+      },
+      "effective": {
+        "success_on_correct": 0.7350859642028809,
+        "patched_acc": 0.26200002431869507
+      }
+    }
+  },
+  "config": {
+    "run_name": "lavan_gtsrb_kd_4x_s44",
+    "model_config": "configs/gtsrb/seed44/phase2/04_kd_4x.yaml",
+    "seed": 0,
+    "data_root": "./data",
+    "num_workers": 8,
+    "attack": {
+      "name": "lavan",
+      "sizes": [
+        5,
+        8
+      ],
+      "modes": [
+        "untargeted",
+        "targeted"
+      ],
+      "steps": 100,
+      "step_size": 0.05,
+      "restarts": 10,
+      "batch": 500,
+      "surrogate": false
+    },
+    "model": "resnet18",
+    "compression": {
+      "method": "distill",
+      "ratio": 4.0,
+      "temperature": 4.0,
+      "alpha": 0.9
+    },
+    "dataset": "gtsrb"
+  },
+  "device": "NVIDIA RTX A4000",
+  "timestamp": "2026-10-26T10:20:54.700907+00:00"
+}

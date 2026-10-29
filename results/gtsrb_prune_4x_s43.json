@@ -1,0 +1,47 @@
+{
+  "run": "gtsrb_prune_4x_s43",
+  "model": "resnet18",
+  "compression": {
+    "method": "prune",
+    "ratio": 4.0,
+    "sparsity": 0.75
+  },
+  "attack": null,
+  "defense": null,
+  "metrics": {
+    "clean_acc": 0.9922406967537609,
+    "params": 11190891,
+    "nonzero_params": 2804955,
+    "size_mb_fp32": 42.72665786743164,
+    "latency_ms_bs1": 1.5150210000138031,
+    "size_mb_compressed": 12.032962799072266,
+    "ratio_vs_baseline": 3.547743146093561,
+    "weight_sparsity": 0.75,
+    "acc_after_prune_before_ft": 0.9901029295328583
+  },
+  "config": {
+    "run_name": "gtsrb_prune_4x_s43",
+    "model": "resnet18",
+    "dataset": "gtsrb",
+    "seed": 43,
+    "data_root": "./data",
+    "num_workers": 8,
+    "base_checkpoint": "checkpoints/gtsrb/gtsrb_baseline_s43.pt",
+    "checkpoint": "checkpoints/gtsrb/gtsrb_prune_4x_s43.pt",
+    "compression": {
+      "method": "prune",
+      "ratio": 4.0,
+      "sparsity": 0.75
+    },
+    "train": {
+      "epochs": 20,
+      "batch_size": 128,
+      "lr": 0.01,
+      "momentum": 0.9,
+      "weight_decay": 0.0005,
+      "select": "last"
+    }
+  },
+  "device": "NVIDIA RTX A4000",
+  "timestamp": "2026-10-25T22:42:33.095863+00:00"
+}

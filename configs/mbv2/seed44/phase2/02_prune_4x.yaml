@@ -1,0 +1,19 @@
+run_name: mbv2_prune_4x_s44
+model: mobilenetv2
+dataset: cifar10
+seed: 44
+data_root: ./data
+num_workers: 8
+base_checkpoint: checkpoints/mbv2/mbv2_baseline_s44.pt
+checkpoint: checkpoints/mbv2/mbv2_prune_4x_s44.pt
+compression:
+  method: prune
+  ratio: 4.0
+  sparsity: 0.75
+train:
+  epochs: 30
+  batch_size: 128
+  lr: 0.01
+  momentum: 0.9
+  weight_decay: 0.0005
+  select: last

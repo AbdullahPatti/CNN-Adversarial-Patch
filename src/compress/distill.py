@@ -14,7 +14,8 @@ import torch.nn.functional as F
 from src.data import get_loaders
 from src.engine import final_metrics, fit
 from src.eval.metrics import clean_accuracy, compressed_size
-from src.models.resnet import build_model
+from src.models.resnet import DEFAULT_WIDTH
+from src.models.load import build_from_cfg
 from src.utils import get_device, load_config, save_result, set_seed
 
 
@@ -29,12 +30,13 @@ def main():
     t, c = cfg["train"], cfg["compression"]
     T, alpha = c["temperature"], c["alpha"]
 
-    train_loader, test_loader = get_loaders(cfg["data_root"], t["batch_size"], cfg["num_workers"])
-    teacher = build_model(cfg["model"]).to(device)
+    train_loader, test_loader = get_loaders(cfg["data_root"], t["batch_size"], cfg["num_workers"],
+                                            cfg.get("dataset", "cifar10"))
+    teacher = build_from_cfg(cfg, width=cfg.get("teacher_width") or DEFAULT_WIDTH[cfg["model"]]).to(device)
     teacher.load_state_dict(torch.load(cfg["base_checkpoint"], map_location=device))
     teacher.eval()
     print(f"teacher acc {clean_accuracy(teacher, test_loader, device):.4f}", flush=True)
-    student = build_model(cfg["model"], width=cfg["width"]).to(device)
+    student = build_from_cfg(cfg).to(device)
 
     def kd_loss(model, x, y):
         with torch.no_grad():
@@ -46,7 +48,7 @@ def main():
 
     fit(student, train_loader, test_loader, device, t, cfg["checkpoint"], loss_fn=kd_loss)
 
-    metrics = {**final_metrics(student, test_loader, device), **compressed_size(student)}
+    metrics = {**final_metrics(student, test_loader, device, cfg), **compressed_size(student, cfg=cfg)}
     print(metrics)
     print("saved", save_result(cfg["run_name"], cfg, metrics))
 

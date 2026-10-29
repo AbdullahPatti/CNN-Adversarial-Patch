@@ -1,0 +1,33 @@
+sparsity 0.7500  acc after one-shot prune 0.9275
+epoch 1/30  loss 0.1901  test_acc 0.8886  best 0.8886
+epoch 2/30  loss 0.1856  test_acc 0.8894  best 0.8894
+epoch 3/30  loss 0.1846  test_acc 0.8852  best 0.8894
+epoch 4/30  loss 0.1775  test_acc 0.8998  best 0.8998
+epoch 5/30  loss 0.1756  test_acc 0.8990  best 0.8998
+epoch 6/30  loss 0.1667  test_acc 0.8967  best 0.8998
+epoch 7/30  loss 0.1648  test_acc 0.9071  best 0.9071
+epoch 8/30  loss 0.1619  test_acc 0.9045  best 0.9071
+epoch 9/30  loss 0.1540  test_acc 0.9053  best 0.9071
+epoch 10/30  loss 0.1501  test_acc 0.9011  best 0.9071
+epoch 11/30  loss 0.1417  test_acc 0.9111  best 0.9111
+epoch 12/30  loss 0.1317  test_acc 0.9125  best 0.9125
+epoch 13/30  loss 0.1253  test_acc 0.9130  best 0.9130
+epoch 14/30  loss 0.1205  test_acc 0.9134  best 0.9134
+epoch 15/30  loss 0.1043  test_acc 0.9146  best 0.9146
+epoch 16/30  loss 0.0984  test_acc 0.9142  best 0.9146
+epoch 17/30  loss 0.0870  test_acc 0.9189  best 0.9189
+epoch 18/30  loss 0.0809  test_acc 0.9210  best 0.9210
+epoch 19/30  loss 0.0714  test_acc 0.9247  best 0.9247
+epoch 20/30  loss 0.0629  test_acc 0.9228  best 0.9247
+epoch 21/30  loss 0.0559  test_acc 0.9260  best 0.9260
+epoch 22/30  loss 0.0493  test_acc 0.9265  best 0.9265
+epoch 23/30  loss 0.0458  test_acc 0.9276  best 0.9276
+epoch 24/30  loss 0.0420  test_acc 0.9291  best 0.9291
+epoch 25/30  loss 0.0389  test_acc 0.9307  best 0.9307
+epoch 26/30  loss 0.0347  test_acc 0.9326  best 0.9326
+epoch 27/30  loss 0.0335  test_acc 0.9318  best 0.9326
+epoch 28/30  loss 0.0323  test_acc 0.9317  best 0.9326
+epoch 29/30  loss 0.0310  test_acc 0.9314  best 0.9326
+epoch 30/30  loss 0.0294  test_acc 0.9310  best 0.9326
+{'clean_acc': 0.931, 'params': 2296922, 'nonzero_params': 600554, 'size_mb_fp32': 8.896369934082031, 'latency_ms_bs1': 3.3539500000188127, 'size_mb_compressed': 2.5605621337890625, 'ratio_vs_baseline': 3.4219290979625647, 'weight_sparsity': 0.75, 'acc_after_prune_before_ft': 0.9275}
+saved results\mbv2_prune_4x_s43.json

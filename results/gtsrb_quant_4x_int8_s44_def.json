@@ -1,0 +1,61 @@
+{
+  "run": "gtsrb_quant_4x_int8_s44_def",
+  "model": "resnet18",
+  "compression": {
+    "method": "quant",
+    "ratio": 4.0,
+    "mode": "ptq",
+    "weight_bits": 8,
+    "act_bits": 8,
+    "calib_batches": 20
+  },
+  "attack": null,
+  "defense": null,
+  "metrics": {
+    "clean_acc": 0.9829770387965162,
+    "params": 11186091,
+    "nonzero_params": 11186091,
+    "size_mb_fp32": 42.671753883361816,
+    "latency_ms_bs1": 6.2258010000005015,
+    "size_mb_compressed": 10.681743621826172,
+    "ratio_vs_baseline": 3.996525549478511,
+    "acc_bn_folded_fp32": 0.9826603325415677,
+    "acc_ptq": 0.9829770387965162
+  },
+  "config": {
+    "run_name": "gtsrb_quant_4x_int8_s44_def",
+    "model": "resnet18",
+    "dataset": "gtsrb",
+    "seed": 44,
+    "data_root": "./data",
+    "num_workers": 8,
+    "base_checkpoint": "checkpoints/gtsrb/gtsrb_baseline_s44_def.pt",
+    "checkpoint": "checkpoints/gtsrb/gtsrb_quant_4x_int8_s44_def.pt",
+    "compression": {
+      "method": "quant",
+      "ratio": 4.0,
+      "mode": "ptq",
+      "weight_bits": 8,
+      "act_bits": 8,
+      "calib_batches": 20
+    },
+    "train": {
+      "epochs": 100,
+      "batch_size": 128,
+      "lr": 0.1,
+      "momentum": 0.9,
+      "weight_decay": 0.0005,
+      "select": "last",
+      "mask_aug": {
+        "sizes": [
+          5,
+          8
+        ],
+        "k": 6,
+        "img": 32
+      }
+    }
+  },
+  "device": "NVIDIA RTX A4000",
+  "timestamp": "2026-10-26T11:02:34.187060+00:00"
+}

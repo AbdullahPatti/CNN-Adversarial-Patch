@@ -1,0 +1,46 @@
+lavan_gtsrb_baseline_s44 side 5 targeted  gtsrb_baseline_s44: 1.000  gtsrb_quant_4x_int8_s44: 0.811  gtsrb_prune_4x_s44: 0.587  gtsrb_dense_small_4x_s44: 0.150  gtsrb_kd_4x_s44: 0.163
+lavan_gtsrb_baseline_s44 side 5 untargeted  gtsrb_baseline_s44: 1.000  gtsrb_quant_4x_int8_s44: 0.914  gtsrb_prune_4x_s44: 0.718  gtsrb_dense_small_4x_s44: 0.387  gtsrb_kd_4x_s44: 0.387
+lavan_gtsrb_baseline_s44 side 8 targeted  gtsrb_baseline_s44: 1.000  gtsrb_quant_4x_int8_s44: 0.886  gtsrb_prune_4x_s44: 0.577  gtsrb_dense_small_4x_s44: 0.054  gtsrb_kd_4x_s44: 0.073
+lavan_gtsrb_baseline_s44 side 8 untargeted  gtsrb_baseline_s44: 1.000  gtsrb_quant_4x_int8_s44: 0.925  gtsrb_prune_4x_s44: 0.734  gtsrb_dense_small_4x_s44: 0.353  gtsrb_kd_4x_s44: 0.358
+lavan_gtsrb_quant_4x_int8_s44 side 5 targeted  gtsrb_baseline_s44: 0.851  gtsrb_quant_4x_int8_s44: 1.000  gtsrb_prune_4x_s44: 0.547  gtsrb_dense_small_4x_s44: 0.124  gtsrb_kd_4x_s44: 0.103
+lavan_gtsrb_quant_4x_int8_s44 side 5 untargeted  gtsrb_baseline_s44: 0.922  gtsrb_quant_4x_int8_s44: 0.978  gtsrb_prune_4x_s44: 0.728  gtsrb_dense_small_4x_s44: 0.382  gtsrb_kd_4x_s44: 0.408
+lavan_gtsrb_quant_4x_int8_s44 side 8 targeted  gtsrb_baseline_s44: 0.891  gtsrb_quant_4x_int8_s44: 0.967  gtsrb_prune_4x_s44: 0.577  gtsrb_dense_small_4x_s44: 0.047  gtsrb_kd_4x_s44: 0.069
+lavan_gtsrb_quant_4x_int8_s44 side 8 untargeted  gtsrb_baseline_s44: 0.925  gtsrb_quant_4x_int8_s44: 0.976  gtsrb_prune_4x_s44: 0.715  gtsrb_dense_small_4x_s44: 0.360  gtsrb_kd_4x_s44: 0.341
+lavan_gtsrb_prune_4x_s44 side 5 targeted  gtsrb_baseline_s44: 0.592  gtsrb_quant_4x_int8_s44: 0.585  gtsrb_prune_4x_s44: 0.992  gtsrb_dense_small_4x_s44: 0.171  gtsrb_kd_4x_s44: 0.156
+lavan_gtsrb_prune_4x_s44 side 5 untargeted  gtsrb_baseline_s44: 0.767  gtsrb_quant_4x_int8_s44: 0.754  gtsrb_prune_4x_s44: 1.000  gtsrb_dense_small_4x_s44: 0.372  gtsrb_kd_4x_s44: 0.392
+lavan_gtsrb_prune_4x_s44 side 8 targeted  gtsrb_baseline_s44: 0.583  gtsrb_quant_4x_int8_s44: 0.584  gtsrb_prune_4x_s44: 0.997  gtsrb_dense_small_4x_s44: 0.047  gtsrb_kd_4x_s44: 0.078
+lavan_gtsrb_prune_4x_s44 side 8 untargeted  gtsrb_baseline_s44: 0.789  gtsrb_quant_4x_int8_s44: 0.783  gtsrb_prune_4x_s44: 0.999  gtsrb_dense_small_4x_s44: 0.348  gtsrb_kd_4x_s44: 0.336
+lavan_gtsrb_dense_small_4x_s44 side 5 targeted  gtsrb_baseline_s44: 0.067  gtsrb_quant_4x_int8_s44: 0.067  gtsrb_prune_4x_s44: 0.067  gtsrb_dense_small_4x_s44: 1.000  gtsrb_kd_4x_s44: 0.072
+lavan_gtsrb_dense_small_4x_s44 side 5 untargeted  gtsrb_baseline_s44: 0.214  gtsrb_quant_4x_int8_s44: 0.214  gtsrb_prune_4x_s44: 0.218  gtsrb_dense_small_4x_s44: 0.999  gtsrb_kd_4x_s44: 0.293
+lavan_gtsrb_dense_small_4x_s44 side 8 targeted  gtsrb_baseline_s44: 0.030  gtsrb_quant_4x_int8_s44: 0.030  gtsrb_prune_4x_s44: 0.030  gtsrb_dense_small_4x_s44: 1.000  gtsrb_kd_4x_s44: 0.046
+lavan_gtsrb_dense_small_4x_s44 side 8 untargeted  gtsrb_baseline_s44: 0.204  gtsrb_quant_4x_int8_s44: 0.206  gtsrb_prune_4x_s44: 0.200  gtsrb_dense_small_4x_s44: 1.000  gtsrb_kd_4x_s44: 0.244
+lavan_gtsrb_kd_4x_s44 side 5 targeted  gtsrb_baseline_s44: 0.068  gtsrb_quant_4x_int8_s44: 0.062  gtsrb_prune_4x_s44: 0.050  gtsrb_dense_small_4x_s44: 0.082  gtsrb_kd_4x_s44: 1.000
+lavan_gtsrb_kd_4x_s44 side 5 untargeted  gtsrb_baseline_s44: 0.275  gtsrb_quant_4x_int8_s44: 0.270  gtsrb_prune_4x_s44: 0.262  gtsrb_dense_small_4x_s44: 0.313  gtsrb_kd_4x_s44: 1.000
+lavan_gtsrb_kd_4x_s44 side 8 targeted  gtsrb_baseline_s44: 0.031  gtsrb_quant_4x_int8_s44: 0.031  gtsrb_prune_4x_s44: 0.026  gtsrb_dense_small_4x_s44: 0.033  gtsrb_kd_4x_s44: 0.999
+lavan_gtsrb_kd_4x_s44 side 8 untargeted  gtsrb_baseline_s44: 0.314  gtsrb_quant_4x_int8_s44: 0.316  gtsrb_prune_4x_s44: 0.318  gtsrb_dense_small_4x_s44: 0.361  gtsrb_kd_4x_s44: 1.000
+universal_gtsrb_baseline_s44 -> gtsrb_baseline_s44  side_5: acc 0.9469 hit 0.0027  side_8: acc 0.8499 hit 0.0559
+universal_gtsrb_baseline_s44 -> gtsrb_quant_4x_int8_s44  side_5: acc 0.9469 hit 0.0027  side_8: acc 0.8501 hit 0.0559
+universal_gtsrb_baseline_s44 -> gtsrb_prune_4x_s44  side_5: acc 0.9481 hit 0.0027  side_8: acc 0.8492 hit 0.0580
+universal_gtsrb_baseline_s44 -> gtsrb_dense_small_4x_s44  side_5: acc 0.9384 hit 0.0022  side_8: acc 0.8530 hit 0.0343
+universal_gtsrb_baseline_s44 -> gtsrb_kd_4x_s44  side_5: acc 0.9331 hit 0.0033  side_8: acc 0.8344 hit 0.0448
+universal_gtsrb_quant_4x_int8_s44 -> gtsrb_baseline_s44  side_5: acc 0.9479 hit 0.0030  side_8: acc 0.8538 hit 0.0572
+universal_gtsrb_quant_4x_int8_s44 -> gtsrb_quant_4x_int8_s44  side_5: acc 0.9480 hit 0.0030  side_8: acc 0.8540 hit 0.0572
+universal_gtsrb_quant_4x_int8_s44 -> gtsrb_prune_4x_s44  side_5: acc 0.9493 hit 0.0030  side_8: acc 0.8530 hit 0.0591
+universal_gtsrb_quant_4x_int8_s44 -> gtsrb_dense_small_4x_s44  side_5: acc 0.9390 hit 0.0026  side_8: acc 0.8558 hit 0.0321
+universal_gtsrb_quant_4x_int8_s44 -> gtsrb_kd_4x_s44  side_5: acc 0.9358 hit 0.0039  side_8: acc 0.8421 hit 0.0468
+universal_gtsrb_prune_4x_s44 -> gtsrb_baseline_s44  side_5: acc 0.9470 hit 0.0028  side_8: acc 0.8598 hit 0.0598
+universal_gtsrb_prune_4x_s44 -> gtsrb_quant_4x_int8_s44  side_5: acc 0.9469 hit 0.0028  side_8: acc 0.8602 hit 0.0595
+universal_gtsrb_prune_4x_s44 -> gtsrb_prune_4x_s44  side_5: acc 0.9480 hit 0.0029  side_8: acc 0.8587 hit 0.0632
+universal_gtsrb_prune_4x_s44 -> gtsrb_dense_small_4x_s44  side_5: acc 0.9372 hit 0.0023  side_8: acc 0.8540 hit 0.0445
+universal_gtsrb_prune_4x_s44 -> gtsrb_kd_4x_s44  side_5: acc 0.9331 hit 0.0041  side_8: acc 0.8430 hit 0.0487
+universal_gtsrb_dense_small_4x_s44 -> gtsrb_baseline_s44  side_5: acc 0.9520 hit 0.0016  side_8: acc 0.8810 hit 0.0222
+universal_gtsrb_dense_small_4x_s44 -> gtsrb_quant_4x_int8_s44  side_5: acc 0.9520 hit 0.0016  side_8: acc 0.8812 hit 0.0221
+universal_gtsrb_dense_small_4x_s44 -> gtsrb_prune_4x_s44  side_5: acc 0.9533 hit 0.0016  side_8: acc 0.8813 hit 0.0212
+universal_gtsrb_dense_small_4x_s44 -> gtsrb_dense_small_4x_s44  side_5: acc 0.9367 hit 0.0029  side_8: acc 0.8135 hit 0.0738
+universal_gtsrb_dense_small_4x_s44 -> gtsrb_kd_4x_s44  side_5: acc 0.9332 hit 0.0025  side_8: acc 0.8347 hit 0.0380
+universal_gtsrb_kd_4x_s44 -> gtsrb_baseline_s44  side_5: acc 0.9497 hit 0.0020  side_8: acc 0.8835 hit 0.0255
+universal_gtsrb_kd_4x_s44 -> gtsrb_quant_4x_int8_s44  side_5: acc 0.9497 hit 0.0020  side_8: acc 0.8835 hit 0.0255
+universal_gtsrb_kd_4x_s44 -> gtsrb_prune_4x_s44  side_5: acc 0.9508 hit 0.0020  side_8: acc 0.8835 hit 0.0257
+universal_gtsrb_kd_4x_s44 -> gtsrb_dense_small_4x_s44  side_5: acc 0.9387 hit 0.0026  side_8: acc 0.8507 hit 0.0345
+universal_gtsrb_kd_4x_s44 -> gtsrb_kd_4x_s44  side_5: acc 0.9232 hit 0.0050  side_8: acc 0.7893 hit 0.0801
+saved results\transfer_gtsrb_s44.json

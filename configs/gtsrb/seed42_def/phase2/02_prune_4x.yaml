@@ -1,0 +1,25 @@
+run_name: gtsrb_prune_4x_s42_def
+model: resnet18
+dataset: gtsrb
+seed: 42
+data_root: ./data
+num_workers: 8
+base_checkpoint: checkpoints/gtsrb/gtsrb_baseline_s42_def.pt
+checkpoint: checkpoints/gtsrb/gtsrb_prune_4x_s42_def.pt
+compression:
+  method: prune
+  ratio: 4.0
+  sparsity: 0.75
+train:
+  epochs: 20
+  batch_size: 128
+  lr: 0.01
+  momentum: 0.9
+  weight_decay: 0.0005
+  select: last
+  mask_aug:
+    sizes:
+    - 5
+    - 8
+    k: 6
+    img: 32

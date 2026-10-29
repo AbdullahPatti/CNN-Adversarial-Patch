@@ -1,0 +1,3 @@
+side 5: 36 masks of 9px  certified 0.5920  defended clean 0.9470  one-mask 0.9729 (worst 0.9020)  two-mask 0.9636
+side 8: 25 masks of 12px  certified 0.3170  defended clean 0.9270  one-mask 0.9527 (worst 0.7800)  two-mask 0.9128
+saved results\pc_gtsrb_prune_4x_s43_def.json

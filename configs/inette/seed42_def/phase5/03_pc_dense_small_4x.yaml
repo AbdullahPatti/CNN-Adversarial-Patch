@@ -1,0 +1,14 @@
+run_name: pc_inette_dense_small_4x_s42_def
+model_config: configs/inette/seed42_def/phase2/03_dense_small_4x.yaml
+seed: 0
+data_root: ./data
+num_workers: 0
+defense:
+  name: patchcleanser
+  sizes:
+  - 35
+  - 56
+  k: 6
+  fine_tuned: true
+  batch: 100
+  n_images: 500

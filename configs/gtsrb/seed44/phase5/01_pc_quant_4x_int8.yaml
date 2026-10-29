@@ -1,0 +1,13 @@
+run_name: pc_gtsrb_quant_4x_int8_s44
+model_config: configs/gtsrb/seed44/phase2/01_quant_4x_int8.yaml
+seed: 0
+data_root: ./data
+num_workers: 0
+defense:
+  name: patchcleanser
+  sizes:
+  - 5
+  - 8
+  k: 6
+  fine_tuned: false
+  batch: 1000

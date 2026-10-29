@@ -1,0 +1,46 @@
+lavan_mbv2_baseline_s44 side 5 targeted  mbv2_baseline_s44: 0.994  mbv2_quant_4x_int8_s44: 0.412  mbv2_prune_4x_s44: 0.147  mbv2_dense_small_4x_s44: 0.053  mbv2_kd_4x_s44: 0.028
+lavan_mbv2_baseline_s44 side 5 untargeted  mbv2_baseline_s44: 0.998  mbv2_quant_4x_int8_s44: 0.513  mbv2_prune_4x_s44: 0.262  mbv2_dense_small_4x_s44: 0.146  mbv2_kd_4x_s44: 0.127
+lavan_mbv2_baseline_s44 side 8 targeted  mbv2_baseline_s44: 0.996  mbv2_quant_4x_int8_s44: 0.414  mbv2_prune_4x_s44: 0.080  mbv2_dense_small_4x_s44: 0.032  mbv2_kd_4x_s44: 0.029
+lavan_mbv2_baseline_s44 side 8 untargeted  mbv2_baseline_s44: 1.000  mbv2_quant_4x_int8_s44: 0.686  mbv2_prune_4x_s44: 0.283  mbv2_dense_small_4x_s44: 0.179  mbv2_kd_4x_s44: 0.158
+lavan_mbv2_quant_4x_int8_s44 side 5 targeted  mbv2_baseline_s44: 0.669  mbv2_quant_4x_int8_s44: 0.769  mbv2_prune_4x_s44: 0.138  mbv2_dense_small_4x_s44: 0.048  mbv2_kd_4x_s44: 0.029
+lavan_mbv2_quant_4x_int8_s44 side 5 untargeted  mbv2_baseline_s44: 0.731  mbv2_quant_4x_int8_s44: 0.771  mbv2_prune_4x_s44: 0.283  mbv2_dense_small_4x_s44: 0.140  mbv2_kd_4x_s44: 0.119
+lavan_mbv2_quant_4x_int8_s44 side 8 targeted  mbv2_baseline_s44: 0.772  mbv2_quant_4x_int8_s44: 0.790  mbv2_prune_4x_s44: 0.090  mbv2_dense_small_4x_s44: 0.032  mbv2_kd_4x_s44: 0.024
+lavan_mbv2_quant_4x_int8_s44 side 8 untargeted  mbv2_baseline_s44: 0.855  mbv2_quant_4x_int8_s44: 0.880  mbv2_prune_4x_s44: 0.281  mbv2_dense_small_4x_s44: 0.183  mbv2_kd_4x_s44: 0.146
+lavan_mbv2_prune_4x_s44 side 5 targeted  mbv2_baseline_s44: 0.103  mbv2_quant_4x_int8_s44: 0.086  mbv2_prune_4x_s44: 0.989  mbv2_dense_small_4x_s44: 0.049  mbv2_kd_4x_s44: 0.019
+lavan_mbv2_prune_4x_s44 side 5 untargeted  mbv2_baseline_s44: 0.177  mbv2_quant_4x_int8_s44: 0.160  mbv2_prune_4x_s44: 0.993  mbv2_dense_small_4x_s44: 0.134  mbv2_kd_4x_s44: 0.086
+lavan_mbv2_prune_4x_s44 side 8 targeted  mbv2_baseline_s44: 0.077  mbv2_quant_4x_int8_s44: 0.071  mbv2_prune_4x_s44: 0.998  mbv2_dense_small_4x_s44: 0.038  mbv2_kd_4x_s44: 0.029
+lavan_mbv2_prune_4x_s44 side 8 untargeted  mbv2_baseline_s44: 0.238  mbv2_quant_4x_int8_s44: 0.227  mbv2_prune_4x_s44: 0.999  mbv2_dense_small_4x_s44: 0.172  mbv2_kd_4x_s44: 0.137
+lavan_mbv2_dense_small_4x_s44 side 5 targeted  mbv2_baseline_s44: 0.035  mbv2_quant_4x_int8_s44: 0.034  mbv2_prune_4x_s44: 0.041  mbv2_dense_small_4x_s44: 0.997  mbv2_kd_4x_s44: 0.026
+lavan_mbv2_dense_small_4x_s44 side 5 untargeted  mbv2_baseline_s44: 0.091  mbv2_quant_4x_int8_s44: 0.096  mbv2_prune_4x_s44: 0.101  mbv2_dense_small_4x_s44: 0.992  mbv2_kd_4x_s44: 0.086
+lavan_mbv2_dense_small_4x_s44 side 8 targeted  mbv2_baseline_s44: 0.018  mbv2_quant_4x_int8_s44: 0.019  mbv2_prune_4x_s44: 0.023  mbv2_dense_small_4x_s44: 0.996  mbv2_kd_4x_s44: 0.028
+lavan_mbv2_dense_small_4x_s44 side 8 untargeted  mbv2_baseline_s44: 0.165  mbv2_quant_4x_int8_s44: 0.165  mbv2_prune_4x_s44: 0.167  mbv2_dense_small_4x_s44: 0.997  mbv2_kd_4x_s44: 0.145
+lavan_mbv2_kd_4x_s44 side 5 targeted  mbv2_baseline_s44: 0.082  mbv2_quant_4x_int8_s44: 0.071  mbv2_prune_4x_s44: 0.117  mbv2_dense_small_4x_s44: 0.086  mbv2_kd_4x_s44: 0.982
+lavan_mbv2_kd_4x_s44 side 5 untargeted  mbv2_baseline_s44: 0.163  mbv2_quant_4x_int8_s44: 0.154  mbv2_prune_4x_s44: 0.174  mbv2_dense_small_4x_s44: 0.222  mbv2_kd_4x_s44: 0.992
+lavan_mbv2_kd_4x_s44 side 8 targeted  mbv2_baseline_s44: 0.047  mbv2_quant_4x_int8_s44: 0.042  mbv2_prune_4x_s44: 0.043  mbv2_dense_small_4x_s44: 0.055  mbv2_kd_4x_s44: 0.988
+lavan_mbv2_kd_4x_s44 side 8 untargeted  mbv2_baseline_s44: 0.191  mbv2_quant_4x_int8_s44: 0.187  mbv2_prune_4x_s44: 0.192  mbv2_dense_small_4x_s44: 0.214  mbv2_kd_4x_s44: 0.997
+universal_mbv2_baseline_s44 -> mbv2_baseline_s44  side_5: acc 0.7940 hit 0.0796  side_8: acc 0.5980 hit 0.3351
+universal_mbv2_baseline_s44 -> mbv2_quant_4x_int8_s44  side_5: acc 0.8127 hit 0.0679  side_8: acc 0.6352 hit 0.2924
+universal_mbv2_baseline_s44 -> mbv2_prune_4x_s44  side_5: acc 0.7873 hit 0.0801  side_8: acc 0.6262 hit 0.2912
+universal_mbv2_baseline_s44 -> mbv2_dense_small_4x_s44  side_5: acc 0.8124 hit 0.0463  side_8: acc 0.7201 hit 0.1292
+universal_mbv2_baseline_s44 -> mbv2_kd_4x_s44  side_5: acc 0.8465 hit 0.0360  side_8: acc 0.7585 hit 0.1299
+universal_mbv2_quant_4x_int8_s44 -> mbv2_baseline_s44  side_5: acc 0.7999 hit 0.0788  side_8: acc 0.6049 hit 0.3385
+universal_mbv2_quant_4x_int8_s44 -> mbv2_quant_4x_int8_s44  side_5: acc 0.8070 hit 0.0737  side_8: acc 0.6220 hit 0.3183
+universal_mbv2_quant_4x_int8_s44 -> mbv2_prune_4x_s44  side_5: acc 0.7976 hit 0.0780  side_8: acc 0.6364 hit 0.2953
+universal_mbv2_quant_4x_int8_s44 -> mbv2_dense_small_4x_s44  side_5: acc 0.8135 hit 0.0542  side_8: acc 0.7285 hit 0.1402
+universal_mbv2_quant_4x_int8_s44 -> mbv2_kd_4x_s44  side_5: acc 0.8479 hit 0.0417  side_8: acc 0.7598 hit 0.1374
+universal_mbv2_prune_4x_s44 -> mbv2_baseline_s44  side_5: acc 0.8122 hit 0.0624  side_8: acc 0.6568 hit 0.2606
+universal_mbv2_prune_4x_s44 -> mbv2_quant_4x_int8_s44  side_5: acc 0.8319 hit 0.0515  side_8: acc 0.6919 hit 0.2189
+universal_mbv2_prune_4x_s44 -> mbv2_prune_4x_s44  side_5: acc 0.7692 hit 0.0877  side_8: acc 0.5779 hit 0.3603
+universal_mbv2_prune_4x_s44 -> mbv2_dense_small_4x_s44  side_5: acc 0.8083 hit 0.0417  side_8: acc 0.7428 hit 0.1034
+universal_mbv2_prune_4x_s44 -> mbv2_kd_4x_s44  side_5: acc 0.8487 hit 0.0312  side_8: acc 0.7733 hit 0.1001
+universal_mbv2_dense_small_4x_s44 -> mbv2_baseline_s44  side_5: acc 0.8509 hit 0.0330  side_8: acc 0.7726 hit 0.1005
+universal_mbv2_dense_small_4x_s44 -> mbv2_quant_4x_int8_s44  side_5: acc 0.8565 hit 0.0304  side_8: acc 0.7811 hit 0.0926
+universal_mbv2_dense_small_4x_s44 -> mbv2_prune_4x_s44  side_5: acc 0.8430 hit 0.0398  side_8: acc 0.7681 hit 0.1050
+universal_mbv2_dense_small_4x_s44 -> mbv2_dense_small_4x_s44  side_5: acc 0.7709 hit 0.1020  side_8: acc 0.5156 hit 0.4314
+universal_mbv2_dense_small_4x_s44 -> mbv2_kd_4x_s44  side_5: acc 0.8544 hit 0.0359  side_8: acc 0.7854 hit 0.0945
+universal_mbv2_kd_4x_s44 -> mbv2_baseline_s44  side_5: acc 0.8367 hit 0.0460  side_8: acc 0.7342 hit 0.1528
+universal_mbv2_kd_4x_s44 -> mbv2_quant_4x_int8_s44  side_5: acc 0.8415 hit 0.0436  side_8: acc 0.7425 hit 0.1436
+universal_mbv2_kd_4x_s44 -> mbv2_prune_4x_s44  side_5: acc 0.8249 hit 0.0544  side_8: acc 0.7274 hit 0.1618
+universal_mbv2_kd_4x_s44 -> mbv2_dense_small_4x_s44  side_5: acc 0.7960 hit 0.0607  side_8: acc 0.7077 hit 0.1609
+universal_mbv2_kd_4x_s44 -> mbv2_kd_4x_s44  side_5: acc 0.8009 hit 0.0721  side_8: acc 0.6466 hit 0.2827
+saved results\transfer_mbv2_s44.json

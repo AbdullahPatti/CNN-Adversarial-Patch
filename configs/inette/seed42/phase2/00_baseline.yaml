@@ -1,0 +1,17 @@
+run_name: inette_baseline_s42
+model: resnet50
+dataset: imagenette
+seed: 42
+data_root: ./data
+num_workers: 12
+checkpoint: checkpoints/inette/inette_baseline_s42.pt
+compression:
+  method: none
+  ratio: 1.0
+train:
+  epochs: 120
+  batch_size: 64
+  lr: 0.05
+  momentum: 0.9
+  weight_decay: 0.0005
+  select: last

@@ -1,0 +1,176 @@
+{
+  "run": "universal_untargeted_kd_2x",
+  "model": "resnet18",
+  "compression": {
+    "method": "distill",
+    "ratio": 2.0,
+    "temperature": 4.0,
+    "alpha": 0.9
+  },
+  "attack": {
+    "name": "universal",
+    "sizes": [
+      5,
+      8
+    ],
+    "targets": [
+      -1
+    ],
+    "steps": 1000,
+    "lr": 0.02,
+    "batch_size": 128,
+    "monitor_every": 250,
+    "physical": false,
+    "surrogate": false
+  },
+  "defense": null,
+  "metrics": {
+    "model_run": "kd_2x",
+    "clean_acc": 0.9563,
+    "side_5": {
+      "area_frac": 0.0244140625,
+      "noise_patch_acc": 0.9206,
+      "effective_from": "whitebox",
+      "whitebox_patched_acc": {
+        "mean": 0.7651,
+        "std": 0.0
+      },
+      "whitebox_target_success": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "effective_patched_acc": {
+        "mean": 0.7651,
+        "std": 0.0
+      },
+      "effective_target_success": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "per_target": [
+        {
+          "target": -1,
+          "whitebox": {
+            "patched_acc": 0.7651,
+            "target_success": 0.0,
+            "curve": [
+              {
+                "step": 250,
+                "patched_acc": 0.786,
+                "target_success": 0.0
+              },
+              {
+                "step": 500,
+                "patched_acc": 0.785,
+                "target_success": 0.0
+              },
+              {
+                "step": 750,
+                "patched_acc": 0.779,
+                "target_success": 0.0
+              },
+              {
+                "step": 1000,
+                "patched_acc": 0.771,
+                "target_success": 0.0
+              }
+            ]
+          },
+          "effective": {
+            "patched_acc": 0.7651,
+            "target_success": 0.0
+          }
+        }
+      ]
+    },
+    "side_8": {
+      "area_frac": 0.0625,
+      "noise_patch_acc": 0.8779,
+      "effective_from": "whitebox",
+      "whitebox_patched_acc": {
+        "mean": 0.341,
+        "std": 0.0
+      },
+      "whitebox_target_success": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "effective_patched_acc": {
+        "mean": 0.341,
+        "std": 0.0
+      },
+      "effective_target_success": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "per_target": [
+        {
+          "target": -1,
+          "whitebox": {
+            "patched_acc": 0.341,
+            "target_success": 0.0,
+            "curve": [
+              {
+                "step": 250,
+                "patched_acc": 0.354,
+                "target_success": 0.0
+              },
+              {
+                "step": 500,
+                "patched_acc": 0.345,
+                "target_success": 0.0
+              },
+              {
+                "step": 750,
+                "patched_acc": 0.348,
+                "target_success": 0.0
+              },
+              {
+                "step": 1000,
+                "patched_acc": 0.347,
+                "target_success": 0.0
+              }
+            ]
+          },
+          "effective": {
+            "patched_acc": 0.341,
+            "target_success": 0.0
+          }
+        }
+      ]
+    }
+  },
+  "config": {
+    "run_name": "universal_untargeted_kd_2x",
+    "model_config": "configs/phase2/10_kd_2x.yaml",
+    "seed": 0,
+    "data_root": "./data",
+    "num_workers": 8,
+    "attack": {
+      "name": "universal",
+      "sizes": [
+        5,
+        8
+      ],
+      "targets": [
+        -1
+      ],
+      "steps": 1000,
+      "lr": 0.02,
+      "batch_size": 128,
+      "monitor_every": 250,
+      "physical": false,
+      "surrogate": false
+    },
+    "model": "resnet18",
+    "compression": {
+      "method": "distill",
+      "ratio": 2.0,
+      "temperature": 4.0,
+      "alpha": 0.9
+    },
+    "dataset": "cifar10"
+  },
+  "device": "NVIDIA RTX A4000",
+  "timestamp": "2026-10-25T18:38:53.644575+00:00"
+}

@@ -1,0 +1,21 @@
+size 5 target 0  whitebox: acc 0.8403 hit 0.0377
+size 5 target 1  whitebox: acc 0.7574 hit 0.0711
+size 5 target 2  whitebox: acc 0.7553 hit 0.1541
+size 5 target 3  whitebox: acc 0.8032 hit 0.1451
+size 5 target 4  whitebox: acc 0.8583 hit 0.0237
+size 5 target 5  whitebox: acc 0.7599 hit 0.1983
+size 5 target 6  whitebox: acc 0.8316 hit 0.0123
+size 5 target 7  whitebox: acc 0.8163 hit 0.0178
+size 5 target 8  whitebox: acc 0.8242 hit 0.0081
+size 5 target 9  whitebox: acc 0.7618 hit 0.0533
+size 8 target 0  whitebox: acc 0.7482 hit 0.1554
+size 8 target 1  whitebox: acc 0.5660 hit 0.3312
+size 8 target 2  whitebox: acc 0.6009 hit 0.3572
+size 8 target 3  whitebox: acc 0.6036 hit 0.3863
+size 8 target 4  whitebox: acc 0.6786 hit 0.2651
+size 8 target 5  whitebox: acc 0.4418 hit 0.6034
+size 8 target 6  whitebox: acc 0.7195 hit 0.2051
+size 8 target 7  whitebox: acc 0.7509 hit 0.1464
+size 8 target 8  whitebox: acc 0.7519 hit 0.1064
+size 8 target 9  whitebox: acc 0.6052 hit 0.2697
+saved results\universal_mbv2_kd_4x_s44.json

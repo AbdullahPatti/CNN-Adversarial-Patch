@@ -1,0 +1,21 @@
+size 35 target 0  whitebox: acc 0.8736 hit 0.0452
+size 35 target 1  whitebox: acc 0.8708 hit 0.0071
+size 35 target 2  whitebox: acc 0.8708 hit 0.0283
+size 35 target 3  whitebox: acc 0.7480 hit 0.2391
+size 35 target 4  whitebox: acc 0.8041 hit 0.1567
+size 35 target 5  whitebox: acc 0.7806 hit 0.1977
+size 35 target 6  whitebox: acc 0.8538 hit 0.0602
+size 35 target 7  whitebox: acc 0.7862 hit 0.1843
+size 35 target 8  whitebox: acc 0.7880 hit 0.1668
+size 35 target 9  whitebox: acc 0.8252 hit 0.1064
+size 56 target 0  whitebox: acc 0.6696 hit 0.3256
+size 56 target 1  whitebox: acc 0.2232 hit 0.8609
+size 56 target 2  whitebox: acc 0.7432 hit 0.1766
+size 56 target 3  whitebox: acc 0.3661 hit 0.6957
+size 56 target 4  whitebox: acc 0.5855 hit 0.4408
+size 56 target 5  whitebox: acc 0.4680 hit 0.5823
+size 56 target 6  whitebox: acc 0.5990 hit 0.3945
+size 56 target 7  whitebox: acc 0.4581 hit 0.5958
+size 56 target 8  whitebox: acc 0.5080 hit 0.5301
+size 56 target 9  whitebox: acc 0.6104 hit 0.4003
+saved results\universal_inette_baseline_s42.json

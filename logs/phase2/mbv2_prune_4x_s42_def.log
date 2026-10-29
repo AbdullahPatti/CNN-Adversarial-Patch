@@ -1,0 +1,33 @@
+sparsity 0.7500  acc after one-shot prune 0.9333
+epoch 1/30  loss 0.2617  test_acc 0.9048  best 0.9048
+epoch 2/30  loss 0.2657  test_acc 0.9062  best 0.9062
+epoch 3/30  loss 0.2643  test_acc 0.8963  best 0.9062
+epoch 4/30  loss 0.2648  test_acc 0.9029  best 0.9062
+epoch 5/30  loss 0.2669  test_acc 0.9027  best 0.9062
+epoch 6/30  loss 0.2610  test_acc 0.9065  best 0.9065
+epoch 7/30  loss 0.2539  test_acc 0.9064  best 0.9065
+epoch 8/30  loss 0.2488  test_acc 0.9056  best 0.9065
+epoch 9/30  loss 0.2453  test_acc 0.9074  best 0.9074
+epoch 10/30  loss 0.2396  test_acc 0.9150  best 0.9150
+epoch 11/30  loss 0.2282  test_acc 0.9172  best 0.9172
+epoch 12/30  loss 0.2268  test_acc 0.9120  best 0.9172
+epoch 13/30  loss 0.2178  test_acc 0.9123  best 0.9172
+epoch 14/30  loss 0.2085  test_acc 0.9229  best 0.9229
+epoch 15/30  loss 0.1980  test_acc 0.9217  best 0.9229
+epoch 16/30  loss 0.1947  test_acc 0.9256  best 0.9256
+epoch 17/30  loss 0.1830  test_acc 0.9268  best 0.9268
+epoch 18/30  loss 0.1679  test_acc 0.9237  best 0.9268
+epoch 19/30  loss 0.1651  test_acc 0.9250  best 0.9268
+epoch 20/30  loss 0.1557  test_acc 0.9283  best 0.9283
+epoch 21/30  loss 0.1480  test_acc 0.9306  best 0.9306
+epoch 22/30  loss 0.1412  test_acc 0.9304  best 0.9306
+epoch 23/30  loss 0.1307  test_acc 0.9330  best 0.9330
+epoch 24/30  loss 0.1282  test_acc 0.9358  best 0.9358
+epoch 25/30  loss 0.1202  test_acc 0.9351  best 0.9358
+epoch 26/30  loss 0.1148  test_acc 0.9365  best 0.9365
+epoch 27/30  loss 0.1158  test_acc 0.9374  best 0.9374
+epoch 28/30  loss 0.1118  test_acc 0.9364  best 0.9374
+epoch 29/30  loss 0.1084  test_acc 0.9357  best 0.9374
+epoch 30/30  loss 0.1086  test_acc 0.9359  best 0.9374
+{'clean_acc': 0.9359, 'params': 2296922, 'nonzero_params': 600554, 'size_mb_fp32': 8.896369934082031, 'latency_ms_bs1': 3.3758634999685455, 'size_mb_compressed': 2.5605621337890625, 'ratio_vs_baseline': 3.4219290979625647, 'weight_sparsity': 0.75, 'acc_after_prune_before_ft': 0.9333}
+saved results\mbv2_prune_4x_s42_def.json

@@ -1,0 +1,110 @@
+{
+  "run": "lavan_mbv2_dense_small_4x_s44",
+  "model": "mobilenetv2",
+  "compression": {
+    "method": "none",
+    "ratio": 4.0,
+    "note": "capacity control for RQ4, no compression applied"
+  },
+  "attack": {
+    "name": "lavan",
+    "sizes": [
+      5,
+      8
+    ],
+    "modes": [
+      "untargeted",
+      "targeted"
+    ],
+    "steps": 100,
+    "step_size": 0.05,
+    "restarts": 10,
+    "batch": 500,
+    "surrogate": false
+  },
+  "defense": null,
+  "metrics": {
+    "model_run": "mbv2_dense_small_4x_s44",
+    "clean_acc_subset": 0.923,
+    "side_5_untargeted": {
+      "area_frac": 0.0244140625,
+      "effective_from": "whitebox",
+      "whitebox": {
+        "success_on_correct": 0.9512459635734558,
+        "robust_acc": 0.04500000178813934
+      },
+      "effective": {
+        "success_on_correct": 0.9512459635734558,
+        "robust_acc": 0.04500000178813934
+      }
+    },
+    "side_5_targeted": {
+      "area_frac": 0.0244140625,
+      "effective_from": "whitebox",
+      "whitebox": {
+        "success_on_correct": 0.6359696388244629,
+        "patched_acc": 0.3360000252723694
+      },
+      "effective": {
+        "success_on_correct": 0.6359696388244629,
+        "patched_acc": 0.3360000252723694
+      }
+    },
+    "side_8_untargeted": {
+      "area_frac": 0.0625,
+      "effective_from": "whitebox",
+      "whitebox": {
+        "success_on_correct": 1.0,
+        "robust_acc": 0.0
+      },
+      "effective": {
+        "success_on_correct": 1.0,
+        "robust_acc": 0.0
+      }
+    },
+    "side_8_targeted": {
+      "area_frac": 0.0625,
+      "effective_from": "whitebox",
+      "whitebox": {
+        "success_on_correct": 0.98591548204422,
+        "patched_acc": 0.013000000268220901
+      },
+      "effective": {
+        "success_on_correct": 0.98591548204422,
+        "patched_acc": 0.013000000268220901
+      }
+    }
+  },
+  "config": {
+    "run_name": "lavan_mbv2_dense_small_4x_s44",
+    "model_config": "configs/mbv2/seed44/phase2/03_dense_small_4x.yaml",
+    "seed": 0,
+    "data_root": "./data",
+    "num_workers": 8,
+    "attack": {
+      "name": "lavan",
+      "sizes": [
+        5,
+        8
+      ],
+      "modes": [
+        "untargeted",
+        "targeted"
+      ],
+      "steps": 100,
+      "step_size": 0.05,
+      "restarts": 10,
+      "batch": 500,
+      "surrogate": false
+    },
+    "model": "mobilenetv2",
+    "compression": {
+      "method": "none",
+      "ratio": 4.0,
+      "note": "capacity control for RQ4, no compression applied"
+    },
+    "dataset": "cifar10"
+  },
+  "device": "NVIDIA RTX A4000",
+  "timestamp": "2026-10-28T19:28:07.058982+00:00"
+}

@@ -45,20 +45,22 @@ def latency_ms(model, device, input_shape=(1, 3, 32, 32), warmup=20, iters=200):
     return (time.perf_counter() - start) / iters * 1000
 
 
-def compressed_size(model, weight_bits=32, sparse=False):
+def compressed_size(model, weight_bits=32, sparse=False, cfg=None):
     """Shipped storage size, the size metric compared across compression arms.
 
     Conv / linear weights cost weight_bits each; every other parameter (biases, BN) costs 32 bits.
     sparse=True (pruning): only nonzero weights are stored, plus a 1-bit-per-weight mask.
     Buffers (BN running stats, normalization, activation ranges) are not counted.
-    ratio_vs_baseline compares against the dense FP32 width-64 ResNet-18 under the same rule.
+    ratio_vs_baseline compares against the dense FP32 standard-width model of the same architecture and dataset
+    (cfg; default the CIFAR-10 ResNet-18) under the same rule.
     """
-    global _BASELINE_BITS
-    if _BASELINE_BITS is None:
-        from src.models.resnet import build_model
-        _BASELINE_BITS = _storage_bits(build_model("resnet18"), 32, False)
+    from src.data import spec
+    from src.models.resnet import build_model
+    name, ds = (cfg or {}).get("model", "resnet18"), (cfg or {}).get("dataset", "cifar10")
+    if (name, ds) not in _BASELINE_BITS:
+        _BASELINE_BITS[name, ds] = _storage_bits(build_model(name, spec(ds)["num_classes"], dataset=ds), 32, False)
     b = _storage_bits(model, weight_bits, sparse)
-    return {"size_mb_compressed": b / 8 / 2**20, "ratio_vs_baseline": _BASELINE_BITS / b}
+    return {"size_mb_compressed": b / 8 / 2**20, "ratio_vs_baseline": _BASELINE_BITS[name, ds] / b}
 
 
 def _storage_bits(model, weight_bits, sparse):
@@ -75,4 +77,4 @@ def _storage_bits(model, weight_bits, sparse):
     return bits + sum(p.numel() * 32 for p in model.parameters() if id(p) not in weights)
 
 
-_BASELINE_BITS = None
+_BASELINE_BITS = {}

@@ -1,0 +1,5 @@
+size 5 untargeted  whitebox: {'success_on_correct': 0.9098532199859619, 'robust_acc': 0.0860000029206276}  effective: {'success_on_correct': 0.9098532199859619, 'robust_acc': 0.0860000029206276}
+size 5 targeted  whitebox: {'success_on_correct': 0.5587002038955688, 'patched_acc': 0.42100003361701965}  effective: {'success_on_correct': 0.5587002038955688, 'patched_acc': 0.42100003361701965}
+size 8 untargeted  whitebox: {'success_on_correct': 0.9968553185462952, 'robust_acc': 0.003000000026077032}  effective: {'success_on_correct': 0.9968553185462952, 'robust_acc': 0.003000000026077032}
+size 8 targeted  whitebox: {'success_on_correct': 0.9633123278617859, 'patched_acc': 0.03500000014901161}  effective: {'success_on_correct': 0.9633123278617859, 'patched_acc': 0.03500000014901161}
+saved results\lavan_margin_prune_4x_s43.json

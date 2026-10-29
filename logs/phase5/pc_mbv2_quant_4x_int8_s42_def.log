@@ -1,0 +1,3 @@
+side 5: 36 masks of 9px  certified 0.5560  defended clean 0.9380  one-mask 0.9346 (worst 0.9200)  two-mask 0.9221
+side 8: 25 masks of 12px  certified 0.3600  defended clean 0.9290  one-mask 0.9201 (worst 0.8980)  two-mask 0.8895
+saved results\pc_mbv2_quant_4x_int8_s42_def.json

@@ -1,0 +1,5 @@
+size 5 untargeted  whitebox: {'success_on_correct': 0.6828774213790894, 'robust_acc': 0.31300002336502075}  effective: {'success_on_correct': 0.6828774213790894, 'robust_acc': 0.31300002336502075}
+size 5 targeted  whitebox: {'success_on_correct': 0.17122595012187958, 'patched_acc': 0.8180000185966492}  effective: {'success_on_correct': 0.17122595012187958, 'patched_acc': 0.8180000185966492}
+size 8 untargeted  whitebox: {'success_on_correct': 0.9848024845123291, 'robust_acc': 0.015000000596046448}  effective: {'success_on_correct': 0.9848024845123291, 'robust_acc': 0.015000000596046448}
+size 8 targeted  whitebox: {'success_on_correct': 0.8105370402336121, 'patched_acc': 0.18700000643730164}  effective: {'success_on_correct': 0.8105370402336121, 'patched_acc': 0.18700000643730164}
+saved results\lavan_gtsrb_baseline_s43.json

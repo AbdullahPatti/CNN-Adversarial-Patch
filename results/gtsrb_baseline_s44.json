@@ -1,0 +1,42 @@
+{
+  "run": "gtsrb_baseline_s44",
+  "model": "resnet18",
+  "compression": {
+    "method": "none",
+    "ratio": 1.0
+  },
+  "attack": null,
+  "defense": null,
+  "metrics": {
+    "clean_acc": 0.9909738717339668,
+    "params": 11190891,
+    "nonzero_params": 11190891,
+    "size_mb_fp32": 42.72665786743164,
+    "latency_ms_bs1": 3.703976500000863,
+    "size_mb_compressed": 42.68986129760742,
+    "ratio_vs_baseline": 1.0
+  },
+  "config": {
+    "run_name": "gtsrb_baseline_s44",
+    "model": "resnet18",
+    "dataset": "gtsrb",
+    "seed": 44,
+    "data_root": "./data",
+    "num_workers": 8,
+    "checkpoint": "checkpoints/gtsrb/gtsrb_baseline_s44.pt",
+    "compression": {
+      "method": "none",
+      "ratio": 1.0
+    },
+    "train": {
+      "epochs": 100,
+      "batch_size": 128,
+      "lr": 0.1,
+      "momentum": 0.9,
+      "weight_decay": 0.0005,
+      "select": "last"
+    }
+  },
+  "device": "NVIDIA RTX A4000",
+  "timestamp": "2026-10-26T07:01:23.735794+00:00"
+}

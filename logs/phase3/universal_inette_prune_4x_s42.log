@@ -1,0 +1,21 @@
+size 35 target 0  whitebox: acc 0.8657 hit 0.0543
+size 35 target 1  whitebox: acc 0.8655 hit 0.0057
+size 35 target 2  whitebox: acc 0.8718 hit 0.0367
+size 35 target 3  whitebox: acc 0.7610 hit 0.2210
+size 35 target 4  whitebox: acc 0.8183 hit 0.1357
+size 35 target 5  whitebox: acc 0.8028 hit 0.1733
+size 35 target 6  whitebox: acc 0.8479 hit 0.0450
+size 35 target 7  whitebox: acc 0.8025 hit 0.1637
+size 35 target 8  whitebox: acc 0.7929 hit 0.1611
+size 35 target 9  whitebox: acc 0.8224 hit 0.1089
+size 56 target 0  whitebox: acc 0.6497 hit 0.3536
+size 56 target 1  whitebox: acc 0.2316 hit 0.8524
+size 56 target 2  whitebox: acc 0.7118 hit 0.2158
+size 56 target 3  whitebox: acc 0.3870 hit 0.6714
+size 56 target 4  whitebox: acc 0.5959 hit 0.4286
+size 56 target 5  whitebox: acc 0.4782 hit 0.5712
+size 56 target 6  whitebox: acc 0.5908 hit 0.4126
+size 56 target 7  whitebox: acc 0.4543 hit 0.5990
+size 56 target 8  whitebox: acc 0.4833 hit 0.5630
+size 56 target 9  whitebox: acc 0.5941 hit 0.4209
+saved results\universal_inette_prune_4x_s42.json

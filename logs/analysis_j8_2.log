@@ -1,0 +1,78 @@
+[done] baseline_resnet18 50s  clean_acc_subset 0.956  margin_mean 7.553  margin_median 8.576  grad_l2_mean 5.916  grad_conc_5 0.077  occ_grey_5_mean 0.947  occ_grey_5_worst 0.923  occ_grey_5_allpos 0.775  occ_noise_5_mean 0.926  occ_noise_5_worst 0.822  occ_noise_5_allpos 0.552  grad_conc_8 0.150  occ_grey_8_mean 0.921  occ_grey_8_worst 0.834  occ_grey_8_allpos 0.549  occ_noise_8_mean 0.892  occ_noise_8_worst 0.732  occ_noise_8_allpos 0.407
+[done] baseline_resnet18_def 32s  clean_acc_subset 0.964  margin_mean 7.667  margin_median 8.435  grad_l2_mean 4.815  grad_conc_5 0.074  occ_grey_5_mean 0.963  occ_grey_5_worst 0.956  occ_grey_5_allpos 0.913  occ_noise_5_mean 0.942  occ_noise_5_worst 0.864  occ_noise_5_allpos 0.654  grad_conc_8 0.142  occ_grey_8_mean 0.961  occ_grey_8_worst 0.944  occ_grey_8_allpos 0.878  occ_noise_8_mean 0.917  occ_noise_8_worst 0.798  occ_noise_8_allpos 0.536
+[done] baseline_resnet18_s43 40s  clean_acc_subset 0.954  margin_mean 7.538  margin_median 8.575  grad_l2_mean 5.889  grad_conc_5 0.077  occ_grey_5_mean 0.946  occ_grey_5_worst 0.920  occ_grey_5_allpos 0.775  occ_noise_5_mean 0.928  occ_noise_5_worst 0.850  occ_noise_5_allpos 0.558  grad_conc_8 0.150  occ_grey_8_mean 0.919  occ_grey_8_worst 0.824  occ_grey_8_allpos 0.537  occ_noise_8_mean 0.892  occ_noise_8_worst 0.755  occ_noise_8_allpos 0.408
+[done] baseline_resnet18_s43_def 43s  clean_acc_subset 0.967  margin_mean 7.707  margin_median 8.484  grad_l2_mean 4.679  grad_conc_5 0.072  occ_grey_5_mean 0.965  occ_grey_5_worst 0.956  occ_grey_5_allpos 0.910  occ_noise_5_mean 0.940  occ_noise_5_worst 0.870  occ_noise_5_allpos 0.658  grad_conc_8 0.141  occ_grey_8_mean 0.961  occ_grey_8_worst 0.949  occ_grey_8_allpos 0.868  occ_noise_8_mean 0.916  occ_noise_8_worst 0.791  occ_noise_8_allpos 0.547
+[done] baseline_resnet18_s44 44s  clean_acc_subset 0.958  margin_mean 7.638  margin_median 8.624  grad_l2_mean 5.328  grad_conc_5 0.076  occ_grey_5_mean 0.948  occ_grey_5_worst 0.922  occ_grey_5_allpos 0.778  occ_noise_5_mean 0.931  occ_noise_5_worst 0.850  occ_noise_5_allpos 0.584  grad_conc_8 0.148  occ_grey_8_mean 0.918  occ_grey_8_worst 0.804  occ_grey_8_allpos 0.524  occ_noise_8_mean 0.898  occ_noise_8_worst 0.772  occ_noise_8_allpos 0.432
+[done] baseline_resnet18_s44_def 44s  clean_acc_subset 0.963  margin_mean 7.803  margin_median 8.572  grad_l2_mean 5.231  grad_conc_5 0.074  occ_grey_5_mean 0.962  occ_grey_5_worst 0.953  occ_grey_5_allpos 0.913  occ_noise_5_mean 0.944  occ_noise_5_worst 0.880  occ_noise_5_allpos 0.672  grad_conc_8 0.143  occ_grey_8_mean 0.959  occ_grey_8_worst 0.950  occ_grey_8_allpos 0.873  occ_noise_8_mean 0.920  occ_noise_8_worst 0.821  occ_noise_8_allpos 0.562
+[skip] dense_small_2x
+[skip] dense_small_2x_def
+[skip] dense_small_2x_s43
+[skip] dense_small_2x_s43_def
+[skip] dense_small_2x_s44
+[skip] dense_small_2x_s44_def
+[skip] dense_small_4x
+[skip] dense_small_4x_def
+[skip] dense_small_4x_s43
+[skip] dense_small_4x_s43_def
+[skip] dense_small_4x_s44
+[skip] dense_small_4x_s44_def
+[skip] dense_small_8x
+[skip] dense_small_8x_def
+[skip] dense_small_8x_s43
+[skip] dense_small_8x_s43_def
+[skip] dense_small_8x_s44
+[skip] dense_small_8x_s44_def
+[skip] kd_2x
+[skip] kd_2x_def
+[skip] kd_2x_s43
+[skip] kd_2x_s43_def
+[skip] kd_2x_s44
+[skip] kd_2x_s44_def
+[skip] kd_4x
+[skip] kd_4x_def
+[skip] kd_4x_s43
+[skip] kd_4x_s43_def
+[skip] kd_4x_s44
+[skip] kd_4x_s44_def
+[skip] kd_8x
+[skip] kd_8x_def
+[skip] kd_8x_s43
+[skip] kd_8x_s43_def
+[skip] kd_8x_s44
+[skip] kd_8x_s44_def
+[skip] prune_2x
+[skip] prune_2x_def
+[skip] prune_2x_s43
+[skip] prune_2x_s43_def
+[skip] prune_2x_s44
+[skip] prune_2x_s44_def
+[skip] prune_4x
+[skip] prune_4x_def
+[skip] prune_4x_s43
+[skip] prune_4x_s43_def
+[skip] prune_4x_s44
+[skip] prune_4x_s44_def
+[skip] prune_8x
+[skip] prune_8x_def
+[skip] prune_8x_s43
+[skip] prune_8x_s43_def
+[skip] prune_8x_s44
+[skip] prune_8x_s44_def
+[skip] quant_2x_fp16
+[skip] quant_2x_fp16_def
+[skip] quant_2x_fp16_s43
+[skip] quant_2x_fp16_s43_def
+[skip] quant_2x_fp16_s44
+[done] quant_2x_fp16_s44_def 53s  clean_acc_subset 0.963  margin_mean 7.803  margin_median 8.572  grad_l2_mean 5.231  grad_conc_5 0.074  occ_grey_5_mean 0.962  occ_grey_5_worst 0.953  occ_grey_5_allpos 0.913  occ_noise_5_mean 0.944  occ_noise_5_worst 0.880  occ_noise_5_allpos 0.672  grad_conc_8 0.143  occ_grey_8_mean 0.959  occ_grey_8_worst 0.950  occ_grey_8_allpos 0.872  occ_noise_8_mean 0.920  occ_noise_8_worst 0.821  occ_noise_8_allpos 0.562  agree_test 1.000  cka_penult 1.000  grad_cos_mean 0.998  grad_cos_median 0.999
+[done] quant_4x_int8 76s  clean_acc_subset 0.956  margin_mean 7.552  margin_median 8.580  grad_l2_mean 5.865  grad_conc_5 0.077  occ_grey_5_mean 0.947  occ_grey_5_worst 0.923  occ_grey_5_allpos 0.770  occ_noise_5_mean 0.926  occ_noise_5_worst 0.828  occ_noise_5_allpos 0.563  grad_conc_8 0.150  occ_grey_8_mean 0.921  occ_grey_8_worst 0.834  occ_grey_8_allpos 0.551  occ_noise_8_mean 0.894  occ_noise_8_worst 0.737  occ_noise_8_allpos 0.410  agree_test 0.998  cka_penult 1.000  grad_cos_mean 0.966  grad_cos_median 0.969
+[done] quant_4x_int8_def 76s  clean_acc_subset 0.965  margin_mean 7.663  margin_median 8.427  grad_l2_mean 4.731  grad_conc_5 0.074  occ_grey_5_mean 0.964  occ_grey_5_worst 0.957  occ_grey_5_allpos 0.913  occ_noise_5_mean 0.942  occ_noise_5_worst 0.865  occ_noise_5_allpos 0.652  grad_conc_8 0.142  occ_grey_8_mean 0.961  occ_grey_8_worst 0.947  occ_grey_8_allpos 0.876  occ_noise_8_mean 0.917  occ_noise_8_worst 0.801  occ_noise_8_allpos 0.534  agree_test 0.998  cka_penult 1.000  grad_cos_mean 0.949  grad_cos_median 0.954
+[done] quant_4x_int8_s43 78s  clean_acc_subset 0.956  margin_mean 7.538  margin_median 8.577  grad_l2_mean 5.885  grad_conc_5 0.077  occ_grey_5_mean 0.946  occ_grey_5_worst 0.919  occ_grey_5_allpos 0.772  occ_noise_5_mean 0.928  occ_noise_5_worst 0.850  occ_noise_5_allpos 0.557  grad_conc_8 0.150  occ_grey_8_mean 0.918  occ_grey_8_worst 0.820  occ_grey_8_allpos 0.536  occ_noise_8_mean 0.892  occ_noise_8_worst 0.753  occ_noise_8_allpos 0.407  agree_test 0.998  cka_penult 1.000  grad_cos_mean 0.965  grad_cos_median 0.968
+[done] quant_4x_int8_s43_def 76s  clean_acc_subset 0.967  margin_mean 7.706  margin_median 8.491  grad_l2_mean 4.713  grad_conc_5 0.072  occ_grey_5_mean 0.965  occ_grey_5_worst 0.953  occ_grey_5_allpos 0.911  occ_noise_5_mean 0.941  occ_noise_5_worst 0.869  occ_noise_5_allpos 0.667  grad_conc_8 0.141  occ_grey_8_mean 0.961  occ_grey_8_worst 0.950  occ_grey_8_allpos 0.873  occ_noise_8_mean 0.918  occ_noise_8_worst 0.793  occ_noise_8_allpos 0.558  agree_test 0.998  cka_penult 1.000  grad_cos_mean 0.956  grad_cos_median 0.958
+[done] quant_4x_int8_s44 76s  clean_acc_subset 0.957  margin_mean 7.640  margin_median 8.629  grad_l2_mean 5.422  grad_conc_5 0.076  occ_grey_5_mean 0.948  occ_grey_5_worst 0.918  occ_grey_5_allpos 0.774  occ_noise_5_mean 0.932  occ_noise_5_worst 0.852  occ_noise_5_allpos 0.585  grad_conc_8 0.148  occ_grey_8_mean 0.919  occ_grey_8_worst 0.805  occ_grey_8_allpos 0.523  occ_noise_8_mean 0.899  occ_noise_8_worst 0.772  occ_noise_8_allpos 0.436  agree_test 0.997  cka_penult 1.000  grad_cos_mean 0.966  grad_cos_median 0.968
+[done] quant_4x_int8_s44_def 77s  clean_acc_subset 0.964  margin_mean 7.799  margin_median 8.581  grad_l2_mean 5.179  grad_conc_5 0.075  occ_grey_5_mean 0.962  occ_grey_5_worst 0.953  occ_grey_5_allpos 0.915  occ_noise_5_mean 0.944  occ_noise_5_worst 0.883  occ_noise_5_allpos 0.675  grad_conc_8 0.143  occ_grey_8_mean 0.959  occ_grey_8_worst 0.951  occ_grey_8_allpos 0.870  occ_noise_8_mean 0.920  occ_noise_8_worst 0.822  occ_noise_8_allpos 0.561  agree_test 0.998  cka_penult 1.000  grad_cos_mean 0.948  grad_cos_median 0.952
+[skip] quant_8x_int4
+[done] quant_8x_int4_def 75s  clean_acc_subset 0.962  margin_mean 10.407  margin_median 11.553  grad_l2_mean 5.230  grad_conc_5 0.076  occ_grey_5_mean 0.961  occ_grey_5_worst 0.954  occ_grey_5_allpos 0.919  occ_noise_5_mean 0.936  occ_noise_5_worst 0.850  occ_noise_5_allpos 0.626  grad_conc_8 0.146  occ_grey_8_mean 0.959  occ_grey_8_worst 0.948  occ_grey_8_allpos 0.883  occ_noise_8_mean 0.908  occ_noise_8_worst 0.785  occ_noise_8_allpos 0.521  agree_test 0.983  cka_penult 0.967  grad_cos_mean 0.613  grad_cos_median 0.638
+[done] quant_8x_int4_s43 77s  clean_acc_subset 0.953  margin_mean 10.628  margin_median 12.356  grad_l2_mean 6.900  grad_conc_5 0.080  occ_grey_5_mean 0.943  occ_grey_5_worst 0.915  occ_grey_5_allpos 0.766  occ_noise_5_mean 0.919  occ_noise_5_worst 0.825  occ_noise_5_allpos 0.529  grad_conc_8 0.156  occ_grey_8_mean 0.913  occ_grey_8_worst 0.812  occ_grey_8_allpos 0.528  occ_noise_8_mean 0.877  occ_noise_8_worst 0.717  occ_noise_8_allpos 0.375  agree_test 0.979  cka_penult 0.987  grad_cos_mean 0.668  grad_cos_median 0.689
+[done] quant_8x_int4_s43_def 76s  clean_acc_subset 0.963  margin_mean 10.263  margin_median 11.410  grad_l2_mean 4.983  grad_conc_5 0.075  occ_grey_5_mean 0.963  occ_grey_5_worst 0.956  occ_grey_5_allpos 0.913  occ_noise_5_mean 0.941  occ_noise_5_worst 0.865  occ_noise_5_allpos 0.663  grad_conc_8 0.144  occ_grey_8_mean 0.960  occ_grey_8_worst 0.948  occ_grey_8_allpos 0.873  occ_noise_8_mean 0.911  occ_noise_8_worst 0.788  occ_noise_8_allpos 0.540  agree_test 0.983  cka_penult 0.973  grad_cos_mean 0.619  grad_cos_median 0.638
+[done] quant_8x_int4_s44 76s  clean_acc_subset 0.957  margin_mean 10.714  margin_median 12.266  grad_l2_mean 6.011  grad_conc_5 0.078  occ_grey_5_mean 0.945  occ_grey_5_worst 0.924  occ_grey_5_allpos 0.778  occ_noise_5_mean 0.923  occ_noise_5_worst 0.846  occ_noise_5_allpos 0.548  grad_conc_8 0.151  occ_grey_8_mean 0.915  occ_grey_8_worst 0.810  occ_grey_8_allpos 0.546  occ_noise_8_mean 0.885  occ_noise_8_worst 0.746  occ_noise_8_allpos 0.393  agree_test 0.980  cka_penult 0.986  grad_cos_mean 0.671  grad_cos_median 0.694
+[done] quant_8x_int4_s44_def 76s  clean_acc_subset 0.962  margin_mean 10.284  margin_median 11.449  grad_l2_mean 5.661  grad_conc_5 0.077  occ_grey_5_mean 0.961  occ_grey_5_worst 0.953  occ_grey_5_allpos 0.913  occ_noise_5_mean 0.934  occ_noise_5_worst 0.845  occ_noise_5_allpos 0.618  grad_conc_8 0.147  occ_grey_8_mean 0.958  occ_grey_8_worst 0.949  occ_grey_8_allpos 0.865  occ_noise_8_mean 0.901  occ_noise_8_worst 0.762  occ_noise_8_allpos 0.498  agree_test 0.983  cka_penult 0.972  grad_cos_mean 0.613  grad_cos_median 0.629

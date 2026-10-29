@@ -1,0 +1,13 @@
+run_name: pc_mbv2_dense_small_4x_s42
+model_config: configs/mbv2/seed42/phase2/03_dense_small_4x.yaml
+seed: 0
+data_root: ./data
+num_workers: 0
+defense:
+  name: patchcleanser
+  sizes:
+  - 5
+  - 8
+  k: 6
+  fine_tuned: false
+  batch: 1000

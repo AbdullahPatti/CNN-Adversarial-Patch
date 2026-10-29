@@ -1,0 +1,5 @@
+size 5 untargeted  whitebox: {'success_on_correct': 0.8450855016708374, 'robust_acc': 0.14500001072883606}  effective: {'success_on_correct': 0.8450855016708374, 'robust_acc': 0.14500001072883606}
+size 5 targeted  whitebox: {'success_on_correct': 0.41025644540786743, 'patched_acc': 0.5520000457763672}  effective: {'success_on_correct': 0.41025644540786743, 'patched_acc': 0.5520000457763672}
+size 8 untargeted  whitebox: {'success_on_correct': 0.9978632926940918, 'robust_acc': 0.0020000000949949026}  effective: {'success_on_correct': 0.9978632926940918, 'robust_acc': 0.0020000000949949026}
+size 8 targeted  whitebox: {'success_on_correct': 0.894230842590332, 'patched_acc': 0.0990000069141388}  effective: {'success_on_correct': 0.894230842590332, 'patched_acc': 0.0990000069141388}
+saved results\lavan_mbv2_kd_4x_s44.json

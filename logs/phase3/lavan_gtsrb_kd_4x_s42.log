@@ -1,0 +1,5 @@
+size 5 untargeted  whitebox: {'success_on_correct': 0.6440849304199219, 'robust_acc': 0.35200002789497375}  effective: {'success_on_correct': 0.6440849304199219, 'robust_acc': 0.35200002789497375}
+size 5 targeted  whitebox: {'success_on_correct': 0.1567239612340927, 'patched_acc': 0.8340000510215759}  effective: {'success_on_correct': 0.1567239612340927, 'patched_acc': 0.8340000510215759}
+size 8 untargeted  whitebox: {'success_on_correct': 0.9514661431312561, 'robust_acc': 0.04800000041723251}  effective: {'success_on_correct': 0.9514661431312561, 'robust_acc': 0.04800000041723251}
+size 8 targeted  whitebox: {'success_on_correct': 0.7593529224395752, 'patched_acc': 0.23800000548362732}  effective: {'success_on_correct': 0.7593529224395752, 'patched_acc': 0.23800000548362732}
+saved results\lavan_gtsrb_kd_4x_s42.json

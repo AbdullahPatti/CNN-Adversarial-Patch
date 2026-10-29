@@ -1,0 +1,21 @@
+size 35 target 0  whitebox: acc 0.8410 hit 0.0873
+size 35 target 1  whitebox: acc 0.7348 hit 0.2411
+size 35 target 2  whitebox: acc 0.8479 hit 0.0188
+size 35 target 3  whitebox: acc 0.7080 hit 0.2862
+size 35 target 4  whitebox: acc 0.8660 hit 0.0617
+size 35 target 5  whitebox: acc 0.8214 hit 0.1325
+size 35 target 6  whitebox: acc 0.8369 hit 0.0537
+size 35 target 7  whitebox: acc 0.7862 hit 0.1754
+size 35 target 8  whitebox: acc 0.8385 hit 0.0749
+size 35 target 9  whitebox: acc 0.8217 hit 0.0535
+size 56 target 0  whitebox: acc 0.6510 hit 0.3468
+size 56 target 1  whitebox: acc 0.3824 hit 0.6742
+size 56 target 2  whitebox: acc 0.8099 hit 0.1194
+size 56 target 3  whitebox: acc 0.4410 hit 0.6109
+size 56 target 4  whitebox: acc 0.7055 hit 0.2813
+size 56 target 5  whitebox: acc 0.6125 hit 0.4041
+size 56 target 6  whitebox: acc 0.7001 hit 0.2166
+size 56 target 7  whitebox: acc 0.5213 hit 0.5205
+size 56 target 8  whitebox: acc 0.6359 hit 0.3670
+size 56 target 9  whitebox: acc 0.7055 hit 0.2093
+saved results\universal_inette_dense_small_4x_s42.json

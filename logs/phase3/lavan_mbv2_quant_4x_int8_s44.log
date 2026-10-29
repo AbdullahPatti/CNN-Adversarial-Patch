@@ -1,0 +1,5 @@
+size 5 untargeted  whitebox: {'success_on_correct': 0.9139785170555115, 'robust_acc': 0.08000000566244125}  surrogate_fp32: {'success_on_correct': 0.8870968222618103, 'robust_acc': 0.10500000417232513}  effective: {'success_on_correct': 0.9139785170555115, 'robust_acc': 0.08000000566244125}
+size 5 targeted  whitebox: {'success_on_correct': 0.5387097001075745, 'patched_acc': 0.42900002002716064}  surrogate_fp32: {'success_on_correct': 0.5161290168762207, 'patched_acc': 0.45000001788139343}  effective: {'success_on_correct': 0.5387097001075745, 'patched_acc': 0.42900002002716064}
+size 8 untargeted  whitebox: {'success_on_correct': 1.0, 'robust_acc': 0.0}  surrogate_fp32: {'success_on_correct': 1.0, 'robust_acc': 0.0}  effective: {'success_on_correct': 1.0, 'robust_acc': 0.0}
+size 8 targeted  whitebox: {'success_on_correct': 0.9645161628723145, 'patched_acc': 0.032999999821186066}  surrogate_fp32: {'success_on_correct': 0.9505376815795898, 'patched_acc': 0.046000003814697266}  effective: {'success_on_correct': 0.9645161628723145, 'patched_acc': 0.032999999821186066}
+saved results\lavan_mbv2_quant_4x_int8_s44.json

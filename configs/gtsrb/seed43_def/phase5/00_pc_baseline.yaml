@@ -1,0 +1,13 @@
+run_name: pc_gtsrb_baseline_s43_def
+model_config: configs/gtsrb/seed43_def/phase2/00_baseline.yaml
+seed: 0
+data_root: ./data
+num_workers: 0
+defense:
+  name: patchcleanser
+  sizes:
+  - 5
+  - 8
+  k: 6
+  fine_tuned: true
+  batch: 1000

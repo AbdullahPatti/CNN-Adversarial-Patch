@@ -2,7 +2,11 @@
 (Karmon et al. 2018).
 
 A patch is a square of side `size` pasted over the image (it replaces pixels, no blending). On 32x32
-CIFAR-10, side 5 covers 2.44% of the image and side 8 covers 6.25% (plan, Part 3).
+CIFAR-10, side 5 covers 2.44% of the image and side 8 covers 6.25% (plan, Part 3); the image side is read from
+the input, so 224 px ImageNette uses sides 35 / 56 for the same areas.
+
+Universal patches are targeted (Brown et al.) or, with target = -1, untargeted (maximize the loss of the true
+label; J9). LaVAN takes loss "ce" (default) or "margin" (Carlini-Wagner logit margin; J9 ablation).
 
 Placement is random. Training a universal patch draws fresh locations every step (EOT over location).
 Evaluation uses fixed locations from a seeded generator, so every model sees the same placements.
@@ -20,13 +24,17 @@ import math
 import torch
 import torch.nn.functional as F
 
-IMG = 32
 PHYSICAL = {"max_rot_deg": 20.0, "brightness": (0.8, 1.2), "contrast": (0.8, 1.2)}
 
 
-def random_locations(n, size, gen, device=None):
-    """Top-left (row, col) of n patches, uniform over all positions that keep the patch inside the image."""
-    hi = IMG - size + 1
+def eval_batch(x):
+    """Inference batch size: 1,000 for 32 px images, 100 at 224 px (ResNet-50 activations)."""
+    return 1000 if x.size(-1) <= 64 else 100
+
+
+def random_locations(n, size, gen, device=None, img=32):
+    """Top-left (row, col) of n patches, uniform over all positions that keep the patch inside the img x img image."""
+    hi = img - size + 1
     rows = torch.randint(0, hi, (n,), generator=gen)
     cols = torch.randint(0, hi, (n,), generator=gen)
     return rows.to(device), cols.to(device)
@@ -76,7 +84,7 @@ def apply_patch(x, patch, rows, cols, mask=None):
 
 def paste(x, patch, gen, physical=False, locations=None):
     """Patch at random (or given) locations, with physical transforms if asked."""
-    rows, cols = locations or random_locations(x.size(0), patch.size(-1), gen, x.device)
+    rows, cols = locations or random_locations(x.size(0), patch.size(-1), gen, x.device, x.size(-1))
     if physical:
         p, mask = physical_transform(patch, x.size(0), gen)
         return apply_patch(x, p, rows, cols, mask)
@@ -91,16 +99,20 @@ def _batches(loader):
 def train_universal(model, loader, size, target, steps, lr, device, gen, physical=False,
                     monitor=None, monitor_every=250):
     """Targeted universal patch: minimize CE(model(x with patch), target) with Adam, EOT over placement.
+    target = -1: untargeted, maximize CE(model(x with patch), true label).
 
     monitor(patch) -> dict is called every monitor_every steps (convergence curve).
     """
     patch = torch.rand(3, size, size, generator=gen).to(device).requires_grad_()
     opt = torch.optim.Adam([patch], lr=lr)
     curve = []
-    for step, (x, _) in enumerate(_batches(loader), start=1):
+    for step, (x, y) in enumerate(_batches(loader), start=1):
         x = x.to(device, non_blocking=True)
-        t = torch.full((x.size(0),), target, device=device)
-        loss = F.cross_entropy(model(paste(x, patch, gen, physical)), t)
+        if target < 0:
+            loss = -F.cross_entropy(model(paste(x, patch, gen, physical)), y.to(device, non_blocking=True))
+        else:
+            t = torch.full((x.size(0),), target, device=device)
+            loss = F.cross_entropy(model(paste(x, patch, gen, physical)), t)
         opt.zero_grad(set_to_none=True)
         loss.backward()
         opt.step()
@@ -114,10 +126,11 @@ def train_universal(model, loader, size, target, steps, lr, device, gen, physica
 
 
 @torch.no_grad()
-def eval_universal(model, x_all, y_all, patch, target, seed, physical=False, bs=1000):
-    """Patch at fixed seeded placements (one per image, in order). Accuracy and target hit rate."""
+def eval_universal(model, x_all, y_all, patch, target, seed, physical=False, bs=None):
+    """Patch at fixed seeded placements (one per image, in order). Accuracy and target hit rate (0 for target -1)."""
     gen = torch.Generator().manual_seed(seed)
-    rows, cols = random_locations(len(x_all), patch.size(-1), gen, x_all.device)
+    rows, cols = random_locations(len(x_all), patch.size(-1), gen, x_all.device, x_all.size(-1))
+    bs = bs or eval_batch(x_all)
     correct = hits = 0
     for i in range(0, len(x_all), bs):
         x, y, j = x_all[i:i + bs], y_all[i:i + bs], slice(i, i + bs)
@@ -127,7 +140,15 @@ def eval_universal(model, x_all, y_all, patch, target, seed, physical=False, bs=
     return {"patched_acc": correct / len(x_all), "target_success": hits / (y_all != target).sum().item()}
 
 
-def lavan(grad_model, eval_model, x, y, size, steps, step_size, restarts, gen, target=None):
+def margin_loss(logits, labels, targeted):
+    """Carlini-Wagner margin, summed: targeted -> best other logit minus the target's; untargeted -> true logit minus
+    the best other. Minimizing it moves the decision the same way as the CE losses, without CE's saturation."""
+    true = logits.gather(1, labels[:, None]).squeeze(1)
+    other = logits.scatter(1, labels[:, None], float("-inf")).amax(1)
+    return (other - true).sum() if targeted else (true - other).sum()
+
+
+def lavan(grad_model, eval_model, x, y, size, steps, step_size, restarts, gen, target=None, loss="ce"):
     """Per-image patch (LaVAN), sign-gradient steps on the patch pixels, random location per restart.
 
     targeted (target is a tensor): drive eval_model's prediction to target; untargeted: away from y.
@@ -145,7 +166,7 @@ def lavan(grad_model, eval_model, x, y, size, steps, step_size, restarts, gen, t
         if len(idx) == 0:
             break
         xs, ys, ts = x[idx], y[idx], None if target is None else target[idx]
-        r, c = random_locations(len(idx), size, gen, dev)
+        r, c = random_locations(len(idx), size, gen, dev, x.size(-1))
         p = torch.rand(len(idx), 3, size, size, generator=gen).to(dev)
         d = torch.zeros(len(idx), dtype=torch.bool, device=dev)
         for i in range(steps + 1):
@@ -157,9 +178,12 @@ def lavan(grad_model, eval_model, x, y, size, steps, step_size, restarts, gen, t
             if d.all() or i == steps:
                 break
             # reduction="sum" keeps per-image gradients independent of batch size (BN is in eval mode)
-            loss = F.cross_entropy(logits, ts, reduction="sum") if ts is not None \
-                else -F.cross_entropy(logits, ys, reduction="sum")
-            grad, = torch.autograd.grad(loss, p)
+            if loss == "margin":
+                obj = margin_loss(logits, ys if ts is None else ts, ts is not None)
+            else:
+                obj = F.cross_entropy(logits, ts, reduction="sum") if ts is not None \
+                    else -F.cross_entropy(logits, ys, reduction="sum")
+            grad, = torch.autograd.grad(obj, p)
             with torch.no_grad():
                 p = (p - step_size * grad.sign() * (~d).view(-1, 1, 1, 1)).clamp(0, 1)
         patch[idx], rows[idx], cols[idx], done[idx] = p.detach(), r, c, d

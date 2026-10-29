@@ -1,0 +1,21 @@
+size 5 target 0  whitebox: acc 0.7900 hit 0.0340
+size 5 target 1  whitebox: acc 0.7566 hit 0.0134
+size 5 target 2  whitebox: acc 0.7153 hit 0.2376
+size 5 target 3  whitebox: acc 0.7354 hit 0.2352
+size 5 target 4  whitebox: acc 0.7729 hit 0.0132
+size 5 target 5  whitebox: acc 0.7391 hit 0.2124
+size 5 target 6  whitebox: acc 0.8370 hit 0.0513
+size 5 target 7  whitebox: acc 0.7786 hit 0.0241
+size 5 target 8  whitebox: acc 0.7945 hit 0.0186
+size 5 target 9  whitebox: acc 0.7727 hit 0.0370
+size 8 target 0  whitebox: acc 0.7155 hit 0.1903
+size 8 target 1  whitebox: acc 0.4333 hit 0.4729
+size 8 target 2  whitebox: acc 0.5508 hit 0.4322
+size 8 target 3  whitebox: acc 0.4010 hit 0.6466
+size 8 target 4  whitebox: acc 0.6608 hit 0.2863
+size 8 target 5  whitebox: acc 0.3487 hit 0.6980
+size 8 target 6  whitebox: acc 0.6816 hit 0.1782
+size 8 target 7  whitebox: acc 0.7245 hit 0.1368
+size 8 target 8  whitebox: acc 0.6840 hit 0.1884
+size 8 target 9  whitebox: acc 0.5789 hit 0.3730
+saved results\universal_mbv2_prune_4x_s44.json

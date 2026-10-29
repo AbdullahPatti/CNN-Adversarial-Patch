@@ -1,0 +1,5 @@
+size 35 untargeted  whitebox: {'success_on_correct': 0.8195651769638062, 'robust_acc': 0.16600000858306885}  effective: {'success_on_correct': 0.8195651769638062, 'robust_acc': 0.16600000858306885}
+size 35 targeted  whitebox: {'success_on_correct': 0.5282608270645142, 'patched_acc': 0.43400001525878906}  effective: {'success_on_correct': 0.5282608270645142, 'patched_acc': 0.43400001525878906}
+size 56 untargeted  whitebox: {'success_on_correct': 0.9891303777694702, 'robust_acc': 0.010000000707805157}  effective: {'success_on_correct': 0.9891303777694702, 'robust_acc': 0.010000000707805157}
+size 56 targeted  whitebox: {'success_on_correct': 0.9282608032226562, 'patched_acc': 0.06599999964237213}  effective: {'success_on_correct': 0.9282608032226562, 'patched_acc': 0.06599999964237213}
+saved results\lavan_inette_kd_4x_s42.json

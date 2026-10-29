@@ -1,0 +1,21 @@
+size 5 target 3  whitebox: acc 0.9500 hit 0.0111
+size 5 target 4  whitebox: acc 0.9489 hit 0.0037
+size 5 target 12  whitebox: acc 0.9504 hit 0.0012
+size 5 target 13  whitebox: acc 0.9493 hit 0.0004
+size 5 target 14  whitebox: acc 0.9510 hit 0.0002
+size 5 target 19  whitebox: acc 0.9494 hit 0.0004
+size 5 target 26  whitebox: acc 0.9496 hit 0.0012
+size 5 target 29  whitebox: acc 0.9523 hit 0.0013
+size 5 target 31  whitebox: acc 0.9504 hit 0.0026
+size 5 target 40  whitebox: acc 0.9509 hit 0.0030
+size 8 target 3  whitebox: acc 0.8518 hit 0.0963
+size 8 target 4  whitebox: acc 0.8360 hit 0.1044
+size 8 target 12  whitebox: acc 0.8472 hit 0.1199
+size 8 target 13  whitebox: acc 0.8695 hit 0.0686
+size 8 target 14  whitebox: acc 0.8574 hit 0.0008
+size 8 target 19  whitebox: acc 0.8579 hit 0.0516
+size 8 target 26  whitebox: acc 0.8394 hit 0.0014
+size 8 target 29  whitebox: acc 0.8678 hit 0.0589
+size 8 target 31  whitebox: acc 0.8324 hit 0.1072
+size 8 target 40  whitebox: acc 0.8436 hit 0.0304
+saved results\universal_gtsrb_dense_small_4x_s43.json

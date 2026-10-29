@@ -1,0 +1,21 @@
+size 5 target 3  whitebox: acc 0.9402 hit 0.0089
+size 5 target 4  whitebox: acc 0.9390 hit 0.0043
+size 5 target 12  whitebox: acc 0.9339 hit 0.0006
+size 5 target 13  whitebox: acc 0.9329 hit 0.0005
+size 5 target 14  whitebox: acc 0.9386 hit 0.0003
+size 5 target 19  whitebox: acc 0.9326 hit 0.0039
+size 5 target 26  whitebox: acc 0.9337 hit 0.0014
+size 5 target 29  whitebox: acc 0.9337 hit 0.0003
+size 5 target 31  whitebox: acc 0.9428 hit 0.0010
+size 5 target 40  whitebox: acc 0.9340 hit 0.0021
+size 8 target 3  whitebox: acc 0.8397 hit 0.1232
+size 8 target 4  whitebox: acc 0.8199 hit 0.1367
+size 8 target 12  whitebox: acc 0.8322 hit 0.1097
+size 8 target 13  whitebox: acc 0.8578 hit 0.0814
+size 8 target 14  whitebox: acc 0.8248 hit 0.0011
+size 8 target 19  whitebox: acc 0.8471 hit 0.0845
+size 8 target 26  whitebox: acc 0.8599 hit 0.0608
+size 8 target 29  whitebox: acc 0.8287 hit 0.0002
+size 8 target 31  whitebox: acc 0.8466 hit 0.0903
+size 8 target 40  whitebox: acc 0.8136 hit 0.1141
+saved results\universal_gtsrb_kd_4x_s42.json

@@ -1,0 +1,33 @@
+sparsity 0.7500  acc after one-shot prune 0.8599
+epoch 1/30  loss 0.0483  test_acc 0.8973  best 0.8973
+epoch 2/30  loss 0.0460  test_acc 0.8958  best 0.8973
+epoch 3/30  loss 0.0413  test_acc 0.8966  best 0.8973
+epoch 4/30  loss 0.0393  test_acc 0.8983  best 0.8983
+epoch 5/30  loss 0.0460  test_acc 0.9019  best 0.9019
+epoch 6/30  loss 0.0439  test_acc 0.9004  best 0.9019
+epoch 7/30  loss 0.0418  test_acc 0.8994  best 0.9019
+epoch 8/30  loss 0.0416  test_acc 0.9019  best 0.9019
+epoch 9/30  loss 0.0385  test_acc 0.9034  best 0.9034
+epoch 10/30  loss 0.0327  test_acc 0.8996  best 0.9034
+epoch 11/30  loss 0.0351  test_acc 0.9027  best 0.9034
+epoch 12/30  loss 0.0374  test_acc 0.8968  best 0.9034
+epoch 13/30  loss 0.0335  test_acc 0.9006  best 0.9034
+epoch 14/30  loss 0.0305  test_acc 0.8971  best 0.9034
+epoch 15/30  loss 0.0323  test_acc 0.8986  best 0.9034
+epoch 16/30  loss 0.0301  test_acc 0.8996  best 0.9034
+epoch 17/30  loss 0.0299  test_acc 0.9006  best 0.9034
+epoch 18/30  loss 0.0277  test_acc 0.9009  best 0.9034
+epoch 19/30  loss 0.0284  test_acc 0.9009  best 0.9034
+epoch 20/30  loss 0.0284  test_acc 0.9017  best 0.9034
+epoch 21/30  loss 0.0258  test_acc 0.9009  best 0.9034
+epoch 22/30  loss 0.0272  test_acc 0.9039  best 0.9039
+epoch 23/30  loss 0.0261  test_acc 0.9039  best 0.9039
+epoch 24/30  loss 0.0252  test_acc 0.9029  best 0.9039
+epoch 25/30  loss 0.0252  test_acc 0.9017  best 0.9039
+epoch 26/30  loss 0.0276  test_acc 0.8996  best 0.9039
+epoch 27/30  loss 0.0246  test_acc 0.9019  best 0.9039
+epoch 28/30  loss 0.0239  test_acc 0.9027  best 0.9039
+epoch 29/30  loss 0.0243  test_acc 0.9047  best 0.9047
+epoch 30/30  loss 0.0223  test_acc 0.9019  best 0.9047
+{'clean_acc': 0.9019108280254777, 'params': 23528522, 'nonzero_params': 5921978, 'size_mb_fp32': 89.9572525024414, 'latency_ms_bs1': 2.8741565000018454, 'size_mb_compressed': 25.3890380859375, 'ratio_vs_baseline': 3.5351551419079077, 'weight_sparsity': 0.75, 'acc_after_prune_before_ft': 0.8598726114649682}
+saved results\inette_prune_4x_s42.json

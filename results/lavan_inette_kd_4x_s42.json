@@ -1,0 +1,114 @@
+{
+  "run": "lavan_inette_kd_4x_s42",
+  "model": "resnet50",
+  "compression": {
+    "method": "distill",
+    "ratio": 4.0,
+    "temperature": 4.0,
+    "alpha": 0.9
+  },
+  "attack": {
+    "name": "lavan",
+    "sizes": [
+      35,
+      56
+    ],
+    "modes": [
+      "untargeted",
+      "targeted"
+    ],
+    "steps": 100,
+    "step_size": 0.05,
+    "restarts": 10,
+    "batch": 50,
+    "surrogate": false,
+    "n_images": 500
+  },
+  "defense": null,
+  "metrics": {
+    "model_run": "inette_kd_4x_s42",
+    "clean_acc_subset": 0.92,
+    "side_35_untargeted": {
+      "area_frac": 0.0244140625,
+      "effective_from": "whitebox",
+      "whitebox": {
+        "success_on_correct": 0.8195651769638062,
+        "robust_acc": 0.16600000858306885
+      },
+      "effective": {
+        "success_on_correct": 0.8195651769638062,
+        "robust_acc": 0.16600000858306885
+      }
+    },
+    "side_35_targeted": {
+      "area_frac": 0.0244140625,
+      "effective_from": "whitebox",
+      "whitebox": {
+        "success_on_correct": 0.5282608270645142,
+        "patched_acc": 0.43400001525878906
+      },
+      "effective": {
+        "success_on_correct": 0.5282608270645142,
+        "patched_acc": 0.43400001525878906
+      }
+    },
+    "side_56_untargeted": {
+      "area_frac": 0.0625,
+      "effective_from": "whitebox",
+      "whitebox": {
+        "success_on_correct": 0.9891303777694702,
+        "robust_acc": 0.010000000707805157
+      },
+      "effective": {
+        "success_on_correct": 0.9891303777694702,
+        "robust_acc": 0.010000000707805157
+      }
+    },
+    "side_56_targeted": {
+      "area_frac": 0.0625,
+      "effective_from": "whitebox",
+      "whitebox": {
+        "success_on_correct": 0.9282608032226562,
+        "patched_acc": 0.06599999964237213
+      },
+      "effective": {
+        "success_on_correct": 0.9282608032226562,
+        "patched_acc": 0.06599999964237213
+      }
+    }
+  },
+  "config": {
+    "run_name": "lavan_inette_kd_4x_s42",
+    "model_config": "configs/inette/seed42/phase2/04_kd_4x.yaml",
+    "seed": 0,
+    "data_root": "./data",
+    "num_workers": 12,
+    "attack": {
+      "name": "lavan",
+      "sizes": [
+        35,
+        56
+      ],
+      "modes": [
+        "untargeted",
+        "targeted"
+      ],
+      "steps": 100,
+      "step_size": 0.05,
+      "restarts": 10,
+      "batch": 50,
+      "surrogate": false,
+      "n_images": 500
+    },
+    "model": "resnet50",
+    "compression": {
+      "method": "distill",
+      "ratio": 4.0,
+      "temperature": 4.0,
+      "alpha": 0.9
+    },
+    "dataset": "imagenette"
+  },
+  "device": "NVIDIA RTX A4000",
+  "timestamp": "2026-10-24T23:52:56.292070+00:00"
+}

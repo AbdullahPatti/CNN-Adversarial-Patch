@@ -1,0 +1,23 @@
+sparsity 0.7500  acc after one-shot prune 0.9901
+epoch 1/20  loss 0.0054  test_acc 0.9912  best 0.9912
+epoch 2/20  loss 0.0039  test_acc 0.9915  best 0.9915
+epoch 3/20  loss 0.0035  test_acc 0.9909  best 0.9915
+epoch 4/20  loss 0.0031  test_acc 0.9904  best 0.9915
+epoch 5/20  loss 0.0030  test_acc 0.9908  best 0.9915
+epoch 6/20  loss 0.0028  test_acc 0.9907  best 0.9915
+epoch 7/20  loss 0.0027  test_acc 0.9915  best 0.9915
+epoch 8/20  loss 0.0027  test_acc 0.9909  best 0.9915
+epoch 9/20  loss 0.0027  test_acc 0.9905  best 0.9915
+epoch 10/20  loss 0.0027  test_acc 0.9919  best 0.9919
+epoch 11/20  loss 0.0026  test_acc 0.9914  best 0.9919
+epoch 12/20  loss 0.0026  test_acc 0.9918  best 0.9919
+epoch 13/20  loss 0.0026  test_acc 0.9914  best 0.9919
+epoch 14/20  loss 0.0026  test_acc 0.9911  best 0.9919
+epoch 15/20  loss 0.0026  test_acc 0.9915  best 0.9919
+epoch 16/20  loss 0.0026  test_acc 0.9915  best 0.9919
+epoch 17/20  loss 0.0026  test_acc 0.9922  best 0.9922
+epoch 18/20  loss 0.0026  test_acc 0.9910  best 0.9922
+epoch 19/20  loss 0.0026  test_acc 0.9915  best 0.9922
+epoch 20/20  loss 0.0026  test_acc 0.9922  best 0.9922
+{'clean_acc': 0.9922406967537609, 'params': 11190891, 'nonzero_params': 2804955, 'size_mb_fp32': 42.72665786743164, 'latency_ms_bs1': 1.5150210000138031, 'size_mb_compressed': 12.032962799072266, 'ratio_vs_baseline': 3.547743146093561, 'weight_sparsity': 0.75, 'acc_after_prune_before_ft': 0.9901029295328583}
+saved results\gtsrb_prune_4x_s43.json

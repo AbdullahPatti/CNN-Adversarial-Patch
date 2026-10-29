@@ -1,0 +1,606 @@
+\documentclass[10pt]{article}
+% [preprint] shows the author names; for the double-blind TMLR submission use \usepackage{tmlr} (no option),
+% and \usepackage[accepted]{tmlr} for the camera-ready version.
+\usepackage[preprint]{tmlr}
+
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{multirow}
+
+\input{generated/macros.tex}
+% every number below is \R{key}: generated from results/*.json by src/paper_assets.py
+
+\newcommand{\pp}{\,pp}
+\newcommand{\ci}[1]{{\footnotesize[\R{#1:lo}, \R{#1:hi}]}}
+\newcommand{\x}{$\times$}
+
+\title{Shrinking the Model, Not the Guarantee: Adversarial Patch Robustness and Certification under Quantization, Pruning and Distillation}
+
+\author{\name Muhammad Abdullah Haroon \email l230734@lhr.nu.edu.pk \\
+       \addr FAST School of Computing, FAST NUCES, Lahore, Pakistan
+       \AND
+       \name Abdul Rehman Antall \email l230605@lhr.nu.edu.pk \\
+       \addr FAST School of Computing, FAST NUCES, Lahore, Pakistan
+       \AND
+       \name Muhammad Ali Hadi \email l230940@lhr.nu.edu.pk \\
+       \addr FAST School of Computing, FAST NUCES, Lahore, Pakistan}
+
+\def\month{10}
+\def\year{2026}
+\def\openreview{\url{https://openreview.net/forum?id=XXXX}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Models that run on edge devices are usually compressed, and they also operate in the physical world, where adversarial
+patches are the most practical attack. We study how compression changes patch robustness, and in particular
+\emph{certified} patch robustness, which earlier studies of compression have not measured. On CIFAR-10 with ResNet-18 we
+compare quantization (FP16, INT8, INT4), unstructured pruning, knowledge distillation and a dense control with the same
+number of parameters, at nominal compression ratios of 2\x, 4\x\ and 8\x. Every model is trained with \R{nseeds} seeds and
+compared with paired statistics, and the 4\x\ arms are repeated on GTSRB, on MobileNetV2 and on ImageNette at 224\,px with
+ResNet-50. We report four findings. First, compression that keeps the trained weights (quantization and pruning) also keeps
+the certified accuracy of PatchCleanser: on CIFAR-10 every such model stays within \R{keepworst5}\pp\ of the defended
+baseline (\R{cert5def:baseline_resnet18}\% certified for a patch covering 2.4\% of the image), whereas a smaller dense
+network trained from scratch loses up to \R{d:cert5def:dense_small_8x-baseline_resnet18:abs}\pp, several times its loss in
+clean accuracy. Second, empirical attacks rank the models in the same order, although the differences are smaller. Third,
+weight-preserving compression also keeps the attack surface of the full model: patches made on the public full-precision
+model fool a quantized deployment almost as often as white-box patches, while patches transfer poorly to and from
+retrained small models. Fourth, at the same number of non-zero parameters, pruned models certify
+\R{d:cert5def:prune_8x-dense_small_8x}\pp\ more images than dense ones at 8\x; the cost therefore comes from lost capacity,
+not from sparsity. Across 39 CIFAR-10 models, accuracy under a random occluding patch predicts certified accuracy
+(Spearman $\rho=$ \R{why:defended:occnoise8mean:cert5def}) better than clean accuracy does, and prediction agreement with the
+full model predicts transfer ($\rho=$ \R{why:transfer:agreetest:tl5ratecomptofull}). ImageNette is an exception to the
+first and fourth findings: the full ResNet-50 is too large for this small dataset, and the smaller models are both more
+accurate and better certified.
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+
+Adversarial patches \citep{brown2017adversarial,karmon2018lavan} are a threat model that carries over to the physical
+world: a printed sticker covers a small region of the image, its pixel values are unconstrained, and it can fool a
+classifier wherever it is placed. Certified defenses such as PatchCleanser \citep{xiang2022patchcleanser} turn robustness
+into a guarantee; for a certified image, no patch of a given size at any position can change the prediction. The systems
+that most need such guarantees (cameras, drones, vehicles and embedded sensors) are also the ones whose models are
+compressed before deployment, by quantization, by pruning or by distillation into a smaller network
+\citep{han2016deep,jacob2018quantization,hinton2015distilling}. However, PatchCleanser was evaluated on full-size classifiers
+only. Prior work on compression and adversarial robustness studies $\ell_p$ or universal perturbations
+\citep{ye2019adversarial,sehwag2020hydra,matachana2021robustness}, or patches on quantized models without certification,
+controls or repeated seeds \citep{guesmi2024exploring}. A practitioner who compresses a defended model therefore cannot
+tell from the literature whether the guarantee survives.
+
+We designed the study so that differences between models can be attributed to the compression method:
+\begin{itemize}
+\item \textbf{Matched compression.} Four families at nominal 2\x, 4\x\ and 8\x\ (13 models); the storage size of every
+model is reported next to its nominal ratio (Section~\ref{sec:setup}).
+\item \textbf{A capacity control.} For each pruned network we train a dense network with the same number of parameters
+(``dense-small'') from scratch with the baseline recipe. Comparing pruned with dense-small models separates the effect of
+sparsity from that of capacity (RQ4), and comparing distilled with dense-small models shows what the teacher adds.
+\item \textbf{Both attack types and both directions of transfer.} We use universal patches \citep{brown2017adversarial}
+and per-image LaVAN patches \citep{karmon2018lavan}. Quantized models are attacked through a straight-through estimator
+and with backward-pass differentiable approximation (BPDA) \citep{athalye2018obfuscated}, and transfer is measured over the
+full $13\times 13$ matrix of models.
+\item \textbf{Certification on a defended zoo.} Vanilla classifiers are almost uncertifiable
+(\R{cert5vanilla:baseline_resnet18}\% for a 2.4\% patch). We therefore also build a defended zoo, trained with mask
+augmentation and compressed afterwards, in the same way a deployed model would be built.
+\item \textbf{Statistics.} Three training seeds, paired comparisons with 95\% $t$-intervals over seeds, and image
+bootstraps for certification. We make a claim only when the interval excludes zero.
+\item \textbf{Generality.} The 4\x\ arms are repeated on GTSRB \citep{stallkamp2012man} (3 seeds), on MobileNetV2
+\citep{sandler2018mobilenetv2} (3 seeds) and on ImageNette at 224\,px with ResNet-50 (1 seed). In addition, two attack
+variants (an untargeted universal patch and LaVAN with a margin loss) test whether the conclusions depend on the
+attack's objective.
+\end{itemize}
+
+The research questions and our short answers are as follows.
+\textbf{RQ3 (main question): is certified patch robustness retained after compression?} Yes for quantization and pruning in
+every setting we tested. A smaller dense network loses certified accuracy in the three 32\,px settings, even on GTSRB,
+where its clean accuracy is unchanged; on ImageNette it certifies more (Section~\ref{sec:cert}).
+\textbf{RQ1: how does compression change empirical patch vulnerability?} The families rank in the same order as for
+certification, with smaller and noisier effects (Section~\ref{sec:attacks}).
+\textbf{RQ2: do patches transfer between full and compressed models?} Almost fully to quantized models, partly to pruned
+models and weakly to and from retrained small models (Section~\ref{sec:transfer}).
+\textbf{RQ4: does the cost come from sparsity or from capacity?} From capacity (Section~\ref{sec:rq4}).
+Section~\ref{sec:why} relates these outcomes to model properties that can be measured without an attack; these properties
+also account for ImageNette, the one setting where capacity reduction helps.
+
+\section{Related work}
+\label{sec:related}
+
+\paragraph{Patch attacks and certified defenses.} \citet{brown2017adversarial} introduced universal patches that can be
+printed and placed in a scene, and LaVAN \citep{karmon2018lavan} optimizes a small patch for each image. Certified defenses
+bound the effect of any patch of a given size. Existing approaches use interval bound propagation
+\citep{chiang2020certified}, (de)randomized smoothing over image bands or blocks
+\citep{levine2020randomized,salman2022certified}, small receptive fields with secure aggregation
+\citep{xiang2021patchguard}, and double masking in PatchCleanser \citep{xiang2022patchcleanser}. PatchCleanser does not
+depend on the architecture, so it can be applied unchanged to any compressed classifier. PatchCURE
+\citep{xiang2024patchcure} studies the trade-off between certified robustness and the \emph{inference} cost of the defense
+itself; in contrast, we keep the defense fixed and compress the classifier underneath it.
+
+\paragraph{Compression and adversarial robustness.} Most work in this area concerns $\ell_p$ robustness and adversarial
+training: pruning of robust networks \citep{ye2019adversarial,sehwag2020hydra}, sparsity as a source of robustness
+\citep{liao2022achieving}, and a benchmark showing that the conclusions depend strongly on attack strength
+\citep{piras2024adversarial}. Distillation can transfer robustness from teacher to student
+\citep{goldblum2020adversarially}, and compression also changes \emph{which} inputs a model gets wrong
+\citep{hooker2019compressed}. The closest studies to ours are the following. \citet{matachana2021robustness} study universal
+perturbations (not patches) on pruned and quantized CIFAR-10 and SVHN models, and report weak transfer between pruned and
+full models and possible gradient masking under quantization. \citet{guesmi2024exploring} show that patch attacks remain
+effective, and transfer, across quantization bit-widths. \citet{gritsch2024preserving} find that data augmentation during
+pruning preserves robustness to universal patches. None of these studies measures certified patch robustness, includes
+distillation or controls for capacity at matched size, and none reports variation over training seeds.
+
+\paragraph{Transferability.} \citet{demontis2019adversarial} explain the transfer of evasion attacks by the alignment of
+input gradients between the source and the target model. We test this explanation across compression families, together
+with prediction agreement and representation similarity \citep{kornblith2019similarity}.
+
+\section{Setup}
+\label{sec:setup}
+
+\paragraph{Main setting.} We use CIFAR-10 \citep{krizhevsky2009learning} and ResNet-18 \citep{he2016deep} with a 3\x3 stem
+and no max-pooling, trained for 200 epochs with SGD, Nesterov momentum and a cosine schedule. Normalization is a layer
+inside every model, so attacks and masks act on raw $[0,1]$ pixels. The baseline reaches \R{clean:baseline_resnet18}\% clean
+accuracy (mean over seeds 42--44). LaVAN and certification are evaluated on a fixed subset of 1{,}000 test images, and
+universal patches on the full test set.
+
+\paragraph{Compression arms} (Table~\ref{tab:models}).
+\emph{Quantization}: batch normalization is folded into the convolutions, weights are quantized symmetrically per channel
+and activations asymmetrically per tensor. We use FP16 (2\x), INT8 post-training quantization with 20 calibration batches
+(4\x), and INT4 weights with 8-bit activations after 15 epochs of quantization-aware training (8\x). Quantization is
+simulated (fake quantization) with a straight-through estimator \citep{bengio2013estimating}, so attacks can differentiate
+through it.
+\emph{Pruning}: global unstructured magnitude pruning of all convolution and linear weights at 50\%, 75\% and 87.5\%
+sparsity in one shot, followed by 40 epochs of fine-tuning with fixed masks.
+\emph{Dense-small}: ResNet-18 with widths 45, 32 and 23 (2.02\x, 3.99\x\ and 7.72\x\ fewer parameters), trained from scratch
+with the baseline recipe; at each ratio it has the same number of non-zero parameters as the pruned model.
+\emph{Distillation (KD)}: the same three widths, trained from the baseline teacher with temperature 4 and a weight of 0.9 on
+the soft loss \citep{hinton2015distilling}.
+The arms are matched on the nominal ratio. Storage size counts convolution and linear weights at their bit-width, other
+parameters at 32 bits and, for pruned models, a mask of one bit per weight; 87.5\% sparsity thus stores at
+\R{ratio:prune_8x}\x\ rather than 8\x.
+
+\begin{table}[t]
+\centering
+\caption{The 13 CIFAR-10 models: storage ratio relative to the baseline, non-zero parameters, and clean accuracy of the
+vanilla and the defended (mask-augmented) zoo, mean {\scriptsize$\pm$ std} over \R{nseeds} seeds (\%).}
+\label{tab:models}
+\small
+\input{generated/tab_models.tex}
+\end{table}
+
+\paragraph{Attacks.} Patches are squares with sides of 5\,px (2.44\% of the image) and 8\,px (6.25\%), pasted at random
+positions. \emph{Universal}: one targeted patch per class (all 10 targets, none selected), optimized with Adam (learning rate
+0.02, 1{,}000 steps, batch size 128) and expectation over location on the training set. We report accuracy with the patch
+(``U5'' and ``U8 acc'') and the target hit rate averaged over targets. A random-noise patch of the same size serves as an
+occlusion-only control (``Noise8'').
+\emph{LaVAN}: for each image, 100 signed-gradient steps of size 0.05 and up to 10 restarts at new locations, both untargeted
+(robust accuracy, ``L5'' and ``L8'') and targeted to a fixed, randomly chosen wrong class. The hyper-parameters were tuned on
+the baseline: learning rates from 0.005 to 0.2 reach the same hit rate by step 250, and for LaVAN, location restarts
+increase the attack's strength while extra steps do not.
+\emph{Quantized models} are attacked twice, once through the straight-through estimator and once with BPDA through their
+FP32 copy. For each model, patch size and mode we report the stronger of the two attacks; we do not take a per-image union,
+which would give quantized models twice the attack budget. A physical variant with expectation over transformations
+(rotation of $\pm 20^\circ$, brightness and contrast between 0.8 and 1.2) is reported as an ablation
+(Appendix~\ref{app:physical}).
+
+\paragraph{Certification.} We use PatchCleanser with $k=6$ mask positions per axis (36 masks of 9\,px for the 5\,px patch
+and 25 masks of 12\,px for the 8\,px patch), filled with the dataset mean; we checked exhaustively that the masks cover
+every patch position. \emph{Vanilla} certification uses the models above. For the \emph{defended zoo}, the baseline is
+retrained with mask augmentation (each training image receives zero, one or two masks from the union of both mask sets,
+with equal probability). Every compression arm is then built from this model, and augmentation stays on in every
+fine-tuning, quantization-aware training and distillation run. The order is thus defend first and compress second, as for
+a deployed model.
+
+\paragraph{Statistics.} Every number is a mean over three training seeds (42--44). Attack and mask seeds are fixed, so
+the seeds are paired. A comparison reports the mean of the per-seed differences with a 95\% $t$-interval ($n=3$, two
+degrees of freedom), and we call it significant (bold in the tables) only when the interval excludes zero. For
+certification we also give a paired bootstrap over the 1{,}000 images. We do not correct for multiple comparisons;
+however, with $n=3$ the $t$-intervals are wide, which makes the claims conservative in the other direction.
+
+\paragraph{Second settings.} For each second setting we train the baseline and the four 4\x\ arms (INT8, 75\% pruning,
+dense-small and KD), in vanilla and defended versions, and run every attack, transfer and certification experiment.
+\textbf{GTSRB}: ResNet-18 at 32\,px, 43 classes, 100 epochs and no horizontal flips (a flip can change the meaning of a
+sign); universal patches for 10 fixed target classes; 3 seeds.
+\textbf{MobileNetV2} on CIFAR-10: 120 epochs; 3 seeds.
+\textbf{ImageNette} \citep{howard2019imagenette} at 224\,px: ResNet-50 trained from scratch, since ImageNet pretraining
+would leak the classes and could not be shared by the small models; patch sides of 35 and 56\,px, which cover the same
+areas as 5 and 8\,px at 32\,px; LaVAN and certification on 500 images; one seed.
+In each setting the small widths are chosen to store about 4\x\ fewer bits. Seeds 43 and 44 and all second settings use
+the checkpoint from the final epoch, so the test set plays no part in training.
+
+\section{Certified robustness under compression (RQ3)}
+\label{sec:cert}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_cert.pdf}
+\caption{Defended zoo, CIFAR-10: clean accuracy and PatchCleanser certified accuracy against nominal compression
+(mean $\pm$ std over \R{nseeds} seeds; the dashed line is the defended baseline). Weight-preserving compression
+(quantization and pruning) keeps the certified accuracy, whereas capacity reduction (dense-small and distillation) loses
+certified accuracy faster than clean accuracy.}
+\label{fig:cert}
+\end{figure}
+
+\paragraph{Vanilla models are almost uncertifiable, so we study compression on the defended zoo.} The vanilla baseline
+certifies \R{cert5vanilla:baseline_resnet18}\% of images against a 5\,px patch and \R{cert8vanilla:baseline_resnet18}\%
+against an 8\,px patch. A single mask already removes too much of a 32\,px image for a model that was never trained on
+masked inputs. Mask augmentation raises the baseline to \R{cert5def:baseline_resnet18}\% and
+\R{cert8def:baseline_resnet18}\% (gains of \R{d:cert5gain:baseline_resnet18} and \R{d:cert8gain:baseline_resnet18}\pp) at a
+clean accuracy of \R{defclean:baseline_resnet18}\%. All comparisons below use the defended zoo; Table~\ref{tab:cert} also
+lists the vanilla numbers.
+
+\paragraph{Weight-preserving compression keeps the certified accuracy.} Across FP16, INT8, INT4 and all three pruning
+ratios, defended certified accuracy stays within \R{keepworst5}\pp\ of the baseline for the 5\,px patch and is never lower
+for the 8\,px patch (Figure~\ref{fig:cert}, Table~\ref{tab:diffs}). FP16 has the same certified accuracy as the baseline in
+every seed. Even INT4 at 8\x, the most aggressive weight-preserving arm, changes certified accuracy by only
+\R{d:cert5def:quant_8x_int4-baseline_resnet18}\pp\ \ci{d:cert5def:quant_8x_int4-baseline_resnet18}, and 87.5\% pruning by
+\R{d:cert5def:prune_8x-baseline_resnet18}\pp\ \ci{d:cert5def:prune_8x-baseline_resnet18}.
+
+\paragraph{Capacity reduction loses certified accuracy, and the loss is larger than the loss in clean accuracy.}
+Dense-small models lose \R{d:cert5def:dense_small_2x-baseline_resnet18:abs},
+\R{d:cert5def:dense_small_4x-baseline_resnet18:abs} and \R{d:cert5def:dense_small_8x-baseline_resnet18:abs}\pp\ of 5\,px
+certified accuracy at 2\x, 4\x\ and 8\x; the 4\x\ and 8\x\ intervals exclude zero, as do all three intervals for the 8\,px
+patch. Distillation recovers part of this loss but not all of it
+(\R{d:cert5def:kd_8x-baseline_resnet18}\pp\ \ci{d:cert5def:kd_8x-baseline_resnet18} at 8\x). For each point of defended
+clean accuracy lost, dense-small 8\x\ loses \R{amp5:dense_small_8x} points of 5\,px certified accuracy and KD 8\x\ loses
+\R{amp5:kd_8x}. A certificate requires the correct label under \emph{every} pair of masks, so a small drop in robustness to
+occlusion is repeated over the whole mask set. Across the 13 models, defended certified accuracy correlates with defended
+clean accuracy at $r=$ \R{corr:defclean:cert5def}, but the slope is steep; certification is the first property that a
+smaller model loses.
+
+\begin{table}[t]
+\centering
+\caption{PatchCleanser on CIFAR-10 (\%): certified accuracy of the vanilla models (Cert-5 and Cert-8) and, for the defended
+zoo, clean accuracy under double masking, mean two-mask accuracy and certified accuracy for patch sides 5 and 8. Mean
+{\scriptsize$\pm$ std} over \R{nseeds} seeds.}
+\label{tab:cert}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}c@{}}
+\input{generated/tab_cert.tex}
+\end{tabular}
+\end{table}
+
+\paragraph{The second settings agree, with one exception} (Figure~\ref{fig:settings}, Table~\ref{tab:settings_diffs}). On
+GTSRB, INT8 and pruning stay within a point of the baseline (\R{gtsrb:cert5def:baseline}\% certified, 5\,px), dense-small
+loses \R{gtsrb:d:cert5def:dense_small_4x-baseline:abs}\pp\ \ci{gtsrb:d:cert5def:dense_small_4x-baseline} although its
+clean accuracy does not drop (\R{gtsrb:d:defclean:dense_small_4x-baseline}\pp), and pruning
+exceeds dense-small by \R{gtsrb:d:cert5def:prune_4x-dense_small_4x}\pp\ \ci{gtsrb:d:cert5def:prune_4x-dense_small_4x}. On
+MobileNetV2, dense-small loses \R{mbv2:d:cert5def:dense_small_4x-baseline:abs}\pp\
+\ci{mbv2:d:cert5def:dense_small_4x-baseline} while losing \R{mbv2:d:defclean:dense_small_4x-baseline:abs}\pp\ of clean
+accuracy, and KD \emph{gains} \R{mbv2:d:cert8def:kd_4x-baseline}\pp\ \ci{mbv2:d:cert8def:kd_4x-baseline} for the large
+patch. On ImageNette (one seed, image-bootstrap intervals), quantization and pruning are again neutral, but dense-small and
+KD certify \emph{more} images than the baseline (\R{inette:b:cert5def:dense_small_4x-baseline}\pp\
+\ci{inette:b:cert5def:dense_small_4x-baseline} and \R{inette:b:cert5def:kd_4x-baseline}\pp\
+\ci{inette:b:cert5def:kd_4x-baseline}). These small models are also more accurate. A ResNet-50 trained from scratch on
+9{,}469 images is too large for the data, and the defended small models reach \R{inette:defclean:dense_small_4x}\% and
+\R{inette:defclean:kd_4x}\% clean accuracy, compared with \R{inette:defclean:baseline}\% for the baseline. Thus, a smaller
+model does not lose certified accuracy simply because it is smaller; Section~\ref{sec:why} examines which model
+properties track the loss.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_settings.pdf}
+\caption{Defended certified accuracy of each 4\x\ arm minus its own baseline, in all four settings. Bars are 95\%
+$t$-intervals over three seeds (ImageNette: one seed, paired image bootstrap); filled markers exclude zero.}
+\label{fig:settings}
+\end{figure}
+
+\section{Empirical patch attacks (RQ1)}
+\label{sec:attacks}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_attacks.pdf}
+\caption{Vanilla zoo, CIFAR-10: accuracy under the universal 8\,px patch, LaVAN 5\,px robust accuracy and accuracy with a
+random-noise 8\,px patch (occlusion only), against nominal compression (mean $\pm$ std over \R{nseeds} seeds).}
+\label{fig:attacks}
+\end{figure}
+
+Empirical attacks rank the families in the same order as certification, but the effects are smaller relative to the
+variation between seeds (Figure~\ref{fig:attacks}, Table~\ref{tab:attacks}).
+
+\paragraph{Quantization and pruning are neutral or slightly better than the baseline.} Universal 8\,px patches leave the
+baseline at \R{u8acc:baseline_resnet18}\% accuracy. No quantized or pruned model is significantly worse, and 75\% pruning is
+significantly better (\R{d:u8acc:prune_4x-baseline_resnet18}\pp\ \ci{d:u8acc:prune_4x-baseline_resnet18}). INT4 raises the
+8\,px target hit rate by \R{d:u8hit:quant_8x_int4-baseline_resnet18}\pp\ \ci{d:u8hit:quant_8x_int4-baseline_resnet18}, and
+it is the only weight-preserving arm with a significant cost. The BPDA attack through the FP32 copy never exceeded the
+straight-through attack by enough to change these results, and on INT4 the straight-through attack was the stronger of the
+two; we therefore see no sign of gradient masking.
+
+\paragraph{Capacity reduction is worse.} Under the 8\,px universal patch, dense-small 4\x\ and 8\x\ lose
+\R{d:u8acc:dense_small_4x-baseline_resnet18:abs} and \R{d:u8acc:dense_small_8x-baseline_resnet18:abs}\pp\ of accuracy and
+KD 8\x\ loses \R{d:u8acc:kd_8x-baseline_resnet18:abs}\pp. Part of this loss is due to occlusion alone, since the same models
+lose \R{d:noise8acc:dense_small_8x-baseline_resnet18:abs}\pp\ (dense-small 8\x) and
+\R{d:noise8acc:kd_8x-baseline_resnet18:abs}\pp\ (KD 8\x) under a random-noise patch.
+
+\paragraph{LaVAN.} Per-image patches are much stronger. At 8\,px no model keeps more than \R{l8max}\% robust accuracy, so
+only the 5\,px patch separates the models. With the 5\,px patch, dense-small 8\x\ is the most vulnerable model
+(\R{l5robust:dense_small_8x}\% robust accuracy against \R{l5robust:baseline_resnet18}\% for the baseline), and dense-small
+models are the easiest to steer to a chosen class (4\x: targeted hit rate \R{d:l5tgthit:dense_small_4x-baseline_resnet18}\pp\
+\ci{d:l5tgthit:dense_small_4x-baseline_resnet18}). The results for distillation are mixed: KD 2\x\ is slightly \emph{more}
+robust than the baseline (\R{d:l5robust:kd_2x-baseline_resnet18}\pp), while KD 8\x\ is less robust
+(\R{d:l5robust:kd_8x-baseline_resnet18}\pp).
+
+\paragraph{Second settings.} On GTSRB the baseline already resists the universal patch well
+(\R{gtsrb:u8acc:baseline}\%), and the differences between arms are small; only pruning differs significantly from the
+baseline, and it is more robust (\R{gtsrb:d:u8acc:prune_4x-baseline}\pp\ \ci{gtsrb:d:u8acc:prune_4x-baseline}). On
+MobileNetV2, INT8 is slightly \emph{more} robust than the baseline (\R{mbv2:d:u8acc:quant_4x_int8-baseline}\pp\
+\ci{mbv2:d:u8acc:quant_4x_int8-baseline}). On ImageNette the small models are more robust to the universal patch
+(dense-small \R{inette:d:u8acc:dense_small_4x-baseline}\pp, KD \R{inette:d:u8acc:kd_4x-baseline}\pp, one seed), in line
+with their certification results. Distillation raises LaVAN robust accuracy on GTSRB
+(\R{gtsrb:d:l5robust:kd_4x-baseline}\pp\ \ci{gtsrb:d:l5robust:kd_4x-baseline}) and lowers the targeted hit rate on
+MobileNetV2 (\R{mbv2:d:l5tgthit:kd_4x-baseline}\pp\ \ci{mbv2:d:l5tgthit:kd_4x-baseline}). The smoother training signal from
+the teacher may make the student harder to steer, but the effect is not consistent enough across settings to support a
+claim.
+
+\paragraph{The conclusions do not depend on the attack's objective} (Appendix~\ref{app:variants}). An untargeted universal
+patch, which maximizes the loss of the true class, ranks the 13 CIFAR-10 models in the same way as the targeted patch
+(Spearman $\rho=$ \R{j9:rank:u8accuu8acc} at 8\,px and \R{j9:rank:u5accuu5acc} at 5\,px) and widens the gap for dense-small
+(\R{j9:d:uu8acc:dense_small_4x-baseline_resnet18}\pp\ \ci{j9:d:uu8acc:dense_small_4x-baseline_resnet18} at 4\x). LaVAN with
+the Carlini--Wagner margin loss \citep{carlini2017towards} instead of cross-entropy ranks the 4\x\ arms in the same order
+($\rho=$ \R{j9:rank:l5robustlm5robust}), and its robust accuracies are within a point of those of the cross-entropy attack.
+
+\section{Transfer between full and compressed models (RQ2)}
+\label{sec:transfer}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_transfer.pdf}
+\caption{Transfer on CIFAR-10 in both directions: universal 8\,px target hit rate and LaVAN 5\,px untargeted transfer rate
+(the share of the source model's successful patches that also fool the target, on images that both models classify
+correctly). Dotted: a random-noise patch at the LaVAN locations.}
+\label{fig:transfer}
+\end{figure}
+
+For deployment, the relevant attacker holds the public full-precision model and attacks the compressed version that runs
+on the device. Figure~\ref{fig:transfer} and Table~\ref{tab:transfer} report this case.
+
+\paragraph{Quantized deployments inherit the patches of the full model.} A universal patch made on the full model hits
+INT8 \R{tu8hitfulltocomp:quant_4x_int8}\% of the time, compared with \R{u8hit:quant_4x_int8}\% for a white-box patch.
+Per-image patches transfer less well, because LaVAN stops at the first success and leaves patches close to the decision
+boundary. Even so, they transfer at \R{tl5ratefulltocomp:quant_4x_int8}\% to INT8 and \R{tl5ratefulltocomp:quant_8x_int4}\%
+to INT4, far above the \R{tl5noise:quant_4x_int8}\% of a noise patch at the same location. Transfer is asymmetric: INT8
+patches fool the full model \R{tl5ratecomptofull:quant_4x_int8}\% of the time. Quantization is therefore not a defense
+against an attacker who uses transfer.
+
+\paragraph{Pruned models lie in between, and retrained small models share little with the full model.} Universal patches
+transfer at about \R{tu8hitfulltocomp:prune_4x}\% between the full and the 75\%-pruned model in either direction.
+Dense-small and KD models are reached less often (\R{tu8hitfulltocomp:dense_small_4x}\% and
+\R{tu8hitfulltocomp:kd_4x}\% at 4\x), and their own patches reach the full model even less often
+(\R{tu8hitcomptofull:dense_small_4x}\% and \R{tu8hitcomptofull:kd_4x}\%). LaVAN patches from dense-small models transfer to
+the full model at \R{tl5ratecomptofull:dense_small_4x}\% (4\x), close to the noise control. At equal size, pruned models
+share far more of the attack surface of the full model than dense-small models do
+(\R{d:tl5ratecomptofull:prune_4x-dense_small_4x}\pp\ \ci{d:tl5ratecomptofull:prune_4x-dense_small_4x} for LaVAN, compressed
+$\to$ full). Distillation adds only a little shared vulnerability compared with the dense-small control
+(\R{d:tl5ratecomptofull:kd_4x-dense_small_4x}\pp\ \ci{d:tl5ratecomptofull:kd_4x-dense_small_4x}).
+
+\paragraph{The order is the same in every setting} (Table~\ref{tab:settings}): quantized $>$ pruned $>$ distilled
+$\approx$ dense-small. On GTSRB, LaVAN patches from the full model transfer at
+\R{gtsrb:tl5ratefulltocomp:quant_4x_int8}\% to INT8, \R{gtsrb:tl5ratefulltocomp:prune_4x}\% to the pruned model and
+\R{gtsrb:tl5ratefulltocomp:dense_small_4x}\% to dense-small; on ImageNette the corresponding rates are
+\R{inette:tl5ratefulltocomp:quant_4x_int8}\%, \R{inette:tl5ratefulltocomp:prune_4x}\% and
+\R{inette:tl5ratefulltocomp:dense_small_4x}\%.
+
+\section{Sparsity or capacity? (RQ4)}
+\label{sec:rq4}
+
+Pruned and dense-small models have the same number of non-zero parameters at each ratio. The difference between them is
+therefore the effect of keeping a sparse subset of the trained weights instead of training a smaller dense network.
+Pruned models are better certified at every ratio (Table~\ref{tab:diffs}): by \R{d:cert5def:prune_2x-dense_small_2x},
+\R{d:cert5def:prune_4x-dense_small_4x} and \R{d:cert5def:prune_8x-dense_small_8x}\pp\ for the 5\,px patch and by
+\R{d:cert8def:prune_2x-dense_small_2x}, \R{d:cert8def:prune_4x-dense_small_4x} and \R{d:cert8def:prune_8x-dense_small_8x}\pp\
+for the 8\,px patch at 2\x, 4\x\ and 8\x, with all 8\,px intervals excluding zero. They are also more robust to the
+universal patch at 4\x\ (\R{d:u8acc:prune_4x-dense_small_4x}\pp\ \ci{d:u8acc:prune_4x-dense_small_4x}) and to occlusion at
+4\x\ and 8\x. The difference replicates on GTSRB (\R{gtsrb:d:cert5def:prune_4x-dense_small_4x}\pp\
+\ci{gtsrb:d:cert5def:prune_4x-dense_small_4x}) and on MobileNetV2 (\R{mbv2:d:cert5def:prune_4x-dense_small_4x}\pp\
+\ci{mbv2:d:cert5def:prune_4x-dense_small_4x}). Sparsity is thus not the cause of the loss; reduced capacity is, and pruning
+keeps much of the trained network's capacity in the remaining weights. In agreement with lottery-ticket results
+\citep{frankle2019lottery,liao2022achieving}, a pruned subnetwork does not behave like a smaller model as far as robustness
+is concerned. ImageNette is again the exception, with the pruned model matching the baseline and dense-small exceeding
+both.
+
+\section{What predicts certification and transfer}
+\label{sec:why}
+
+For each of the 39 vanilla and 39 defended CIFAR-10 models, we measured properties that a practitioner can compute without
+running an attack. These are accuracy with a grey or random-noise square at every position of a stride-3 grid (the mean,
+the worst position, and the share of images that are correct at \emph{every} position), the logit margin, the norm and
+spatial concentration of the input gradient, and similarity to the baseline of the same seed (top-1 agreement on the test
+set, linear CKA of penultimate features \citep{kornblith2019similarity} and the cosine of input gradients
+\citep{demontis2019adversarial}). Each (model, seed) pair is one point. We report Spearman $\rho$ with a 95\% cluster
+bootstrap that resamples whole models, and the partial $\rho$ given clean accuracy, which tests whether a property carries
+information beyond accuracy.
+
+\begin{table}[t]
+\centering
+\caption{Model properties against vulnerability and certification on CIFAR-10 (39 models per zoo). Spearman $\rho$ / partial
+$\rho$ given clean accuracy; bold means that the 95\% cluster-bootstrap interval excludes zero. Attack columns use
+vanilla-zoo properties and certification columns use defended-zoo properties.}
+\label{tab:why}
+\small
+\input{generated/tab_why.tex}
+\end{table}
+
+\paragraph{Occlusion robustness predicts certification better than clean accuracy} (Table~\ref{tab:why}). Accuracy under a
+random 8\,px noise patch correlates with 5\,px certified accuracy at $\rho=$ \R{why:defended:occnoise8mean:cert5def}, and
+the partial correlation after controlling for clean accuracy is still \R{why:defended:occnoise8mean:cert5def:p}. The share
+of images that survive a grey square at every position does nearly as well
+(\R{why:defended:occgrey8allpos:cert5def}), whereas clean accuracy alone reaches only
+\R{why:defended:cleanaccsubset:cert5def}. Gradient norm, margin and gradient concentration add nothing once accuracy is
+controlled. The same occlusion measures are also the best predictors of empirical robustness
+(\R{why:vanilla:occnoise8mean:u8acc} for accuracy under the universal patch).
+
+\paragraph{The relation holds in two of the three second settings.} On MobileNetV2, the defended dense-small models survive
+a grey square at every position less often than the baseline (\R{mbv2:prop:defended:occgrey8allpos:dense_small_4x} vs.\
+\R{mbv2:prop:defended:occgrey8allpos:baseline}), and the KD models survive it more often
+(\R{mbv2:prop:defended:occgrey8allpos:kd_4x}), in line with their losses and gains in certification. Across the 15 defended
+MobileNetV2 models, this measure correlates with 8\,px certified accuracy at $\rho=$
+\R{mbv2:why:defended:occgrey8allpos:cert8def}. On ImageNette, the smaller defended models are more robust to noise
+occlusion than the baseline (\R{inette:prop:defended:occnoise8mean:dense_small_4x} and
+\R{inette:prop:defended:occnoise8mean:kd_4x} vs.\ \R{inette:prop:defended:occnoise8mean:baseline}), and they also certify
+more images. GTSRB does not fit this pattern. The defended dense-small models are as robust to occlusion as the baseline
+(\R{gtsrb:prop:defended:occnoise8mean:dense_small_4x} vs.\ \R{gtsrb:prop:defended:occnoise8mean:baseline}), yet they certify
+\R{gtsrb:d:cert5def:dense_small_4x-baseline:abs}\pp\ fewer images, and the correlation on GTSRB is only
+\R{gtsrb:why:defended:occnoise8mean:cert5def}. Accuracy under a single occluding patch is therefore a useful but incomplete
+proxy, because a certificate requires the correct label under every pair of masks, which a single occluder does not test.
+It is cheap to measure and needs no attack, so it is still a practical check before a compressed defended model is
+deployed.
+
+\begin{table}[t]
+\centering
+\caption{Similarity to the full model against transfer on CIFAR-10 (36 compressed models, three seeds). Spearman $\rho$ /
+partial $\rho$ given clean accuracy; bold means that the interval excludes zero.}
+\label{tab:why_transfer}
+\small
+\input{generated/tab_why_transfer.tex}
+\end{table}
+
+\paragraph{Similarity to the full model predicts transfer} (Table~\ref{tab:why_transfer}). Top-1 agreement with the
+baseline predicts LaVAN transfer from the compressed model to the full model at $\rho=$
+\R{why:transfer:agreetest:tl5ratecomptofull}, and CKA (\R{why:transfer:ckapenult:tl5ratecomptofull}) and the cosine of
+input gradients predict it nearly as well. This supports the gradient-alignment explanation of transfer
+\citep{demontis2019adversarial} across compression families. Clean accuracy, on the other hand, does not predict transfer
+(\R{why:transfer:cleanaccsubset:tl5ratecomptofull}). Weight-preserving compression keeps the function of the full model
+and therefore its attack surface, while retraining produces a different function with a different attack surface.
+
+\section{Discussion}
+\label{sec:discussion}
+
+\paragraph{Practical guidance.} First, to deploy a certified patch defense on a small device, a defended model should be
+compressed by quantization or pruning; up to 8\x\ in our experiments, this cost almost no certified accuracy. Second,
+compression does not hide the model. A quantized deployment is attacked almost as well with the public FP32 weights as in
+the white-box setting, and a pruned deployment is attacked substantially. Only a retrained network breaks transfer, and on
+our 32\,px settings such a network is more vulnerable to white-box attacks. Third, if a smaller architecture is required,
+its accuracy under occlusion should be measured before its certificate is trusted. On CIFAR-10 this measure predicted
+certification better than clean accuracy, and it agreed with the certification results on MobileNetV2 and ImageNette but
+not on GTSRB. Distillation recovered part of the loss on CIFAR-10.
+Fourth, mask augmentation is necessary, since vanilla models are almost uncertifiable whether or not they are compressed.
+
+\paragraph{Limitations.} This study has several limitations. First, the relation between occlusion robustness and
+certification is correlational, rests on 15 to 39 models per zoo, and does not hold on GTSRB. Second, quantization is
+simulated (fake quantization in floating point); integer kernels on real hardware could round differently, which we did not
+measure. Third, pruning is unstructured. Structured (channel) pruning produces a narrower dense network, close to our
+dense-small arm, so we expect it to behave like dense-small, but we did not test it. Fourth, ImageNette has one seed and
+500 evaluation images, so its intervals reflect image sampling only. Fifth, we use one certified defense. We chose
+PatchCleanser because it does not depend on the architecture, but defenses built into the architecture
+\citep{xiang2021patchguard,salman2022certified} may interact differently with compression. Sixth, no model is
+adversarially trained, and capacity is known to matter more for adversarially trained models \citep{sehwag2020hydra}.
+Finally, seed 42 used the checkpoint with the best test accuracy (the measured gap to the final epoch is at most 0.13\pp),
+whereas seeds 43 and 44 and all second settings use the final epoch, and no correction is made for multiple comparisons.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+In conclusion, compression that keeps the trained weights preserves both the certified patch robustness of a defended
+model and the attack surface of the full model. Compression that retrains a smaller network changes both; on our three
+32\,px settings, the smaller dense networks lost certified accuracy, on GTSRB even without any loss in clean accuracy. At equal non-zero parameters, a pruned network is a
+better certified model than a dense one, so the cost lies in capacity rather than in sparsity. Accuracy under random
+occlusion predicted certified accuracy on CIFAR-10 and agreed with it in two of the three other settings, and agreement
+with the full model predicted transfer; both are cheap checks that can be run before deployment. However, the ImageNette results show that a smaller
+model can also be the more robust one when the full model is too large for its data.
+
+\paragraph{Reproducibility.} All code, configurations and per-run results are released. Every number in this paper is a
+macro generated from the result files, so no number was typed by hand.
+
+\section*{Acknowledgments}
+The computing resources for this work (a workstation with an NVIDIA RTX A4000 GPU) were provided by FAST NUCES, Lahore.
+
+\bibliography{refs}
+\bibliographystyle{tmlr}
+
+\appendix
+
+\section{Full results on CIFAR-10}
+\label{app:full}
+
+\begin{table}[h]
+\centering
+\caption{Empirical attacks on the vanilla CIFAR-10 zoo (\%): accuracy under the universal patch (5 and 8\,px) and 8\,px
+target hit rate, accuracy with a random-noise 8\,px patch, LaVAN 5\,px robust accuracy, and LaVAN targeted hit rates. Mean
+{\scriptsize$\pm$ std} over \R{nseeds} seeds.}
+\label{tab:attacks}
+\small
+\setlength{\tabcolsep}{3pt}
+\input{generated/tab_attacks.tex}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Transfer on CIFAR-10 (\%) between the full (F) and compressed (C) models: universal 8\,px target hit rate and LaVAN
+5\,px untargeted transfer rate; ``noise'' is a random patch at the LaVAN locations.}
+\label{tab:transfer}
+\small
+\input{generated/tab_transfer.tex}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Paired differences on CIFAR-10 (pp), mean over seeds {\scriptsize[95\% $t$-interval]}; bold means that the
+interval excludes zero. The certification columns refer to the defended zoo.}
+\label{tab:diffs}
+\small
+\setlength{\tabcolsep}{3pt}
+\input{generated/tab_diffs.tex}
+\end{table}
+
+\section{Second settings}
+\label{app:settings}
+
+\begin{table}[h]
+\centering
+\caption{Second settings (\%): clean accuracy, accuracy under the universal 8\,px patch (56\,px on ImageNette), LaVAN 5\,px
+(35\,px) robust accuracy, defended clean and certified accuracy, and transfer from the full model. Mean {\scriptsize$\pm$
+std} over seeds.}
+\label{tab:settings}
+\small
+\setlength{\tabcolsep}{3pt}
+\input{generated/tab_settings.tex}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Second settings: paired differences (pp) {\scriptsize[95\% $t$-interval over seeds]}; bold means that the
+interval excludes zero. ImageNette has one seed, so its differences have no intervals, except for certification (image
+bootstrap).}
+\label{tab:settings_diffs}
+\small
+\input{generated/tab_settings_diffs.tex}
+\end{table}
+
+\section{Attack variants}
+\label{app:variants}
+
+\begin{table}[h]
+\centering
+\caption{CIFAR-10: targeted against untargeted universal patches (accuracy with the patch), and LaVAN with cross-entropy
+against the Carlini--Wagner margin loss (5\,px robust accuracy and targeted hit rate; the margin loss was run on the
+baseline and the 4\x\ arms). Mean {\scriptsize$\pm$ std} over \R{nseeds} seeds (\%).}
+\label{tab:j9}
+\small
+\setlength{\tabcolsep}{2.5pt}
+\input{generated/tab_j9.tex}
+\end{table}
+
+\section{Physical ablation}
+\label{app:physical}
+
+Patches trained with rotation and photometric transformations are more robust in the physical world but weaker in the
+digital setting. On the baseline, the 8\,px target hit rate falls from \R{physlochit:baseline_resnet18}\% (location only)
+to \R{physphyshit:baseline_resnet18}\%. Under the physical variant, all 4\x\ models stay within a few points of each other
+(Table~\ref{tab:physical}), so the digital attack with location changes only, which is used in the main text, is the
+stronger test.
+
+\begin{table}[h]
+\centering
+\caption{Universal 8\,px patch, seed 42: location-only against physical transformations, accuracy and target hit rate
+(\%).}
+\label{tab:physical}
+\small
+\input{generated/tab_physical.tex}
+\end{table}
+
+\end{document}

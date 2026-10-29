@@ -26,7 +26,7 @@ import torch.nn.functional as F
 from src.data import get_loaders
 from src.engine import final_metrics, fit
 from src.eval.metrics import clean_accuracy, compressed_size
-from src.models.resnet import build_model
+from src.models.load import build_from_cfg
 from src.utils import get_device, load_config, save_result, set_seed
 
 
@@ -128,14 +128,20 @@ def _fold(conv, bn):
 
 
 def fold_bn(model):
-    """Fold every conv->BN pair of the CIFAR ResNet-18 into a single conv with bias (eval-mode BN)."""
-    model.conv1, model.bn1 = _fold(model.conv1, model.bn1), nn.Identity()
-    for layer in (model.layer1, model.layer2, model.layer3, model.layer4):
-        for blk in layer:
-            blk.conv1, blk.bn1 = _fold(blk.conv1, blk.bn1), nn.Identity()
-            blk.conv2, blk.bn2 = _fold(blk.conv2, blk.bn2), nn.Identity()
-            if len(blk.shortcut) == 2:
-                blk.shortcut = nn.Sequential(_fold(blk.shortcut[0], blk.shortcut[1]))
+    """Fold every conv->BN pair into a single conv with bias (eval-mode BN). Pairs are found by the naming all our
+    models share: children conv<i> / bn<i> of one module, or a Conv2d followed by a BatchNorm2d in a Sequential
+    (shortcuts). The BN becomes an Identity, so state_dict keys of the folded model match across versions."""
+    for mod in list(model.modules()):
+        if isinstance(mod, nn.Sequential):
+            for i in range(len(mod) - 1):
+                if isinstance(mod[i], nn.Conv2d) and isinstance(mod[i + 1], nn.BatchNorm2d):
+                    mod[i], mod[i + 1] = _fold(mod[i], mod[i + 1]), nn.Identity()
+            continue
+        for name, child in list(mod.named_children()):
+            bn = getattr(mod, "bn" + name[4:], None) if name.startswith("conv") else None
+            if isinstance(child, nn.Conv2d) and isinstance(bn, nn.BatchNorm2d):
+                setattr(mod, name, _fold(child, bn))
+                setattr(mod, "bn" + name[4:], nn.Identity())
     return model
 
 
@@ -191,8 +197,9 @@ def main():
     device = get_device()
     t, c = cfg["train"], cfg["compression"]
 
-    train_loader, test_loader = get_loaders(cfg["data_root"], t["batch_size"], cfg["num_workers"])
-    model = build_model(cfg["model"]).to(device)
+    train_loader, test_loader = get_loaders(cfg["data_root"], t["batch_size"], cfg["num_workers"],
+                                            cfg.get("dataset", "cifar10"))
+    model = build_from_cfg(cfg).to(device)
     model.load_state_dict(torch.load(cfg["base_checkpoint"], map_location=device))
     acc_fp32 = clean_accuracy(model, test_loader, device)
     fold_bn(model.eval())
@@ -211,8 +218,8 @@ def main():
         torch.save(model.state_dict(), cfg["checkpoint"])
 
     metrics = {
-        **final_metrics(model, test_loader, device),
-        **compressed_size(model, weight_bits=c["weight_bits"]),
+        **final_metrics(model, test_loader, device, cfg),
+        **compressed_size(model, weight_bits=c["weight_bits"], cfg=cfg),
         "acc_bn_folded_fp32": acc_folded,
         "acc_ptq": acc_ptq,
     }

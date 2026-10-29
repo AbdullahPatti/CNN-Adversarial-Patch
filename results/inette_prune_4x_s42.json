@@ -1,0 +1,47 @@
+{
+  "run": "inette_prune_4x_s42",
+  "model": "resnet50",
+  "compression": {
+    "method": "prune",
+    "ratio": 4.0,
+    "sparsity": 0.75
+  },
+  "attack": null,
+  "defense": null,
+  "metrics": {
+    "clean_acc": 0.9019108280254777,
+    "params": 23528522,
+    "nonzero_params": 5921978,
+    "size_mb_fp32": 89.9572525024414,
+    "latency_ms_bs1": 2.8741565000018454,
+    "size_mb_compressed": 25.3890380859375,
+    "ratio_vs_baseline": 3.5351551419079077,
+    "weight_sparsity": 0.75,
+    "acc_after_prune_before_ft": 0.8598726114649682
+  },
+  "config": {
+    "run_name": "inette_prune_4x_s42",
+    "model": "resnet50",
+    "dataset": "imagenette",
+    "seed": 42,
+    "data_root": "./data",
+    "num_workers": 12,
+    "base_checkpoint": "checkpoints/inette/inette_baseline_s42.pt",
+    "checkpoint": "checkpoints/inette/inette_prune_4x_s42.pt",
+    "compression": {
+      "method": "prune",
+      "ratio": 4.0,
+      "sparsity": 0.75
+    },
+    "train": {
+      "epochs": 30,
+      "batch_size": 64,
+      "lr": 0.005,
+      "momentum": 0.9,
+      "weight_decay": 0.0005,
+      "select": "last"
+    }
+  },
+  "device": "NVIDIA RTX A4000",
+  "timestamp": "2026-10-23T04:32:19.674875+00:00"
+}

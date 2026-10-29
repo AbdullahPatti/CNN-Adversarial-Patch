@@ -1,0 +1,46 @@
+lavan_inette_baseline_s42 side 35 targeted  inette_baseline_s42: 0.996  inette_quant_4x_int8_s42: 0.515  inette_prune_4x_s42: 0.391  inette_dense_small_4x_s42: 0.044  inette_kd_4x_s42: 0.028
+lavan_inette_baseline_s42 side 35 untargeted  inette_baseline_s42: 1.000  inette_quant_4x_int8_s42: 0.635  inette_prune_4x_s42: 0.429  inette_dense_small_4x_s42: 0.074  inette_kd_4x_s42: 0.053
+lavan_inette_baseline_s42 side 56 targeted  inette_baseline_s42: 1.000  inette_quant_4x_int8_s42: 0.706  inette_prune_4x_s42: 0.508  inette_dense_small_4x_s42: 0.019  inette_kd_4x_s42: 0.021
+lavan_inette_baseline_s42 side 56 untargeted  inette_baseline_s42: 1.000  inette_quant_4x_int8_s42: 0.849  inette_prune_4x_s42: 0.589  inette_dense_small_4x_s42: 0.106  inette_kd_4x_s42: 0.111
+lavan_inette_quant_4x_int8_s42 side 35 targeted  inette_baseline_s42: 0.880  inette_quant_4x_int8_s42: 0.970  inette_prune_4x_s42: 0.428  inette_dense_small_4x_s42: 0.035  inette_kd_4x_s42: 0.031
+lavan_inette_quant_4x_int8_s42 side 35 untargeted  inette_baseline_s42: 0.938  inette_quant_4x_int8_s42: 0.960  inette_prune_4x_s42: 0.445  inette_dense_small_4x_s42: 0.075  inette_kd_4x_s42: 0.056
+lavan_inette_quant_4x_int8_s42 side 56 targeted  inette_baseline_s42: 0.951  inette_quant_4x_int8_s42: 0.986  inette_prune_4x_s42: 0.562  inette_dense_small_4x_s42: 0.012  inette_kd_4x_s42: 0.019
+lavan_inette_quant_4x_int8_s42 side 56 untargeted  inette_baseline_s42: 0.976  inette_quant_4x_int8_s42: 0.996  inette_prune_4x_s42: 0.619  inette_dense_small_4x_s42: 0.107  inette_kd_4x_s42: 0.107
+lavan_inette_prune_4x_s42 side 35 targeted  inette_baseline_s42: 0.365  inette_quant_4x_int8_s42: 0.342  inette_prune_4x_s42: 1.000  inette_dense_small_4x_s42: 0.035  inette_kd_4x_s42: 0.023
+lavan_inette_prune_4x_s42 side 35 untargeted  inette_baseline_s42: 0.483  inette_quant_4x_int8_s42: 0.438  inette_prune_4x_s42: 0.998  inette_dense_small_4x_s42: 0.107  inette_kd_4x_s42: 0.055
+lavan_inette_prune_4x_s42 side 56 targeted  inette_baseline_s42: 0.389  inette_quant_4x_int8_s42: 0.359  inette_prune_4x_s42: 1.000  inette_dense_small_4x_s42: 0.028  inette_kd_4x_s42: 0.018
+lavan_inette_prune_4x_s42 side 56 untargeted  inette_baseline_s42: 0.592  inette_quant_4x_int8_s42: 0.574  inette_prune_4x_s42: 1.000  inette_dense_small_4x_s42: 0.111  inette_kd_4x_s42: 0.087
+lavan_inette_dense_small_4x_s42 side 35 targeted  inette_baseline_s42: 0.040  inette_quant_4x_int8_s42: 0.040  inette_prune_4x_s42: 0.040  inette_dense_small_4x_s42: 1.000  inette_kd_4x_s42: 0.022
+lavan_inette_dense_small_4x_s42 side 35 untargeted  inette_baseline_s42: 0.071  inette_quant_4x_int8_s42: 0.068  inette_prune_4x_s42: 0.060  inette_dense_small_4x_s42: 0.995  inette_kd_4x_s42: 0.044
+lavan_inette_dense_small_4x_s42 side 56 targeted  inette_baseline_s42: 0.029  inette_quant_4x_int8_s42: 0.034  inette_prune_4x_s42: 0.027  inette_dense_small_4x_s42: 0.993  inette_kd_4x_s42: 0.010
+lavan_inette_dense_small_4x_s42 side 56 untargeted  inette_baseline_s42: 0.072  inette_quant_4x_int8_s42: 0.072  inette_prune_4x_s42: 0.059  inette_dense_small_4x_s42: 0.993  inette_kd_4x_s42: 0.054
+lavan_inette_kd_4x_s42 side 35 targeted  inette_baseline_s42: 0.039  inette_quant_4x_int8_s42: 0.039  inette_prune_4x_s42: 0.043  inette_dense_small_4x_s42: 0.017  inette_kd_4x_s42: 1.000
+lavan_inette_kd_4x_s42 side 35 untargeted  inette_baseline_s42: 0.155  inette_quant_4x_int8_s42: 0.153  inette_prune_4x_s42: 0.137  inette_dense_small_4x_s42: 0.140  inette_kd_4x_s42: 1.000
+lavan_inette_kd_4x_s42 side 56 targeted  inette_baseline_s42: 0.048  inette_quant_4x_int8_s42: 0.053  inette_prune_4x_s42: 0.043  inette_dense_small_4x_s42: 0.039  inette_kd_4x_s42: 0.993
+lavan_inette_kd_4x_s42 side 56 untargeted  inette_baseline_s42: 0.137  inette_quant_4x_int8_s42: 0.135  inette_prune_4x_s42: 0.113  inette_dense_small_4x_s42: 0.127  inette_kd_4x_s42: 0.998
+universal_inette_baseline_s42 -> inette_baseline_s42  side_35: acc 0.8202 hit 0.1191  side_56: acc 0.5231 hit 0.5002
+universal_inette_baseline_s42 -> inette_quant_4x_int8_s42  side_35: acc 0.8217 hit 0.1152  side_56: acc 0.5393 hit 0.4808
+universal_inette_baseline_s42 -> inette_prune_4x_s42  side_35: acc 0.8288 hit 0.1091  side_56: acc 0.5300 hit 0.4928
+universal_inette_baseline_s42 -> inette_dense_small_4x_s42  side_35: acc 0.8504 hit 0.0484  side_56: acc 0.7520 hit 0.1630
+universal_inette_baseline_s42 -> inette_kd_4x_s42  side_35: acc 0.8681 hit 0.0609  side_56: acc 0.6934 hit 0.2914
+universal_inette_quant_4x_int8_s42 -> inette_baseline_s42  side_35: acc 0.7939 hit 0.1591  side_56: acc 0.5202 hit 0.5027
+universal_inette_quant_4x_int8_s42 -> inette_quant_4x_int8_s42  side_35: acc 0.7968 hit 0.1541  side_56: acc 0.5359 hit 0.4838
+universal_inette_quant_4x_int8_s42 -> inette_prune_4x_s42  side_35: acc 0.8022 hit 0.1485  side_56: acc 0.5275 hit 0.4954
+universal_inette_quant_4x_int8_s42 -> inette_dense_small_4x_s42  side_35: acc 0.8444 hit 0.0640  side_56: acc 0.7503 hit 0.1665
+universal_inette_quant_4x_int8_s42 -> inette_kd_4x_s42  side_35: acc 0.8528 hit 0.0851  side_56: acc 0.6930 hit 0.2916
+universal_inette_prune_4x_s42 -> inette_baseline_s42  side_35: acc 0.8233 hit 0.1126  side_56: acc 0.5406 hit 0.4793
+universal_inette_prune_4x_s42 -> inette_quant_4x_int8_s42  side_35: acc 0.8246 hit 0.1107  side_56: acc 0.5584 hit 0.4584
+universal_inette_prune_4x_s42 -> inette_prune_4x_s42  side_35: acc 0.8251 hit 0.1106  side_56: acc 0.5177 hit 0.5089
+universal_inette_prune_4x_s42 -> inette_dense_small_4x_s42  side_35: acc 0.8521 hit 0.0506  side_56: acc 0.7606 hit 0.1583
+universal_inette_prune_4x_s42 -> inette_kd_4x_s42  side_35: acc 0.8679 hit 0.0601  side_56: acc 0.7063 hit 0.2778
+universal_inette_dense_small_4x_s42 -> inette_baseline_s42  side_35: acc 0.8485 hit 0.0759  side_56: acc 0.7246 hit 0.2350
+universal_inette_dense_small_4x_s42 -> inette_quant_4x_int8_s42  side_35: acc 0.8487 hit 0.0758  side_56: acc 0.7271 hit 0.2325
+universal_inette_dense_small_4x_s42 -> inette_prune_4x_s42  side_35: acc 0.8522 hit 0.0736  side_56: acc 0.7272 hit 0.2321
+universal_inette_dense_small_4x_s42 -> inette_dense_small_4x_s42  side_35: acc 0.8102 hit 0.1185  side_56: acc 0.6165 hit 0.3751
+universal_inette_dense_small_4x_s42 -> inette_kd_4x_s42  side_35: acc 0.8672 hit 0.0628  side_56: acc 0.7565 hit 0.2090
+universal_inette_kd_4x_s42 -> inette_baseline_s42  side_35: acc 0.8433 hit 0.0859  side_56: acc 0.6546 hit 0.3325
+universal_inette_kd_4x_s42 -> inette_quant_4x_int8_s42  side_35: acc 0.8436 hit 0.0855  side_56: acc 0.6585 hit 0.3275
+universal_inette_kd_4x_s42 -> inette_prune_4x_s42  side_35: acc 0.8503 hit 0.0791  side_56: acc 0.6636 hit 0.3224
+universal_inette_kd_4x_s42 -> inette_dense_small_4x_s42  side_35: acc 0.8478 hit 0.0571  side_56: acc 0.7459 hit 0.1851
+universal_inette_kd_4x_s42 -> inette_kd_4x_s42  side_35: acc 0.8456 hit 0.0962  side_56: acc 0.5998 hit 0.4152
+saved results\transfer_inette_s42.json

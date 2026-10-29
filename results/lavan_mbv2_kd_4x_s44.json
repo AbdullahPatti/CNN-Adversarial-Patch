@@ -1,0 +1,112 @@
+{
+  "run": "lavan_mbv2_kd_4x_s44",
+  "model": "mobilenetv2",
+  "compression": {
+    "method": "distill",
+    "ratio": 4.0,
+    "temperature": 4.0,
+    "alpha": 0.9
+  },
+  "attack": {
+    "name": "lavan",
+    "sizes": [
+      5,
+      8
+    ],
+    "modes": [
+      "untargeted",
+      "targeted"
+    ],
+    "steps": 100,
+    "step_size": 0.05,
+    "restarts": 10,
+    "batch": 500,
+    "surrogate": false
+  },
+  "defense": null,
+  "metrics": {
+    "model_run": "mbv2_kd_4x_s44",
+    "clean_acc_subset": 0.936,
+    "side_5_untargeted": {
+      "area_frac": 0.0244140625,
+      "effective_from": "whitebox",
+      "whitebox": {
+        "success_on_correct": 0.8450855016708374,
+        "robust_acc": 0.14500001072883606
+      },
+      "effective": {
+        "success_on_correct": 0.8450855016708374,
+        "robust_acc": 0.14500001072883606
+      }
+    },
+    "side_5_targeted": {
+      "area_frac": 0.0244140625,
+      "effective_from": "whitebox",
+      "whitebox": {
+        "success_on_correct": 0.41025644540786743,
+        "patched_acc": 0.5520000457763672
+      },
+      "effective": {
+        "success_on_correct": 0.41025644540786743,
+        "patched_acc": 0.5520000457763672
+      }
+    },
+    "side_8_untargeted": {
+      "area_frac": 0.0625,
+      "effective_from": "whitebox",
+      "whitebox": {
+        "success_on_correct": 0.9978632926940918,
+        "robust_acc": 0.0020000000949949026
+      },
+      "effective": {
+        "success_on_correct": 0.9978632926940918,
+        "robust_acc": 0.0020000000949949026
+      }
+    },
+    "side_8_targeted": {
+      "area_frac": 0.0625,
+      "effective_from": "whitebox",
+      "whitebox": {
+        "success_on_correct": 0.894230842590332,
+        "patched_acc": 0.0990000069141388
+      },
+      "effective": {
+        "success_on_correct": 0.894230842590332,
+        "patched_acc": 0.0990000069141388
+      }
+    }
+  },
+  "config": {
+    "run_name": "lavan_mbv2_kd_4x_s44",
+    "model_config": "configs/mbv2/seed44/phase2/04_kd_4x.yaml",
+    "seed": 0,
+    "data_root": "./data",
+    "num_workers": 8,
+    "attack": {
+      "name": "lavan",
+      "sizes": [
+        5,
+        8
+      ],
+      "modes": [
+        "untargeted",
+        "targeted"
+      ],
+      "steps": 100,
+      "step_size": 0.05,
+      "restarts": 10,
+      "batch": 500,
+      "surrogate": false
+    },
+    "model": "mobilenetv2",
+    "compression": {
+      "method": "distill",
+      "ratio": 4.0,
+      "temperature": 4.0,
+      "alpha": 0.9
+    },
+    "dataset": "cifar10"
+  },
+  "device": "NVIDIA RTX A4000",
+  "timestamp": "2026-10-28T19:42:05.788177+00:00"
+}

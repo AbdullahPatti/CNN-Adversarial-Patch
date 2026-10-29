@@ -1,0 +1,132 @@
+{
+  "run": "lavan_mbv2_quant_4x_int8_s42",
+  "model": "mobilenetv2",
+  "compression": {
+    "method": "quant",
+    "ratio": 4.0,
+    "mode": "ptq",
+    "weight_bits": 8,
+    "act_bits": 8,
+    "calib_batches": 20
+  },
+  "attack": {
+    "name": "lavan",
+    "sizes": [
+      5,
+      8
+    ],
+    "modes": [
+      "untargeted",
+      "targeted"
+    ],
+    "steps": 100,
+    "step_size": 0.05,
+    "restarts": 10,
+    "batch": 500,
+    "surrogate": true
+  },
+  "defense": null,
+  "metrics": {
+    "model_run": "mbv2_quant_4x_int8_s42",
+    "clean_acc_subset": 0.94,
+    "side_5_untargeted": {
+      "area_frac": 0.0244140625,
+      "effective_from": "surrogate_fp32",
+      "whitebox": {
+        "success_on_correct": 0.929861843585968,
+        "robust_acc": 0.06599999964237213
+      },
+      "surrogate_fp32": {
+        "success_on_correct": 0.9330499172210693,
+        "robust_acc": 0.06300000101327896
+      },
+      "effective": {
+        "success_on_correct": 0.9330499172210693,
+        "robust_acc": 0.06300000101327896
+      }
+    },
+    "side_5_targeted": {
+      "area_frac": 0.0244140625,
+      "effective_from": "whitebox",
+      "whitebox": {
+        "success_on_correct": 0.5589798092842102,
+        "patched_acc": 0.4150000214576721
+      },
+      "surrogate_fp32": {
+        "success_on_correct": 0.5313495993614197,
+        "patched_acc": 0.4410000145435333
+      },
+      "effective": {
+        "success_on_correct": 0.5589798092842102,
+        "patched_acc": 0.4150000214576721
+      }
+    },
+    "side_8_untargeted": {
+      "area_frac": 0.0625,
+      "effective_from": "whitebox",
+      "whitebox": {
+        "success_on_correct": 1.0,
+        "robust_acc": 0.0
+      },
+      "surrogate_fp32": {
+        "success_on_correct": 0.9989373087882996,
+        "robust_acc": 0.0010000000474974513
+      },
+      "effective": {
+        "success_on_correct": 1.0,
+        "robust_acc": 0.0
+      }
+    },
+    "side_8_targeted": {
+      "area_frac": 0.0625,
+      "effective_from": "whitebox",
+      "whitebox": {
+        "success_on_correct": 0.958554744720459,
+        "patched_acc": 0.039000000804662704
+      },
+      "surrogate_fp32": {
+        "success_on_correct": 0.9564293026924133,
+        "patched_acc": 0.04100000113248825
+      },
+      "effective": {
+        "success_on_correct": 0.958554744720459,
+        "patched_acc": 0.039000000804662704
+      }
+    }
+  },
+  "config": {
+    "run_name": "lavan_mbv2_quant_4x_int8_s42",
+    "model_config": "configs/mbv2/seed42/phase2/01_quant_4x_int8.yaml",
+    "seed": 0,
+    "data_root": "./data",
+    "num_workers": 8,
+    "attack": {
+      "name": "lavan",
+      "sizes": [
+        5,
+        8
+      ],
+      "modes": [
+        "untargeted",
+        "targeted"
+      ],
+      "steps": 100,
+      "step_size": 0.05,
+      "restarts": 10,
+      "batch": 500,
+      "surrogate": true
+    },
+    "model": "mobilenetv2",
+    "compression": {
+      "method": "quant",
+      "ratio": 4.0,
+      "mode": "ptq",
+      "weight_bits": 8,
+      "act_bits": 8,
+      "calib_batches": 20
+    },
+    "dataset": "cifar10"
+  },
+  "device": "NVIDIA RTX A4000",
+  "timestamp": "2026-10-25T13:43:14.480675+00:00"
+}

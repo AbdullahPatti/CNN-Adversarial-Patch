@@ -1,0 +1,5 @@
+size 5 untargeted  whitebox: {'success_on_correct': 0.9110878705978394, 'robust_acc': 0.08500000089406967}  effective: {'success_on_correct': 0.9110878705978394, 'robust_acc': 0.08500000089406967}
+size 5 targeted  whitebox: {'success_on_correct': 0.5313807129859924, 'patched_acc': 0.4480000138282776}  effective: {'success_on_correct': 0.5313807129859924, 'patched_acc': 0.4480000138282776}
+size 8 untargeted  whitebox: {'success_on_correct': 1.0, 'robust_acc': 0.0}  effective: {'success_on_correct': 1.0, 'robust_acc': 0.0}
+size 8 targeted  whitebox: {'success_on_correct': 0.9456066489219666, 'patched_acc': 0.052000001072883606}  effective: {'success_on_correct': 0.9456066489219666, 'patched_acc': 0.052000001072883606}
+saved results\lavan_margin_baseline_resnet18.json

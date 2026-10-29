@@ -1,0 +1,25 @@
+run_name: gtsrb_dense_small_4x_s42_def
+model: resnet18
+dataset: gtsrb
+seed: 42
+data_root: ./data
+num_workers: 8
+width: 32
+checkpoint: checkpoints/gtsrb/gtsrb_dense_small_4x_s42_def.pt
+compression:
+  method: none
+  ratio: 4.0
+  note: capacity control for RQ4, no compression applied
+train:
+  epochs: 100
+  batch_size: 128
+  lr: 0.1
+  momentum: 0.9
+  weight_decay: 0.0005
+  select: last
+  mask_aug:
+    sizes:
+    - 5
+    - 8
+    k: 6
+    img: 32

@@ -1,0 +1,4 @@
+fp32 0.9827  bn-folded 0.9827
+PTQ W8A8  acc 0.9830
+{'clean_acc': 0.9829770387965162, 'params': 11186091, 'nonzero_params': 11186091, 'size_mb_fp32': 42.671753883361816, 'latency_ms_bs1': 6.2258010000005015, 'size_mb_compressed': 10.681743621826172, 'ratio_vs_baseline': 3.996525549478511, 'acc_bn_folded_fp32': 0.9826603325415677, 'acc_ptq': 0.9829770387965162}
+saved results\gtsrb_quant_4x_int8_s44_def.json

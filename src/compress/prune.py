@@ -14,7 +14,7 @@ import torch.nn.utils.prune as prune
 from src.data import get_loaders
 from src.engine import final_metrics, fit
 from src.eval.metrics import clean_accuracy, compressed_size
-from src.models.resnet import build_model
+from src.models.load import build_from_cfg
 from src.utils import get_device, load_config, save_result, set_seed
 
 
@@ -37,8 +37,9 @@ def main():
     device = get_device()
     t, c = cfg["train"], cfg["compression"]
 
-    train_loader, test_loader = get_loaders(cfg["data_root"], t["batch_size"], cfg["num_workers"])
-    model = build_model(cfg["model"]).to(device)
+    train_loader, test_loader = get_loaders(cfg["data_root"], t["batch_size"], cfg["num_workers"],
+                                            cfg.get("dataset", "cifar10"))
+    model = build_from_cfg(cfg).to(device)
     model.load_state_dict(torch.load(cfg["base_checkpoint"], map_location=device))
 
     prune.global_unstructured(prunable(model), pruning_method=prune.L1Unstructured, amount=c["sparsity"])
@@ -53,8 +54,8 @@ def main():
     torch.save(model.state_dict(), cfg["checkpoint"])
 
     metrics = {
-        **final_metrics(model, test_loader, device),
-        **compressed_size(model, weight_bits=32, sparse=True),
+        **final_metrics(model, test_loader, device, cfg),
+        **compressed_size(model, weight_bits=32, sparse=True, cfg=cfg),
         "weight_sparsity": weight_sparsity(model),
         "acc_after_prune_before_ft": acc_before_ft,
     }

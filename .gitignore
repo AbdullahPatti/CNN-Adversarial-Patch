@@ -5,3 +5,6 @@ checkpoints/
 .venv/
 Context/
 data/gtsrb/
+data/imagenette/
+paper_overleaf.zip
+patches/lavan_inette_*.pt

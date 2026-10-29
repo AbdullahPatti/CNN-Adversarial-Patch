@@ -37,13 +37,15 @@ def fit(model, train_loader, test_loader, device, t, ckpt, loss_fn=cross_entropy
 
     t["select"]: "best" (default, seed 42) keeps the best-test-accuracy epoch; "last" keeps the final epoch, so the
     test set plays no part in training (seeds 43+). On seed 42 the two differ by <= 0.13 pp in every run.
-    t["mask_aug"] = {sizes, k}: PatchCleanser mask augmentation on every training batch (defended models, Part 5).
+    t["mask_aug"] = {sizes, k, img (default 32)}: PatchCleanser mask augmentation on every training batch (defended
+    models, Part 5); the masked pixels take the model's own normalization mean (the dataset mean).
     """
     last = t.get("select", "best") == "last"
     augment = None
     if t.get("mask_aug"):
         from src.defense.patchcleanser import MaskAugment
-        augment = MaskAugment(t["mask_aug"]["sizes"], t["mask_aug"]["k"], device=device)
+        augment = MaskAugment(t["mask_aug"]["sizes"], t["mask_aug"]["k"], t["mask_aug"].get("img", 32), device,
+                              model.norm.mean.flatten().tolist())
     opt = torch.optim.SGD(model.parameters(), lr=t["lr"], momentum=t["momentum"],
                           weight_decay=t["weight_decay"], nesterov=True)
     sched = torch.optim.lr_scheduler.CosineAnnealingLR(opt, T_max=t["epochs"])
@@ -105,9 +107,11 @@ def set_rng_state(s):
         torch.cuda.set_rng_state_all([r.cpu() for r in s["cuda"]])
 
 
-def final_metrics(model, test_loader, device):
+def final_metrics(model, test_loader, device, cfg=None):
+    from src.data import spec
+    n = spec((cfg or {}).get("dataset", "cifar10"))["img"]
     return {
         "clean_acc": clean_accuracy(model, test_loader, device),
         **model_size(model),
-        "latency_ms_bs1": latency_ms(model, device),
+        "latency_ms_bs1": latency_ms(model, device, (1, 3, n, n)),
     }

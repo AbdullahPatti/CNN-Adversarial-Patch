@@ -1,0 +1,21 @@
+run_name: inette_kd_4x_s42
+model: resnet50
+dataset: imagenette
+seed: 42
+data_root: ./data
+num_workers: 12
+width: 32
+base_checkpoint: checkpoints/inette/inette_baseline_s42.pt
+checkpoint: checkpoints/inette/inette_kd_4x_s42.pt
+compression:
+  method: distill
+  ratio: 4.0
+  temperature: 4.0
+  alpha: 0.9
+train:
+  epochs: 120
+  batch_size: 64
+  lr: 0.05
+  momentum: 0.9
+  weight_decay: 0.0005
+  select: last

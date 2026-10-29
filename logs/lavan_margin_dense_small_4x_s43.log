@@ -1,0 +1,5 @@
+size 5 untargeted  whitebox: {'success_on_correct': 0.9559285640716553, 'robust_acc': 0.04200000315904617}  effective: {'success_on_correct': 0.9559285640716553, 'robust_acc': 0.04200000315904617}
+size 5 targeted  whitebox: {'success_on_correct': 0.6253934502601624, 'patched_acc': 0.3570000231266022}  effective: {'success_on_correct': 0.6253934502601624, 'patched_acc': 0.3570000231266022}
+size 8 untargeted  whitebox: {'success_on_correct': 0.9999999403953552, 'robust_acc': 0.0}  effective: {'success_on_correct': 0.9999999403953552, 'robust_acc': 0.0}
+size 8 targeted  whitebox: {'success_on_correct': 0.9716683626174927, 'patched_acc': 0.027000000700354576}  effective: {'success_on_correct': 0.9716683626174927, 'patched_acc': 0.027000000700354576}
+saved results\lavan_margin_dense_small_4x_s43.json

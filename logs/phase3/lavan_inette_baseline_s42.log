@@ -1,0 +1,5 @@
+size 35 untargeted  whitebox: {'success_on_correct': 0.8864628672599792, 'robust_acc': 0.10400000214576721}  effective: {'success_on_correct': 0.8864628672599792, 'robust_acc': 0.10400000214576721}
+size 35 targeted  whitebox: {'success_on_correct': 0.567685604095459, 'patched_acc': 0.3960000276565552}  effective: {'success_on_correct': 0.567685604095459, 'patched_acc': 0.3960000276565552}
+size 56 untargeted  whitebox: {'success_on_correct': 1.0, 'robust_acc': 0.0}  effective: {'success_on_correct': 1.0, 'robust_acc': 0.0}
+size 56 targeted  whitebox: {'success_on_correct': 0.9519650936126709, 'patched_acc': 0.04400000348687172}  effective: {'success_on_correct': 0.9519650936126709, 'patched_acc': 0.04400000348687172}
+saved results\lavan_inette_baseline_s42.json

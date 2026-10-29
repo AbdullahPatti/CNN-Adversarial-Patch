@@ -1,0 +1,21 @@
+size 5 target 0  whitebox: acc 0.8082 hit 0.0592
+size 5 target 1  whitebox: acc 0.7781 hit 0.0630
+size 5 target 2  whitebox: acc 0.7520 hit 0.2062
+size 5 target 3  whitebox: acc 0.7995 hit 0.1343
+size 5 target 4  whitebox: acc 0.7843 hit 0.0137
+size 5 target 5  whitebox: acc 0.7617 hit 0.1880
+size 5 target 6  whitebox: acc 0.8296 hit 0.0284
+size 5 target 7  whitebox: acc 0.8098 hit 0.0184
+size 5 target 8  whitebox: acc 0.7716 hit 0.0147
+size 5 target 9  whitebox: acc 0.7737 hit 0.0321
+size 8 target 0  whitebox: acc 0.6671 hit 0.1867
+size 8 target 1  whitebox: acc 0.5069 hit 0.3737
+size 8 target 2  whitebox: acc 0.5292 hit 0.4664
+size 8 target 3  whitebox: acc 0.5289 hit 0.4786
+size 8 target 4  whitebox: acc 0.6940 hit 0.2323
+size 8 target 5  whitebox: acc 0.4406 hit 0.5777
+size 8 target 6  whitebox: acc 0.6297 hit 0.3133
+size 8 target 7  whitebox: acc 0.7373 hit 0.1336
+size 8 target 8  whitebox: acc 0.7156 hit 0.1921
+size 8 target 9  whitebox: acc 0.6809 hit 0.2218
+saved results\universal_mbv2_baseline_s43.json

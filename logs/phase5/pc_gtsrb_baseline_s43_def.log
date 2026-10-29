@@ -1,0 +1,3 @@
+side 5: 36 masks of 9px  certified 0.5800  defended clean 0.9520  one-mask 0.9771 (worst 0.9090)  two-mask 0.9670
+side 8: 25 masks of 12px  certified 0.3180  defended clean 0.9210  one-mask 0.9547 (worst 0.7690)  two-mask 0.9141
+saved results\pc_gtsrb_baseline_s43_def.json

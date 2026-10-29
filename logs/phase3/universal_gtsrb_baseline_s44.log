@@ -1,0 +1,21 @@
+size 5 target 3  whitebox: acc 0.9434 hit 0.0165
+size 5 target 4  whitebox: acc 0.9576 hit 0.0001
+size 5 target 12  whitebox: acc 0.9472 hit 0.0002
+size 5 target 13  whitebox: acc 0.9445 hit 0.0003
+size 5 target 14  whitebox: acc 0.9429 hit 0.0007
+size 5 target 19  whitebox: acc 0.9426 hit 0.0037
+size 5 target 26  whitebox: acc 0.9443 hit 0.0028
+size 5 target 29  whitebox: acc 0.9504 hit 0.0012
+size 5 target 31  whitebox: acc 0.9489 hit 0.0002
+size 5 target 40  whitebox: acc 0.9475 hit 0.0014
+size 8 target 3  whitebox: acc 0.8243 hit 0.1412
+size 8 target 4  whitebox: acc 0.8606 hit 0.0943
+size 8 target 12  whitebox: acc 0.8458 hit 0.0253
+size 8 target 13  whitebox: acc 0.8376 hit 0.0038
+size 8 target 14  whitebox: acc 0.8299 hit 0.0010
+size 8 target 19  whitebox: acc 0.8409 hit 0.0006
+size 8 target 26  whitebox: acc 0.8649 hit 0.0768
+size 8 target 29  whitebox: acc 0.8634 hit 0.0836
+size 8 target 31  whitebox: acc 0.8710 hit 0.0654
+size 8 target 40  whitebox: acc 0.8600 hit 0.0670
+saved results\universal_gtsrb_baseline_s44.json

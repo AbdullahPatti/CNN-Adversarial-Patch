@@ -1,0 +1,3 @@
+size 5 target -1  whitebox: acc 0.8216 hit 0.0000  surrogate_fp32: acc 0.8218 hit 0.0000
+size 8 target -1  whitebox: acc 0.6278 hit 0.0000  surrogate_fp32: acc 0.6247 hit 0.0000
+saved results\universal_untargeted_quant_4x_int8_s44.json

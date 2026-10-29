@@ -1,0 +1,3 @@
+size 5 target -1  whitebox: acc 0.8325 hit 0.0000
+size 8 target -1  whitebox: acc 0.5580 hit 0.0000
+saved results\universal_untargeted_prune_8x.json

@@ -1,0 +1,22 @@
+run_name: mbv2_quant_4x_int8_s43
+model: mobilenetv2
+dataset: cifar10
+seed: 43
+data_root: ./data
+num_workers: 8
+base_checkpoint: checkpoints/mbv2/mbv2_baseline_s43.pt
+checkpoint: checkpoints/mbv2/mbv2_quant_4x_int8_s43.pt
+compression:
+  method: quant
+  ratio: 4.0
+  mode: ptq
+  weight_bits: 8
+  act_bits: 8
+  calib_batches: 20
+train:
+  epochs: 120
+  batch_size: 128
+  lr: 0.1
+  momentum: 0.9
+  weight_decay: 0.0005
+  select: last

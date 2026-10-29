@@ -1,0 +1,3 @@
+side 5: 36 masks of 9px  certified 0.0730  defended clean 0.9020  one-mask 0.8806 (worst 0.7170)  two-mask 0.7893
+side 8: 25 masks of 12px  certified 0.0100  defended clean 0.8760  one-mask 0.7981 (worst 0.5560)  two-mask 0.6354
+saved results\pc_mbv2_prune_4x_s43.json

@@ -443,7 +443,8 @@ certify (~10.9 h) -> ~18 h, done around 2026-10-17 13:00 if uninterrupted.
 
 ## J3 statistics + J8 "why" analysis (2026-10-19)
 **Deadline (user, 2026-10-19): paper submitted in 3 days (by 2026-10-22). Venue TMLR (free, no APC).** GTSRB / ImageNette /
-MobileNetV2 (J5-J7) and J9 are dropped for time; scope is stated as a limitation. Order decided by the user: J8 analysis
+MobileNetV2 (J5-J7) and J9 are dropped for time; scope is stated as a limitation. (Lifted 2026-10-20: J5-J7, J9 are back
+in, see "Follow-up phases" below.) Order decided by the user: J8 analysis
 first, then the paper (all numbers generated from results), then a number-by-number check.
 
 J3 (`src/stats.py`, tables in `results/summary/stats.md`): mean +/- std over 3 seeds; per-seed paired differences with
@@ -455,6 +456,107 @@ occlusion accuracy (grey / noise square, side 5 / 8, every stride-3 position: me
 logit margin, input-gradient L2 and concentration (largest p x p window share of |grad|), and similarity to the same-seed
 baseline (10k-test agreement, linear CKA of penultimate features, input-gradient cosine). `src/why.py`: Spearman rho over
 (model, seed) points with a cluster bootstrap over models, plus partial rho given clean accuracy -> `results/summary/why.md`.
+2026-10-19 ~12:31: run stopped (silent) after 66 of 78 models (last: `quant_2x_fp16_s44`). Restarted 2026-10-20 15:25
+(`logs/analysis_j8_2.log`); finished models are skipped, the 6 baselines are recomputed as references (their files were
+rewritten; differences <= 3e-4, cuDNN nondeterminism). **Done 2026-10-20 ~15:50, 78/78**; `why.md` and paper assets regenerated.
+
+## Follow-up phases J5-J7, J9 (started 2026-10-20, ~65 GPU-h approved)
+2026-10-20: the user said there is more time now, so the 2026-10-22 deadline is off and the approved ~65 GPU-h of follow-up
+phases go ahead.
+
+**Code (generalized, CIFAR-10 behaviour unchanged).** Configs take `dataset` (default cifar10); `src/data.py` holds the
+dataset registry (classes, image size, mean / std). Models: `build_model(name, classes, width, dataset)` with normalization
+from the dataset; ResNet-50 (bottleneck, ImageNet stem, `width` scales all stages) and MobileNetV2 (CIFAR variant,
+`src/models/mobilenetv2.py`). BN folding for quantization is now generic (conv<i>/bn<i> pairs and Conv->BN in Sequentials).
+Checked: the smoke test passes, and existing checkpoints (FP32, FP16, INT8, INT4 QAT, pruned, KD, defended INT8) reload
+with exactly their stored subset accuracy; folding is exact (<1e-7) on all three new architectures; PatchCleanser masks at
+224 px cover every patch position.
+
+**Settings** (`src/setting_configs.py`, configs under `configs/<setting>/seed<S>[_def]/`, run names `<setting>_<arm>_s<S>[_def]`):
+baseline + the four 4x arms (INT8 PTQ, 75% pruning, dense-small, KD), vanilla (attacks, transfer, certification) and
+defended zoo (defend-then-compress, certification), final-epoch checkpoints everywhere.
+| Setting | Model / data | Seeds | Decisions |
+|---|---|---|---|
+| `gtsrb` (J5) | ResNet-18, GTSRB 32 px, 43 classes | 42-44 | 100 epochs (GTSRB converges much faster than CIFAR; 200 would double the cost for nothing), prune fine-tune 20. No horizontal flip (it changes sign meaning). Universal patches for 10 fixed target classes drawn with seed 0: 3, 4, 12, 13, 14, 19, 26, 29, 31, 40 (incl. stop / yield / priority road); all 43 would cost 4.3x. Patch sides 5 / 8 as on CIFAR. |
+| `inette` (J6) | ResNet-50 from scratch, ImageNette 224 px | 42 | No ImageNet pretraining: it would leak ImageNette's classes and the small models (dense-small, KD student) could not share it, so the arms would differ in pretraining, not just compression. 120 epochs, batch 64, lr 0.05. Patch sides 35 / 56 (same areas as 5 / 8 at 32 px). LaVAN and certification on the first 500 of the 1,000-image subset (13x the per-image cost of CIFAR). |
+| `mbv2` (J7) | MobileNetV2, CIFAR-10 | 42-44 | 120 epochs (200 would make 3 seeds ~46 GPU-h), prune fine-tune 30. |
+
+Small widths matched to ~4x stored bits like ResNet-18 (3.99x): GTSRB ResNet-18 width 32 (3.99x), ResNet-50 width 32
+(3.99x), MobileNetV2 width 16 (3.79x; 15 gives 4.30x because channels round to multiples of 8).
+
+**J9** (`configs/j9/seed<S>/`, CIFAR-10 ResNet-18, all 3 seeds): untargeted universal patch on all 13 models
+(`universal_untargeted_*`, maximize the true-label loss) and LaVAN with the Carlini-Wagner margin loss on baseline + 4x arms
+(`lavan_margin_*`), to show the conclusions do not depend on the attack's goal or loss.
+
+**Cost** (benchmarked 2026-10-20, scaled by the measured CIFAR overhead): GTSRB ~15 h (3 seeds), ImageNette ~13.5 h,
+MobileNetV2 ~11 h per seed, J9 ~4 h -> ~66 GPU-h. **Queue order** (most valuable first, so overruns cut the last seeds):
+GTSRB s42 -> ImageNette -> MobileNetV2 s42 -> J9 -> GTSRB s43, s44 -> MobileNetV2 s43, s44.
+
+Before launch, every new pipeline ran end to end at toy scale (1 epoch, few attack steps, 50 images; 93 runs, all passed;
+artifacts deleted). **Queue launched 2026-10-20 18:03** as a detached process (`logs/followup_queue_1.log`, PID 2076):
+271 configs listed in order in `configs/followup_queue.txt`; restartable (finished runs are skipped). To restart after a
+shutdown (PowerShell): `$c = Get-Content configs\followup_queue.txt; Start-Process .venv\Scripts\python.exe -ArgumentList
+(@("-u","-m","src.run_queue") + $c) -RedirectStandardOutput logs\followup_queue_N.log -RedirectStandardError
+logs\followup_queue_N.err -WindowStyle Hidden`. First measured speed: GTSRB ResNet-18 ~10 s / epoch.
+Stopped 2026-10-20 ~20:00 (no error logged, likely shutdown) during `universal_gtsrb_dense_small_4x_s42`, after 8 of 271 runs
+(~1.9 h). Restarted 2026-10-21 17:27 (`logs/followup_queue_2.log`, PID 18344); ~64 GPU-h left, ends ~2026-10-24 morning if uninterrupted.
+That run died 2 min later in a power loss at 17:29. The System log shows 29 hard power losses (Kernel-Power 41, bugcheck 0)
+from 2026-10-15 to 10-22, several while the machine was idle, so the cause is the power supply, not GPU load. No progress was
+made 10-21 to 10-23. Restarted 2026-10-23 04:23 (`logs/followup_queue_3.log`, PID 17336), still 8 of 271 done, ~64 GPU-h left.
+That run finished 26 more runs (all of GTSRB seed 42 incl. defended zoo, ImageNette baseline / quant / prune), then died in a
+power loss at 09:50 during `inette_dense_small_4x_s42` (epoch 28/120; training has no mid-run resume, so it restarts).
+Further power losses 12:58, 14:15, 17:18. Restarted 2026-10-23 18:53 (`logs/followup_queue_4.log`, PID 14200), 34 of 271 done.
+That run finished `inette_dense_small_4x_s42` and `inette_kd_4x_s42`, then died in a power loss at 21:35 during
+`universal_inette_baseline_s42` (another at 22:48). Restarted 2026-10-24 02:29 (`logs/followup_queue_5.log`, PID 3200), 36 of 271 done.
+That run finished all ImageNette universal attacks and `lavan_inette_baseline_s42`, then died in a power loss at 07:47
+during `lavan_inette_quant_4x_int8_s42` (further losses 08:17, 12:00, 19:58, 23:29). Restarted 2026-10-25 01:40
+(`logs/followup_queue_6.log`, PID 15252), 42 of 271 done.
+That run reached 172 of 271 (GTSRB s42 + s43 apart from the last s43_def runs, ImageNette, MobileNetV2 s42 and J9 done), then died during
+`gtsrb_kd_4x_s43_def` (epoch 77/100; last log write 2026-10-25 19:46). Restarted 2026-10-26 11:28
+(`logs/followup_queue_7.log`, PID 14528), 172 of 271 done; ~44 GPU-h of finished runs so far.
+Correction: training does resume mid-run from `<run>.resume.pt` checkpoints (the s43_def KD run resumed at epoch 77).
+That run reached 201 of 271, then died 2026-10-26 ~16:04 during `gtsrb_prune_4x_s44_def`. Restarted 2026-10-27 13:40
+(`logs/followup_queue_8.log`, PID 3880), 201 of 271 done, 48.5 GPU-h of finished runs. Left: rest of GTSRB s44_def
+(~0.5 h), MobileNetV2 s43 (~10.3 h), MobileNetV2 s44 (~10.3 h); full queue ~69.5 GPU-h, ~4.5 over the 65 GPU-h budget.
+That run reached 252 of 271 (all of MobileNetV2 s43 done), then died 2026-10-28 ~06:34 during `lavan_mbv2_prune_4x_s44`.
+Restarted 2026-10-29 00:02 (`logs/followup_queue_9.log`, PID 20440), 252 of 271 done, 65.3 GPU-h of finished runs;
+the 19 runs left (rest of MobileNetV2 s44) take ~4.6 h.
+**2026-10-29 04:35: queue finished**, 271 of 271 runs, all `.err` logs empty (`logs/followup_queue_9.log`); ~70 GPU-h of
+finished runs in total, ~5 over the 65 GPU-h budget (expected since the 10-27 restart).
+
+### Analysis + paper (2026-10-29)
+- **J8 on the new models**: `src/analysis.py` generalized (dataset mean as grey fill, per-setting baseline, ImageNette
+  sides 35 / 56 with occlusion stride 21 on the first 500 subset images; CIFAR-10 behaviour unchanged). Run on the 70
+  follow-up models (`logs/analysis_followup.log`).
+- **J3 on the follow-ups**: `src/settings_stats.py` -> `results/summary/settings.md` / `settings.json` (same rules as
+  `src.stats`; ImageNette has one seed, so only image-bootstrap intervals for certification). Includes J9 and per-setting
+  J8 correlations.
+- **Findings.** Quantization and pruning keep defended certification in every setting. Dense-small loses it on GTSRB
+  (-4.1 pp cert-5, CI excludes 0) and MobileNetV2 (-4.7 pp), pruned beats dense-small (+5.1 / +6.1 pp). Transfer order
+  quantized > pruned > KD ~ dense-small everywhere. **Exception, ImageNette (1 seed):** dense-small and KD certify *more*
+  (+3.8 / +3.0 pp, bootstrap CIs exclude 0) and are more accurate (defended clean 91.0 / 90.3 vs 88.5): a from-scratch
+  ResNet-50 is over-sized for 9.5k images. The paper's account: certification follows occlusion robustness (J8: noise-8
+  occlusion acc vs cert-5 rho +0.84, partial given clean acc +0.80), not size. J9: untargeted universal and margin-loss
+  LaVAN rank the models the same way (Spearman +0.82 to +1.00).
+- **J8 per setting (decision: report the failure).** The occlusion account holds on MobileNetV2 (grey-8 all-positions vs
+  cert-8 rho +0.94 over 15 defended models; dense-small 0.750 / KD 0.793 vs baseline 0.777) and ImageNette (defended
+  dense-small / KD noise-8 occlusion acc 0.906 / 0.900 vs 0.866), but **not on GTSRB**: dense-small is as
+  occlusion-robust as the baseline (0.952 vs 0.953) yet certifies 4.1 pp less (rho +0.01). The paper's Why section,
+  guidance and limitations now say so; single-patch occlusion is called a useful but incomplete proxy.
+- **J10** done (closest work: Guesmi et al. 2024 arXiv 2411.15246, patches on QNNs, no certification / pruning / KD / seeds;
+  Matachana et al. 2021, UAPs on compressed models; Gritsch et al. ECML-PKDD 2024, pruning + universal patches). In
+  `paper/refs.bib`.
+- **Paper**: `paper/main.tex` (TMLR style, anonymous), every number a `\R{}` macro; `src/paper_assets.py` now also writes
+  `tab_settings*.tex`, `tab_j9.tex`, `tab_why*.tex`, `fig_settings.pdf`; `python -m src.check_paper` checks that every
+  macro key and input file exists. No LaTeX on this machine: compile on Overleaf (upload `paper/`).
+- Regenerate everything: `python -m src.stats; python -m src.why; python -m src.settings_stats; python -m src.paper_assets;
+  python -m src.check_paper`.
+- **Final draft (2026-10-29)**: authors (Haroon, Antall, Hadi; FAST School of Computing, FAST NUCES Lahore) and
+  acknowledgement of the FAST NUCES workstation added; `[preprint]` option so names show (drop the option for the
+  double-blind TMLR submission). Prose edited for plain academic English. Corrected overclaim: on GTSRB dense-small loses
+  4.1 pp certification with **no** clean-accuracy loss (+0.2 pp), so "capacity costs certification only when it costs
+  accuracy" is false and was removed. `check_paper` now also flags control / non-ASCII characters and unbalanced braces.
+  `paper_overleaf.zip` (repo root, not committed) is the Overleaf upload; not compiled locally (no LaTeX).
 
 Paper assets: `src/paper_assets.py` writes `paper/generated/macros.tex` (`\R{key}`, unknown key prints ??), tables and
 figures from the results, so no number in the paper is typed by hand.
@@ -478,14 +580,14 @@ C5 *why*: link vulnerability to measurable model properties (below) | practical 
 |---|---|---|---|
 | J1 | Part 4 transfer, seed 42 | done | see Part 4 |
 | J2 | **Seeds 43, 44**, full pipeline (13 models -> attacks -> transfer -> certification) | done 2026-10-17 | `src/seed_configs.py`. Final-epoch checkpoints (`train.select: last`), so the test set plays no part in training; seed 42 used best-on-test, measured gap <= 0.13 pp in every run. Attack seed unchanged across training seeds -> paired comparisons. Physical-EOT ablation stays single-seed. |
-| J3 | Statistics | **in progress (started 2026-10-19)** | mean +/- std over 3 seeds; paired tests vs baseline (per-seed differences); bootstrap 95% CIs over images for single-run numbers. Claims only where the CI excludes 0. |
+| J3 | Statistics | done 2026-10-19 (CIFAR), 2026-10-29 (follow-ups, `src/settings_stats.py`) | mean +/- std over 3 seeds; paired tests vs baseline (per-seed differences); bootstrap 95% CIs over images for single-run numbers. Claims only where the CI excludes 0. |
 | J4 | Part 5 PatchCleanser (RQ3), vanilla + defended zoo, 13 models x 3 seeds | done 2026-10-17 | decided: defended zoo, defend-then-compress (see Part 5). |
-| J5 | Second setting: **GTSRB**, 4x arms + baseline, 3 seeds | **approved 2026-10-14, after the queue** | est. ~25 GPU-h. |
-| J6 | Higher resolution: **ImageNette (224 px), ResNet-50**, 4x arms, 1 seed | **approved 2026-10-14, after the queue** | est. ~12-15 GPU-h. |
-| J7 | Second architecture: MobileNetV2 | **approved 2026-10-14, after the queue** | edge-relevant second architecture. |
-| J8 | Analysis for C5 | todo (~1 GPU-h covered by the 2026-10-14 budget) | correlate vulnerability with (a) clean acc, (b) occlusion (noise-patch) acc, (c) input-gradient norm / smoothness, (d) prediction agreement / CKA with the baseline vs transfer rate. Explains *why* dense-small is worse and pruning is not. |
-| J9 | Attack completeness | **approved 2026-10-14, after the queue** | convergence curves already logged; STE + BPDA adaptive attacks done. Add untargeted patch and LaVAN margin ablation. |
-| J10 | Full literature search | todo | Scholar: adversarial patch + quantization / pruning / distillation / TinyML; papers citing PatchCleanser 2023-2026; certified patch defenses (DRS, PatchGuard, ViP, PatchCURE). |
+| J5 | Second setting: **GTSRB**, 4x arms + baseline, 3 seeds | done 2026-10-27 | ~15 GPU-h; see "Follow-up phases". |
+| J6 | Higher resolution: **ImageNette (224 px), ResNet-50**, 4x arms, 1 seed | done 2026-10-25 | ~13.5 GPU-h. |
+| J7 | Second architecture: MobileNetV2 (CIFAR-10), 4x arms, 3 seeds | done 2026-10-29 | ~34 GPU-h at 120 epochs. |
+| J8 | Analysis for C5 | done 2026-10-20 (78 models) | correlate vulnerability with (a) clean acc, (b) occlusion (noise-patch) acc, (c) input-gradient norm / smoothness, (d) prediction agreement / CKA with the baseline vs transfer rate. Explains *why* dense-small is worse and pruning is not. |
+| J9 | Attack completeness | done 2026-10-25 (~4 GPU-h) | convergence curves already logged; STE + BPDA adaptive attacks done. Add untargeted patch and LaVAN margin ablation. |
+| J10 | Full literature search | done 2026-10-29 (`paper/refs.bib`) | Scholar: adversarial patch + quantization / pruning / distillation / TinyML; papers citing PatchCleanser 2023-2026; certified patch defenses (DRS, PatchGuard, ViP, PatchCURE). |
 
 ### Positioning (quick literature check, 2026-10-07; do a full Scholar search before writing)
 - Closest prior work: Matachana et al. 2021 (AAAI-W, arXiv 2012.06024): universal *perturbations*
@@ -497,10 +599,10 @@ C5 *why*: link vulnerability to measurable model properties (below) | practical 
 ### Rigor items reviewers will check (added to the parts below)
 - [x] **Seeds:** 3 seeds (42, 43, 44) for all 13 models (J2), done 2026-10-17.
 - [x] **Adaptive attacks on quantized models:** STE white-box + FP32-surrogate BPDA, stronger attack reported (Part 3).
-- [ ] **Second setting** (GTSRB / ImageNette / MobileNetV2): approved 2026-10-14, runs after the seed 43/44 queue.
+- [x] **Second setting** (GTSRB / ImageNette / MobileNetV2): done 2026-10-29.
 - [x] **Attack strength sanity:** patch success vs optimization steps curve, to show attacks converged
       (logged for every universal patch in Part 3).
-- [ ] Full literature search (above) before the related-work section is written.
+- [x] Full literature search (above), done 2026-10-29.
 
 ## Later parts
 - Part 6: RQ4 analysis, figures, then the interactive 3D explainer site (built only after Parts 3-5 are done, so it shows real results).

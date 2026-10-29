@@ -1,0 +1,45 @@
+{
+  "run": "mbv2_dense_small_4x_s43",
+  "model": "mobilenetv2",
+  "compression": {
+    "method": "none",
+    "ratio": 4.0,
+    "note": "capacity control for RQ4, no compression applied"
+  },
+  "attack": null,
+  "defense": null,
+  "metrics": {
+    "clean_acc": 0.9158,
+    "params": 605754,
+    "nonzero_params": 605754,
+    "size_mb_fp32": 2.3789749145507812,
+    "latency_ms_bs1": 3.2747040000685956,
+    "size_mb_compressed": 2.3107681274414062,
+    "ratio_vs_baseline": 3.7918395916494156
+  },
+  "config": {
+    "run_name": "mbv2_dense_small_4x_s43",
+    "model": "mobilenetv2",
+    "dataset": "cifar10",
+    "seed": 43,
+    "data_root": "./data",
+    "num_workers": 8,
+    "width": 16,
+    "checkpoint": "checkpoints/mbv2/mbv2_dense_small_4x_s43.pt",
+    "compression": {
+      "method": "none",
+      "ratio": 4.0,
+      "note": "capacity control for RQ4, no compression applied"
+    },
+    "train": {
+      "epochs": 120,
+      "batch_size": 128,
+      "lr": 0.1,
+      "momentum": 0.9,
+      "weight_decay": 0.0005,
+      "select": "last"
+    }
+  },
+  "device": "NVIDIA RTX A4000",
+  "timestamp": "2026-10-27T11:31:58.736332+00:00"
+}

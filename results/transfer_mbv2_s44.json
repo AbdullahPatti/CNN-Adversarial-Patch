@@ -1,0 +1,3512 @@
+{
+  "run": "transfer_mbv2_s44",
+  "model": "mobilenetv2",
+  "compression": {
+    "method": "none",
+    "ratio": 1.0
+  },
+  "attack": null,
+  "defense": null,
+  "metrics": {
+    "models": [
+      "mbv2_baseline_s44",
+      "mbv2_quant_4x_int8_s44",
+      "mbv2_prune_4x_s44",
+      "mbv2_dense_small_4x_s44",
+      "mbv2_kd_4x_s44"
+    ],
+    "lavan": {
+      "mbv2_baseline_s44": {
+        "mbv2_baseline_s44": {
+          "side_5_targeted": {
+            "from_kind": "whitebox",
+            "n": 514,
+            "transfer_rate": 0.994163453578949,
+            "noise_rate": 0.019455252215266228,
+            "success_on_correct": 0.5476955771446228
+          },
+          "side_5_untargeted": {
+            "from_kind": "whitebox",
+            "n": 848,
+            "transfer_rate": 0.9976415038108826,
+            "noise_rate": 0.09198113530874252,
+            "success_on_correct": 0.906752347946167
+          },
+          "side_8_targeted": {
+            "from_kind": "whitebox",
+            "n": 892,
+            "transfer_rate": 0.995515763759613,
+            "noise_rate": 0.01569506898522377,
+            "success_on_correct": 0.9517684578895569
+          },
+          "side_8_untargeted": {
+            "from_kind": "whitebox",
+            "n": 933,
+            "transfer_rate": 0.9999999403953552,
+            "noise_rate": 0.1361200362443924,
+            "success_on_correct": 0.9999999403953552
+          }
+        },
+        "mbv2_quant_4x_int8_s44": {
+          "side_5_targeted": {
+            "from_kind": "whitebox",
+            "n": 512,
+            "transfer_rate": 0.412109375,
+            "noise_rate": 0.01953125,
+            "success_on_correct": 0.22795699536800385
+          },
+          "side_5_untargeted": {
+            "from_kind": "whitebox",
+            "n": 844,
+            "transfer_rate": 0.5130332112312317,
+            "noise_rate": 0.0876777321100235,
+            "success_on_correct": 0.46881720423698425
+          },
+          "side_8_targeted": {
+            "from_kind": "whitebox",
+            "n": 888,
+            "transfer_rate": 0.4144144356250763,
+            "noise_rate": 0.01576576568186283,
+            "success_on_correct": 0.39677420258522034
+          },
+          "side_8_untargeted": {
+            "from_kind": "whitebox",
+            "n": 929,
+            "transfer_rate": 0.6856834888458252,
+            "noise_rate": 0.1302475780248642,
+            "success_on_correct": 0.6860215067863464
+          }
+        },
+        "mbv2_prune_4x_s44": {
+          "side_5_targeted": {
+            "from_kind": "whitebox",
+            "n": 504,
+            "transfer_rate": 0.1468254029750824,
+            "noise_rate": 0.01785714365541935,
+            "success_on_correct": 0.08154506236314774
+          },
+          "side_5_untargeted": {
+            "from_kind": "whitebox",
+            "n": 836,
+            "transfer_rate": 0.2619616985321045,
+            "noise_rate": 0.08851674199104309,
+            "success_on_correct": 0.2403433471918106
+          },
+          "side_8_targeted": {
+            "from_kind": "whitebox",
+            "n": 880,
+            "transfer_rate": 0.07954545319080353,
+            "noise_rate": 0.014772727154195309,
+            "success_on_correct": 0.07618025690317154
+          },
+          "side_8_untargeted": {
+            "from_kind": "whitebox",
+            "n": 921,
+            "transfer_rate": 0.2833876311779022,
+            "noise_rate": 0.13572204113006592,
+            "success_on_correct": 0.2875536382198334
+          }
+        },
+        "mbv2_dense_small_4x_s44": {
+          "side_5_targeted": {
+            "from_kind": "whitebox",
+            "n": 489,
+            "transfer_rate": 0.05316973477602005,
+            "noise_rate": 0.014314928092062473,
+            "success_on_correct": 0.029252437874674797
+          },
+          "side_5_untargeted": {
+            "from_kind": "whitebox",
+            "n": 813,
+            "transfer_rate": 0.14637145400047302,
+            "noise_rate": 0.08733087033033371,
+            "success_on_correct": 0.13976164162158966
+          },
+          "side_8_targeted": {
+            "from_kind": "whitebox",
+            "n": 857,
+            "transfer_rate": 0.03150524944067001,
+            "noise_rate": 0.024504084140062332,
+            "success_on_correct": 0.031419284641742706
+          },
+          "side_8_untargeted": {
+            "from_kind": "whitebox",
+            "n": 898,
+            "transfer_rate": 0.17928731441497803,
+            "noise_rate": 0.14142540097236633,
+            "success_on_correct": 0.1852654367685318
+          }
+        },
+        "mbv2_kd_4x_s44": {
+          "side_5_targeted": {
+            "from_kind": "whitebox",
+            "n": 501,
+            "transfer_rate": 0.027944112196564674,
+            "noise_rate": 0.011976048350334167,
+            "success_on_correct": 0.016025641933083534
+          },
+          "side_5_untargeted": {
+            "from_kind": "whitebox",
+            "n": 828,
+            "transfer_rate": 0.12681159377098083,
+            "noise_rate": 0.08212560415267944,
+            "success_on_correct": 0.12072650343179703
+          },
+          "side_8_targeted": {
+            "from_kind": "whitebox",
+            "n": 872,
+            "transfer_rate": 0.028669724240899086,
+            "noise_rate": 0.017201833426952362,
+            "success_on_correct": 0.02884615585207939
+          },
+          "side_8_untargeted": {
+            "from_kind": "whitebox",
+            "n": 913,
+            "transfer_rate": 0.15772180259227753,
+            "noise_rate": 0.12267251312732697,
+            "success_on_correct": 0.1677350550889969
+          }
+        }
+      },
+      "mbv2_quant_4x_int8_s44": {
+        "mbv2_baseline_s44": {
+          "side_5_targeted": {
+            "from_kind": "whitebox",
+            "n": 501,
+            "transfer_rate": 0.6686626672744751,
+            "noise_rate": 0.02195608802139759,
+            "success_on_correct": 0.36012861132621765
+          },
+          "side_5_untargeted": {
+            "from_kind": "whitebox",
+            "n": 849,
+            "transfer_rate": 0.731448769569397,
+            "noise_rate": 0.08833922445774078,
+            "success_on_correct": 0.668810248374939
+          },
+          "side_8_targeted": {
+            "from_kind": "whitebox",
+            "n": 896,
+            "transfer_rate": 0.7723214626312256,
+            "noise_rate": 0.015625,
+            "success_on_correct": 0.7459806799888611
+          },
+          "side_8_untargeted": {
+            "from_kind": "whitebox",
+            "n": 929,
+            "transfer_rate": 0.854682445526123,
+            "noise_rate": 0.12809471786022186,
+            "success_on_correct": 0.8553054332733154
+          }
+        },
+        "mbv2_quant_4x_int8_s44": {
+          "side_5_targeted": {
+            "from_kind": "whitebox",
+            "n": 502,
+            "transfer_rate": 0.768924355506897,
+            "noise_rate": 0.02589641511440277,
+            "success_on_correct": 0.4150537848472595
+          },
+          "side_5_untargeted": {
+            "from_kind": "whitebox",
+            "n": 850,
+            "transfer_rate": 0.770588219165802,
+            "noise_rate": 0.0882352888584137,
+            "success_on_correct": 0.704301118850708
+          },
+          "side_8_targeted": {
+            "from_kind": "whitebox",
+            "n": 897,
+            "transfer_rate": 0.7904124855995178,
+            "noise_rate": 0.015607581473886967,
+            "success_on_correct": 0.7623655796051025
+          },
+          "side_8_untargeted": {
+            "from_kind": "whitebox",
+            "n": 930,
+            "transfer_rate": 0.8795698881149292,
+            "noise_rate": 0.12688171863555908,
+            "success_on_correct": 0.8795698881149292
+          }
+        },
+        "mbv2_prune_4x_s44": {
+          "side_5_targeted": {
+            "from_kind": "whitebox",
+            "n": 492,
+            "transfer_rate": 0.13821136951446533,
+            "noise_rate": 0.024390242993831635,
+            "success_on_correct": 0.07618025690317154
+          },
+          "side_5_untargeted": {
+            "from_kind": "whitebox",
+            "n": 837,
+            "transfer_rate": 0.28315410017967224,
+            "noise_rate": 0.09199521690607071,
+            "success_on_correct": 0.2607296109199524
+          },
+          "side_8_targeted": {
+            "from_kind": "whitebox",
+            "n": 884,
+            "transfer_rate": 0.09049773961305618,
+            "noise_rate": 0.015837104991078377,
+            "success_on_correct": 0.08798283338546753
+          },
+          "side_8_untargeted": {
+            "from_kind": "whitebox",
+            "n": 917,
+            "transfer_rate": 0.2813522219657898,
+            "noise_rate": 0.12104688584804535,
+            "success_on_correct": 0.28648069500923157
+          }
+        },
+        "mbv2_dense_small_4x_s44": {
+          "side_5_targeted": {
+            "from_kind": "whitebox",
+            "n": 477,
+            "transfer_rate": 0.048218026757240295,
+            "noise_rate": 0.016771487891674042,
+            "success_on_correct": 0.02600216679275036
+          },
+          "side_5_untargeted": {
+            "from_kind": "whitebox",
+            "n": 815,
+            "transfer_rate": 0.1398773044347763,
+            "noise_rate": 0.08343558013439178,
+            "success_on_correct": 0.13651137053966522
+          },
+          "side_8_targeted": {
+            "from_kind": "whitebox",
+            "n": 862,
+            "transfer_rate": 0.03248259797692299,
+            "noise_rate": 0.02784222736954689,
+            "success_on_correct": 0.032502707093954086
+          },
+          "side_8_untargeted": {
+            "from_kind": "whitebox",
+            "n": 895,
+            "transfer_rate": 0.18324021995067596,
+            "noise_rate": 0.14189943671226501,
+            "success_on_correct": 0.18959912657737732
+          }
+        },
+        "mbv2_kd_4x_s44": {
+          "side_5_targeted": {
+            "from_kind": "whitebox",
+            "n": 489,
+            "transfer_rate": 0.028629856184124947,
+            "noise_rate": 0.01635991781949997,
+            "success_on_correct": 0.017094017937779427
+          },
+          "side_5_untargeted": {
+            "from_kind": "whitebox",
+            "n": 830,
+            "transfer_rate": 0.11927711218595505,
+            "noise_rate": 0.09036144614219666,
+            "success_on_correct": 0.11538462340831757
+          },
+          "side_8_targeted": {
+            "from_kind": "whitebox",
+            "n": 877,
+            "transfer_rate": 0.023945268243551254,
+            "noise_rate": 0.014823260717093945,
+            "success_on_correct": 0.025641027837991714
+          },
+          "side_8_untargeted": {
+            "from_kind": "whitebox",
+            "n": 910,
+            "transfer_rate": 0.14615385234355927,
+            "noise_rate": 0.12087912857532501,
+            "success_on_correct": 0.15491454303264618
+          }
+        }
+      },
+      "mbv2_prune_4x_s44": {
+        "mbv2_baseline_s44": {
+          "side_5_targeted": {
+            "from_kind": "whitebox",
+            "n": 526,
+            "transfer_rate": 0.10266159474849701,
+            "noise_rate": 0.01901140622794628,
+            "success_on_correct": 0.06002143397927284
+          },
+          "side_5_untargeted": {
+            "from_kind": "whitebox",
+            "n": 860,
+            "transfer_rate": 0.17674419283866882,
+            "noise_rate": 0.07325581461191177,
+            "success_on_correct": 0.1693461835384369
+          },
+          "side_8_targeted": {
+            "from_kind": "whitebox",
+            "n": 892,
+            "transfer_rate": 0.07735426723957062,
+            "noise_rate": 0.011210762895643711,
+            "success_on_correct": 0.0739549770951271
+          },
+          "side_8_untargeted": {
+            "from_kind": "whitebox",
+            "n": 921,
+            "transfer_rate": 0.23778502643108368,
+            "noise_rate": 0.1194353997707367,
+            "success_on_correct": 0.24222935736179352
+          }
+        },
+        "mbv2_quant_4x_int8_s44": {
+          "side_5_targeted": {
+            "from_kind": "whitebox",
+            "n": 525,
+            "transfer_rate": 0.08571428805589676,
+            "noise_rate": 0.01904761791229248,
+            "success_on_correct": 0.049462366849184036
+          },
+          "side_5_untargeted": {
+            "from_kind": "whitebox",
+            "n": 856,
+            "transfer_rate": 0.16004672646522522,
+            "noise_rate": 0.07009345293045044,
+            "success_on_correct": 0.15376344323158264
+          },
+          "side_8_targeted": {
+            "from_kind": "whitebox",
+            "n": 888,
+            "transfer_rate": 0.07094594836235046,
+            "noise_rate": 0.013513513840734959,
+            "success_on_correct": 0.06881720572710037
+          },
+          "side_8_untargeted": {
+            "from_kind": "whitebox",
+            "n": 917,
+            "transfer_rate": 0.22682659327983856,
+            "noise_rate": 0.11341329663991928,
+            "success_on_correct": 0.23225806653499603
+          }
+        },
+        "mbv2_prune_4x_s44": {
+          "side_5_targeted": {
+            "from_kind": "whitebox",
+            "n": 535,
+            "transfer_rate": 0.9887850880622864,
+            "noise_rate": 0.02429906651377678,
+            "success_on_correct": 0.5675965547561646
+          },
+          "side_5_untargeted": {
+            "from_kind": "whitebox",
+            "n": 871,
+            "transfer_rate": 0.9931113719940186,
+            "noise_rate": 0.060849595814943314,
+            "success_on_correct": 0.9281116127967834
+          },
+          "side_8_targeted": {
+            "from_kind": "whitebox",
+            "n": 903,
+            "transfer_rate": 0.9977851510047913,
+            "noise_rate": 0.012181617319583893,
+            "success_on_correct": 0.966738224029541
+          },
+          "side_8_untargeted": {
+            "from_kind": "whitebox",
+            "n": 932,
+            "transfer_rate": 0.9989270567893982,
+            "noise_rate": 0.1201716735959053,
+            "success_on_correct": 0.9989270567893982
+          }
+        },
+        "mbv2_dense_small_4x_s44": {
+          "side_5_targeted": {
+            "from_kind": "whitebox",
+            "n": 511,
+            "transfer_rate": 0.04892367869615555,
+            "noise_rate": 0.02152641862630844,
+            "success_on_correct": 0.027085591107606888
+          },
+          "side_5_untargeted": {
+            "from_kind": "whitebox",
+            "n": 838,
+            "transfer_rate": 0.13365155458450317,
+            "noise_rate": 0.07756563276052475,
+            "success_on_correct": 0.13651137053966522
+          },
+          "side_8_targeted": {
+            "from_kind": "whitebox",
+            "n": 870,
+            "transfer_rate": 0.03793103247880936,
+            "noise_rate": 0.019540229812264442,
+            "success_on_correct": 0.0368364043533802
+          },
+          "side_8_untargeted": {
+            "from_kind": "whitebox",
+            "n": 899,
+            "transfer_rate": 0.17241378128528595,
+            "noise_rate": 0.13681867718696594,
+            "success_on_correct": 0.179848313331604
+          }
+        },
+        "mbv2_kd_4x_s44": {
+          "side_5_targeted": {
+            "from_kind": "whitebox",
+            "n": 522,
+            "transfer_rate": 0.019157087430357933,
+            "noise_rate": 0.007662835065275431,
+            "success_on_correct": 0.01388888992369175
+          },
+          "side_5_untargeted": {
+            "from_kind": "whitebox",
+            "n": 852,
+            "transfer_rate": 0.08568075299263,
+            "noise_rate": 0.06338028609752655,
+            "success_on_correct": 0.08867521584033966
+          },
+          "side_8_targeted": {
+            "from_kind": "whitebox",
+            "n": 884,
+            "transfer_rate": 0.029411766678094864,
+            "noise_rate": 0.013574661687016487,
+            "success_on_correct": 0.02884615585207939
+          },
+          "side_8_untargeted": {
+            "from_kind": "whitebox",
+            "n": 913,
+            "transfer_rate": 0.1369112879037857,
+            "noise_rate": 0.10843373835086823,
+            "success_on_correct": 0.14957265555858612
+          }
+        }
+      },
+      "mbv2_dense_small_4x_s44": {
+        "mbv2_baseline_s44": {
+          "side_5_targeted": {
+            "from_kind": "whitebox",
+            "n": 565,
+            "transfer_rate": 0.03539822995662689,
+            "noise_rate": 0.012389380484819412,
+            "success_on_correct": 0.02465165965259075
+          },
+          "side_5_untargeted": {
+            "from_kind": "whitebox",
+            "n": 853,
+            "transfer_rate": 0.09144196659326553,
+            "noise_rate": 0.07033997774124146,
+            "success_on_correct": 0.09217577427625656
+          },
+          "side_8_targeted": {
+            "from_kind": "whitebox",
+            "n": 885,
+            "transfer_rate": 0.01807909645140171,
+            "noise_rate": 0.012429378926753998,
+            "success_on_correct": 0.018220791593194008
+          },
+          "side_8_untargeted": {
+            "from_kind": "whitebox",
+            "n": 898,
+            "transfer_rate": 0.16481070220470428,
+            "noise_rate": 0.13363029062747955,
+            "success_on_correct": 0.17148980498313904
+          }
+        },
+        "mbv2_quant_4x_int8_s44": {
+          "side_5_targeted": {
+            "from_kind": "whitebox",
+            "n": 564,
+            "transfer_rate": 0.03368794173002243,
+            "noise_rate": 0.014184396713972092,
+            "success_on_correct": 0.022580645978450775
+          },
+          "side_5_untargeted": {
+            "from_kind": "whitebox",
+            "n": 850,
+            "transfer_rate": 0.09647058695554733,
+            "noise_rate": 0.07058823108673096,
+            "success_on_correct": 0.09569893032312393
+          },
+          "side_8_targeted": {
+            "from_kind": "whitebox",
+            "n": 882,
+            "transfer_rate": 0.019274376332759857,
+            "noise_rate": 0.013605441898107529,
+            "success_on_correct": 0.020430108532309532
+          },
+          "side_8_untargeted": {
+            "from_kind": "whitebox",
+            "n": 895,
+            "transfer_rate": 0.1653631180524826,
+            "noise_rate": 0.12849161028862,
+            "success_on_correct": 0.17311827838420868
+          }
+        },
+        "mbv2_prune_4x_s44": {
+          "side_5_targeted": {
+            "from_kind": "whitebox",
+            "n": 567,
+            "transfer_rate": 0.04056437313556671,
+            "noise_rate": 0.019400352612137794,
+            "success_on_correct": 0.02575107291340828
+          },
+          "side_5_untargeted": {
+            "from_kind": "whitebox",
+            "n": 854,
+            "transfer_rate": 0.10070256888866425,
+            "noise_rate": 0.07494144886732101,
+            "success_on_correct": 0.10085836797952652
+          },
+          "side_8_targeted": {
+            "from_kind": "whitebox",
+            "n": 886,
+            "transfer_rate": 0.022573363035917282,
+            "noise_rate": 0.013544018380343914,
+            "success_on_correct": 0.022532189264893532
+          },
+          "side_8_untargeted": {
+            "from_kind": "whitebox",
+            "n": 899,
+            "transfer_rate": 0.16685205698013306,
+            "noise_rate": 0.1323692947626114,
+            "success_on_correct": 0.16952790319919586
+          }
+        },
+        "mbv2_dense_small_4x_s44": {
+          "side_5_targeted": {
+            "from_kind": "whitebox",
+            "n": 587,
+            "transfer_rate": 0.9965928196907043,
+            "noise_rate": 0.008517887443304062,
+            "success_on_correct": 0.6338028311729431
+          },
+          "side_5_untargeted": {
+            "from_kind": "whitebox",
+            "n": 878,
+            "transfer_rate": 0.9920274019241333,
+            "noise_rate": 0.08200456202030182,
+            "success_on_correct": 0.9436619877815247
+          },
+          "side_8_targeted": {
+            "from_kind": "whitebox",
+            "n": 910,
+            "transfer_rate": 0.9956044554710388,
+            "noise_rate": 0.021978022530674934,
+            "success_on_correct": 0.9815818071365356
+          },
+          "side_8_untargeted": {
+            "from_kind": "whitebox",
+            "n": 923,
+            "transfer_rate": 0.9967496991157532,
+            "noise_rate": 0.15167930722236633,
+            "success_on_correct": 0.9967496991157532
+          }
+        },
+        "mbv2_kd_4x_s44": {
+          "side_5_targeted": {
+            "from_kind": "whitebox",
+            "n": 568,
+            "transfer_rate": 0.026408450677990913,
+            "noise_rate": 0.01232394389808178,
+            "success_on_correct": 0.017094017937779427
+          },
+          "side_5_untargeted": {
+            "from_kind": "whitebox",
+            "n": 856,
+            "transfer_rate": 0.08644859492778778,
+            "noise_rate": 0.058411214500665665,
+            "success_on_correct": 0.08760683983564377
+          },
+          "side_8_targeted": {
+            "from_kind": "whitebox",
+            "n": 889,
+            "transfer_rate": 0.02812148630619049,
+            "noise_rate": 0.014623172581195831,
+            "success_on_correct": 0.02884615585207939
+          },
+          "side_8_untargeted": {
+            "from_kind": "whitebox",
+            "n": 901,
+            "transfer_rate": 0.14539401233196259,
+            "noise_rate": 0.12763597071170807,
+            "success_on_correct": 0.1517094075679779
+          }
+        }
+      },
+      "mbv2_kd_4x_s44": {
+        "mbv2_baseline_s44": {
+          "side_5_targeted": {
+            "from_kind": "whitebox",
+            "n": 368,
+            "transfer_rate": 0.08152174204587936,
+            "noise_rate": 0.021739130839705467,
+            "success_on_correct": 0.03536977246403694
+          },
+          "side_5_untargeted": {
+            "from_kind": "whitebox",
+            "n": 768,
+            "transfer_rate": 0.1627604216337204,
+            "noise_rate": 0.08984375,
+            "success_on_correct": 0.1404072791337967
+          },
+          "side_8_targeted": {
+            "from_kind": "whitebox",
+            "n": 815,
+            "transfer_rate": 0.046625766903162,
+            "noise_rate": 0.019631901755928993,
+            "success_on_correct": 0.04287245124578476
+          },
+          "side_8_untargeted": {
+            "from_kind": "whitebox",
+            "n": 911,
+            "transfer_rate": 0.19099891185760498,
+            "noise_rate": 0.12184412777423859,
+            "success_on_correct": 0.19935689866542816
+          }
+        },
+        "mbv2_quant_4x_int8_s44": {
+          "side_5_targeted": {
+            "from_kind": "whitebox",
+            "n": 366,
+            "transfer_rate": 0.07103824615478516,
+            "noise_rate": 0.024590162560343742,
+            "success_on_correct": 0.0301075279712677
+          },
+          "side_5_untargeted": {
+            "from_kind": "whitebox",
+            "n": 765,
+            "transfer_rate": 0.15424837172031403,
+            "noise_rate": 0.08496732264757156,
+            "success_on_correct": 0.1322580724954605
+          },
+          "side_8_targeted": {
+            "from_kind": "whitebox",
+            "n": 812,
+            "transfer_rate": 0.041871920228004456,
+            "noise_rate": 0.018472906202077866,
+            "success_on_correct": 0.03870967775583267
+          },
+          "side_8_untargeted": {
+            "from_kind": "whitebox",
+            "n": 908,
+            "transfer_rate": 0.18722465634346008,
+            "noise_rate": 0.11343611776828766,
+            "success_on_correct": 0.19569893181324005
+          }
+        },
+        "mbv2_prune_4x_s44": {
+          "side_5_targeted": {
+            "from_kind": "whitebox",
+            "n": 368,
+            "transfer_rate": 0.11684782803058624,
+            "noise_rate": 0.03804348036646843,
+            "success_on_correct": 0.04828326031565666
+          },
+          "side_5_untargeted": {
+            "from_kind": "whitebox",
+            "n": 768,
+            "transfer_rate": 0.1744791716337204,
+            "noise_rate": 0.0911458358168602,
+            "success_on_correct": 0.15450644493103027
+          },
+          "side_8_targeted": {
+            "from_kind": "whitebox",
+            "n": 814,
+            "transfer_rate": 0.04299754276871681,
+            "noise_rate": 0.019656019285321236,
+            "success_on_correct": 0.03862661123275757
+          },
+          "side_8_untargeted": {
+            "from_kind": "whitebox",
+            "n": 911,
+            "transfer_rate": 0.19209660589694977,
+            "noise_rate": 0.12294182181358337,
+            "success_on_correct": 0.20064377784729004
+          }
+        },
+        "mbv2_dense_small_4x_s44": {
+          "side_5_targeted": {
+            "from_kind": "whitebox",
+            "n": 361,
+            "transfer_rate": 0.0858725756406784,
+            "noise_rate": 0.024930747225880623,
+            "success_on_correct": 0.0368364043533802
+          },
+          "side_5_untargeted": {
+            "from_kind": "whitebox",
+            "n": 756,
+            "transfer_rate": 0.2222222089767456,
+            "noise_rate": 0.0912698358297348,
+            "success_on_correct": 0.1960996687412262
+          },
+          "side_8_targeted": {
+            "from_kind": "whitebox",
+            "n": 803,
+            "transfer_rate": 0.054794520139694214,
+            "noise_rate": 0.019925279542803764,
+            "success_on_correct": 0.0476706400513649
+          },
+          "side_8_untargeted": {
+            "from_kind": "whitebox",
+            "n": 899,
+            "transfer_rate": 0.21357062458992004,
+            "noise_rate": 0.1412680745124817,
+            "success_on_correct": 0.22318527102470398
+          }
+        },
+        "mbv2_kd_4x_s44": {
+          "side_5_targeted": {
+            "from_kind": "whitebox",
+            "n": 384,
+            "transfer_rate": 0.9817708730697632,
+            "noise_rate": 0.015625,
+            "success_on_correct": 0.4027777910232544
+          },
+          "side_5_untargeted": {
+            "from_kind": "whitebox",
+            "n": 791,
+            "transfer_rate": 0.9924147129058838,
+            "noise_rate": 0.0796460211277008,
+            "success_on_correct": 0.8386752605438232
+          },
+          "side_8_targeted": {
+            "from_kind": "whitebox",
+            "n": 837,
+            "transfer_rate": 0.9880525469779968,
+            "noise_rate": 0.022700117900967598,
+            "success_on_correct": 0.8835470676422119
+          },
+          "side_8_untargeted": {
+            "from_kind": "whitebox",
+            "n": 934,
+            "transfer_rate": 0.9967880249023438,
+            "noise_rate": 0.12633833289146423,
+            "success_on_correct": 0.9946581721305847
+          }
+        }
+      }
+    },
+    "universal": {
+      "mbv2_baseline_s44": {
+        "mbv2_baseline_s44": {
+          "side_5": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.8168,
+                "target_success": 0.051333333333333335
+              },
+              {
+                "patched_acc": 0.7756,
+                "target_success": 0.08033333333333334
+              },
+              {
+                "patched_acc": 0.7889,
+                "target_success": 0.13522222222222222
+              },
+              {
+                "patched_acc": 0.7784,
+                "target_success": 0.1748888888888889
+              },
+              {
+                "patched_acc": 0.7705,
+                "target_success": 0.01011111111111111
+              },
+              {
+                "patched_acc": 0.7474,
+                "target_success": 0.21688888888888888
+              },
+              {
+                "patched_acc": 0.8409,
+                "target_success": 0.048666666666666664
+              },
+              {
+                "patched_acc": 0.8201,
+                "target_success": 0.01711111111111111
+              },
+              {
+                "patched_acc": 0.7934,
+                "target_success": 0.013222222222222222
+              },
+              {
+                "patched_acc": 0.8079,
+                "target_success": 0.04788888888888889
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.79399,
+              "std": 0.02631723579709694
+            },
+            "target_success": {
+              "mean": 0.07956666666666666,
+              "std": 0.06850081462974197
+            }
+          },
+          "side_8": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.719,
+                "target_success": 0.11666666666666667
+              },
+              {
+                "patched_acc": 0.5052,
+                "target_success": 0.40455555555555556
+              },
+              {
+                "patched_acc": 0.6412,
+                "target_success": 0.30544444444444446
+              },
+              {
+                "patched_acc": 0.4764,
+                "target_success": 0.5398888888888889
+              },
+              {
+                "patched_acc": 0.5986,
+                "target_success": 0.37622222222222224
+              },
+              {
+                "patched_acc": 0.3081,
+                "target_success": 0.7535555555555555
+              },
+              {
+                "patched_acc": 0.6742,
+                "target_success": 0.2388888888888889
+              },
+              {
+                "patched_acc": 0.721,
+                "target_success": 0.12422222222222222
+              },
+              {
+                "patched_acc": 0.7427,
+                "target_success": 0.14
+              },
+              {
+                "patched_acc": 0.5935,
+                "target_success": 0.3516666666666667
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.59799,
+              "std": 0.1287795748556424
+            },
+            "target_success": {
+              "mean": 0.33511111111111114,
+              "std": 0.19084436164154908
+            }
+          }
+        },
+        "mbv2_quant_4x_int8_s44": {
+          "side_5": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.8385,
+                "target_success": 0.043222222222222224
+              },
+              {
+                "patched_acc": 0.7905,
+                "target_success": 0.06466666666666666
+              },
+              {
+                "patched_acc": 0.8098,
+                "target_success": 0.11433333333333333
+              },
+              {
+                "patched_acc": 0.7877,
+                "target_success": 0.1648888888888889
+              },
+              {
+                "patched_acc": 0.7997,
+                "target_success": 0.010222222222222223
+              },
+              {
+                "patched_acc": 0.7739,
+                "target_success": 0.18388888888888888
+              },
+              {
+                "patched_acc": 0.8724,
+                "target_success": 0.022222222222222223
+              },
+              {
+                "patched_acc": 0.8311,
+                "target_success": 0.017333333333333333
+              },
+              {
+                "patched_acc": 0.8109,
+                "target_success": 0.012555555555555556
+              },
+              {
+                "patched_acc": 0.8129,
+                "target_success": 0.04588888888888889
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.81274,
+              "std": 0.027151876546566714
+            },
+            "target_success": {
+              "mean": 0.06792222222222222,
+              "std": 0.06095361624492293
+            }
+          },
+          "side_8": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.7682,
+                "target_success": 0.0768888888888889
+              },
+              {
+                "patched_acc": 0.5802,
+                "target_success": 0.28944444444444445
+              },
+              {
+                "patched_acc": 0.6957,
+                "target_success": 0.24644444444444444
+              },
+              {
+                "patched_acc": 0.5103,
+                "target_success": 0.49944444444444447
+              },
+              {
+                "patched_acc": 0.6102,
+                "target_success": 0.3605555555555556
+              },
+              {
+                "patched_acc": 0.3733,
+                "target_success": 0.679
+              },
+              {
+                "patched_acc": 0.7241,
+                "target_success": 0.18155555555555555
+              },
+              {
+                "patched_acc": 0.7447,
+                "target_success": 0.10622222222222222
+              },
+              {
+                "patched_acc": 0.7473,
+                "target_success": 0.136
+              },
+              {
+                "patched_acc": 0.5979,
+                "target_success": 0.34833333333333333
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.63519,
+              "std": 0.11960017934769161
+            },
+            "target_success": {
+              "mean": 0.2923888888888889,
+              "std": 0.1789066744091683
+            }
+          }
+        },
+        "mbv2_prune_4x_s44": {
+          "side_5": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.8055,
+                "target_success": 0.03688888888888889
+              },
+              {
+                "patched_acc": 0.7807,
+                "target_success": 0.059555555555555556
+              },
+              {
+                "patched_acc": 0.7556,
+                "target_success": 0.18766666666666668
+              },
+              {
+                "patched_acc": 0.7727,
+                "target_success": 0.18922222222222224
+              },
+              {
+                "patched_acc": 0.7688,
+                "target_success": 0.010555555555555556
+              },
+              {
+                "patched_acc": 0.7534,
+                "target_success": 0.19955555555555557
+              },
+              {
+                "patched_acc": 0.839,
+                "target_success": 0.04188888888888889
+              },
+              {
+                "patched_acc": 0.7993,
+                "target_success": 0.02033333333333333
+              },
+              {
+                "patched_acc": 0.7884,
+                "target_success": 0.016444444444444446
+              },
+              {
+                "patched_acc": 0.8094,
+                "target_success": 0.03855555555555556
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.78728,
+              "std": 0.02528006329106
+            },
+            "target_success": {
+              "mean": 0.08006666666666667,
+              "std": 0.07462150088990256
+            }
+          },
+          "side_8": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.7335,
+                "target_success": 0.08744444444444445
+              },
+              {
+                "patched_acc": 0.5004,
+                "target_success": 0.38566666666666666
+              },
+              {
+                "patched_acc": 0.603,
+                "target_success": 0.3698888888888889
+              },
+              {
+                "patched_acc": 0.5497,
+                "target_success": 0.456
+              },
+              {
+                "patched_acc": 0.7061,
+                "target_success": 0.22666666666666666
+              },
+              {
+                "patched_acc": 0.3833,
+                "target_success": 0.6653333333333333
+              },
+              {
+                "patched_acc": 0.7178,
+                "target_success": 0.17422222222222222
+              },
+              {
+                "patched_acc": 0.7159,
+                "target_success": 0.09244444444444444
+              },
+              {
+                "patched_acc": 0.7313,
+                "target_success": 0.15144444444444444
+              },
+              {
+                "patched_acc": 0.6214,
+                "target_success": 0.30266666666666664
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.62624,
+              "std": 0.11252534114589478
+            },
+            "target_success": {
+              "mean": 0.29117777777777776,
+              "std": 0.173430743284025
+            }
+          }
+        },
+        "mbv2_dense_small_4x_s44": {
+          "side_5": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.7951,
+                "target_success": 0.04477777777777778
+              },
+              {
+                "patched_acc": 0.8183,
+                "target_success": 0.023777777777777776
+              },
+              {
+                "patched_acc": 0.7851,
+                "target_success": 0.13166666666666665
+              },
+              {
+                "patched_acc": 0.7935,
+                "target_success": 0.12911111111111112
+              },
+              {
+                "patched_acc": 0.8091,
+                "target_success": 0.008222222222222223
+              },
+              {
+                "patched_acc": 0.8398,
+                "target_success": 0.07533333333333334
+              },
+              {
+                "patched_acc": 0.846,
+                "target_success": 0.0047777777777777775
+              },
+              {
+                "patched_acc": 0.8117,
+                "target_success": 0.012555555555555556
+              },
+              {
+                "patched_acc": 0.8219,
+                "target_success": 0.006333333333333333
+              },
+              {
+                "patched_acc": 0.8031,
+                "target_success": 0.026333333333333334
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.81236,
+              "std": 0.018720106837301957
+            },
+            "target_success": {
+              "mean": 0.046288888888888886,
+              "std": 0.0466972703884113
+            }
+          },
+          "side_8": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.6908,
+                "target_success": 0.06944444444444445
+              },
+              {
+                "patched_acc": 0.6573,
+                "target_success": 0.12633333333333333
+              },
+              {
+                "patched_acc": 0.6477,
+                "target_success": 0.278
+              },
+              {
+                "patched_acc": 0.7821,
+                "target_success": 0.06677777777777778
+              },
+              {
+                "patched_acc": 0.7805,
+                "target_success": 0.09011111111111111
+              },
+              {
+                "patched_acc": 0.6504,
+                "target_success": 0.3243333333333333
+              },
+              {
+                "patched_acc": 0.7782,
+                "target_success": 0.09644444444444444
+              },
+              {
+                "patched_acc": 0.7208,
+                "target_success": 0.03755555555555556
+              },
+              {
+                "patched_acc": 0.7808,
+                "target_success": 0.06988888888888889
+              },
+              {
+                "patched_acc": 0.7125,
+                "target_success": 0.13344444444444445
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.72011,
+              "std": 0.054325582371475785
+            },
+            "target_success": {
+              "mean": 0.12923333333333334,
+              "std": 0.09068038363013603
+            }
+          }
+        },
+        "mbv2_kd_4x_s44": {
+          "side_5": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.8471,
+                "target_success": 0.03188888888888889
+              },
+              {
+                "patched_acc": 0.8361,
+                "target_success": 0.025666666666666667
+              },
+              {
+                "patched_acc": 0.8339,
+                "target_success": 0.08766666666666667
+              },
+              {
+                "patched_acc": 0.8517,
+                "target_success": 0.07922222222222222
+              },
+              {
+                "patched_acc": 0.8437,
+                "target_success": 0.004555555555555556
+              },
+              {
+                "patched_acc": 0.8546,
+                "target_success": 0.073
+              },
+              {
+                "patched_acc": 0.8773,
+                "target_success": 0.0028888888888888888
+              },
+              {
+                "patched_acc": 0.8316,
+                "target_success": 0.012222222222222223
+              },
+              {
+                "patched_acc": 0.8598,
+                "target_success": 0.0054444444444444445
+              },
+              {
+                "patched_acc": 0.8292,
+                "target_success": 0.03711111111111111
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.8465,
+              "std": 0.014193660556741514
+            },
+            "target_success": {
+              "mean": 0.03596666666666667,
+              "std": 0.031009080709039943
+            }
+          },
+          "side_8": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.7822,
+                "target_success": 0.03777777777777778
+              },
+              {
+                "patched_acc": 0.7041,
+                "target_success": 0.14266666666666666
+              },
+              {
+                "patched_acc": 0.7396,
+                "target_success": 0.18755555555555556
+              },
+              {
+                "patched_acc": 0.7726,
+                "target_success": 0.15722222222222224
+              },
+              {
+                "patched_acc": 0.8018,
+                "target_success": 0.10311111111111111
+              },
+              {
+                "patched_acc": 0.6626,
+                "target_success": 0.322
+              },
+              {
+                "patched_acc": 0.8177,
+                "target_success": 0.06333333333333334
+              },
+              {
+                "patched_acc": 0.7724,
+                "target_success": 0.051666666666666666
+              },
+              {
+                "patched_acc": 0.8,
+                "target_success": 0.05688888888888889
+              },
+              {
+                "patched_acc": 0.7316,
+                "target_success": 0.177
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.75846,
+              "std": 0.046143757974399964
+            },
+            "target_success": {
+              "mean": 0.12992222222222222,
+              "std": 0.08272896472782838
+            }
+          }
+        }
+      },
+      "mbv2_quant_4x_int8_s44": {
+        "mbv2_baseline_s44": {
+          "side_5": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.8224,
+                "target_success": 0.036333333333333336
+              },
+              {
+                "patched_acc": 0.7669,
+                "target_success": 0.08766666666666667
+              },
+              {
+                "patched_acc": 0.79,
+                "target_success": 0.137
+              },
+              {
+                "patched_acc": 0.7685,
+                "target_success": 0.19311111111111112
+              },
+              {
+                "patched_acc": 0.7776,
+                "target_success": 0.010777777777777778
+              },
+              {
+                "patched_acc": 0.7658,
+                "target_success": 0.1952222222222222
+              },
+              {
+                "patched_acc": 0.855,
+                "target_success": 0.04133333333333333
+              },
+              {
+                "patched_acc": 0.821,
+                "target_success": 0.018555555555555554
+              },
+              {
+                "patched_acc": 0.8195,
+                "target_success": 0.013111111111111112
+              },
+              {
+                "patched_acc": 0.8124,
+                "target_success": 0.05466666666666667
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.79991,
+              "std": 0.02891530563559721
+            },
+            "target_success": {
+              "mean": 0.07877777777777778,
+              "std": 0.06815280579896624
+            }
+          },
+          "side_8": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.7193,
+                "target_success": 0.187
+              },
+              {
+                "patched_acc": 0.4973,
+                "target_success": 0.42477777777777775
+              },
+              {
+                "patched_acc": 0.6495,
+                "target_success": 0.30633333333333335
+              },
+              {
+                "patched_acc": 0.4579,
+                "target_success": 0.566
+              },
+              {
+                "patched_acc": 0.6174,
+                "target_success": 0.35188888888888886
+              },
+              {
+                "patched_acc": 0.3241,
+                "target_success": 0.7352222222222222
+              },
+              {
+                "patched_acc": 0.6808,
+                "target_success": 0.232
+              },
+              {
+                "patched_acc": 0.747,
+                "target_success": 0.116
+              },
+              {
+                "patched_acc": 0.7509,
+                "target_success": 0.1238888888888889
+              },
+              {
+                "patched_acc": 0.6049,
+                "target_success": 0.34144444444444444
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.60491,
+              "std": 0.1321125993234559
+            },
+            "target_success": {
+              "mean": 0.33845555555555557,
+              "std": 0.1864590872941512
+            }
+          }
+        },
+        "mbv2_quant_4x_int8_s44": {
+          "side_5": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.8277,
+                "target_success": 0.03588888888888889
+              },
+              {
+                "patched_acc": 0.7811,
+                "target_success": 0.07333333333333333
+              },
+              {
+                "patched_acc": 0.8006,
+                "target_success": 0.12644444444444444
+              },
+              {
+                "patched_acc": 0.7747,
+                "target_success": 0.18444444444444444
+              },
+              {
+                "patched_acc": 0.7879,
+                "target_success": 0.011777777777777778
+              },
+              {
+                "patched_acc": 0.7766,
+                "target_success": 0.18155555555555555
+              },
+              {
+                "patched_acc": 0.8594,
+                "target_success": 0.03677777777777778
+              },
+              {
+                "patched_acc": 0.8245,
+                "target_success": 0.019222222222222224
+              },
+              {
+                "patched_acc": 0.823,
+                "target_success": 0.013444444444444445
+              },
+              {
+                "patched_acc": 0.8148,
+                "target_success": 0.05422222222222222
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.80703,
+              "std": 0.02615599548860643
+            },
+            "target_success": {
+              "mean": 0.07371111111111112,
+              "std": 0.0634700707148118
+            }
+          },
+          "side_8": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.7278,
+                "target_success": 0.18166666666666667
+              },
+              {
+                "patched_acc": 0.5561,
+                "target_success": 0.3393333333333333
+              },
+              {
+                "patched_acc": 0.6692,
+                "target_success": 0.2847777777777778
+              },
+              {
+                "patched_acc": 0.4783,
+                "target_success": 0.5397777777777778
+              },
+              {
+                "patched_acc": 0.6251,
+                "target_success": 0.3412222222222222
+              },
+              {
+                "patched_acc": 0.3566,
+                "target_success": 0.6985555555555556
+              },
+              {
+                "patched_acc": 0.6965,
+                "target_success": 0.21977777777777777
+              },
+              {
+                "patched_acc": 0.7516,
+                "target_success": 0.11344444444444444
+              },
+              {
+                "patched_acc": 0.7526,
+                "target_success": 0.124
+              },
+              {
+                "patched_acc": 0.6062,
+                "target_success": 0.34044444444444444
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.622,
+              "std": 0.12186597556332121
+            },
+            "target_success": {
+              "mean": 0.3183,
+              "std": 0.17444833718232747
+            }
+          }
+        },
+        "mbv2_prune_4x_s44": {
+          "side_5": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.8203,
+                "target_success": 0.025
+              },
+              {
+                "patched_acc": 0.7741,
+                "target_success": 0.07111111111111111
+              },
+              {
+                "patched_acc": 0.7564,
+                "target_success": 0.192
+              },
+              {
+                "patched_acc": 0.7572,
+                "target_success": 0.213
+              },
+              {
+                "patched_acc": 0.7891,
+                "target_success": 0.01011111111111111
+              },
+              {
+                "patched_acc": 0.7889,
+                "target_success": 0.1582222222222222
+              },
+              {
+                "patched_acc": 0.8547,
+                "target_success": 0.034666666666666665
+              },
+              {
+                "patched_acc": 0.813,
+                "target_success": 0.017555555555555557
+              },
+              {
+                "patched_acc": 0.8047,
+                "target_success": 0.017222222222222222
+              },
+              {
+                "patched_acc": 0.8181,
+                "target_success": 0.04133333333333333
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.79765,
+              "std": 0.02917753416586125
+            },
+            "target_success": {
+              "mean": 0.07802222222222222,
+              "std": 0.07462683792223548
+            }
+          },
+          "side_8": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.7527,
+                "target_success": 0.14277777777777778
+              },
+              {
+                "patched_acc": 0.5101,
+                "target_success": 0.3761111111111111
+              },
+              {
+                "patched_acc": 0.6196,
+                "target_success": 0.358
+              },
+              {
+                "patched_acc": 0.5015,
+                "target_success": 0.5252222222222223
+              },
+              {
+                "patched_acc": 0.7197,
+                "target_success": 0.2051111111111111
+              },
+              {
+                "patched_acc": 0.404,
+                "target_success": 0.6415555555555555
+              },
+              {
+                "patched_acc": 0.7166,
+                "target_success": 0.1791111111111111
+              },
+              {
+                "patched_acc": 0.7653,
+                "target_success": 0.08977777777777778
+              },
+              {
+                "patched_acc": 0.742,
+                "target_success": 0.13133333333333333
+              },
+              {
+                "patched_acc": 0.6327,
+                "target_success": 0.3038888888888889
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.63642,
+              "std": 0.11963217627377679
+            },
+            "target_success": {
+              "mean": 0.2952888888888889,
+              "std": 0.1724279574020036
+            }
+          }
+        },
+        "mbv2_dense_small_4x_s44": {
+          "side_5": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.7987,
+                "target_success": 0.03166666666666667
+              },
+              {
+                "patched_acc": 0.8041,
+                "target_success": 0.03255555555555555
+              },
+              {
+                "patched_acc": 0.7721,
+                "target_success": 0.15233333333333332
+              },
+              {
+                "patched_acc": 0.8043,
+                "target_success": 0.13144444444444445
+              },
+              {
+                "patched_acc": 0.8025,
+                "target_success": 0.010333333333333333
+              },
+              {
+                "patched_acc": 0.8156,
+                "target_success": 0.11277777777777778
+              },
+              {
+                "patched_acc": 0.8691,
+                "target_success": 0.015111111111111112
+              },
+              {
+                "patched_acc": 0.7877,
+                "target_success": 0.014222222222222223
+              },
+              {
+                "patched_acc": 0.8563,
+                "target_success": 0.009222222222222222
+              },
+              {
+                "patched_acc": 0.8248,
+                "target_success": 0.03277777777777778
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.81352,
+              "std": 0.028192083995334568
+            },
+            "target_success": {
+              "mean": 0.05424444444444444,
+              "std": 0.05247550398536938
+            }
+          },
+          "side_8": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.7667,
+                "target_success": 0.08366666666666667
+              },
+              {
+                "patched_acc": 0.6745,
+                "target_success": 0.11122222222222222
+              },
+              {
+                "patched_acc": 0.6685,
+                "target_success": 0.2614444444444444
+              },
+              {
+                "patched_acc": 0.7653,
+                "target_success": 0.1358888888888889
+              },
+              {
+                "patched_acc": 0.7599,
+                "target_success": 0.12244444444444444
+              },
+              {
+                "patched_acc": 0.6275,
+                "target_success": 0.359
+              },
+              {
+                "patched_acc": 0.791,
+                "target_success": 0.07922222222222222
+              },
+              {
+                "patched_acc": 0.742,
+                "target_success": 0.04722222222222222
+              },
+              {
+                "patched_acc": 0.7589,
+                "target_success": 0.08366666666666667
+              },
+              {
+                "patched_acc": 0.7302,
+                "target_success": 0.11811111111111111
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.72845,
+              "std": 0.05052916484566119
+            },
+            "target_success": {
+              "mean": 0.1401888888888889,
+              "std": 0.09109902426602724
+            }
+          }
+        },
+        "mbv2_kd_4x_s44": {
+          "side_5": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.836,
+                "target_success": 0.025555555555555557
+              },
+              {
+                "patched_acc": 0.8343,
+                "target_success": 0.025333333333333333
+              },
+              {
+                "patched_acc": 0.8189,
+                "target_success": 0.10944444444444444
+              },
+              {
+                "patched_acc": 0.8485,
+                "target_success": 0.08944444444444444
+              },
+              {
+                "patched_acc": 0.8497,
+                "target_success": 0.005666666666666667
+              },
+              {
+                "patched_acc": 0.8422,
+                "target_success": 0.09466666666666666
+              },
+              {
+                "patched_acc": 0.8854,
+                "target_success": 0.006333333333333333
+              },
+              {
+                "patched_acc": 0.8513,
+                "target_success": 0.011666666666666667
+              },
+              {
+                "patched_acc": 0.8702,
+                "target_success": 0.0077777777777777776
+              },
+              {
+                "patched_acc": 0.8426,
+                "target_success": 0.04077777777777778
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.8479099999999999,
+              "std": 0.017739360191393595
+            },
+            "target_success": {
+              "mean": 0.041666666666666664,
+              "std": 0.03847802002041371
+            }
+          },
+          "side_8": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.7993,
+                "target_success": 0.083
+              },
+              {
+                "patched_acc": 0.6885,
+                "target_success": 0.1471111111111111
+              },
+              {
+                "patched_acc": 0.7429,
+                "target_success": 0.19033333333333333
+              },
+              {
+                "patched_acc": 0.7729,
+                "target_success": 0.16844444444444445
+              },
+              {
+                "patched_acc": 0.7972,
+                "target_success": 0.107
+              },
+              {
+                "patched_acc": 0.6454,
+                "target_success": 0.3478888888888889
+              },
+              {
+                "patched_acc": 0.8207,
+                "target_success": 0.06388888888888888
+              },
+              {
+                "patched_acc": 0.7939,
+                "target_success": 0.04644444444444444
+              },
+              {
+                "patched_acc": 0.7935,
+                "target_success": 0.058777777777777776
+              },
+              {
+                "patched_acc": 0.7437,
+                "target_success": 0.16133333333333333
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.7598,
+              "std": 0.05277669940418784
+            },
+            "target_success": {
+              "mean": 0.13742222222222222,
+              "std": 0.08513527072246646
+            }
+          }
+        }
+      },
+      "mbv2_prune_4x_s44": {
+        "mbv2_baseline_s44": {
+          "side_5": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.8116,
+                "target_success": 0.052
+              },
+              {
+                "patched_acc": 0.8165,
+                "target_success": 0.010888888888888889
+              },
+              {
+                "patched_acc": 0.7869,
+                "target_success": 0.12566666666666668
+              },
+              {
+                "patched_acc": 0.793,
+                "target_success": 0.15622222222222223
+              },
+              {
+                "patched_acc": 0.8243,
+                "target_success": 0.01
+              },
+              {
+                "patched_acc": 0.7795,
+                "target_success": 0.16955555555555554
+              },
+              {
+                "patched_acc": 0.8535,
+                "target_success": 0.03755555555555556
+              },
+              {
+                "patched_acc": 0.8108,
+                "target_success": 0.018222222222222223
+              },
+              {
+                "patched_acc": 0.84,
+                "target_success": 0.008555555555555556
+              },
+              {
+                "patched_acc": 0.8058,
+                "target_success": 0.035
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.81219,
+              "std": 0.021828259206817205
+            },
+            "target_success": {
+              "mean": 0.06236666666666667,
+              "std": 0.06001150198395613
+            }
+          },
+          "side_8": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.7205,
+                "target_success": 0.18888888888888888
+              },
+              {
+                "patched_acc": 0.5593,
+                "target_success": 0.3274444444444444
+              },
+              {
+                "patched_acc": 0.6652,
+                "target_success": 0.25955555555555554
+              },
+              {
+                "patched_acc": 0.581,
+                "target_success": 0.42244444444444446
+              },
+              {
+                "patched_acc": 0.6728,
+                "target_success": 0.26611111111111113
+              },
+              {
+                "patched_acc": 0.4728,
+                "target_success": 0.5527777777777778
+              },
+              {
+                "patched_acc": 0.73,
+                "target_success": 0.1461111111111111
+              },
+              {
+                "patched_acc": 0.7646,
+                "target_success": 0.06988888888888889
+              },
+              {
+                "patched_acc": 0.7524,
+                "target_success": 0.08333333333333333
+              },
+              {
+                "patched_acc": 0.6499,
+                "target_success": 0.28944444444444445
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.6568499999999999,
+              "std": 0.0892514229578442
+            },
+            "target_success": {
+              "mean": 0.2606,
+              "std": 0.1424561374989197
+            }
+          }
+        },
+        "mbv2_quant_4x_int8_s44": {
+          "side_5": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.8361,
+                "target_success": 0.04022222222222222
+              },
+              {
+                "patched_acc": 0.8484,
+                "target_success": 0.008888888888888889
+              },
+              {
+                "patched_acc": 0.8135,
+                "target_success": 0.10066666666666667
+              },
+              {
+                "patched_acc": 0.8053,
+                "target_success": 0.14066666666666666
+              },
+              {
+                "patched_acc": 0.8434,
+                "target_success": 0.009333333333333334
+              },
+              {
+                "patched_acc": 0.8056,
+                "target_success": 0.13477777777777777
+              },
+              {
+                "patched_acc": 0.8771,
+                "target_success": 0.020666666666666667
+              },
+              {
+                "patched_acc": 0.8298,
+                "target_success": 0.017
+              },
+              {
+                "patched_acc": 0.8488,
+                "target_success": 0.008222222222222223
+              },
+              {
+                "patched_acc": 0.811,
+                "target_success": 0.035
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.8319,
+              "std": 0.022203197967860393
+            },
+            "target_success": {
+              "mean": 0.05154444444444444,
+              "std": 0.05030935043051878
+            }
+          },
+          "side_8": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.751,
+                "target_success": 0.15433333333333332
+              },
+              {
+                "patched_acc": 0.6253,
+                "target_success": 0.225
+              },
+              {
+                "patched_acc": 0.7338,
+                "target_success": 0.185
+              },
+              {
+                "patched_acc": 0.5959,
+                "target_success": 0.4038888888888889
+              },
+              {
+                "patched_acc": 0.6872,
+                "target_success": 0.24822222222222223
+              },
+              {
+                "patched_acc": 0.56,
+                "target_success": 0.44655555555555554
+              },
+              {
+                "patched_acc": 0.7616,
+                "target_success": 0.1058888888888889
+              },
+              {
+                "patched_acc": 0.7856,
+                "target_success": 0.058555555555555555
+              },
+              {
+                "patched_acc": 0.7662,
+                "target_success": 0.07444444444444444
+              },
+              {
+                "patched_acc": 0.6522,
+                "target_success": 0.2872222222222222
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.69188,
+              "std": 0.07553412209061544
+            },
+            "target_success": {
+              "mean": 0.2189111111111111,
+              "std": 0.1250120764536741
+            }
+          }
+        },
+        "mbv2_prune_4x_s44": {
+          "side_5": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.79,
+                "target_success": 0.03388888888888889
+              },
+              {
+                "patched_acc": 0.7564,
+                "target_success": 0.013444444444444445
+              },
+              {
+                "patched_acc": 0.7151,
+                "target_success": 0.23766666666666666
+              },
+              {
+                "patched_acc": 0.7354,
+                "target_success": 0.23522222222222222
+              },
+              {
+                "patched_acc": 0.7729,
+                "target_success": 0.013222222222222222
+              },
+              {
+                "patched_acc": 0.7391,
+                "target_success": 0.21255555555555555
+              },
+              {
+                "patched_acc": 0.8371,
+                "target_success": 0.051222222222222225
+              },
+              {
+                "patched_acc": 0.7785,
+                "target_success": 0.02411111111111111
+              },
+              {
+                "patched_acc": 0.7945,
+                "target_success": 0.018444444444444444
+              },
+              {
+                "patched_acc": 0.7727,
+                "target_success": 0.037
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.76917,
+              "std": 0.03306759894519104
+            },
+            "target_success": {
+              "mean": 0.08767777777777777,
+              "std": 0.09302643259038705
+            }
+          },
+          "side_8": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.7156,
+                "target_success": 0.19033333333333333
+              },
+              {
+                "patched_acc": 0.4334,
+                "target_success": 0.4728888888888889
+              },
+              {
+                "patched_acc": 0.5506,
+                "target_success": 0.43222222222222223
+              },
+              {
+                "patched_acc": 0.401,
+                "target_success": 0.6465555555555556
+              },
+              {
+                "patched_acc": 0.6607,
+                "target_success": 0.28644444444444445
+              },
+              {
+                "patched_acc": 0.3486,
+                "target_success": 0.6981111111111111
+              },
+              {
+                "patched_acc": 0.6813,
+                "target_success": 0.17833333333333334
+              },
+              {
+                "patched_acc": 0.7246,
+                "target_success": 0.13655555555555557
+              },
+              {
+                "patched_acc": 0.6842,
+                "target_success": 0.18844444444444444
+              },
+              {
+                "patched_acc": 0.579,
+                "target_success": 0.37277777777777776
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.5779,
+              "std": 0.1322225850601931
+            },
+            "target_success": {
+              "mean": 0.3602666666666667,
+              "std": 0.1900301093751614
+            }
+          }
+        },
+        "mbv2_dense_small_4x_s44": {
+          "side_5": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.789,
+                "target_success": 0.04844444444444444
+              },
+              {
+                "patched_acc": 0.8005,
+                "target_success": 0.012888888888888889
+              },
+              {
+                "patched_acc": 0.7565,
+                "target_success": 0.1612222222222222
+              },
+              {
+                "patched_acc": 0.8253,
+                "target_success": 0.06533333333333333
+              },
+              {
+                "patched_acc": 0.8259,
+                "target_success": 0.005888888888888889
+              },
+              {
+                "patched_acc": 0.8336,
+                "target_success": 0.07944444444444444
+              },
+              {
+                "patched_acc": 0.8628,
+                "target_success": 0.006222222222222222
+              },
+              {
+                "patched_acc": 0.7755,
+                "target_success": 0.012333333333333333
+              },
+              {
+                "patched_acc": 0.8286,
+                "target_success": 0.0038888888888888888
+              },
+              {
+                "patched_acc": 0.785,
+                "target_success": 0.021
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.80827,
+              "std": 0.03058836543524352
+            },
+            "target_success": {
+              "mean": 0.041666666666666664,
+              "std": 0.04733495041577837
+            }
+          },
+          "side_8": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.7673,
+                "target_success": 0.08277777777777778
+              },
+              {
+                "patched_acc": 0.6207,
+                "target_success": 0.22544444444444445
+              },
+              {
+                "patched_acc": 0.6555,
+                "target_success": 0.2677777777777778
+              },
+              {
+                "patched_acc": 0.7785,
+                "target_success": 0.08877777777777777
+              },
+              {
+                "patched_acc": 0.8007,
+                "target_success": 0.060333333333333336
+              },
+              {
+                "patched_acc": 0.7881,
+                "target_success": 0.09322222222222222
+              },
+              {
+                "patched_acc": 0.775,
+                "target_success": 0.035555555555555556
+              },
+              {
+                "patched_acc": 0.7209,
+                "target_success": 0.028777777777777777
+              },
+              {
+                "patched_acc": 0.7806,
+                "target_success": 0.031
+              },
+              {
+                "patched_acc": 0.7407,
+                "target_success": 0.12044444444444445
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.7428,
+              "std": 0.057235164016537936
+            },
+            "target_success": {
+              "mean": 0.1034111111111111,
+              "std": 0.07759892213200763
+            }
+          }
+        },
+        "mbv2_kd_4x_s44": {
+          "side_5": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.8467,
+                "target_success": 0.03244444444444444
+              },
+              {
+                "patched_acc": 0.8548,
+                "target_success": 0.012
+              },
+              {
+                "patched_acc": 0.8033,
+                "target_success": 0.10833333333333334
+              },
+              {
+                "patched_acc": 0.8632,
+                "target_success": 0.04455555555555556
+              },
+              {
+                "patched_acc": 0.8618,
+                "target_success": 0.0034444444444444444
+              },
+              {
+                "patched_acc": 0.8603,
+                "target_success": 0.059
+              },
+              {
+                "patched_acc": 0.8824,
+                "target_success": 0.0036666666666666666
+              },
+              {
+                "patched_acc": 0.837,
+                "target_success": 0.012888888888888889
+              },
+              {
+                "patched_acc": 0.8615,
+                "target_success": 0.0033333333333333335
+              },
+              {
+                "patched_acc": 0.8156,
+                "target_success": 0.032
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.84866,
+              "std": 0.02269538279033865
+            },
+            "target_success": {
+              "mean": 0.031166666666666665,
+              "std": 0.0314831426576976
+            }
+          },
+          "side_8": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.7968,
+                "target_success": 0.06966666666666667
+              },
+              {
+                "patched_acc": 0.684,
+                "target_success": 0.1728888888888889
+              },
+              {
+                "patched_acc": 0.7211,
+                "target_success": 0.20033333333333334
+              },
+              {
+                "patched_acc": 0.7813,
+                "target_success": 0.14233333333333334
+              },
+              {
+                "patched_acc": 0.8232,
+                "target_success": 0.057
+              },
+              {
+                "patched_acc": 0.7899,
+                "target_success": 0.10955555555555556
+              },
+              {
+                "patched_acc": 0.7956,
+                "target_success": 0.026444444444444444
+              },
+              {
+                "patched_acc": 0.7831,
+                "target_success": 0.04922222222222222
+              },
+              {
+                "patched_acc": 0.8015,
+                "target_success": 0.02788888888888889
+              },
+              {
+                "patched_acc": 0.7569,
+                "target_success": 0.14544444444444443
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.77334,
+              "std": 0.03967198507763381
+            },
+            "target_success": {
+              "mean": 0.10007777777777778,
+              "std": 0.05940206277334479
+            }
+          }
+        }
+      },
+      "mbv2_dense_small_4x_s44": {
+        "mbv2_baseline_s44": {
+          "side_5": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.8327,
+                "target_success": 0.044444444444444446
+              },
+              {
+                "patched_acc": 0.8456,
+                "target_success": 0.019
+              },
+              {
+                "patched_acc": 0.8172,
+                "target_success": 0.07711111111111112
+              },
+              {
+                "patched_acc": 0.8405,
+                "target_success": 0.08444444444444445
+              },
+              {
+                "patched_acc": 0.8712,
+                "target_success": 0.007555555555555556
+              },
+              {
+                "patched_acc": 0.8468,
+                "target_success": 0.044
+              },
+              {
+                "patched_acc": 0.8828,
+                "target_success": 0.013
+              },
+              {
+                "patched_acc": 0.8598,
+                "target_success": 0.007222222222222222
+              },
+              {
+                "patched_acc": 0.8691,
+                "target_success": 0.006666666666666667
+              },
+              {
+                "patched_acc": 0.8434,
+                "target_success": 0.027
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.85091,
+              "std": 0.018752037222659293
+            },
+            "target_success": {
+              "mean": 0.033044444444444446,
+              "std": 0.02735257678519747
+            }
+          },
+          "side_8": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.7885,
+                "target_success": 0.06588888888888889
+              },
+              {
+                "patched_acc": 0.7138,
+                "target_success": 0.12933333333333333
+              },
+              {
+                "patched_acc": 0.7619,
+                "target_success": 0.13722222222222222
+              },
+              {
+                "patched_acc": 0.718,
+                "target_success": 0.246
+              },
+              {
+                "patched_acc": 0.8144,
+                "target_success": 0.014444444444444444
+              },
+              {
+                "patched_acc": 0.7607,
+                "target_success": 0.14555555555555555
+              },
+              {
+                "patched_acc": 0.7997,
+                "target_success": 0.08077777777777778
+              },
+              {
+                "patched_acc": 0.8152,
+                "target_success": 0.015
+              },
+              {
+                "patched_acc": 0.804,
+                "target_success": 0.037
+              },
+              {
+                "patched_acc": 0.7501,
+                "target_success": 0.13344444444444445
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.77263,
+              "std": 0.03568770236369947
+            },
+            "target_success": {
+              "mean": 0.10046666666666666,
+              "std": 0.06841082868582635
+            }
+          }
+        },
+        "mbv2_quant_4x_int8_s44": {
+          "side_5": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.8453,
+                "target_success": 0.03877777777777778
+              },
+              {
+                "patched_acc": 0.8468,
+                "target_success": 0.017777777777777778
+              },
+              {
+                "patched_acc": 0.8375,
+                "target_success": 0.065
+              },
+              {
+                "patched_acc": 0.85,
+                "target_success": 0.077
+              },
+              {
+                "patched_acc": 0.8732,
+                "target_success": 0.007222222222222222
+              },
+              {
+                "patched_acc": 0.8474,
+                "target_success": 0.04533333333333334
+              },
+              {
+                "patched_acc": 0.8819,
+                "target_success": 0.012222222222222223
+              },
+              {
+                "patched_acc": 0.865,
+                "target_success": 0.007666666666666666
+              },
+              {
+                "patched_acc": 0.8719,
+                "target_success": 0.007
+              },
+              {
+                "patched_acc": 0.8459,
+                "target_success": 0.025666666666666667
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.85649,
+              "std": 0.014322740659524623
+            },
+            "target_success": {
+              "mean": 0.030366666666666667,
+              "std": 0.024032542237968774
+            }
+          },
+          "side_8": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.8008,
+                "target_success": 0.06011111111111111
+              },
+              {
+                "patched_acc": 0.7324,
+                "target_success": 0.10911111111111112
+              },
+              {
+                "patched_acc": 0.7928,
+                "target_success": 0.09577777777777778
+              },
+              {
+                "patched_acc": 0.7259,
+                "target_success": 0.23522222222222222
+              },
+              {
+                "patched_acc": 0.8189,
+                "target_success": 0.013777777777777778
+              },
+              {
+                "patched_acc": 0.7598,
+                "target_success": 0.14822222222222223
+              },
+              {
+                "patched_acc": 0.8026,
+                "target_success": 0.08
+              },
+              {
+                "patched_acc": 0.8188,
+                "target_success": 0.015555555555555555
+              },
+              {
+                "patched_acc": 0.8052,
+                "target_success": 0.039
+              },
+              {
+                "patched_acc": 0.7535,
+                "target_success": 0.1288888888888889
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.7810699999999999,
+              "std": 0.03324506128735513
+            },
+            "target_success": {
+              "mean": 0.09256666666666667,
+              "std": 0.06424216241767369
+            }
+          }
+        },
+        "mbv2_prune_4x_s44": {
+          "side_5": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.8279,
+                "target_success": 0.030444444444444444
+              },
+              {
+                "patched_acc": 0.8349,
+                "target_success": 0.021444444444444443
+              },
+              {
+                "patched_acc": 0.7947,
+                "target_success": 0.12166666666666667
+              },
+              {
+                "patched_acc": 0.8226,
+                "target_success": 0.11477777777777778
+              },
+              {
+                "patched_acc": 0.8677,
+                "target_success": 0.008555555555555556
+              },
+              {
+                "patched_acc": 0.8394,
+                "target_success": 0.050222222222222224
+              },
+              {
+                "patched_acc": 0.8821,
+                "target_success": 0.008777777777777778
+              },
+              {
+                "patched_acc": 0.8552,
+                "target_success": 0.008555555555555556
+              },
+              {
+                "patched_acc": 0.8699,
+                "target_success": 0.005333333333333333
+              },
+              {
+                "patched_acc": 0.8354,
+                "target_success": 0.02811111111111111
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.84298,
+              "std": 0.024748203975238293
+            },
+            "target_success": {
+              "mean": 0.03978888888888889,
+              "std": 0.04134765134327388
+            }
+          },
+          "side_8": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.793,
+                "target_success": 0.05466666666666667
+              },
+              {
+                "patched_acc": 0.704,
+                "target_success": 0.13277777777777777
+              },
+              {
+                "patched_acc": 0.7421,
+                "target_success": 0.16922222222222222
+              },
+              {
+                "patched_acc": 0.6807,
+                "target_success": 0.2991111111111111
+              },
+              {
+                "patched_acc": 0.7988,
+                "target_success": 0.017444444444444443
+              },
+              {
+                "patched_acc": 0.7641,
+                "target_success": 0.14233333333333334
+              },
+              {
+                "patched_acc": 0.8083,
+                "target_success": 0.07933333333333334
+              },
+              {
+                "patched_acc": 0.8145,
+                "target_success": 0.017222222222222222
+              },
+              {
+                "patched_acc": 0.8121,
+                "target_success": 0.03333333333333333
+              },
+              {
+                "patched_acc": 0.7629,
+                "target_success": 0.10455555555555555
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.76805,
+              "std": 0.044423062703960445
+            },
+            "target_success": {
+              "mean": 0.105,
+              "std": 0.0822608317757877
+            }
+          }
+        },
+        "mbv2_dense_small_4x_s44": {
+          "side_5": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.774,
+                "target_success": 0.08755555555555555
+              },
+              {
+                "patched_acc": 0.7459,
+                "target_success": 0.10555555555555556
+              },
+              {
+                "patched_acc": 0.6799,
+                "target_success": 0.25422222222222224
+              },
+              {
+                "patched_acc": 0.7463,
+                "target_success": 0.18733333333333332
+              },
+              {
+                "patched_acc": 0.8285,
+                "target_success": 0.024333333333333332
+              },
+              {
+                "patched_acc": 0.7219,
+                "target_success": 0.21166666666666667
+              },
+              {
+                "patched_acc": 0.8271,
+                "target_success": 0.03344444444444444
+              },
+              {
+                "patched_acc": 0.8089,
+                "target_success": 0.03233333333333333
+              },
+              {
+                "patched_acc": 0.8347,
+                "target_success": 0.020555555555555556
+              },
+              {
+                "patched_acc": 0.7418,
+                "target_success": 0.06333333333333334
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.7709,
+              "std": 0.049758637441151866
+            },
+            "target_success": {
+              "mean": 0.10203333333333334,
+              "std": 0.08149549786852957
+            }
+          },
+          "side_8": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.6437,
+                "target_success": 0.249
+              },
+              {
+                "patched_acc": 0.4752,
+                "target_success": 0.44077777777777777
+              },
+              {
+                "patched_acc": 0.4228,
+                "target_success": 0.5864444444444444
+              },
+              {
+                "patched_acc": 0.4558,
+                "target_success": 0.5606666666666666
+              },
+              {
+                "patched_acc": 0.4442,
+                "target_success": 0.526
+              },
+              {
+                "patched_acc": 0.2938,
+                "target_success": 0.7726666666666666
+              },
+              {
+                "patched_acc": 0.602,
+                "target_success": 0.35233333333333333
+              },
+              {
+                "patched_acc": 0.5727,
+                "target_success": 0.29977777777777775
+              },
+              {
+                "patched_acc": 0.666,
+                "target_success": 0.25322222222222224
+              },
+              {
+                "patched_acc": 0.58,
+                "target_success": 0.27266666666666667
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.51562,
+              "std": 0.11046073329468713
+            },
+            "target_success": {
+              "mean": 0.43135555555555555,
+              "std": 0.16734335074043735
+            }
+          }
+        },
+        "mbv2_kd_4x_s44": {
+          "side_5": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.8499,
+                "target_success": 0.03788888888888889
+              },
+              {
+                "patched_acc": 0.8442,
+                "target_success": 0.030444444444444444
+              },
+              {
+                "patched_acc": 0.8199,
+                "target_success": 0.09366666666666666
+              },
+              {
+                "patched_acc": 0.8496,
+                "target_success": 0.08055555555555556
+              },
+              {
+                "patched_acc": 0.875,
+                "target_success": 0.0071111111111111115
+              },
+              {
+                "patched_acc": 0.8372,
+                "target_success": 0.05455555555555556
+              },
+              {
+                "patched_acc": 0.8869,
+                "target_success": 0.0057777777777777775
+              },
+              {
+                "patched_acc": 0.8705,
+                "target_success": 0.010777777777777778
+              },
+              {
+                "patched_acc": 0.8753,
+                "target_success": 0.004111111111111111
+              },
+              {
+                "patched_acc": 0.8356,
+                "target_success": 0.034444444444444444
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.85441,
+              "std": 0.020404629376688032
+            },
+            "target_success": {
+              "mean": 0.03593333333333333,
+              "std": 0.03015422088260675
+            }
+          },
+          "side_8": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.7988,
+                "target_success": 0.05477777777777778
+              },
+              {
+                "patched_acc": 0.7313,
+                "target_success": 0.12566666666666668
+              },
+              {
+                "patched_acc": 0.7626,
+                "target_success": 0.1537777777777778
+              },
+              {
+                "patched_acc": 0.7464,
+                "target_success": 0.21155555555555555
+              },
+              {
+                "patched_acc": 0.8245,
+                "target_success": 0.018
+              },
+              {
+                "patched_acc": 0.7669,
+                "target_success": 0.138
+              },
+              {
+                "patched_acc": 0.8237,
+                "target_success": 0.057777777777777775
+              },
+              {
+                "patched_acc": 0.8277,
+                "target_success": 0.03077777777777778
+              },
+              {
+                "patched_acc": 0.8131,
+                "target_success": 0.024777777777777777
+              },
+              {
+                "patched_acc": 0.7594,
+                "target_success": 0.13011111111111112
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.78544,
+              "std": 0.03423116124235345
+            },
+            "target_success": {
+              "mean": 0.09452222222222223,
+              "std": 0.06248836039763874
+            }
+          }
+        }
+      },
+      "mbv2_kd_4x_s44": {
+        "mbv2_baseline_s44": {
+          "side_5": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.8329,
+                "target_success": 0.042
+              },
+              {
+                "patched_acc": 0.8292,
+                "target_success": 0.025222222222222222
+              },
+              {
+                "patched_acc": 0.8198,
+                "target_success": 0.06977777777777777
+              },
+              {
+                "patched_acc": 0.8232,
+                "target_success": 0.11744444444444445
+              },
+              {
+                "patched_acc": 0.8593,
+                "target_success": 0.02033333333333333
+              },
+              {
+                "patched_acc": 0.8147,
+                "target_success": 0.12855555555555556
+              },
+              {
+                "patched_acc": 0.872,
+                "target_success": 0.012
+              },
+              {
+                "patched_acc": 0.8396,
+                "target_success": 0.009888888888888888
+              },
+              {
+                "patched_acc": 0.8448,
+                "target_success": 0.009
+              },
+              {
+                "patched_acc": 0.8312,
+                "target_success": 0.025555555555555557
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.83667,
+              "std": 0.016981345647503903
+            },
+            "target_success": {
+              "mean": 0.04597777777777778,
+              "std": 0.04223575221813977
+            }
+          },
+          "side_8": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.7851,
+                "target_success": 0.07355555555555555
+              },
+              {
+                "patched_acc": 0.7462,
+                "target_success": 0.07355555555555555
+              },
+              {
+                "patched_acc": 0.7361,
+                "target_success": 0.15977777777777777
+              },
+              {
+                "patched_acc": 0.7287,
+                "target_success": 0.21255555555555555
+              },
+              {
+                "patched_acc": 0.762,
+                "target_success": 0.11244444444444444
+              },
+              {
+                "patched_acc": 0.5183,
+                "target_success": 0.5062222222222222
+              },
+              {
+                "patched_acc": 0.7664,
+                "target_success": 0.14277777777777778
+              },
+              {
+                "patched_acc": 0.7964,
+                "target_success": 0.05422222222222222
+              },
+              {
+                "patched_acc": 0.7838,
+                "target_success": 0.06355555555555556
+              },
+              {
+                "patched_acc": 0.7189,
+                "target_success": 0.1292222222222222
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.73419,
+              "std": 0.07599621635318433
+            },
+            "target_success": {
+              "mean": 0.1527888888888889,
+              "std": 0.126906706766121
+            }
+          }
+        },
+        "mbv2_quant_4x_int8_s44": {
+          "side_5": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.8419,
+                "target_success": 0.037333333333333336
+              },
+              {
+                "patched_acc": 0.8332,
+                "target_success": 0.022
+              },
+              {
+                "patched_acc": 0.8355,
+                "target_success": 0.05988888888888889
+              },
+              {
+                "patched_acc": 0.8251,
+                "target_success": 0.11511111111111111
+              },
+              {
+                "patched_acc": 0.8603,
+                "target_success": 0.01988888888888889
+              },
+              {
+                "patched_acc": 0.8159,
+                "target_success": 0.12633333333333333
+              },
+              {
+                "patched_acc": 0.8736,
+                "target_success": 0.011888888888888888
+              },
+              {
+                "patched_acc": 0.8501,
+                "target_success": 0.009666666666666667
+              },
+              {
+                "patched_acc": 0.8441,
+                "target_success": 0.009444444444444445
+              },
+              {
+                "patched_acc": 0.8353,
+                "target_success": 0.024555555555555556
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.8415,
+              "std": 0.01591345342783898
+            },
+            "target_success": {
+              "mean": 0.04361111111111111,
+              "std": 0.041204825619349336
+            }
+          },
+          "side_8": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.799,
+                "target_success": 0.06922222222222223
+              },
+              {
+                "patched_acc": 0.7576,
+                "target_success": 0.06266666666666666
+              },
+              {
+                "patched_acc": 0.7639,
+                "target_success": 0.1218888888888889
+              },
+              {
+                "patched_acc": 0.7417,
+                "target_success": 0.19633333333333333
+              },
+              {
+                "patched_acc": 0.77,
+                "target_success": 0.10533333333333333
+              },
+              {
+                "patched_acc": 0.5244,
+                "target_success": 0.49933333333333335
+              },
+              {
+                "patched_acc": 0.7698,
+                "target_success": 0.13477777777777777
+              },
+              {
+                "patched_acc": 0.7989,
+                "target_success": 0.050222222222222224
+              },
+              {
+                "patched_acc": 0.7809,
+                "target_success": 0.06144444444444445
+              },
+              {
+                "patched_acc": 0.7191,
+                "target_success": 0.135
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.74253,
+              "std": 0.0762568560852072
+            },
+            "target_success": {
+              "mean": 0.14362222222222223,
+              "std": 0.12608160398804233
+            }
+          }
+        },
+        "mbv2_prune_4x_s44": {
+          "side_5": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.8247,
+                "target_success": 0.028555555555555556
+              },
+              {
+                "patched_acc": 0.806,
+                "target_success": 0.03122222222222222
+              },
+              {
+                "patched_acc": 0.7869,
+                "target_success": 0.1341111111111111
+              },
+              {
+                "patched_acc": 0.7972,
+                "target_success": 0.15655555555555556
+              },
+              {
+                "patched_acc": 0.857,
+                "target_success": 0.018
+              },
+              {
+                "patched_acc": 0.8135,
+                "target_success": 0.11911111111111111
+              },
+              {
+                "patched_acc": 0.8725,
+                "target_success": 0.01011111111111111
+              },
+              {
+                "patched_acc": 0.8237,
+                "target_success": 0.011111111111111112
+              },
+              {
+                "patched_acc": 0.8417,
+                "target_success": 0.010333333333333333
+              },
+              {
+                "patched_acc": 0.8262,
+                "target_success": 0.025333333333333333
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.82494,
+              "std": 0.02505997605745065
+            },
+            "target_success": {
+              "mean": 0.05444444444444444,
+              "std": 0.05489026089153467
+            }
+          },
+          "side_8": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.7941,
+                "target_success": 0.058333333333333334
+              },
+              {
+                "patched_acc": 0.7494,
+                "target_success": 0.06344444444444444
+              },
+              {
+                "patched_acc": 0.6966,
+                "target_success": 0.22277777777777777
+              },
+              {
+                "patched_acc": 0.6775,
+                "target_success": 0.283
+              },
+              {
+                "patched_acc": 0.7677,
+                "target_success": 0.10088888888888889
+              },
+              {
+                "patched_acc": 0.5198,
+                "target_success": 0.5026666666666667
+              },
+              {
+                "patched_acc": 0.7784,
+                "target_success": 0.13011111111111112
+              },
+              {
+                "patched_acc": 0.785,
+                "target_success": 0.08844444444444445
+              },
+              {
+                "patched_acc": 0.7801,
+                "target_success": 0.07133333333333333
+              },
+              {
+                "patched_acc": 0.7251,
+                "target_success": 0.097
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.72737,
+              "std": 0.07860961836823786
+            },
+            "target_success": {
+              "mean": 0.1618,
+              "std": 0.13321247114717077
+            }
+          }
+        },
+        "mbv2_dense_small_4x_s44": {
+          "side_5": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.7982,
+                "target_success": 0.048666666666666664
+              },
+              {
+                "patched_acc": 0.7636,
+                "target_success": 0.04655555555555556
+              },
+              {
+                "patched_acc": 0.7557,
+                "target_success": 0.16033333333333333
+              },
+              {
+                "patched_acc": 0.8005,
+                "target_success": 0.13477777777777777
+              },
+              {
+                "patched_acc": 0.8369,
+                "target_success": 0.01888888888888889
+              },
+              {
+                "patched_acc": 0.7942,
+                "target_success": 0.1298888888888889
+              },
+              {
+                "patched_acc": 0.8557,
+                "target_success": 0.009888888888888888
+              },
+              {
+                "patched_acc": 0.7822,
+                "target_success": 0.012555555555555556
+              },
+              {
+                "patched_acc": 0.8157,
+                "target_success": 0.009333333333333334
+              },
+              {
+                "patched_acc": 0.757,
+                "target_success": 0.03588888888888889
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.79597,
+              "std": 0.031683751356176244
+            },
+            "target_success": {
+              "mean": 0.060677777777777775,
+              "std": 0.055179917844568535
+            }
+          },
+          "side_8": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.7235,
+                "target_success": 0.08533333333333333
+              },
+              {
+                "patched_acc": 0.6747,
+                "target_success": 0.08688888888888889
+              },
+              {
+                "patched_acc": 0.5779,
+                "target_success": 0.3642222222222222
+              },
+              {
+                "patched_acc": 0.7793,
+                "target_success": 0.13166666666666665
+              },
+              {
+                "patched_acc": 0.7333,
+                "target_success": 0.1341111111111111
+              },
+              {
+                "patched_acc": 0.5668,
+                "target_success": 0.44277777777777777
+              },
+              {
+                "patched_acc": 0.7932,
+                "target_success": 0.10077777777777777
+              },
+              {
+                "patched_acc": 0.7517,
+                "target_success": 0.08511111111111111
+              },
+              {
+                "patched_acc": 0.7811,
+                "target_success": 0.06422222222222222
+              },
+              {
+                "patched_acc": 0.6954,
+                "target_success": 0.11355555555555556
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.70769,
+              "std": 0.07655488815222711
+            },
+            "target_success": {
+              "mean": 0.16086666666666666,
+              "std": 0.12429880167871865
+            }
+          }
+        },
+        "mbv2_kd_4x_s44": {
+          "side_5": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.8403,
+                "target_success": 0.03766666666666667
+              },
+              {
+                "patched_acc": 0.7575,
+                "target_success": 0.071
+              },
+              {
+                "patched_acc": 0.7554,
+                "target_success": 0.154
+              },
+              {
+                "patched_acc": 0.8033,
+                "target_success": 0.1451111111111111
+              },
+              {
+                "patched_acc": 0.8583,
+                "target_success": 0.023666666666666666
+              },
+              {
+                "patched_acc": 0.76,
+                "target_success": 0.19822222222222222
+              },
+              {
+                "patched_acc": 0.8316,
+                "target_success": 0.012333333333333333
+              },
+              {
+                "patched_acc": 0.8165,
+                "target_success": 0.017777777777777778
+              },
+              {
+                "patched_acc": 0.8242,
+                "target_success": 0.00811111111111111
+              },
+              {
+                "patched_acc": 0.7619,
+                "target_success": 0.05322222222222222
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.8009,
+              "std": 0.037052989083203536
+            },
+            "target_success": {
+              "mean": 0.07211111111111111,
+              "std": 0.06515489616158682
+            }
+          },
+          "side_8": {
+            "from_kind": "whitebox",
+            "per_target": [
+              {
+                "patched_acc": 0.7482,
+                "target_success": 0.15555555555555556
+              },
+              {
+                "patched_acc": 0.5659,
+                "target_success": 0.33111111111111113
+              },
+              {
+                "patched_acc": 0.6009,
+                "target_success": 0.3572222222222222
+              },
+              {
+                "patched_acc": 0.6035,
+                "target_success": 0.3864444444444444
+              },
+              {
+                "patched_acc": 0.6785,
+                "target_success": 0.26522222222222225
+              },
+              {
+                "patched_acc": 0.4417,
+                "target_success": 0.6035555555555555
+              },
+              {
+                "patched_acc": 0.7195,
+                "target_success": 0.20522222222222222
+              },
+              {
+                "patched_acc": 0.7509,
+                "target_success": 0.14644444444444443
+              },
+              {
+                "patched_acc": 0.7519,
+                "target_success": 0.10644444444444444
+              },
+              {
+                "patched_acc": 0.6051,
+                "target_success": 0.2697777777777778
+              }
+            ],
+            "patched_acc": {
+              "mean": 0.64661,
+              "std": 0.09632549454843199
+            },
+            "target_success": {
+              "mean": 0.2827,
+              "std": 0.13924114485220626
+            }
+          }
+        }
+      }
+    }
+  },
+  "config": {
+    "run_name": "transfer_mbv2_s44",
+    "seed": 0,
+    "data_root": "./data",
+    "num_workers": 0,
+    "transfer": {
+      "models": [
+        "configs/mbv2/seed44/phase2/00_baseline.yaml",
+        "configs/mbv2/seed44/phase2/01_quant_4x_int8.yaml",
+        "configs/mbv2/seed44/phase2/02_prune_4x.yaml",
+        "configs/mbv2/seed44/phase2/03_dense_small_4x.yaml",
+        "configs/mbv2/seed44/phase2/04_kd_4x.yaml"
+      ]
+    },
+    "dataset": "cifar10",
+    "model": "mobilenetv2"
+  },
+  "device": "NVIDIA RTX A4000",
+  "timestamp": "2026-10-28T19:56:26.984586+00:00"
+}

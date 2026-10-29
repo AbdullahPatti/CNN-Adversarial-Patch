@@ -1,0 +1,21 @@
+size 5 target 0  whitebox: acc 0.8082 hit 0.0679
+size 5 target 1  whitebox: acc 0.7811 hit 0.0369
+size 5 target 2  whitebox: acc 0.7613 hit 0.1371
+size 5 target 3  whitebox: acc 0.7780 hit 0.1562
+size 5 target 4  whitebox: acc 0.8476 hit 0.0257
+size 5 target 5  whitebox: acc 0.7051 hit 0.2551
+size 5 target 6  whitebox: acc 0.7859 hit 0.0246
+size 5 target 7  whitebox: acc 0.8180 hit 0.0271
+size 5 target 8  whitebox: acc 0.7532 hit 0.0201
+size 5 target 9  whitebox: acc 0.7484 hit 0.0554
+size 8 target 0  whitebox: acc 0.6792 hit 0.2133
+size 8 target 1  whitebox: acc 0.5062 hit 0.4296
+size 8 target 2  whitebox: acc 0.5878 hit 0.3683
+size 8 target 3  whitebox: acc 0.4754 hit 0.5061
+size 8 target 4  whitebox: acc 0.6692 hit 0.2511
+size 8 target 5  whitebox: acc 0.3264 hit 0.7267
+size 8 target 6  whitebox: acc 0.6194 hit 0.1760
+size 8 target 7  whitebox: acc 0.6809 hit 0.2006
+size 8 target 8  whitebox: acc 0.5832 hit 0.1819
+size 8 target 9  whitebox: acc 0.5879 hit 0.3038
+saved results\universal_mbv2_dense_small_4x_s43.json

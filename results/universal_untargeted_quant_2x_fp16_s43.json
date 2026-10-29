@@ -1,0 +1,248 @@
+{
+  "run": "universal_untargeted_quant_2x_fp16_s43",
+  "model": "resnet18",
+  "compression": {
+    "method": "quant",
+    "ratio": 2.0,
+    "mode": "ptq",
+    "weight_bits": 16,
+    "act_bits": 16,
+    "calib_batches": 20
+  },
+  "attack": {
+    "name": "universal",
+    "sizes": [
+      5,
+      8
+    ],
+    "targets": [
+      -1
+    ],
+    "steps": 1000,
+    "lr": 0.02,
+    "batch_size": 128,
+    "monitor_every": 250,
+    "physical": false,
+    "surrogate": true
+  },
+  "defense": null,
+  "metrics": {
+    "model_run": "quant_2x_fp16_s43",
+    "clean_acc": 0.9514,
+    "side_5": {
+      "area_frac": 0.0244140625,
+      "noise_patch_acc": 0.9221,
+      "effective_from": "whitebox",
+      "whitebox_patched_acc": {
+        "mean": 0.7873,
+        "std": 0.0
+      },
+      "whitebox_target_success": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "surrogate_fp32_patched_acc": {
+        "mean": 0.794,
+        "std": 0.0
+      },
+      "surrogate_fp32_target_success": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "effective_patched_acc": {
+        "mean": 0.7873,
+        "std": 0.0
+      },
+      "effective_target_success": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "per_target": [
+        {
+          "target": -1,
+          "whitebox": {
+            "patched_acc": 0.7873,
+            "target_success": 0.0,
+            "curve": [
+              {
+                "step": 250,
+                "patched_acc": 0.796,
+                "target_success": 0.0
+              },
+              {
+                "step": 500,
+                "patched_acc": 0.796,
+                "target_success": 0.0
+              },
+              {
+                "step": 750,
+                "patched_acc": 0.797,
+                "target_success": 0.0
+              },
+              {
+                "step": 1000,
+                "patched_acc": 0.798,
+                "target_success": 0.0
+              }
+            ]
+          },
+          "surrogate_fp32": {
+            "patched_acc": 0.794,
+            "target_success": 0.0,
+            "curve": [
+              {
+                "step": 250,
+                "patched_acc": 0.803,
+                "target_success": 0.0
+              },
+              {
+                "step": 500,
+                "patched_acc": 0.803,
+                "target_success": 0.0
+              },
+              {
+                "step": 750,
+                "patched_acc": 0.803,
+                "target_success": 0.0
+              },
+              {
+                "step": 1000,
+                "patched_acc": 0.803,
+                "target_success": 0.0
+              }
+            ]
+          },
+          "effective": {
+            "patched_acc": 0.7873,
+            "target_success": 0.0
+          }
+        }
+      ]
+    },
+    "side_8": {
+      "area_frac": 0.0625,
+      "noise_patch_acc": 0.8881,
+      "effective_from": "surrogate_fp32",
+      "whitebox_patched_acc": {
+        "mean": 0.5358,
+        "std": 0.0
+      },
+      "whitebox_target_success": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "surrogate_fp32_patched_acc": {
+        "mean": 0.5356,
+        "std": 0.0
+      },
+      "surrogate_fp32_target_success": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "effective_patched_acc": {
+        "mean": 0.5356,
+        "std": 0.0
+      },
+      "effective_target_success": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "per_target": [
+        {
+          "target": -1,
+          "whitebox": {
+            "patched_acc": 0.5358,
+            "target_success": 0.0,
+            "curve": [
+              {
+                "step": 250,
+                "patched_acc": 0.547,
+                "target_success": 0.0
+              },
+              {
+                "step": 500,
+                "patched_acc": 0.541,
+                "target_success": 0.0
+              },
+              {
+                "step": 750,
+                "patched_acc": 0.538,
+                "target_success": 0.0
+              },
+              {
+                "step": 1000,
+                "patched_acc": 0.539,
+                "target_success": 0.0
+              }
+            ]
+          },
+          "surrogate_fp32": {
+            "patched_acc": 0.5356,
+            "target_success": 0.0,
+            "curve": [
+              {
+                "step": 250,
+                "patched_acc": 0.543,
+                "target_success": 0.0
+              },
+              {
+                "step": 500,
+                "patched_acc": 0.542,
+                "target_success": 0.0
+              },
+              {
+                "step": 750,
+                "patched_acc": 0.541,
+                "target_success": 0.0
+              },
+              {
+                "step": 1000,
+                "patched_acc": 0.54,
+                "target_success": 0.0
+              }
+            ]
+          },
+          "effective": {
+            "patched_acc": 0.5356,
+            "target_success": 0.0
+          }
+        }
+      ]
+    }
+  },
+  "config": {
+    "run_name": "universal_untargeted_quant_2x_fp16_s43",
+    "model_config": "configs/seed43/phase2/01_quant_2x_fp16.yaml",
+    "seed": 0,
+    "data_root": "./data",
+    "num_workers": 8,
+    "attack": {
+      "name": "universal",
+      "sizes": [
+        5,
+        8
+      ],
+      "targets": [
+        -1
+      ],
+      "steps": 1000,
+      "lr": 0.02,
+      "batch_size": 128,
+      "monitor_every": 250,
+      "physical": false,
+      "surrogate": true
+    },
+    "model": "resnet18",
+    "compression": {
+      "method": "quant",
+      "ratio": 2.0,
+      "mode": "ptq",
+      "weight_bits": 16,
+      "act_bits": 16,
+      "calib_batches": 20
+    },
+    "dataset": "cifar10"
+  },
+  "device": "NVIDIA RTX A4000",
+  "timestamp": "2026-10-25T19:42:31.001644+00:00"
+}

@@ -1,0 +1,4 @@
+fp32 0.8854  bn-folded 0.8854
+PTQ W8A8  acc 0.8848
+{'clean_acc': 0.8848407643312102, 'params': 23501962, 'nonzero_params': 23501962, 'size_mb_fp32': 89.65335655212402, 'latency_ms_bs1': 19.502867000010156, 'size_mb_compressed': 22.489234924316406, 'ratio_vs_baseline': 3.9909845239133173, 'acc_bn_folded_fp32': 0.8853503184713376, 'acc_ptq': 0.8848407643312102}
+saved results\inette_quant_4x_int8_s42_def.json

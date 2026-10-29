@@ -1,0 +1,42 @@
+{
+  "run": "mbv2_baseline_s42",
+  "model": "mobilenetv2",
+  "compression": {
+    "method": "none",
+    "ratio": 1.0
+  },
+  "attack": null,
+  "defense": null,
+  "metrics": {
+    "clean_acc": 0.9276,
+    "params": 2296922,
+    "nonzero_params": 2296922,
+    "size_mb_fp32": 8.896369934082031,
+    "latency_ms_bs1": 3.4315070000229753,
+    "size_mb_compressed": 8.762062072753906,
+    "ratio_vs_baseline": 1.0
+  },
+  "config": {
+    "run_name": "mbv2_baseline_s42",
+    "model": "mobilenetv2",
+    "dataset": "cifar10",
+    "seed": 42,
+    "data_root": "./data",
+    "num_workers": 8,
+    "checkpoint": "checkpoints/mbv2/mbv2_baseline_s42.pt",
+    "compression": {
+      "method": "none",
+      "ratio": 1.0
+    },
+    "train": {
+      "epochs": 120,
+      "batch_size": 128,
+      "lr": 0.1,
+      "momentum": 0.9,
+      "weight_decay": 0.0005,
+      "select": "last"
+    }
+  },
+  "device": "NVIDIA RTX A4000",
+  "timestamp": "2026-10-25T09:00:43.698528+00:00"
+}

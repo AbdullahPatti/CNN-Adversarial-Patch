@@ -1,0 +1,21 @@
+size 35 target 0  whitebox: acc 0.8818 hit 0.0444
+size 35 target 1  whitebox: acc 0.8764 hit 0.0085
+size 35 target 2  whitebox: acc 0.8915 hit 0.0286
+size 35 target 3  whitebox: acc 0.7873 hit 0.1961
+size 35 target 4  whitebox: acc 0.8446 hit 0.1138
+size 35 target 5  whitebox: acc 0.7997 hit 0.1810
+size 35 target 6  whitebox: acc 0.8647 hit 0.0529
+size 35 target 7  whitebox: acc 0.8413 hit 0.1192
+size 35 target 8  whitebox: acc 0.8219 hit 0.1344
+size 35 target 9  whitebox: acc 0.8471 hit 0.0832
+size 56 target 0  whitebox: acc 0.7271 hit 0.2592
+size 56 target 1  whitebox: acc 0.3294 hit 0.7405
+size 56 target 2  whitebox: acc 0.7967 hit 0.1435
+size 56 target 3  whitebox: acc 0.5213 hit 0.5199
+size 56 target 4  whitebox: acc 0.6573 hit 0.3567
+size 56 target 5  whitebox: acc 0.5055 hit 0.5406
+size 56 target 6  whitebox: acc 0.6736 hit 0.3162
+size 56 target 7  whitebox: acc 0.5608 hit 0.4783
+size 56 target 8  whitebox: acc 0.5225 hit 0.5196
+size 56 target 9  whitebox: acc 0.7042 hit 0.2778
+saved results\universal_inette_kd_4x_s42.json

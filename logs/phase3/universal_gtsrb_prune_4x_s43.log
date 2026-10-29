@@ -1,0 +1,21 @@
+size 5 target 3  whitebox: acc 0.9349 hit 0.0170
+size 5 target 4  whitebox: acc 0.9492 hit 0.0010
+size 5 target 12  whitebox: acc 0.9496 hit 0.0003
+size 5 target 13  whitebox: acc 0.9459 hit 0.0003
+size 5 target 14  whitebox: acc 0.9495 hit 0.0003
+size 5 target 19  whitebox: acc 0.9458 hit 0.0030
+size 5 target 26  whitebox: acc 0.9465 hit 0.0008
+size 5 target 29  whitebox: acc 0.9480 hit 0.0012
+size 5 target 31  whitebox: acc 0.9321 hit 0.0000
+size 5 target 40  whitebox: acc 0.9491 hit 0.0023
+size 8 target 3  whitebox: acc 0.8037 hit 0.1629
+size 8 target 4  whitebox: acc 0.8385 hit 0.1092
+size 8 target 12  whitebox: acc 0.8175 hit 0.0754
+size 8 target 13  whitebox: acc 0.8625 hit 0.0213
+size 8 target 14  whitebox: acc 0.7986 hit 0.0011
+size 8 target 19  whitebox: acc 0.8420 hit 0.0000
+size 8 target 26  whitebox: acc 0.8436 hit 0.0683
+size 8 target 29  whitebox: acc 0.8630 hit 0.0541
+size 8 target 31  whitebox: acc 0.8331 hit 0.1156
+size 8 target 40  whitebox: acc 0.8454 hit 0.0703
+saved results\universal_gtsrb_prune_4x_s43.json

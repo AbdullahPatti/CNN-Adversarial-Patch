@@ -1,0 +1,5 @@
+size 35 untargeted  whitebox: {'success_on_correct': 0.8927789926528931, 'robust_acc': 0.09800000488758087}  effective: {'success_on_correct': 0.8927789926528931, 'robust_acc': 0.09800000488758087}
+size 35 targeted  whitebox: {'success_on_correct': 0.5842450857162476, 'patched_acc': 0.3800000250339508}  effective: {'success_on_correct': 0.5842450857162476, 'patched_acc': 0.3800000250339508}
+size 56 untargeted  whitebox: {'success_on_correct': 1.0, 'robust_acc': 0.0}  effective: {'success_on_correct': 1.0, 'robust_acc': 0.0}
+size 56 targeted  whitebox: {'success_on_correct': 0.9715536236763, 'patched_acc': 0.026000000536441803}  effective: {'success_on_correct': 0.9715536236763, 'patched_acc': 0.026000000536441803}
+saved results\lavan_inette_prune_4x_s42.json

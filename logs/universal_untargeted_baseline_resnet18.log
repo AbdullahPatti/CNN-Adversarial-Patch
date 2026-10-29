@@ -1,0 +1,3 @@
+size 5 target -1  whitebox: acc 0.7948 hit 0.0000
+size 8 target -1  whitebox: acc 0.6120 hit 0.0000
+saved results\universal_untargeted_baseline_resnet18.json

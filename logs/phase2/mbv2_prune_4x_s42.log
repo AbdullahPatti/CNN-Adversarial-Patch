@@ -1,0 +1,33 @@
+sparsity 0.7500  acc after one-shot prune 0.9262
+epoch 1/30  loss 0.1906  test_acc 0.8906  best 0.8906
+epoch 2/30  loss 0.1911  test_acc 0.8956  best 0.8956
+epoch 3/30  loss 0.1838  test_acc 0.8896  best 0.8956
+epoch 4/30  loss 0.1889  test_acc 0.8874  best 0.8956
+epoch 5/30  loss 0.1811  test_acc 0.8951  best 0.8956
+epoch 6/30  loss 0.1783  test_acc 0.9045  best 0.9045
+epoch 7/30  loss 0.1688  test_acc 0.9070  best 0.9070
+epoch 8/30  loss 0.1668  test_acc 0.9023  best 0.9070
+epoch 9/30  loss 0.1598  test_acc 0.9051  best 0.9070
+epoch 10/30  loss 0.1614  test_acc 0.9054  best 0.9070
+epoch 11/30  loss 0.1466  test_acc 0.9058  best 0.9070
+epoch 12/30  loss 0.1409  test_acc 0.9062  best 0.9070
+epoch 13/30  loss 0.1317  test_acc 0.9103  best 0.9103
+epoch 14/30  loss 0.1220  test_acc 0.9064  best 0.9103
+epoch 15/30  loss 0.1123  test_acc 0.9084  best 0.9103
+epoch 16/30  loss 0.1086  test_acc 0.9131  best 0.9131
+epoch 17/30  loss 0.0955  test_acc 0.9148  best 0.9148
+epoch 18/30  loss 0.0871  test_acc 0.9176  best 0.9176
+epoch 19/30  loss 0.0785  test_acc 0.9189  best 0.9189
+epoch 20/30  loss 0.0752  test_acc 0.9231  best 0.9231
+epoch 21/30  loss 0.0632  test_acc 0.9245  best 0.9245
+epoch 22/30  loss 0.0591  test_acc 0.9246  best 0.9246
+epoch 23/30  loss 0.0516  test_acc 0.9252  best 0.9252
+epoch 24/30  loss 0.0493  test_acc 0.9270  best 0.9270
+epoch 25/30  loss 0.0437  test_acc 0.9296  best 0.9296
+epoch 26/30  loss 0.0405  test_acc 0.9293  best 0.9296
+epoch 27/30  loss 0.0383  test_acc 0.9291  best 0.9296
+epoch 28/30  loss 0.0374  test_acc 0.9290  best 0.9296
+epoch 29/30  loss 0.0346  test_acc 0.9288  best 0.9296
+epoch 30/30  loss 0.0348  test_acc 0.9302  best 0.9302
+{'clean_acc': 0.9302, 'params': 2296922, 'nonzero_params': 600554, 'size_mb_fp32': 8.896369934082031, 'latency_ms_bs1': 3.196113999983936, 'size_mb_compressed': 2.5605621337890625, 'ratio_vs_baseline': 3.4219290979625647, 'weight_sparsity': 0.75, 'acc_after_prune_before_ft': 0.9262}
+saved results\mbv2_prune_4x_s42.json

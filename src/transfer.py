@@ -23,7 +23,7 @@ from pathlib import Path
 import torch
 
 from src.attack import stack_dataset
-from src.attacks.patch import apply_patch, eval_universal
+from src.attacks.patch import apply_patch, eval_batch, eval_universal
 from src.data import eval_subset_indices, get_loaders
 from src.models.load import load_model
 from src.utils import get_device, load_config, save_result
@@ -38,7 +38,7 @@ def _mean_std(vals):
 
 
 def universal_matrix(models, sources, test, seed, physical=False, limit_targets=None):
-    """{source: {target_model: {side_s: {patched_acc, target_success} mean/std over the 10 target classes}}}"""
+    """{source: {target_model: {side_s: {patched_acc, target_success} mean/std over the Part 3 target classes}}}"""
     prefix = "universal_physical_" if physical else "universal_"
     out = {}
     for src in sources:
@@ -48,9 +48,10 @@ def universal_matrix(models, sources, test, seed, physical=False, limit_targets=
             row = {}
             for size, kinds in saved.items():
                 kind = p3[f"side_{size}"]["effective_from"]
-                classes = range(len(kinds[kind]))[:limit_targets]
-                rs = [eval_universal(model, *test, kinds[kind][t].to(test[0].device), t, seed + size, physical)
-                      for t in classes]
+                # patch i was trained for Part 3's i-th target (0-9 on CIFAR-10, a fixed class subset on GTSRB)
+                classes = [r["target"] for r in p3[f"side_{size}"]["per_target"]][:limit_targets]
+                rs = [eval_universal(model, *test, kinds[kind][i].to(test[0].device), t, seed + size, physical)
+                      for i, t in enumerate(classes)]
                 row[f"side_{size}"] = {"from_kind": kind, "per_target": rs,
                                        **{m: _mean_std([r[m] for r in rs]) for m in ("patched_acc", "target_success")}}
             out[src][tgt] = row
@@ -61,7 +62,8 @@ def universal_matrix(models, sources, test, seed, physical=False, limit_targets=
 
 
 @torch.no_grad()
-def _predict(model, x, bs=1000):
+def _predict(model, x, bs=None):
+    bs = bs or eval_batch(x)
     return torch.cat([model(x[i:i + bs]).argmax(1) for i in range(0, len(x), bs)])
 
 
@@ -115,9 +117,11 @@ def main():
     models = {c["run_name"]: load_model(c, device).requires_grad_(False) for c in mcfgs.values()}
     sources = list(models)
 
-    _, test_loader = get_loaders(cfg["data_root"], 128, 0)
+    first = next(iter(mcfgs.values()))
+    ds = cfg["dataset"] = first.get("dataset", "cifar10")
+    _, test_loader = get_loaders(cfg["data_root"], 128, 0, ds)
     test = stack_dataset(test_loader.dataset, device)
-    subset = stack_dataset(test_loader.dataset, device, eval_subset_indices())
+    subset = stack_dataset(test_loader.dataset, device, eval_subset_indices(ds)[:t.get("n_images")])  # as in Part 3
     limit = None
     if args.dry_run:
         sources, test, limit = sources[:2], (test[0][:1000], test[1][:1000]), 2
@@ -130,7 +134,7 @@ def main():
             {m: models[m] for m in phys}, phys[:2] if args.dry_run else phys, test, seed, True, limit)
     if args.dry_run:
         return
-    cfg["model"] = "resnet18"
+    cfg["model"] = first["model"]
     print("saved", save_result(cfg["run_name"], cfg, metrics))
 
 

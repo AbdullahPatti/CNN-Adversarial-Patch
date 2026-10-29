@@ -5,6 +5,10 @@ Keys:  <metric>:<model> = mean over seeds (%), <metric>:<model>:sd = std, d:<met
 difference (pp) with :lo / :hi (95% t-CI over seeds), b:<metric>:<comparison> = image bootstrap, same suffixes.
 An unknown key prints a bold ?? in the PDF, so a typo cannot pass silently.
 
+Follow-up phases (J5-J7 settings, J9 attacks, J8 correlations) come from results/summary/settings.json and why.json
+(run src.settings_stats and src.why first): <setting>:<metric>:<arm>, <setting>:d:<metric>:<a>-<b> (+ :lo / :hi with
+>= 2 seeds), <setting>:b:... (image bootstrap), j9:..., why:<zoo>:<property>:<target> (+ :lo / :hi / :p partial).
+
 Usage:  python -m src.paper_assets
 """
 import json
@@ -18,6 +22,8 @@ import numpy as np
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 
+from src.setting_configs import ARMS, SETTINGS  # noqa: E402
+from src.settings_stats import COMPS, NAMES  # noqa: E402
 from src.stats import BASE, MODELS, SEEDS, _load, bootstrap, collect, comparisons, mean_std, paired  # noqa: E402
 
 OUT, FIG = Path("paper/generated"), Path("paper/figures")
@@ -321,9 +327,219 @@ def main():
     fig.savefig(FIG / "fig_forest.png", dpi=170)
     plt.close(fig)
 
+    followup(mac)  # after the rcParams above, so its figure has the same style
+    mac.write(OUT / "macros.tex")
     # dump for the number check
     (OUT / "macros.json").write_text(json.dumps(mac.d, indent=1, sort_keys=True))
     print(f"{len(mac.d)} macros, tables and figures written")
+
+
+ARM_LABEL = {"baseline": "Baseline", "quant_4x_int8": "INT8", "prune_4x": "Prune 4$\\times$",
+             "dense_small_4x": "Dense-small 4$\\times$", "kd_4x": "KD 4$\\times$"}
+
+
+def _put_diff(mac, key, p, scale=100):
+    if not p:
+        return
+    mac.put(key, sgn(p["diff"]))
+    mac.put(key + ":abs", f"{abs(p['diff']) * scale:.1f}")
+    if "lo" in p:
+        mac.put(key + ":lo", sgn(p["lo"]))
+        mac.put(key + ":hi", sgn(p["hi"]))
+
+
+def _rho(v):
+    return f"{v:+.2f}".replace("-", "$-$")
+
+
+def _bold(txt, sig):
+    return f"\\textbf{{{txt}}}" if sig else txt
+
+
+def followup(mac):
+    """Macros, tables and a figure for the second settings (J5-J7), J9 and the J8 correlations."""
+    st = json.loads(Path("results/summary/settings.json").read_text())
+    for name in SETTINGS:
+        o = st[name]
+        for metric, per in o["means"].items():
+            for arm, v in per.items():
+                if v["mean"] is not None:
+                    mac.put(f"{name}:{slug(metric)}:{arm}", f1(v["mean"]))
+                    mac.put(f"{name}:{slug(metric)}:{arm}:sd", f1(v["std"]))
+        for metric, per in o["diffs"].items():
+            if metric == "def - vanilla":
+                for arm, ps in per.items():
+                    for side, p in zip((5, 8), ps):
+                        _put_diff(mac, f"{name}:d:cert{side}gain:{arm}", p)
+                continue
+            for label, p in per.items():
+                a, b = label.split(" - ")
+                b = "baseline" if b == "base" else b
+                _put_diff(mac, f"{name}:d:{slug(metric)}:{a}-{b}", p)
+        for metric, per in o["boot"].items():
+            for label, p in per.items():
+                a, b = label.split(" - ")
+                b = "baseline" if b == "base" else b
+                _put_diff(mac, f"{name}:b:{slug(metric)}:{a}-{b}", p)
+        for zoo, props in o.get("corr", {}).items():
+            for key, per in props.items():
+                for t, e in per.items():
+                    k = f"{name}:why:{zoo}:{slug(key)}:{slug(t)}"
+                    mac.put(k, _rho(e["rho"]))
+                    mac.put(k + ":lo", _rho(e["lo"]))
+                    mac.put(k + ":hi", _rho(e["hi"]))
+                    if "partial" in e:
+                        mac.put(k + ":p", _rho(e["partial"]))
+        mac.put(f"{name}:nseeds", str(len(SETTINGS[name]["seeds"])))
+        # J8 property means per arm (seed-averaged), e.g. gtsrb:prop:defended:occnoise8mean:dense_small_4x
+        for zoo, suf in (("vanilla", ""), ("defended", "_def")):
+            for arm in ARMS:
+                runs = [Path(f"results/analysis/{name}_{arm}_s{sd}{suf}.json") for sd in SETTINGS[name]["seeds"]]
+                runs = [json.loads(p.read_text()) for p in runs if p.exists()]
+                for key in ("clean_acc_subset", "occ_noise_8_mean", "occ_grey_8_allpos"):
+                    vs = [r[key] for r in runs if r.get(key) is not None]
+                    if vs:
+                        mac.put(f"{name}:prop:{zoo}:{slug(key)}:{arm}", f"{np.mean(vs):.3f}")
+    j9 = st["j9"]
+    for metric, per in j9["means"].items():
+        for model, v in per.items():
+            if v["mean"] is not None:
+                mac.put(f"j9:{slug(metric)}:{model}", f1(v["mean"]))
+                mac.put(f"j9:{slug(metric)}:{model}:sd", f1(v["std"]))
+    for metric, per in j9["diffs"].items():
+        for label, p in per.items():
+            a, b = label.split(" - ")
+            b = BASE if b == "base" else b
+            _put_diff(mac, f"j9:d:{slug(metric)}:{a}-{b}", p)
+    for k, e in j9["rank_agreement"].items():
+        mac.put(f"j9:rank:{slug(k)}", _rho(e["rho"]))
+    why = json.loads(Path("results/summary/why.json").read_text())
+    for zoo in ("vanilla", "defended", "transfer"):
+        for key, per in why[zoo].items():
+            for t, e in per.items():
+                k = f"why:{zoo}:{slug(key)}:{slug(t)}"
+                mac.put(k, _rho(e["rho"]))
+                mac.put(k + ":lo", _rho(e["lo"]))
+                mac.put(k + ":hi", _rho(e["hi"]))
+                if "partial" in e:
+                    mac.put(k + ":p", _rho(e["partial"]))
+                    mac.put(k + ":plo", _rho(e["plo"]))
+                    mac.put(k + ":phi", _rho(e["phi"]))
+    for zoo, per in why["means"].items():
+        for model, props in per.items():
+            for key, v in props.items():
+                if v is not None:
+                    mac.put(f"prop:{zoo}:{slug(key)}:{model}", f"{v:.3f}")
+
+    # table: every setting, baseline + 4x arms, the headline metrics (mean +/- std over seeds)
+    def c(name, metric, arm):
+        v = st[name]["means"].get(metric, {}).get(arm)
+        if not v or v["mean"] is None:
+            return "--"
+        sd = f"{{\\scriptsize$\\pm${f1(v['std'])}}}" if v["n"] > 1 else ""
+        return f"{f1(v['mean'])}{sd}"
+    cols = ["clean", "U8 acc", "L5 robust", "def clean", "cert5 def", "cert8 def", "T U8 hit full->comp",
+            "T L5 rate full->comp"]
+    rows, groups = [], set()
+    for name in SETTINGS:
+        n = len(SETTINGS[name]["seeds"])
+        rows.append([f"\\multicolumn{{{len(cols) + 1}}}{{l}}{{\\textit{{{NAMES[name]}, {n} seed{'s' if n > 1 else ''}}}}}"])
+        for arm in ARMS:
+            rows.append([ARM_LABEL[arm]] + [c(name, m, arm) for m in cols])
+        groups.add(len(rows) - 1)
+    groups.discard(len(rows) - 1)
+    table(OUT / "tab_settings.tex", ["Model", "Clean", "U8 acc", "L5 rob.", "Clean (def)", "Cert-5", "Cert-8",
+                                     "U8 F$\\to$C", "L5 F$\\to$C"], rows, "l" + "r" * len(cols), groups)
+
+    # table: paired differences in every setting (defended certification, the RQ4 contrasts, transfer)
+    def d(name, metric, label, boot=False):
+        p = st[name]["boot" if boot else "diffs"].get(metric, {}).get(label)
+        if not p:
+            return "--"
+        if "lo" not in p:
+            return sgn(p["diff"])
+        return diff_cell(p)
+    rows, groups = [], set()
+    for name in SETTINGS:
+        multi = len(SETTINGS[name]["seeds"]) > 1
+        note = "" if multi else " (one seed: certification intervals are image bootstraps)"
+        rows.append([f"\\multicolumn{{6}}{{l}}{{\\textit{{{NAMES[name]}{note}}}}}"])
+        for label, a, b in COMPS:
+            nice = f"{ARM_LABEL[a]} $-$ {ARM_LABEL[b] if b != 'baseline' else 'base'}"
+            rows.append([nice, d(name, "clean", label), d(name, "U8 acc", label),
+                         d(name, "cert5 def", label, boot=not multi), d(name, "cert8 def", label, boot=not multi),
+                         d(name, "T L5 rate comp->full", label)])
+        groups.add(len(rows) - 1)
+    groups.discard(len(rows) - 1)
+    table(OUT / "tab_settings_diffs.tex", ["Comparison", "Clean", "U8 acc", "Cert-5 (def)", "Cert-8 (def)",
+                                           "L5 C$\\to$F"], rows, "lrrrrr", groups)
+
+    # table: J9 attack variants next to the main attacks
+    jm = ["U8 acc", "UU8 acc", "U5 acc", "UU5 acc", "L5 robust", "LM5 robust", "L5 tgt hit", "LM5 tgt hit"]
+
+    def jc(k, m):
+        v = j9["means"][k][m]
+        return "--" if v["mean"] is None else f"{f1(v['mean'])}{{\\scriptsize$\\pm${f1(v['std'])}}}"
+    rows = [[LABEL[m]] + [jc(k, m) for k in jm] for m in MODELS]
+    table(OUT / "tab_j9.tex", ["Model", "U8 tgt", "U8 untgt", "U5 tgt", "U5 untgt", "L5 CE", "L5 margin",
+                               "L5 hit CE", "L5 hit margin"], rows, "l" + "r" * len(jm), ROW_GROUPS)
+
+    # tables: J8 correlations on the main zoo (39 points); bold = 95% cluster-bootstrap CI excludes 0
+    def wc(zoo, key, t):
+        e = why[zoo].get(key, {}).get(t)
+        if not e:
+            return "--"
+        txt = _bold(_rho(e["rho"]), e["lo"] > 0 or e["hi"] < 0)
+        if "partial" in e:
+            txt += " / " + _bold(_rho(e["partial"]), e["plo"] > 0 or e["phi"] < 0)
+        return txt
+    props = [("clean_acc_subset", "Clean accuracy"), ("margin_median", "Logit margin"),
+             ("grad_l2_mean", "Input-grad.\\ $L_2$"), ("grad_conc_8", "Grad.\\ concentration (8)"),
+             ("occ_noise_8_mean", "Noise-8 occlusion acc."), ("occ_grey_8_allpos", "Grey-8 all-positions acc.")]
+    targets = [("vanilla", "U8 acc"), ("vanilla", "L5 robust"), ("defended", "cert5 def"), ("defended", "cert8 def")]
+    rows = [[nice] + [wc(z, k, t) for z, t in targets] for k, nice in props]
+    table(OUT / "tab_why.tex", ["Property", "U8 acc", "L5 rob.", "Cert-5 (def)", "Cert-8 (def)"], rows, "lrrrr")
+    sims = [("agree_test", "Top-1 agreement"), ("cka_penult", "Penultimate CKA"),
+            ("grad_cos_mean", "Input-grad.\\ cosine"), ("clean_acc_subset", "Clean accuracy")]
+    tt = ["T U8 hit full->comp", "T U8 hit comp->full", "T L5 rate full->comp", "T L5 rate comp->full"]
+    rows = [[nice] + [wc("transfer", k, t) for t in tt] for k, nice in sims]
+    table(OUT / "tab_why_transfer.tex", ["Similarity to baseline", "U8 F$\\to$C", "U8 C$\\to$F", "L5 F$\\to$C",
+                                         "L5 C$\\to$F"], rows, "lrrrr")
+
+    # figure: defended certified accuracy, each 4x arm minus its baseline, in all four settings
+    main_vals, _ = collect()
+    fams = [("quant_4x_int8", "Quantization"), ("prune_4x", "Pruning"), ("dense_small_4x", "Dense-small"),
+            ("kd_4x", "Distillation")]
+    sets = [("cifar", "CIFAR-10\nResNet-18"), ("gtsrb", "GTSRB\nResNet-18"), ("mbv2", "CIFAR-10\nMobileNetV2"),
+            ("inette", "ImageNette\nResNet-50 (1 seed)")]
+    fig, axs = plt.subplots(1, 2, figsize=(6.75, 2.8), constrained_layout=True, sharey=True)
+    for ax, metric, title in ((axs[0], "cert5 def", "Certified, small patch (2.4% of the image)"),
+                              (axs[1], "cert8 def", "Certified, large patch (6.25%)")):
+        for j, (arm, fam) in enumerate(fams):
+            col, mk = FAMILIES[fam][1], FAMILIES[fam][2]
+            for i, (sname, _) in enumerate(sets):
+                if sname == "cifar":
+                    p = paired(main_vals[metric][arm], main_vals[metric][BASE])
+                else:
+                    p = st[sname]["diffs"][metric][f"{arm} - base"]
+                    if "lo" not in p:  # one seed: image bootstrap
+                        p = st[sname]["boot"][metric][f"{arm} - base"]
+                x = i + (j - 1.5) * 0.17
+                sig = p["lo"] > 0 or p["hi"] < 0
+                ax.plot([x, x], [p["lo"] * 100, p["hi"] * 100], color=col, lw=2, solid_capstyle="round")
+                ax.plot(x, p["diff"] * 100, marker=mk, color=col if sig else "white", mec=col, mew=1.5, ms=6,
+                        ls="none", label=fam if i == 0 else None)
+        ax.axhline(0, color=MUTED, lw=1)
+        ax.set_xticks(range(len(sets)))
+        ax.set_xticklabels([t for _, t in sets], fontsize=7.5)
+        ax.set_title(title, fontsize=9, color=INK)
+        ax.grid(axis="x", visible=False)
+    axs[0].set_ylabel("arm $-$ baseline (pp)")
+    h, lab = axs[0].get_legend_handles_labels()
+    fig.legend(h, lab, loc="outside lower center", ncols=4, fontsize=8)
+    fig.savefig(FIG / "fig_settings.pdf")
+    fig.savefig(FIG / "fig_settings.png", dpi=170)
+    plt.close(fig)
 
 
 if __name__ == "__main__":

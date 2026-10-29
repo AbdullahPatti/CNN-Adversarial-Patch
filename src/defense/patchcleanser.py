@@ -42,7 +42,7 @@ class MaskAugment:
     from the union of the mask sets for every certified patch size, so the classifier learns to predict
     through the exact occlusions double masking produces."""
 
-    def __init__(self, sizes, k, n=32, device=None, fill=CIFAR10_MEAN):
+    def __init__(self, sizes, k, n=32, device=None, fill=CIFAR10_MEAN):  # fill: the dataset mean
         self.pool = torch.cat([mask_set(n, p, k, device) for p in sizes])
         self.fill = torch.tensor(fill, device=device).view(1, 3, 1, 1)
 

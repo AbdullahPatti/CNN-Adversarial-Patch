@@ -1,0 +1,21 @@
+run_name: mbv2_kd_4x_s44
+model: mobilenetv2
+dataset: cifar10
+seed: 44
+data_root: ./data
+num_workers: 8
+width: 16
+base_checkpoint: checkpoints/mbv2/mbv2_baseline_s44.pt
+checkpoint: checkpoints/mbv2/mbv2_kd_4x_s44.pt
+compression:
+  method: distill
+  ratio: 4.0
+  temperature: 4.0
+  alpha: 0.9
+train:
+  epochs: 120
+  batch_size: 128
+  lr: 0.1
+  momentum: 0.9
+  weight_decay: 0.0005
+  select: last

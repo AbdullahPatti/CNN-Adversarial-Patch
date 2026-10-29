@@ -1,0 +1,55 @@
+{
+  "run": "gtsrb_prune_4x_s44_def",
+  "model": "resnet18",
+  "compression": {
+    "method": "prune",
+    "ratio": 4.0,
+    "sparsity": 0.75
+  },
+  "attack": null,
+  "defense": null,
+  "metrics": {
+    "clean_acc": 0.9828978622327791,
+    "params": 11190891,
+    "nonzero_params": 2804955,
+    "size_mb_fp32": 42.72665786743164,
+    "latency_ms_bs1": 3.8185530000191648,
+    "size_mb_compressed": 12.032962799072266,
+    "ratio_vs_baseline": 3.547743146093561,
+    "weight_sparsity": 0.75,
+    "acc_after_prune_before_ft": 0.9731591448931116
+  },
+  "config": {
+    "run_name": "gtsrb_prune_4x_s44_def",
+    "model": "resnet18",
+    "dataset": "gtsrb",
+    "seed": 44,
+    "data_root": "./data",
+    "num_workers": 8,
+    "base_checkpoint": "checkpoints/gtsrb/gtsrb_baseline_s44_def.pt",
+    "checkpoint": "checkpoints/gtsrb/gtsrb_prune_4x_s44_def.pt",
+    "compression": {
+      "method": "prune",
+      "ratio": 4.0,
+      "sparsity": 0.75
+    },
+    "train": {
+      "epochs": 20,
+      "batch_size": 128,
+      "lr": 0.01,
+      "momentum": 0.9,
+      "weight_decay": 0.0005,
+      "select": "last",
+      "mask_aug": {
+        "sizes": [
+          5,
+          8
+        ],
+        "k": 6,
+        "img": 32
+      }
+    }
+  },
+  "device": "NVIDIA RTX A4000",
+  "timestamp": "2026-10-27T08:42:32.875287+00:00"
+}

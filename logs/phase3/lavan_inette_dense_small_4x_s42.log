@@ -1,0 +1,5 @@
+size 35 untargeted  whitebox: {'success_on_correct': 0.8673912882804871, 'robust_acc': 0.12200000882148743}  effective: {'success_on_correct': 0.8673912882804871, 'robust_acc': 0.12200000882148743}
+size 35 targeted  whitebox: {'success_on_correct': 0.52173912525177, 'patched_acc': 0.4400000274181366}  effective: {'success_on_correct': 0.52173912525177, 'patched_acc': 0.4400000274181366}
+size 56 untargeted  whitebox: {'success_on_correct': 0.9999999403953552, 'robust_acc': 0.0}  effective: {'success_on_correct': 0.9999999403953552, 'robust_acc': 0.0}
+size 56 targeted  whitebox: {'success_on_correct': 0.9413043260574341, 'patched_acc': 0.05400000140070915}  effective: {'success_on_correct': 0.9413043260574341, 'patched_acc': 0.05400000140070915}
+saved results\lavan_inette_dense_small_4x_s42.json

@@ -1,0 +1,5 @@
+size 5 untargeted  whitebox: {'success_on_correct': 0.7044534683227539, 'robust_acc': 0.29200002551078796}  effective: {'success_on_correct': 0.7044534683227539, 'robust_acc': 0.29200002551078796}
+size 5 targeted  whitebox: {'success_on_correct': 0.17105263471603394, 'patched_acc': 0.8190000653266907}  effective: {'success_on_correct': 0.17105263471603394, 'patched_acc': 0.8190000653266907}
+size 8 untargeted  whitebox: {'success_on_correct': 0.9797571301460266, 'robust_acc': 0.020000001415610313}  effective: {'success_on_correct': 0.9797571301460266, 'robust_acc': 0.020000001415610313}
+size 8 targeted  whitebox: {'success_on_correct': 0.804655909538269, 'patched_acc': 0.19300000369548798}  effective: {'success_on_correct': 0.804655909538269, 'patched_acc': 0.19300000369548798}
+saved results\lavan_gtsrb_prune_4x_s42.json
