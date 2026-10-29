@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shrinking the Model, Not the Guarantee</title>
+<meta name="description" content="Adversarial patch robustness and certification of compressed CNNs: quantization, pruning and distillation, across four settings.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="data.js"></script>
+<style>
+:root{--bg:#fcfcfb;--surface:#ffffff;--ink:#14171f;--ink2:#4a5161;--muted:#7a8191;--line:#e4e6ea;--accent:#2a6fdb;
+--c0:#2a6fdb;--c1:#0f9d8a;--c2:#e0702a;--c3:#9b5bd4;--base:#7a8191;--good:#0f9d8a;--bad:#d4452b;--shadow:0 1px 2px rgba(0,0,0,.04),0 4px 16px rgba(0,0,0,.05)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b0f18;--surface:#0f1420;--ink:#eef0f4;--ink2:#b5bbc8;--muted:#8a91a0;--line:#232a38;--accent:#4a88e8;
+--c0:#4a88e8;--c1:#14a08d;--c2:#d96a26;--c3:#a06fe0;--base:#8a91a0;--good:#14a08d;--bad:#e2604a;--shadow:none}}
+:root[data-theme="dark"]{--bg:#0b0f18;--surface:#0f1420;--ink:#eef0f4;--ink2:#b5bbc8;--muted:#8a91a0;--line:#232a38;--accent:#4a88e8;
+--c0:#4a88e8;--c1:#14a08d;--c2:#d96a26;--c3:#a06fe0;--base:#8a91a0;--good:#14a08d;--bad:#e2604a;--shadow:none}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:20px;height:56px}nav b{font-weight:600;margin-right:auto;font-size:15px}
+nav a{color:var(--ink2);font-size:14px}nav .links{display:flex;gap:18px}
+button,select{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:6px 12px;cursor:pointer}
+button:hover,select:hover{border-color:var(--muted)}button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+header{padding:72px 0 40px}.eyebrow{font:500 13px JetBrains Mono,monospace;color:var(--accent);letter-spacing:.04em;text-transform:uppercase}
+h1{font-size:clamp(30px,5vw,50px);line-height:1.12;letter-spacing:-.02em;margin:12px 0 18px;max-width:880px}
+.lede{font-size:clamp(17px,2vw,19px);color:var(--ink2);max-width:760px;margin:0}
+.authors{margin:22px 0 26px;color:var(--ink2);font-size:15px}.authors span{color:var(--muted)}
+.cta{display:flex;gap:10px;flex-wrap:wrap}.btn{display:inline-block;padding:10px 18px;border-radius:10px;border:1px solid var(--line);color:var(--ink);font-weight:500;font-size:15px}
+.btn.primary{background:var(--ink);color:var(--bg);border-color:var(--ink)}.btn:hover{text-decoration:none;border-color:var(--muted)}
+section{padding:56px 0;border-top:1px solid var(--line)}h2{font-size:clamp(24px,3vw,32px);letter-spacing:-.01em;margin:0 0 8px}
+.sub{color:var(--ink2);margin:0 0 28px;max-width:720px}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:var(--shadow)}
+.tile .n{font-size:34px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums}.tile .l{color:var(--ink2);font-size:14px;line-height:1.45;margin-top:6px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:var(--shadow)}
+.demo{display:grid;grid-template-columns:minmax(0,340px) 1fr;gap:28px;align-items:start}
+canvas#img{width:100%;max-width:340px;aspect-ratio:1;image-rendering:pixelated;border-radius:12px;border:1px solid var(--line);cursor:crosshair;touch-action:none;display:block}
+.ctrl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}.ctrl label{font-size:14px;color:var(--ink2)}
+.swatches{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:6px}
+.swatches canvas{width:100%;aspect-ratio:1;image-rendering:pixelated;border-radius:6px;border:2px solid transparent;cursor:pointer}
+.swatches canvas.on{border-color:var(--ink)}.swatches div{font-size:11px;color:var(--muted);text-align:center}
+.steps{counter-reset:s;list-style:none;padding:0;margin:16px 0 0}.steps li{counter-increment:s;padding-left:34px;position:relative;margin-bottom:12px;color:var(--ink2);font-size:15px}
+.steps li:before{content:counter(s);position:absolute;left:0;top:1px;width:22px;height:22px;border-radius:50%;background:var(--line);color:var(--ink);font-size:12px;font-weight:600;display:grid;place-items:center}
+.steps b{color:var(--ink)}
+.pipe{display:grid;grid-template-columns:repeat(7,1fr);gap:10px}
+.pipe>div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;position:relative}
+.pipe>div:not(:last-child):after{content:"";position:absolute;right:-9px;top:50%;width:8px;height:2px;background:var(--muted)}
+.pipe h4{margin:0 0 4px;font-size:14px}.pipe p{margin:0;font-size:12.5px;color:var(--ink2);line-height:1.45}
+.pipe .k{font:500 11px JetBrains Mono,monospace;color:var(--muted);margin-bottom:6px}
+.chartbox{position:relative;height:380px}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--ink2);margin:12px 0 0}.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.forest text{fill:var(--ink2);font:12px Inter,sans-serif}.forest .h{fill:var(--ink);font-weight:600;font-size:13px}
+.findings{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.findings .card h3{margin:0 0 6px;font-size:17px}.findings .card p{margin:0;color:var(--ink2);font-size:15px}
+.findings .ex{grid-column:1/-1;border-left:3px solid var(--c2)}
+.eng{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.eng .card h3{font-size:15px;margin:0 0 6px}.eng .card p{margin:0;font-size:14px;color:var(--ink2)}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}.tags span{font:500 12px JetBrains Mono,monospace;padding:4px 10px;border-radius:999px;border:1px solid var(--line);color:var(--ink2)}
+footer{padding:36px 0 56px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+.tip{position:fixed;pointer-events:none;background:var(--ink);color:var(--bg);font-size:12px;padding:6px 9px;border-radius:6px;opacity:0;transition:opacity .1s;z-index:20}
+@media (max-width:860px){.tiles{grid-template-columns:repeat(2,1fr)}.demo{grid-template-columns:1fr}.pipe{grid-template-columns:repeat(2,1fr)}.pipe>div:after{display:none}
+.findings,.eng{grid-template-columns:1fr}nav .links{display:none}.chartbox{height:320px}canvas#img{max-width:100%}.tile .n{font-size:26px}.tile{padding:16px}select{max-width:100%}}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><b>Patch Robustness under Compression</b><div class="links"><a href="#demo">Demo</a><a href="#pipeline">Pipeline</a><a href="#results">Results</a><a href="#engineering">Engineering</a></div>
+<button id="theme" aria-label="Toggle dark mode">◐</button></div></nav>
+
+<header><div class="wrap">
+<div class="eyebrow">Research project · Adversarial ML · Edge deployment</div>
+<h1>Shrinking the model, not the guarantee</h1>
+<p class="lede">What happens to a certified defense against adversarial patches when the model is quantized, pruned or distilled for an edge device? We trained, compressed, attacked and certified 148 CNNs across four settings to find out.</p>
+<p class="authors">Muhammad Abdullah Haroon, Abdul Rehman Antall, Muhammad Ali Hadi <span>· FAST School of Computing, FAST NUCES, Lahore</span></p>
+<div class="cta"><a class="btn primary" href="https://github.com/AbdullahPatti/CNN-Adversarial-Patch">View code on GitHub</a><a class="btn" href="https://github.com/AbdullahPatti/CNN-Adversarial-Patch/tree/master/paper">Paper source (TMLR format)</a><a class="btn" href="#demo">Try the demo</a></div>
+</div></header>
+
+<section><div class="wrap"><div class="tiles" id="tiles"></div></div></section>
+
+<section id="demo"><div class="wrap">
+<h2>How a patch attack and a certified defense work</h2>
+<p class="sub">These are the real universal patches our pipeline optimized against the baseline ResNet-18, one per target class. Drag the patch over the CIFAR-10 image, then run PatchCleanser's masks.</p>
+<div class="demo">
+<div><canvas id="img" width="320" height="320" aria-label="CIFAR-10 image with adversarial patch"></canvas>
+<div class="ctrl"><button id="toggle" class="on">Patch on</button><button id="sweep">Run PatchCleanser masks</button></div>
+<label style="font-size:13px;color:var(--muted)">Target class of the patch</label><div class="swatches" id="sw"></div></div>
+<div class="card"><h3 style="margin:0 0 4px;font-size:17px">Double masking, in four steps</h3>
+<ol class="steps">
+<li><b>The attack.</b> A universal patch is a small square (here 8×8 px, 6% of the image) optimized so that, pasted anywhere on any image, the classifier predicts the target class. On the undefended baseline it cuts accuracy from <span id="acc0"></span>% to <span id="acc1"></span>%.</li>
+<li><b>The masks.</b> PatchCleanser slides a set of masks over the image, chosen so that at least one mask fully covers a patch at any position (25 masks of 12 px for this patch size).</li>
+<li><b>The vote.</b> The model classifies every masked image. If all predictions agree, the label cannot have been caused by the patch; if they disagree, a second round of masks resolves it.</li>
+<li><b>The certificate.</b> If the prediction is the same under <em>every pair</em> of masks, no patch of that size anywhere can change it. That is a mathematical guarantee, not an empirical one, and it is what we test after compression.</li>
+</ol></div>
+</div></div></section>
+
+<section id="pipeline"><div class="wrap">
+<h2>The pipeline</h2>
+<p class="sub">Every model passes through the same stages; each stage writes JSON that feeds the statistics, the paper and this page.</p>
+<div class="pipe">
+<div><div class="k">01</div><h4>Train</h4><p>ResNet-18, MobileNetV2, ResNet-50 on CIFAR-10, GTSRB, ImageNette; 3 seeds</p></div>
+<div><div class="k">02</div><h4>Defend</h4><p>Mask-augmented retraining, so the model tolerates occlusion</p></div>
+<div><div class="k">03</div><h4>Compress</h4><p>FP16, INT8, INT4 · pruning 50–87.5% · dense-small · distillation</p></div>
+<div><div class="k">04</div><h4>Attack</h4><p>Universal and LaVAN patches; straight-through and BPDA gradients</p></div>
+<div><div class="k">05</div><h4>Certify</h4><p>PatchCleanser double masking on 1,000 images per model</p></div>
+<div><div class="k">06</div><h4>Transfer</h4><p>13×13 matrix: full → compressed and back</p></div>
+<div><div class="k">07</div><h4>Explain</h4><p>Occlusion accuracy, margin, gradients, CKA vs. outcomes</p></div>
+</div></div></section>
+
+<section id="results"><div class="wrap">
+<h2>Explore the CIFAR-10 results</h2>
+<p class="sub">Mean over three training seeds. Weight-preserving compression (quantization, pruning) stays flat; retraining a smaller network drops.</p>
+<div class="card">
+<div class="ctrl" style="margin-top:0"><label for="metric">Metric</label><select id="metric"></select></div>
+<div class="chartbox"><canvas id="chart" role="img" aria-label="Metric against compression ratio per family"></canvas></div>
+<div class="legend" id="legend"></div>
+</div>
+<h2 style="margin-top:48px">Does it generalize?</h2>
+<p class="sub">Change in certified accuracy (5 px patch, defended models) of each 4× arm relative to its own baseline, with 95% intervals. Filled dots: interval excludes zero.</p>
+<div class="card"><svg class="forest" id="forest" width="100%" role="img" aria-label="Certified accuracy change per setting"></svg></div>
+</div></section>
+
+<section><div class="wrap">
+<h2>What we found</h2><p class="sub">Four findings, each backed by paired statistics over seeds.</p>
+<div class="findings" id="findings"></div>
+</div></section>
+
+<section id="engineering"><div class="wrap">
+<h2>Engineering</h2>
+<p class="sub">Built end to end on a single lab GPU with frequent power cuts.</p>
+<div class="eng">
+<div class="card"><h3>Resumable experiment queue</h3><p>The final follow-up queue alone was 271 runs (about 70 GPU-hours on one RTX A4000). Each run is idempotent and skipped once its result exists, so the queue survives power losses and restarts.</p></div>
+<div class="card"><h3>Differentiable quantization</h3><p>Fake-quant with a straight-through estimator and BN folding, plus a BPDA attack through the FP32 copy, so quantized models cannot hide behind gradient masking.</p></div>
+<div class="card"><h3>Statistics, not single runs</h3><p>Three seeds with paired t-intervals and an image bootstrap for certification; a claim is made only when the interval excludes zero.</p></div>
+<div class="card"><h3>Certified defense</h3><p>PatchCleanser implemented from the paper, with exhaustive checking that the mask set covers every patch position.</p></div>
+<div class="card"><h3>Paper generated from data</h3><p>Every number in the paper and on this page is a macro generated from result files, with an automatic check that each one resolves.</p></div>
+<div class="card"><h3>Reproducible</h3><p>Configs, logs and per-run JSON are in the repository; one command regenerates statistics, tables, figures and this page's data.</p></div>
+</div>
+<div class="tags"><span>PyTorch</span><span>Python</span><span>NumPy</span><span>Matplotlib</span><span>LaTeX</span><span>Chart.js</span><span>Adversarial ML</span><span>Model compression</span><span>Certified robustness</span></div>
+</div></section>
+
+<footer><div class="wrap">© 2026 M. A. Haroon, A. R. Antall, M. A. Hadi · FAST NUCES, Lahore · Computing resources provided by FAST NUCES · <a href="https://github.com/AbdullahPatti/CNN-Adversarial-Patch">Source</a></div></footer>
+<div class="tip" id="tip"></div>
+
+<script>
+const D=window.DATA,K=D.keys,FAM=Object.keys(D.families),css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const f1=x=>(x>0?"+":"")+x.toFixed(1);
+// theme toggle
+const tb=document.getElementById("theme");
+try{const t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}
+tb.onclick=()=>{const dark=document.documentElement.dataset.theme?document.documentElement.dataset.theme==="dark":matchMedia("(prefers-color-scheme: dark)").matches;
+document.documentElement.dataset.theme=dark?"light":"dark";try{localStorage.setItem("theme",document.documentElement.dataset.theme)}catch(e){};draw();forest()};
+
+// tiles
+const M=D.models;
+document.getElementById("tiles").innerHTML=[
+["±"+K.keepworst5+" pp","Largest change in certified accuracy from quantization or pruning, up to 8× compression"],
+["−"+K["d:cert5def:dense_small_8x-baseline_resnet18:abs"]+" pp","Certified accuracy lost by a dense network 8× smaller, trained from scratch"],
+["+"+K["d:cert5def:prune_8x-dense_small_8x"]+" pp","Pruned vs. dense model with the same number of non-zero weights: capacity, not sparsity"],
+["ρ = "+K["why:defended:occnoise8mean:cert5def"].toFixed(2),"Accuracy under random occlusion predicts certified accuracy (39 models)"]
+].map(([n,l])=>`<div class="tile"><div class="n">${n}</div><div class="l">${l}</div></div>`).join("");
+
+// demo
+const cv=document.getElementById("img"),ctx=cv.getContext("2d"),S=10;let pos={x:20,y:4},tgt=0,on=true,mask=null;
+function px(arr,c,s,ox,oy){for(let y=0;y<arr.length;y++)for(let x=0;x<arr[y].length;x++){const p=arr[y][x];c.fillStyle=`rgb(${p[0]},${p[1]},${p[2]})`;c.fillRect((ox+x)*s,(oy+y)*s,s,s)}}
+function render(){ctx.clearRect(0,0,320,320);px(D.image,ctx,S,0,0);if(on)px(D.patches[tgt],ctx,S,pos.x,pos.y);
+if(on){ctx.strokeStyle="#fff";ctx.lineWidth=2;ctx.strokeRect(pos.x*S,pos.y*S,8*S,8*S)}
+if(mask){ctx.fillStyle="rgba(128,128,128,.92)";ctx.fillRect(mask.x*S,mask.y*S,12*S,12*S);ctx.strokeStyle=css("--accent");ctx.lineWidth=3;ctx.strokeRect(mask.x*S,mask.y*S,12*S,12*S)}}
+const sw=document.getElementById("sw");
+D.patches.forEach((p,i)=>{const w=document.createElement("div"),c=document.createElement("canvas");c.width=c.height=8;px(p,c.getContext("2d"),1,0,0);
+c.className=i===tgt?"on":"";c.title=D.classes[i];c.onclick=()=>{tgt=i;[...sw.querySelectorAll("canvas")].forEach((e,j)=>e.className=j===i?"on":"");render()};
+w.appendChild(c);w.insertAdjacentHTML("beforeend",D.classes[i].replace("automobile","car").replace("airplane","plane"));sw.appendChild(w)});
+let drag=false;const at=e=>{const r=cv.getBoundingClientRect(),t=e.touches?e.touches[0]:e;return{x:Math.max(0,Math.min(24,Math.round((t.clientX-r.left)/r.width*32-4))),y:Math.max(0,Math.min(24,Math.round((t.clientY-r.top)/r.height*32-4)))}};
+cv.addEventListener("pointerdown",e=>{drag=true;pos=at(e);render()});addEventListener("pointermove",e=>{if(drag){pos=at(e);render()}});addEventListener("pointerup",()=>drag=false);
+document.getElementById("toggle").onclick=e=>{on=!on;e.target.textContent=on?"Patch on":"Patch off";e.target.classList.toggle("on",on);render()};
+document.getElementById("sweep").onclick=async e=>{e.target.disabled=true;const st=5;for(let j=0;j<5;j++)for(let i=0;i<5;i++){mask={x:i*st,y:j*st};render();await new Promise(r=>setTimeout(r,170))}mask=null;render();e.target.disabled=false};
+render();
+
+// explorer chart
+const MET={cert5def:"Certified accuracy, 5 px patch (defended, %)",cert8def:"Certified accuracy, 8 px patch (defended, %)",defclean:"Clean accuracy (defended, %)",
+u8acc:"Accuracy under universal 8 px patch (%)",l5robust:"Robust accuracy vs. LaVAN 5 px (%)",noise8acc:"Accuracy with random-noise 8 px patch (%)",tl5ratefulltocomp:"LaVAN transfer, full → compressed (%)"};
+const sel=document.getElementById("metric");sel.innerHTML=Object.entries(MET).map(([k,v])=>`<option value="${k}">${v}</option>`).join("");
+const SHAPES=["circle","rectRot","triangle","rect"];let chart;
+function draw(){const m=sel.value,ink=css("--ink2"),grid=css("--line"),bl=M.baseline_resnet18[m],surf=css("--surface");
+const ds=FAM.map((f,i)=>({label:f,data:[m.startsWith("t")?null:bl,...D.families[f].map(k=>M[k][m])],borderColor:css("--c"+i),backgroundColor:css("--c"+i),
+pointStyle:SHAPES[i],pointRadius:5,pointHoverRadius:7,borderWidth:2,pointBorderColor:surf,pointBorderWidth:2,tension:.25,spanGaps:true}));
+if(chart)chart.destroy();
+chart=new Chart(document.getElementById("chart"),{type:"line",data:{labels:["1× baseline","2×","4×","8×"],datasets:ds},
+options:{maintainAspectRatio:false,interaction:{mode:"index",intersect:false},plugins:{legend:{display:false},
+tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ${c.parsed.y==null?"–":c.parsed.y.toFixed(1)+"%"}`}}},
+scales:{x:{grid:{display:false},ticks:{color:ink},title:{display:true,text:"Nominal compression",color:ink}},y:{grid:{color:grid},ticks:{color:ink},border:{display:false}}}}});
+document.getElementById("legend").innerHTML=FAM.map((f,i)=>`<span><i style="background:var(--c${i})"></i>${f}</span>`).join("")+(m.startsWith("t")?"":`<span style="color:var(--muted)">Lines start at the shared baseline (${bl.toFixed(1)}%)</span>`)}
+sel.onchange=draw;draw();
+
+// forest plot
+const tip=document.getElementById("tip");
+function forest(){const svg=document.getElementById("forest"),W=svg.clientWidth||900,L=Math.min(250,W*.38),R=W-24,arms=Object.keys(Object.values(D.settings)[0]),rh=26;
+let all=Object.values(D.settings).flatMap(s=>Object.values(s).flatMap(v=>[v[1]??v[0],v[2]??v[0]])),lo=Math.min(-6,...all),hi=Math.max(6,...all);
+const X=v=>L+(v-lo)/(hi-lo)*(R-L);let y=24,h=`<line x1="${X(0)}" x2="${X(0)}" y1="10" y2="9999" stroke="var(--muted)" stroke-dasharray="3 3"/>`;
+for(let t=Math.ceil(lo/2)*2;t<=hi;t+=2)h+=`<text x="${X(t)}" y="14" text-anchor="middle">${t>0?"+":""}${t}</text>`;
+for(const[s,rows]of Object.entries(D.settings)){y+=20;h+=`<text class="h" x="0" y="${y}">${s}</text>`;y+=8;
+arms.forEach((a,i)=>{const[v,l,u]=rows[a];y+=rh;const sig=l!=null&&(l>0||u<0),col=`var(--c${i})`;
+h+=`<g data-t="${s} · ${a}: ${f1(v)} pp${l!=null?` [${f1(l)}, ${f1(u)}]`:""}"><rect x="0" y="${y-rh/2-2}" width="${W}" height="${rh}" fill="transparent"/>
+<text x="14" y="${y+4}">${a}</text>${l!=null?`<line x1="${X(l)}" x2="${X(u)}" y1="${y}" y2="${y}" stroke="${col}" stroke-width="2" stroke-linecap="round"/>`:""}
+<circle cx="${X(v)}" cy="${y}" r="6" fill="${sig?col:"var(--surface)"}" stroke="${col}" stroke-width="2"/></g>`});y+=6}
+svg.setAttribute("height",y+12);svg.innerHTML=h.replace("9999",y);
+svg.querySelectorAll("g[data-t]").forEach(g=>{g.onmousemove=e=>{tip.textContent=g.dataset.t;tip.style.opacity=1;tip.style.left=e.clientX+12+"px";tip.style.top=e.clientY+12+"px"};g.onmouseleave=()=>tip.style.opacity=0})}
+forest();addEventListener("resize",forest);
+
+// findings
+document.getElementById("findings").innerHTML=[
+["Quantization and pruning keep the certificate",`Every weight-preserving model stays within ${K.keepworst5} pp of the defended baseline's ${M.baseline_resnet18.cert5def}% certified accuracy on CIFAR-10, and both are neutral in the other three settings as well.`],
+["Smaller networks trained from scratch lose it",`A dense network 8× smaller loses ${K["d:cert5def:dense_small_8x-baseline_resnet18:abs"]} pp of certified accuracy, several times its loss in clean accuracy. Distillation recovers part of it.`],
+["Compression does not hide the model",`Patches made on the public full-precision model hit an INT8 deployment ${M.quant_4x_int8.tu8hitfulltocomp}% of the time; retrained small models share little of the full model's attack surface.`],
+["Capacity matters, sparsity does not",`At equal non-zero weights, pruned models certify ${K["d:cert5def:prune_8x-dense_small_8x"]} pp more than dense ones at 8×. Occlusion accuracy predicts certification (ρ = ${K["why:defended:occnoise8mean:cert5def"]}).`],
+].map(([t,p])=>`<div class="card"><h3>${t}</h3><p>${p}</p></div>`).join("")+
+`<div class="card ex"><h3>The exception: ImageNette</h3><p>With a ResNet-50 trained from scratch on 9.5k images, the full model is too large for the data. There the smaller models are more accurate and certify more, so a smaller model is not automatically a less robust one.</p></div>`;
+document.getElementById("acc0").textContent=M.baseline_resnet18.clean;document.getElementById("acc1").textContent=M.baseline_resnet18.u8acc;//</p></div>`;
+</script>
+</body>
+</html>
